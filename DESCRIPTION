@@ -3,7 +3,8 @@ Type: Package
 Title: Utilities for common operations, mainly plotting
 Version: 0.1
 Date: 2014-11-26
-Author: "Andy Teucher <andy.teucher@gov.bc.ca> [aut, cre]"
+Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
+    "andy.teucher@gov.bc.ca"))
 Description: Miscellaneous functions for common things we run into
 Depends:
     R (>= 3.1.0)
