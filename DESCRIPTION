@@ -1,4 +1,4 @@
-Package: envreportbc_utils
+Package: envreportutils
 Type: Package
 Title: Utilities for common operations, mainly plotting
 Version: 0.1
