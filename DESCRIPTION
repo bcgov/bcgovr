@@ -1,0 +1,14 @@
+Package: envreportbc_utils
+Type: Package
+Title: Utilities for common operations, mainly plotting
+Version: 0.1
+Date: 2014-11-26
+Author: "Andy Teucher <andy.teucher@gov.bc.ca> [aut, cre]"
+Description: Miscellaneous functions for common things we run into
+Depends:
+    R (>= 3.1.0)
+Imports:
+    ggplot2,
+    grid
+License: What license is it under?
+LazyData: true
