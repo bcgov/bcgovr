@@ -12,7 +12,7 @@ check:
 	Rscript -e "library(devtools); library(methods); check('.')"
 
 build:
-	Rscript -e "library(devtools); build('.', binary=TRUE)"
+	Rscript -e "library(devtools); build('.'); build('.', binary=TRUE)"
 	cp ../$(PKGNAME)_$(PKGVERS).zip ../$(PKGNAME)_$(PKGVERS).tar.gz \
 	"I:/SPD/Science Policy & Economics/State of Environment/_dev/packages/"
 
