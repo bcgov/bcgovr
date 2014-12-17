@@ -1,6 +1,9 @@
 #' Populate the boilerplate roxygen template at the top of the file containing the function.
 #'
 #' @param  funfile path to the .R file containing the function
+#' @param  params_start The (first) line that contains the parameters for your function (default 1)
+#' @param  params_end (optional) If your parameter definitions breaks across multiple lines, 
+#'                    specify the ending line (default \code{NULL}).
 #' @details File must have the argument list and the opening \code{\{} all on one line: 
 #'            \code{myFun <- function(arg1, arg2, arg3) \{}
 #' @export
@@ -8,7 +11,7 @@
 #' @examples \dontrun{
 #'
 #'}
-roxygen_template <- function(funfile) {
+roxygen_template <- function(funfile, params_start=1, params_end = NULL) {
   ##
   ## funfile: path to the .R file containing the function
   ## 
@@ -20,16 +23,34 @@ roxygen_template <- function(funfile) {
   
   fun_text <- readLines(funfile, warn=FALSE)
   
-  if (grepl("^#'", fun_text[1])) {
-    stop("It appears you already have roxygen documentation in your function!")
+  if (is.null(params_end)) params_end <- params_start
+  
+  if (params_start == 1) {
+    checks <- 1:5
+  } else {
+    checks <- (params_start - 5):params_start
   }
   
+  if (any(grepl("^#'", fun_text[checks]))) {
+    stop("It appears you already have roxygen documentation for your function!")
+  }
+  
+  if (params_start == 1) {
+    above <- NULL
+  } else {
+    above <- fun_text[1:(params_start - 1)]
+  }
+  the_rest <- fun_text[params_start:length(fun_text)]
+  
   # Find the function and parameter definition line:
-  matches <- regexpr("(?<=\\().+?(?=\\)\\s*?\\{)", fun_text, perl=TRUE)
-  params_line <- regmatches(fun_text,matches)[1]
+  #   matches <- regexpr("(?<=\\().+?(?=\\)\\s*?\\{)", fun_text, perl=TRUE)
+  #   params_line <- regmatches(fun_text,matches)[1]
+  
+  ## Combine multiple lines of parameters
+  params <- paste(fun_text[params_start:params_end], collapse = "")
   
   # Parse out and clean the parameter names:
-  params <- strsplit(params_line, ",")[[1]]
+  params <- strsplit(params, ",")[[1]]
   params <- gsub("^\\s+|\\s+$|=.+", "", params)
   
   # Put together the roxygen fields:
@@ -51,7 +72,7 @@ roxygen_template <- function(funfile) {
   roxy <- paste(c(top, params, end), sep="")
   
   # Write to the top of the file (without asking... should be safe, i think)
-  writeLines(c(roxy, fun_text), funfile)
+  writeLines(c(above, roxy, the_rest), funfile)
   
   # Open the file to fill in documentation
   file.edit(funfile)
