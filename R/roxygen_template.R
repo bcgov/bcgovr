@@ -43,18 +43,21 @@ roxygen_template <- function(funfile, params_start=1, params_end = NULL) {
   the_rest <- fun_text[params_start:length(fun_text)]
   
   # Find the function and parameter definition line:
-  #   matches <- regexpr("(?<=\\().+?(?=\\)\\s*?\\{)", fun_text, perl=TRUE)
-  #   params_line <- regmatches(fun_text,matches)[1]
+  #   
   
   ## Combine multiple lines of parameters
-  params <- paste(fun_text[params_start:params_end], collapse = "")
+  params_line <- paste(fun_text[params_start:params_end], collapse = "")
+  
+  # Pull out the function and parameter definitions:
+  matches <- regexpr("(?<=\\().+?(?=\\)\\s*?\\{)", params_line, perl=TRUE)
+  params <- regmatches(params_line,matches)[1]
   
   # Parse out and clean the parameter names:
   params <- strsplit(params, ",")[[1]]
-  params <- gsub("^\\s+|\\s+$|=.+", "", params)
+  params <- gsub("\\s+|=.+", "", params)
   
   # Put together the roxygen fields:
-  params <- paste0("#' @param  ", params, " <parameter description goes here>")
+  params <- paste0("#' @param ", params, " <parameter description goes here>")
   top <- "#' <brief description of function>
 #'
 #' <full description of function>
