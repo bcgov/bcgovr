@@ -2,7 +2,7 @@
 #'
 #' 
 #' 
-#' @import ggplot2 extrafont
+#' @import ggplot2
 #' @param  base_size base font size (default = 12)
 #' @param  base_family base font family (default = Verdana)
 #' @param  use_sizes use relative font sizes (?)
@@ -14,6 +14,7 @@
 #' 
 #'}
 theme_soe <- function(base_size=12, base_family="Verdana", use_sizes=TRUE, facet = FALSE) {
+  library("extrafont")
   thm <- theme_foundation_null(base_size = base_size, 
                                base_family = base_family) +
     theme(
