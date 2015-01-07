@@ -2,7 +2,7 @@
 #'
 #' 
 #' 
-#' @import ggplot2
+#' @import ggplot2 extrafont
 #' @param  base_size base font size (default = 12)
 #' @param  base_family base font family (default = Verdana)
 #' @param  use_sizes use relative font sizes (?)
