@@ -1,5 +1,4 @@
 .onLoad <- function(libname, pkgname) {
-  require("extrafont")
   if (!set_ghostscript()) {
     packageStartupMessage("You do not appear to have ghostscript installed. ",
                           "Without it you will not be able to embed fonts in pdfs. ", 
