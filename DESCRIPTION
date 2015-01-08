@@ -8,12 +8,11 @@ Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     person("Stephanie", "Hazlitt", role = "aut", 
     email = "stephanie.hazlitt@gov.bc.ca"))
 Description: Miscellaneous functions for common things we run into
-Depends:
+Depends: 
     R (>= 3.1.0)
-Imports:
+Imports: 
+    extrafont,
     ggplot2,
     grid
-Suggests:
-    extrafont
 License: What license is it under?
 LazyData: true
