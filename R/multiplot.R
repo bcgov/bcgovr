@@ -13,7 +13,7 @@
 #' @param  heights a vector of relative column heights eg. c(3,2)
 #' @param  titlefont The font of the title
 #' @param  titleface The font face (1 = normal, 2 = bold, 3 = italic, 4 = bold italic)
-#' @param  titlesize The sice of the title font
+#' @param  titlesize The size of the title font
 #' 
 #' @details If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
 #' then plot 1 will go in the upper left, 2 will go in the upper right, and
@@ -36,7 +36,7 @@
 #'      heights = c(1,3), widths = c(3,4), title = "My three unrelated plots")
 #' ## Adjusting fonts
 #' library(extrafont)
-#' loadfonts("win")
+#' loadfonts()
 #' multiplot(plotlist = myplots, layout =matrix(c(1,2,3,3), nrow=2),
 #'           heights = c(1,3), widths = c(3,4), title = "My three unrelated plots", 
 #'           titlefont = "Wingdings", titleface = 4, titlesize = 20)

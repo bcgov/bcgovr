@@ -27,7 +27,7 @@ multiplot(..., plotlist = NULL, cols = 1, layout = NULL, widths = NULL,
 
 \item{titleface}{The font face (1 = normal, 2 = bold, 3 = italic, 4 = bold italic)}
 
-\item{titlesize}{The sice of the title font}
+\item{titlesize}{The size of the title font}
 }
 \value{
 Don't know
@@ -57,7 +57,7 @@ multiplot(plotlist = myplots, layout =matrix(c(1,2,3,3), nrow=2),
      heights = c(1,3), widths = c(3,4), title = "My three unrelated plots")
 ## Adjusting fonts
 library(extrafont)
-loadfonts("win")
+loadfonts()
 multiplot(plotlist = myplots, layout =matrix(c(1,2,3,3), nrow=2),
           heights = c(1,3), widths = c(3,4), title = "My three unrelated plots",
           titlefont = "Wingdings", titleface = 4, titlesize = 20)
