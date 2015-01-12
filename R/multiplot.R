@@ -15,14 +15,15 @@
 #' @param  titleface The font face (1 = normal, 2 = bold, 3 = italic, 4 = bold italic)
 #' @param  titlesize The size of the title font
 #' 
-#' @details If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-#' then plot 1 will go in the upper left, 2 will go in the upper right, and
-#' 3 will go all the way across the bottom.  To save, you must use the desired device (eg \code{png()}), 
-#' or save from the RStudio Viewer.
+#' @details If plotting three plots and the layout is something like
+#'   matrix(c(1,2,3,3), nrow=2, byrow=TRUE), then plot 1 will go in the upper
+#'   left, 2 will go in the upper right, and 3 will go all the way across the
+#'   bottom.  To save, you must use the desired device (eg \code{png()}), or
+#'   save from the RStudio Viewer.
 #' 
 #' Borrowed and modified from http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 #' 
-#' @return Don't know
+#' @return NULL (invisibly)
 #' @examples \dontrun{
 #' library("ggplot2")
 #' plot1 <- ggplot(iris, aes(x = Species, y = Sepal.Length)) + 
@@ -108,4 +109,5 @@ multiplot <- function(..., plotlist=NULL, cols=1, layout=NULL, widths=NULL, heig
     }
     
   }
+return(invisible(NULL))
 }
