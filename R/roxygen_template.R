@@ -63,6 +63,10 @@ roxygen_template <- function(funfile, params_start=1, params_end = NULL) {
 #'}"
   roxy <- paste(c(top, params, end), sep="")
   
+  ## Strip off any accidentally introduced leading whitespace from lines:
+  roxy <- gsub("^\\s+", "", roxy)
+  roxy <- gsub("(\\n)\\s+", "\\1", roxy)
+  
   # Write to the top of the file (without asking... should be safe, i think)
   writeLines(c(above, roxy, the_rest), funfile)
   
