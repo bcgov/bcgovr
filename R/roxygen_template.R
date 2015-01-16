@@ -1,25 +1,14 @@
-#' Populate the boilerplate roxygen template at the top of the file containing the function.
+#' Populate the boilerplate roxygen template at the top of the function.
 #'
+#' Inspired by Karthik Ram's RTools Sublime Text 2 plugin:
+#' https://github.com/karthik/Rtools
 #' @param  funfile path to the .R file containing the function
 #' @param  params_start The (first) line that contains the parameters for your function (default 1)
 #' @param  params_end (optional) If your parameter definitions breaks across multiple lines, 
 #'                    specify the ending line (default \code{NULL}).
-#' @details File must have the argument list and the opening \code{\{} all on one line: 
-#'            \code{myFun <- function(arg1, arg2, arg3) \{}
 #' @export
 #' @return nothing, but adds the roxygen template to the top of the file
-#' @examples \dontrun{
-#'
-#'}
 roxygen_template <- function(funfile, params_start=1, params_end = NULL) {
-  ##
-  ## funfile: path to the .R file containing the function
-  ## 
-  ## File must have the argument list and the opening "{" all on one line: 
-  ##    myFun <- function(arg1, arg2, arg3) {
-  ## 
-  ## Inspired by Karthik Ram's RTools Sublime Text 2 plugin:
-  ## https://github.com/karthik/Rtools
   
   fun_text <- readLines(funfile, warn=FALSE)
   
