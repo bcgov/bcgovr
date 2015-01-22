@@ -1,11 +1,12 @@
 #' Populate the boilerplate roxygen template at the top of the function.
-#'
-#' Inspired by Karthik Ram's RTools Sublime Text 2 plugin:
+#' 
+#' Inspired by Karthik Ram's RTools Sublime Text 2 plugin: 
 #' https://github.com/karthik/Rtools
 #' @param  funfile path to the .R file containing the function
-#' @param  params_start The (first) line that contains the parameters for your function (default 1)
-#' @param  params_end (optional) If your parameter definitions breaks across multiple lines, 
-#'                    specify the ending line (default \code{NULL}).
+#' @param  params_start The (first) line that contains the parameters for your
+#'   function (default 1)
+#' @param  params_end (optional) If your parameter definitions breaks across
+#'   multiple lines, specify the ending line (default \code{NULL}).
 #' @export
 #' @return nothing, but adds the roxygen template to the top of the file
 roxygen_template <- function(funfile, params_start=1, params_end = NULL) {

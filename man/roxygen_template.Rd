@@ -2,31 +2,24 @@
 % Please edit documentation in R/roxygen_template.R
 \name{roxygen_template}
 \alias{roxygen_template}
-\title{Populate the boilerplate roxygen template at the top of the file containing the function.}
+\title{Populate the boilerplate roxygen template at the top of the function.}
 \usage{
 roxygen_template(funfile, params_start = 1, params_end = NULL)
 }
 \arguments{
 \item{funfile}{path to the .R file containing the function}
 
-\item{params_start}{The (first) line that contains the parameters for your function (default 1)}
+\item{params_start}{The (first) line that contains the parameters for your
+function (default 1)}
 
-\item{params_end}{(optional) If your parameter definitions breaks across multiple lines,
-specify the ending line (default \code{NULL}).}
+\item{params_end}{(optional) If your parameter definitions breaks across
+multiple lines, specify the ending line (default \code{NULL}).}
 }
 \value{
 nothing, but adds the roxygen template to the top of the file
 }
 \description{
-Populate the boilerplate roxygen template at the top of the file containing the function.
-}
-\details{
-File must have the argument list and the opening \code{\{} all on one line:
-           \code{myFun <- function(arg1, arg2, arg3) \{}
-}
-\examples{
-\dontrun{
-
-}
+Inspired by Karthik Ram's RTools Sublime Text 2 plugin:
+https://github.com/karthik/Rtools
 }
 
