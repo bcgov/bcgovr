@@ -4,16 +4,15 @@
 \alias{roxygen_template}
 \title{Populate the boilerplate roxygen template at the top of the function.}
 \usage{
-roxygen_template(funfile, params_start = 1, params_end = NULL)
+roxygen_template(funfile, func, export = TRUE)
 }
 \arguments{
 \item{funfile}{path to the .R file containing the function}
 
-\item{params_start}{The (first) line that contains the parameters for your
-function (default 1)}
+\item{func}{the name of the function you want to document}
 
-\item{params_end}{(optional) If your parameter definitions breaks across
-multiple lines, specify the ending line (default \code{NULL}).}
+\item{export}{Is the function exported (default \code{TRUE})? If \code{FALSE}
+keyword 'internal' is added}
 }
 \value{
 nothing, but adds the roxygen template to the top of the file

@@ -2,11 +2,13 @@
 #' 
 #' Inspired by Karthik Ram's RTools Sublime Text 2 plugin: 
 #' https://github.com/karthik/Rtools
-#' @param  funfile path to the .R file containing the function
-#' @param  func the name of the function you want to document
+#' @param funfile path to the .R file containing the function
+#' @param func the name of the function you want to document
+#' @param export Is the function exported (default \code{TRUE})? If \code{FALSE}
+#'   keyword 'internal' is added
 #' @export
 #' @return nothing, but adds the roxygen template to the top of the file
-roxygen_template <- function(funfile, func) {
+roxygen_template <- function(funfile, func, export = TRUE) {
   
   fun_text <- readLines(funfile, warn=FALSE)
   
@@ -39,15 +41,13 @@ roxygen_template <- function(funfile, func) {
           #' 
           #' @import <list imported packages separated by spaces (or each on own @import line)>
           #' @importFrom <list package and functions in the form: package function_a function_b>"
-  end <- "#' @export <delete this line if not an exported function>
-          #' @keywords <may delete this line>
-          #' @seealso <may delete this line>
+  exp <- ifelse(export, "#' @export", "#' @keywords internal")
+  end <- "#' @seealso <may delete this line>
           #' @return <describe what is returned by the function>
-          #' @alias <may delete this line>
           #' @examples \\dontrun{
           #' 
           #'}"
-  roxy <- paste(c(top, params, end), sep="")
+  roxy <- paste(c(top, params, exp, end), sep="")
   
   ## Strip off leading whitespace from roxy lines:
   roxy <- gsub("(^|\\n)\\s+", "\\1", roxy)
