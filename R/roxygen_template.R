@@ -15,11 +15,17 @@ roxygen_template <- function(funfile, func, export = TRUE) {
   fundef_start <- grep(paste0(func, "\\s*(<-|=)\\s*function\\s*\\("), fun_text)
   
   # Check the previous few lines to make sure roxygen block doesn't already exist
-  if (fundef_start > 1) {
-    checks <- (fundef_start - min(5, fundef_start)):(fundef_start - 1)
-    if (any(grepl("^#'", fun_text[checks]))) {
+  check_lines <- function(n) {
+    from <- n - min(5, (n - 1))
+    to <- n - 1
+    
+    if (any(grepl("^#'", fun_text[from:to]))) {
       stop("It appears you already have roxygen documentation for your function!")
     }
+  }
+  
+  if (fundef_start > 1) {
+    check_lines(fundef_start)
   }
   
   if (fundef_start == 1) {
