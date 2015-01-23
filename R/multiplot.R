@@ -1,29 +1,36 @@
 #'Plot multiple plots in a single pane
 #'
-#'ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-#' @import grid ggplot2
-#' @export
-#' 
-#' @param ... Two or more ggplot2 objects
-#' @param  plotlist (optional) a list of ggplot2 objects
-#' @param  cols Number of columns in layout
-#' @param  layout A matrix specifying the layout. If present, 'cols' is ignored.
-#' @param  title Optional title as a character string
-#' @param  widths a vector of relative column widths eg. c(3,2)
-#' @param  heights a vector of relative column heights eg. c(3,2)
-#' @param  titlefont The font of the title
-#' @param  titleface The font face (1 = normal, 2 = bold, 3 = italic, 4 = bold italic)
-#' @param  titlesize The size of the title font
-#' 
-#' @details If plotting three plots and the layout is something like
-#'   matrix(c(1,2,3,3), nrow=2, byrow=TRUE), then plot 1 will go in the upper
-#'   left, 2 will go in the upper right, and 3 will go all the way across the
-#'   bottom.  To save, you must use the desired device (eg \code{png()}), or
-#'   save from the RStudio Viewer.
-#' 
-#' Borrowed and modified from http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-#' 
-#' @return NULL (invisibly)
+#'ggplot objects can be passed in ..., or to plotlist (as a list of ggplot 
+#'objects)
+#'@import grid ggplot2
+#'@export
+#'
+#'@param ... Two or more ggplot2 objects
+#'@param  plotlist (optional) a list of ggplot2 objects
+#'@param  cols Number of columns in layout
+#'@param  layout A matrix specifying the layout. If present, 'cols' is ignored.
+#'@param  title Optional title as a character string
+#'@param  widths a vector of relative column widths eg. c(3,2)
+#'@param  heights a vector of relative column heights eg. c(3,2)
+#'@param  titlefont The font of the title
+#'@param  titleface The font face (1 = normal, 2 = bold, 3 = italic, 4 = bold 
+#'  italic)
+#'@param  titlesize The size of the title font
+#'  
+#'@details If plotting three plots and the layout is something like 
+#'  matrix(c(1,2,3,3), nrow=2, byrow=TRUE), then plot 1 will go in the upper 
+#'  left, 2 will go in the upper right, and 3 will go all the way across the 
+#'  bottom.  To save, you must use the desired device (eg \code{png()}), or save
+#'  from the RStudio Viewer.
+#'  
+#'  This extends the
+#'  \href{http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)}{multiplot}
+#'  function by Winston Chang in the \href{http://www.cookbook-r.com}{Cookbook 
+#'  for R}, and is licensed under a 
+#'  \href{http://creativecommons.org/licenses/by-sa/3.0/}{Creative Commons 
+#'  Attribution-Share Alike 3.0 Unported License}.
+#'  
+#'@return NULL (invisibly)
 #' @examples \dontrun{
 #' library("ggplot2")
 #' plot1 <- ggplot(iris, aes(x = Species, y = Sepal.Length)) + 
