@@ -3,74 +3,60 @@
 #' Inspired by Karthik Ram's RTools Sublime Text 2 plugin: 
 #' https://github.com/karthik/Rtools
 #' @param  funfile path to the .R file containing the function
-#' @param  params_start The (first) line that contains the parameters for your
-#'   function (default 1)
-#' @param  params_end (optional) If your parameter definitions breaks across
-#'   multiple lines, specify the ending line (default \code{NULL}).
+#' @param  func the name of the function you want to document
 #' @export
 #' @return nothing, but adds the roxygen template to the top of the file
-roxygen_template <- function(funfile, params_start=1, params_end = NULL) {
+roxygen_template <- function(funfile, func) {
   
   fun_text <- readLines(funfile, warn=FALSE)
   
-  if (is.null(params_end)) params_end <- params_start
+  fundef_start <- grep(paste0(func, "\\s*(<-|=)\\s*function\\s*\\("), fun_text)
   
-  if (params_start == 1) {
-    checks <- 1:5
-  } else {
-    checks <- (params_start - 5):params_start
+  # Check the previous few lines to make sure roxygen block doesn't already exist
+  if (fundef_start > 1) {
+    checks <- (fundef_start - min(5, fundef_start)):(fundef_start - 1)
+    if (any(grepl("^#'", fun_text[checks]))) {
+      stop("It appears you already have roxygen documentation for your function!")
+    }
   }
   
-  if (any(grepl("^#'", fun_text[checks]))) {
-    stop("It appears you already have roxygen documentation for your function!")
-  }
-  
-  if (params_start == 1) {
+  if (fundef_start == 1) {
     above <- NULL
   } else {
-    above <- fun_text[1:(params_start - 1)]
+    above <- fun_text[1:(fundef_start - 1)]
   }
-  the_rest <- fun_text[params_start:length(fun_text)]
   
-  # Find the function and parameter definition line:
-  #   
+  the_rest <- fun_text[fundef_start:length(fun_text)]
   
-  ## Combine multiple lines of parameters
-  params_line <- paste(fun_text[params_start:params_end], collapse = "")
-  
-  # Pull out the function and parameter definitions:
-  matches <- regexpr("(?<=\\().+?(?=\\)\\s*?\\{)", params_line, perl=TRUE)
-  params <- regmatches(params_line,matches)[1]
-  
-  # Parse out and clean the parameter names:
-  params <- strsplit(params, ",")[[1]]
-  params <- gsub("\\s+|=.+", "", params)
+  source(funfile, local = TRUE)
+  params <- names(formals(func))
   
   # Put together the roxygen fields:
   params <- paste0("#' @param ", params, " <parameter description goes here>")
   top <- "#' <brief description of function>
-#'
-#' <full description of function>
-#' 
-#' @import <list required packages separated by spaces>
-#' @importFrom <list package and functions: package functiona functionb>"
-  end <- "#' @export
-#' @keywords <may delete this line>
-#' @seealso <may delete this line>
-#' @return
-#' @alias <may delete this line>
-#' @examples \\dontrun{
-#' 
-#'}"
+          #'
+          #' <full description of function>
+          #' 
+          #' @import <list imported packages separated by spaces (or each on own @import line)>
+          #' @importFrom <list package and functions in the form: package function_a function_b>"
+  end <- "#' @export <delete this line if not an exported function>
+          #' @keywords <may delete this line>
+          #' @seealso <may delete this line>
+          #' @return <describe what is returned by the function>
+          #' @alias <may delete this line>
+          #' @examples \\dontrun{
+          #' 
+          #'}"
   roxy <- paste(c(top, params, end), sep="")
   
-  ## Strip off any accidentally introduced leading whitespace from lines:
-  roxy <- gsub("^\\s+", "", roxy)
-  roxy <- gsub("(\\n)\\s+", "\\1", roxy)
+  ## Strip off leading whitespace from roxy lines:
+  roxy <- gsub("(^|\\n)\\s+", "\\1", roxy)
   
   # Write to the top of the file (without asking... should be safe, i think)
   writeLines(c(above, roxy, the_rest), funfile)
   
   # Open the file to fill in documentation
   file.edit(funfile)
+  
+  invisible(NULL)
 }
