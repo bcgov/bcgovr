@@ -10,6 +10,8 @@
 #' @return nothing, but adds the roxygen template to the top of the file
 roxygen_template <- function(funfile, func, export = TRUE) {
   
+  stopifnot(is.character(funfile), is.character(func))
+  
   fun_text <- readLines(funfile, warn=FALSE)
   
   fundef_start <- grep(paste0(func, "\\s*(<-|=)\\s*function\\s*\\("), fun_text)
