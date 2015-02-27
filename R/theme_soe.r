@@ -56,7 +56,7 @@ theme_soe <- function(base_size=12, base_family="Verdana", use_sizes=TRUE, facet
 #' 
 #'}
 theme_soe_facet <- function(base_size=12, base_family="Verdana", use_sizes=TRUE) {
-  theme_soe(facet = TRUE) + 
+  theme_soe(facet = TRUE, use_sizes = use_sizes) + 
     theme(
       panel.margin.x = unit(.6,"lines"),
       panel.margin.y = unit(.6,"lines"),
