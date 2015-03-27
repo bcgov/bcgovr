@@ -4,8 +4,7 @@
 \alias{theme_soe}
 \title{Default theme for EnvReportBC graphs and plots}
 \usage{
-theme_soe(base_size = 12, base_family = "Verdana", use_sizes = TRUE,
-  facet = FALSE)
+theme_soe(base_size = 12, base_family = "Verdana", use_sizes = TRUE)
 }
 \arguments{
 \item{base_size}{base font size (default = 12)}
@@ -13,8 +12,6 @@ theme_soe(base_size = 12, base_family = "Verdana", use_sizes = TRUE,
 \item{base_family}{base font family (default = Verdana)}
 
 \item{use_sizes}{use relative font sizes (?)}
-
-\item{facet}{facetting? (advise to not use directly, is set by \code{theme_soe_facet})}
 }
 \value{
 returns a plot theme
