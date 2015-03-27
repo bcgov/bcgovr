@@ -47,9 +47,7 @@ If plotting three plots and the layout is something like
  This extends the
  \href{http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)}{multiplot}
  function by Winston Chang in the \href{http://www.cookbook-r.com}{Cookbook
- for R}, and is licensed under a
- \href{http://creativecommons.org/licenses/by-sa/3.0/}{Creative Commons
- Attribution-Share Alike 3.0 Unported License}.
+ for R}.
 }
 \examples{
 \dontrun{
