@@ -12,7 +12,7 @@
 
 #' Default theme for EnvReportBC graphs and plots
 #' 
-#' @import ggplot2 ggthemes
+#' @import ggplot2 ggthemes extrafont
 #' @param  base_size base font size (default = 12)
 #' @param  base_family base font family (default = Verdana)
 #' @param  use_sizes use relative font sizes (?)
