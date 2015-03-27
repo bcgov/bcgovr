@@ -15,5 +15,5 @@ Imports:
     ggplot2 (>= 1.0.0),
     ggthemes (>= 2.1.2),
     grid (>= 3.1.2)
-License: What license is it under?
+License: Apache License (== 2.0) | file LICENSE
 LazyData: true
