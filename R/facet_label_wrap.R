@@ -25,7 +25,7 @@
 facet_label_wrap <- function(width = 25) {
   # https://github.com/hadley/ggplot2/wiki/labeller
   function(variable, value) {
-    value <- gsub("(\\b-\\b|\\b/\\b)", "\\1 ", value)
+    value <- gsub("(\\b[/:-]\\b)", "\\1 ", value) # Add a space after "-", ":" or "/" if not one there
     lapply(strwrap(as.character(value), width=width, simplify=FALSE), 
            paste, collapse="\n")
   }
