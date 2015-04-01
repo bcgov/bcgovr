@@ -10,13 +10,13 @@ the [ggplot2](http://ggplot2.org/) plotting package by Hadley Wickham.
 
 ### Features
 
-Currently there are four functions:
+Currently there are four main functions:
 
 #### Plotting
 
 - `multiplot()` - combine multiple `ggplot2`plots into one
-- `facet_label_wrap()` - wrap labels on facetted graphs
 - `theme_soe()` - our default theme for the graphs we make
+- `theme_soe_facet()` - default theme for plots using facetting
 
 #### Miscellaneous
 
