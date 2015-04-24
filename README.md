@@ -14,7 +14,7 @@ Currently there are four main functions:
 
 #### Plotting
 
-- `multiplot()` - combine multiple `ggplot2`plots into one
+- `multiplot()` - combine multiple `ggplot2` plots into one
 - `theme_soe()` - our default theme for the graphs we make
 - `theme_soe_facet()` - default theme for plots using facetting
 
@@ -32,7 +32,7 @@ need the [devtools](https://github.com/hadley/devtools/) package:
 install.packages("devtools")
 ```
 
-Next, install the `bcgroundwater` package using `devtools::install_github()`:
+Next, install the `envreportutils` package using `devtools::install_github()`:
 
 ```R
 library("devtools")
