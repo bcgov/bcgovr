@@ -19,11 +19,6 @@ a ggplot2 theme
 \description{
 Soe plot theme for facetted graphs
 }
-\examples{
-\dontrun{
-
-}
-}
 \keyword{plotting}
 \keyword{theme}
 

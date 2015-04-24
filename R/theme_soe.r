@@ -19,9 +19,7 @@
 #' @export
 #' @keywords plotting theme
 #' @return returns a plot theme
-#' @examples \dontrun{
-#' 
-#'}
+
 theme_soe <- function(base_size=12, base_family="Verdana", use_sizes=TRUE) {
   thm <- theme_soe_foundation(base_size = base_size, base_family = base_family, 
                        use_sizes = use_sizes)
@@ -37,9 +35,7 @@ theme_soe <- function(base_size=12, base_family="Verdana", use_sizes=TRUE) {
 #' @export
 #' @keywords plotting theme
 #' @return a ggplot2 theme
-#' @examples \dontrun{
-#' 
-#'}
+
 theme_soe_facet <- function(base_size=12, base_family="Verdana", use_sizes=TRUE) {
   
   theme_soe_foundation(base_size = base_size, base_family = base_family, 

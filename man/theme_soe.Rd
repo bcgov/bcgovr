@@ -19,11 +19,6 @@ returns a plot theme
 \description{
 Default theme for EnvReportBC graphs and plots
 }
-\examples{
-\dontrun{
-
-}
-}
 \keyword{plotting}
 \keyword{theme}
 
