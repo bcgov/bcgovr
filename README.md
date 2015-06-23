@@ -10,7 +10,7 @@ the [ggplot2](http://ggplot2.org/) plotting package by Hadley Wickham.
 
 ### Features
 
-Currently there are four main functions:
+Currently there are five main functions:
 
 #### Plotting
 
@@ -22,6 +22,7 @@ Currently there are four main functions:
 
 - `roxygen_template()` - Add boilerplate documentation to a function using
   [Roxygen2](https://github.com/klutometis/roxygen) syntax.
+- `analysis_skeleton()` - Set up the folder structure for a new analysis
 
 ### Installation
 
