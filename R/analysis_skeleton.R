@@ -63,7 +63,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   ## Need to check for analysis structure
   Rfiles <- c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", 
-              "internal.R")
+              "internal.R", "run_all.R")
   dirs <- c("out", "tmp", "data")
   
   if (any(file.exists(Rfiles, dirs))) { ## file.exists is case-insensitive
@@ -77,6 +77,19 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   lapply(dirs, dir.create)
   add_contributing(path)
   add_readme(path, package = FALSE)
+  
+  cat('source("01_load.R")
+source("02_clean.R")
+source("03_analysis.R")
+source("04_output.R")
+
+## Make print version
+mon_year <- format(Sys.Date(), "%B%Y")
+outfile <- paste0("envreportbc_[indicator_name]_", mon_year, ".pdf")
+rmarkdown::render("print_ver/[indicator_name].Rmd", output_file = outfile)
+extrafont::embed_fonts(file.path("print_ver/", outfile))
+## You will likely want to "optimize pdf" in Acrobat to make the print version smaller.\n', 
+      file = "run_all.R")
   
   if (apache) {
     add_license(path)
