@@ -23,7 +23,7 @@ clone_git <- function(url, path) {
     return(invisible(NULL))
   } else {
     if (path == ".") {
-      path <- extract_repo_name(remote_repo)
+      path <- extract_repo_name(remote_repo@path)
     }
     repo <- clone(remote_repo@path, path)
     message("Setting working directory to ", path)
@@ -32,8 +32,8 @@ clone_git <- function(url, path) {
   repo
 }
 
-extract_repo_name <- function(repo) {
-  gsub("\\.git", "", basename(repo@path))
+extract_repo_name <- function(path) {
+  gsub("\\.git", "", basename(path))
 }
 
 write_gitignore <- function(..., path = ".") {
