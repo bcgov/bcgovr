@@ -115,7 +115,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
                     "internal.R")
   }
   
-  invisible(TRUE)
+  invisible(path)
 }
 
 # Function to be executed on error, to clean up files that were created
