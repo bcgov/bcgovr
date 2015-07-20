@@ -13,7 +13,8 @@
 #' Creates the framework of a new analysis development folder
 #' 
 #' Creates the folder structure for a new analysis.
-#' 
+#'
+#' @importFrom git2r repository init 
 #' @param  path location to create new analysis. If \code{"."} (the default), 
 #'   the name of the working directory will be taken as the analysis name. If 
 #'   not \code{"."}, the last component of the given path will be used as the 
@@ -55,7 +56,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
 
   if (is.character(git_clone)) {
-    clone_git(git_clone)
+    clone_git(git_clone, path)
     git_init = FALSE
     ## clone_git will run setwd(), so need to get path again
     path <- getwd()
@@ -75,8 +76,8 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   message("Creating new analysis in ", path)
   lapply(Rfiles, file.create)
   lapply(dirs, dir.create)
-  add_contributing(path)
-  add_readme(path, package = FALSE)
+  add_contributing()
+  add_readme(package = FALSE)
   
   cat('source("01_load.R")
 source("02_clean.R")
@@ -92,7 +93,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
       file = "run_all.R")
   
   if (apache) {
-    add_license(path)
+    add_license()
     lapply(Rfiles, add_license_header, year = substr(Sys.Date(), 1, 4), 
            copyright_holder = copyright_holder)
   }
@@ -106,7 +107,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
     if (file.exists(".git")) {
       warning("This directory is already a git repository. Not creating a new one")
     } else {
-      system("git init")
+      init(".")
     }
   }
   
@@ -115,7 +116,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
                     "internal.R")
   }
   
-  invisible(TRUE)
+  invisible(path)
 }
 
 # Function to be executed on error, to clean up files that were created

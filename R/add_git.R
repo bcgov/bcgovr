@@ -10,18 +10,30 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-clone_git <- function(url) {
-  
-  system(paste("git clone", url))
-  path <- extract_repo_name(url)
-  cat("Setting working directory to ", path)
-  setwd(path)
-  
-  invisible(TRUE)
+#' Clones a remote repository
+#'
+#' @importFrom git2r repository clone is_empty
+#' @param url url of remote git repository
+#'
+#' @return a repository object
+clone_git <- function(url, path) {
+  remote_repo <- repository(url)
+  if (!is_empty(remote_repo)) {
+    warning("Not cloning a non-empty repository")
+    return(invisible(NULL))
+  } else {
+    if (path == ".") {
+      path <- extract_repo_name(remote_repo@path)
+    }
+    repo <- clone(remote_repo@path, path)
+    message("Setting working directory to ", path)
+    setwd(path)
+  }
+  repo
 }
 
-extract_repo_name <- function(url) {
-  gsub(".*/([A-Za-z0-9._-]+?)(\\.git|/)?$", "\\1", url)
+extract_repo_name <- function(path) {
+  gsub("\\.git", "", basename(path))
 }
 
 write_gitignore <- function(..., path = ".") {
