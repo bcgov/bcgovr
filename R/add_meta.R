@@ -74,14 +74,15 @@ add_rproj <- function(path = ".", outfile) {
 #' @param path Directory path (default \code{"."})
 #' @param fname the name of the template file in inst/templates
 #' @param outfile name of the file to be written, if different from the name of the template file
+#' @param pkg package from which to load the template
 #' @keywords internal
 #' @seealso \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license}}
 #' @return NULL
-add_file_from_template <- function(path, fname, outfile = NULL) {
+add_file_from_template <- function(path, fname, outfile = NULL, pkg = "envreportutils") {
 
-  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
-  
   if (!dir.exists(path)) dir.create(path)
+  
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
   if (is.null(outfile)) {
     outfile <- file.path(path, fname)
@@ -94,7 +95,7 @@ add_file_from_template <- function(path, fname, outfile = NULL) {
   } else {
     message(paste("Adding file", outfile))
     
-    template_path <- system.file("templates", fname, package = "envreportutils")
+    template_path <- system.file("templates", fname, package = pkg)
     
     file.copy(template_path, outfile)
   }
