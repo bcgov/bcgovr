@@ -90,8 +90,11 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
   }
   
   if (rstudio) {
-    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) add_rproj(npath) else 
+    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
+      add_rproj(npath, paste0(basename(npath), ".Rproj"))
+    } else {
       warning("Rproj file already exists, so not adding a new one")
+    }
   }
 
   if (git_init) {

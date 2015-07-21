@@ -55,6 +55,18 @@ add_license <- function(path = ".", package_desc = FALSE) {
   invisible(TRUE)
 }
 
+#' Add an RProject file to a directory
+#'
+#' @param  path folder path of the project
+#' @param outfile the name of the RProj file
+#' @export
+#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
+#' @return NULL
+add_rproj <- function(path = ".", outfile) {
+  add_file_from_template(path, "template.Rproj", outfile)
+  invisible(TRUE)
+}
+
 #' Add a file to a directory from a template in inst/templates
 #'
 #' Should really only be called by other functions
@@ -82,8 +94,8 @@ add_file_from_template <- function(path, fname, outfile = NULL) {
   } else {
     message(paste("Adding file", outfile))
     
-    template_path <- system.file("templates", fname, package = "envreportutils", 
-                                 mustWork = TRUE)
+    template_path <- system.file("templates", fname, package = "envreportutils")
+    
     file.copy(template_path, outfile)
   }
   
@@ -139,30 +151,5 @@ add_to_rbuildignore <- function(path, text) {
     rbuildignore <- c(rbuildignore, text)
     writeLines(rbuildignore, fpath)
   }
-  invisible(TRUE)
-}
-
-#' Add an RProject file to a directory
-#'
-#' @param  path folder path of the project
-#' @export
-add_rproj <- function(path = ".") {
-  
-  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
-  
-  projfile <- file.path(path, paste0(basename(path), ".Rproj"))
-  
-  if (file.exists(projfile)) {
-    stop(".Rproj already exists", call. = FALSE)
-  }
-  
-  message("Adding Rstudio project file to ", basename(projfile))
-  
-  template_path <- system.file("templates", "template.Rproj", 
-                               package = "envreportutils", 
-                               mustWork = TRUE)
-  
-  file.copy(template_path, projfile)
-  
   invisible(TRUE)
 }
