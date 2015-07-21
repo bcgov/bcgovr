@@ -1,7 +1,6 @@
 context("analysis_skeleton")
 
-expected_files <- c(".git/config", ".git/description", ".git/HEAD", 
-                    ".git/hooks/README.sample", ".git/info/exclude", 
+expected_files <- c(".git", "data", "out", "tmp", 
                     ".gitignore", "01_load.R", "02_clean.R", "03_analysis.R", 
                     "04_output.R", "CONTRIBUTING.md", "internal.R", 
                     "LICENSE", "README.md", "run_all.R")
@@ -22,9 +21,10 @@ test_that("analysis_skeleton works with dot path and git_init", {
   dir.create(file.path(dir, base_dir))
   setwd(file.path(dir, base_dir))
   ret <- analysis_skeleton()
-  expect_equal(ret, ".")
-  files <- list.files(recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(".", expected_files))
+  expect_equal(normalizePath(ret), normalizePath("."))
+  files <- list.files(all.files = TRUE, full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+               sort(normalizePath(file.path(".", expected_files))))
 })
 
 test_that("analysis_skeleton works with relative path and git init", {
@@ -32,18 +32,22 @@ test_that("analysis_skeleton works with relative path and git init", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_init = TRUE)
-  expect_equal(ret, base_dir)
-  files <- list.files(base_dir, recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(base_dir, expected_files))
+  expect_equal(normalizePath(ret), normalizePath(base_dir))
+  files <- list.files(base_dir, all.files = TRUE, full.names = TRUE, 
+                      include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+               sort(normalizePath(file.path(base_dir, expected_files))))
 })
 
 test_that("analysis_skeleton works with absolute path and git init", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, git_init = TRUE)
-  expect_equal(ret, dir)
-  files <- list.files(dir, recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(dir, expected_files))
+  expect_equal(normalizePath(ret), normalizePath(dir))
+  files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
+                      include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+  			   sort(normalizePath(file.path(dir, expected_files))))
 })
 
 bare_repo_path <- file.path(tempdir(), "bare_test_repo.git")
@@ -56,9 +60,11 @@ test_that("analysis_skeleton works with dot path and git clone", {
   dir.create(file.path(dir, base_dir))
   setwd(file.path(dir, base_dir))
   ret <- analysis_skeleton(git_clone = bare_repo)
-  expect_equal(ret, ".")
-  files <- list.files(recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(".", expected_files))
+  expect_equal(normalizePath(ret), normalizePath("."))
+  files <- list.files(all.files = TRUE, full.names = TRUE, 
+                      include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+  			   sort(normalizePath(file.path(".", expected_files))))
 })
 
 test_that("analysis_skeleton works with relative path and git clone", {
@@ -66,16 +72,24 @@ test_that("analysis_skeleton works with relative path and git clone", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_clone = bare_repo)
-  expect_equal(ret, base_dir)
-  files <- list.files(base_dir, recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(base_dir, expected_files))
+  expect_equal(normalizePath(ret), 
+  			   normalizePath(base_dir))
+  files <- list.files(base_dir, all.files = TRUE, full.names = TRUE, 
+                      include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+  			   sort(normalizePath(file.path(base_dir, expected_files))))
 })
 
-test_that("analysis_skeleton works with absolute path and git init", {
+test_that("analysis_skeleton works with absolute path and git clone", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, git_clone = bare_repo)
-  expect_equal(ret, dir)
-  files <- list.files(dir, recursive = TRUE, all.files = TRUE, full.names = TRUE)
-  expect_equal(files, file.path(dir, expected_files))
+  expect_equal(normalizePath(ret), 
+  			   normalizePath(dir))
+  files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
+                      include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files)), 
+  			   sort(normalizePath(file.path(dir, expected_files))))
 })
+
+unlink(bare_repo_path, recursive = TRUE, force = TRUE)

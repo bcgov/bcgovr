@@ -46,26 +46,22 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   curr_dir <- getwd()
   on.exit(setwd(curr_dir), add = TRUE)
   
-  if (path != ".") {
-    if (file.exists(path)) {
-      stop("Directory already exists", call. = FALSE)
-    } else {
-      dir.create(path, recursive = TRUE)
-      setwd(path)
-    }
+  npath <- normalizePath(path)
+  if (path != "." && file.exists(npath)) {
+    stop("Directory already exists", call. = FALSE)
+  } else {
+    dir.create(npath, recursive = TRUE)
   }
 
   if (is.character(git_clone)) {
-    clone_git(git_clone, path)
+    clone_git(git_clone, npath)
     git_init = FALSE
-    ## clone_git will run setwd(), so need to get path again
-    path <- getwd()
   }
   
   ## Need to check for analysis structure
-  Rfiles <- c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", 
-              "internal.R", "run_all.R")
-  dirs <- c("out", "tmp", "data")
+  Rfiles <- file.path(npath, c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", 
+              "internal.R", "run_all.R"))
+  dirs <- file.path(npath, c("out", "tmp", "data"))
   
   if (any(file.exists(Rfiles, dirs))) { ## file.exists is case-insensitive
     #if (git) unlink(c(".git", ".gitignore", recursive = TRUE, force = TRUE)
@@ -73,11 +69,11 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
   ## Add the necessary R files and directories
-  message("Creating new analysis in ", path)
+  message("Creating new analysis in ", npath)
   lapply(Rfiles, file.create)
   lapply(dirs, dir.create)
-  add_contributing()
-  add_readme(package = FALSE)
+  add_contributing(npath)
+  add_readme(npath, package = FALSE)
   
   cat('source("01_load.R")
 source("02_clean.R")
@@ -90,33 +86,33 @@ outfile <- paste0("envreportbc_[indicator_name]_", mon_year, ".pdf")
 rmarkdown::render("print_ver/[indicator_name].Rmd", output_file = outfile)
 extrafont::embed_fonts(file.path("print_ver/", outfile))
 ## You will likely want to "optimize pdf" in Acrobat to make the print version smaller.\n', 
-      file = "run_all.R")
+      file = file.path(npath,"run_all.R"))
   
   if (apache) {
-    add_license()
+    add_license(npath)
     lapply(Rfiles, add_license_header, year = substr(Sys.Date(), 1, 4), 
            copyright_holder = copyright_holder)
   }
   
   if (rstudio) {
-    if (!length(list.files(pattern = "*.Rproj", ignore.case = TRUE))) add_rproj() else 
+    if (!length(list.files(pattern = "*.Rproj", ignore.case = TRUE))) add_rproj(npath) else 
       warning("Rproj file already exists, so not adding a new one")
   }
 
   if (git_init) {
-    if (file.exists(".git")) {
+    if (file.exists(file.path(npath,".git"))) {
       warning("This directory is already a git repository. Not creating a new one")
     } else {
-      init(".")
+      init(npath)
     }
   }
   
   if (git_init || is.character(git_clone)) {
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", "tmp/", 
-                    "internal.R")
+                    "internal.R", path = npath)
   }
-  
-  invisible(path)
+  setwd(npath)
+  invisible(npath)
 }
 
 # Function to be executed on error, to clean up files that were created

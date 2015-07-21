@@ -66,9 +66,8 @@ add_license <- function(path = ".", package_desc = FALSE) {
 #' @seealso \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license}}
 #' @return NULL
 add_file_from_template <- function(path, fname, outfile = NULL) {
-  if (path == ".") {
-    path <- getwd()
-  }
+
+  path <- normalizePath(path)
   
   if (!dir.exists(path)) dir.create(path)
   
@@ -83,8 +82,8 @@ add_file_from_template <- function(path, fname, outfile = NULL) {
   } else {
     message(paste("Adding file", outfile))
     
-    template_path <- system.file(file.path("templates", fname), 
-                                 package = "envreportbc")
+    template_path <- system.file("templates", fname, package = "envreportbc", 
+                                 mustWork = TRUE)
     file.copy(template_path, outfile)
   }
   
@@ -149,9 +148,7 @@ add_to_rbuildignore <- function(path, text) {
 #' @export
 add_rproj <- function(path = ".") {
   
-  if (path == ".") {
-    path <- getwd()
-  }
+  path <- normalizePath(path)
   
   projfile <- file.path(path, paste0(basename(path), ".Rproj"))
   

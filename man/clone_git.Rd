@@ -4,10 +4,12 @@
 \alias{clone_git}
 \title{Clones a remote repository}
 \usage{
-clone_git(url)
+clone_git(url, path)
 }
 \arguments{
 \item{url}{url of remote git repository}
+
+\item{path}{path to clone into}
 }
 \value{
 a repository object

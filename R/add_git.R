@@ -13,7 +13,9 @@
 #' Clones a remote repository
 #'
 #' @importFrom git2r repository clone is_empty
+#'
 #' @param url url of remote git repository
+#' @param path path to clone into
 #'
 #' @return a repository object
 clone_git <- function(url, path) {
@@ -22,18 +24,9 @@ clone_git <- function(url, path) {
     warning("Not cloning a non-empty repository")
     return(invisible(NULL))
   } else {
-    if (path == ".") {
-      path <- extract_repo_name(remote_repo@path)
-    }
     repo <- clone(remote_repo@path, path)
-    message("Setting working directory to ", path)
-    setwd(path)
   }
   repo
-}
-
-extract_repo_name <- function(path) {
-  gsub("\\.git", "", basename(path))
 }
 
 write_gitignore <- function(..., path = ".") {
