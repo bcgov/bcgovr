@@ -43,15 +43,10 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 #   now <- Sys.time()
 #   options(error = quote(error_cleanup(now)))
 #   on.exit(options(error = NULL), add = TRUE)
-  curr_dir <- getwd()
-  on.exit(setwd(curr_dir), add = TRUE)
   
-  npath <- normalizePath(path)
-  if (path != "." && file.exists(npath)) {
-    stop("Directory already exists", call. = FALSE)
-  } else {
-    dir.create(npath, recursive = TRUE)
-  }
+  if (path != ".") dir.create(path, recursive = TRUE)
+  
+  npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
 
   if (is.character(git_clone)) {
     clone_git(git_clone, npath)
@@ -95,7 +90,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
   }
   
   if (rstudio) {
-    if (!length(list.files(pattern = "*.Rproj", ignore.case = TRUE))) add_rproj(npath) else 
+    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) add_rproj(npath) else 
       warning("Rproj file already exists, so not adding a new one")
   }
 
@@ -112,6 +107,7 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
                     "internal.R", path = npath)
   }
   setwd(npath)
+  message("Setting working directory to ", npath)
   invisible(npath)
 }
 

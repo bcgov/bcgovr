@@ -1,5 +1,5 @@
 context("analysis_skeleton")
-
+options(warn = 2)
 expected_files <- c(".git", "data", "out", "tmp", 
                     ".gitignore", "01_load.R", "02_clean.R", "03_analysis.R", 
                     "04_output.R", "CONTRIBUTING.md", "internal.R", 
@@ -21,10 +21,13 @@ test_that("analysis_skeleton works with dot path and git_init", {
   dir.create(file.path(dir, base_dir))
   setwd(file.path(dir, base_dir))
   ret <- analysis_skeleton()
-  expect_equal(normalizePath(ret), normalizePath("."))
+  expect_equal(normalizePath(ret, winslash = "/"), 
+               normalizePath(".", winslash = "/"))
   files <- list.files(all.files = TRUE, full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
-  expect_equal(sort(normalizePath(files)), 
-               sort(normalizePath(file.path(".", expected_files))))
+  expect_equal(sort(normalizePath(files, winslash = "/")), 
+               sort(normalizePath(
+                 file.path(".", c(expected_files, paste0(base_dir, ".Rproj"))), 
+                 winslash = "/")))
 })
 
 test_that("analysis_skeleton works with relative path and git init", {
@@ -32,11 +35,14 @@ test_that("analysis_skeleton works with relative path and git init", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_init = TRUE)
-  expect_equal(normalizePath(ret), normalizePath(base_dir))
-  files <- list.files(base_dir, all.files = TRUE, full.names = TRUE, 
-                      include.dirs = TRUE, no.. = TRUE)
-  expect_equal(sort(normalizePath(files)), 
-               sort(normalizePath(file.path(base_dir, expected_files))))
+  expect_equal(normalizePath(ret, winslash = "/"), 
+               normalizePath(file.path(dir, base_dir), winslash = "/"))
+  files <- list.files(file.path(dir, base_dir), all.files = TRUE, 
+                      full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files, winslash = "/")), 
+               sort(normalizePath(
+                 file.path(dir, base_dir, c(expected_files, paste0(base_dir, ".Rproj"))), 
+                 winslash = "/")))
 })
 
 test_that("analysis_skeleton works with absolute path and git init", {
@@ -47,7 +53,8 @@ test_that("analysis_skeleton works with absolute path and git init", {
   files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
   expect_equal(sort(normalizePath(files)), 
-  			   sort(normalizePath(file.path(dir, expected_files))))
+  			   sort(normalizePath(file.path(dir, 
+  			                                c(expected_files, paste0(base_dir, ".Rproj"))))))
 })
 
 bare_repo_path <- file.path(tempdir(), "bare_test_repo.git")
@@ -64,7 +71,8 @@ test_that("analysis_skeleton works with dot path and git clone", {
   files <- list.files(all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
   expect_equal(sort(normalizePath(files)), 
-  			   sort(normalizePath(file.path(".", expected_files))))
+  			   sort(normalizePath(file.path(".", 
+  			                                c(expected_files, paste0(base_dir, ".Rproj"))))))
 })
 
 test_that("analysis_skeleton works with relative path and git clone", {
@@ -72,24 +80,28 @@ test_that("analysis_skeleton works with relative path and git clone", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_clone = bare_repo)
-  expect_equal(normalizePath(ret), 
-  			   normalizePath(base_dir))
-  files <- list.files(base_dir, all.files = TRUE, full.names = TRUE, 
-                      include.dirs = TRUE, no.. = TRUE)
-  expect_equal(sort(normalizePath(files)), 
-  			   sort(normalizePath(file.path(base_dir, expected_files))))
+  expect_equal(normalizePath(ret, winslash = "/"), 
+  			   normalizePath(file.path(dir, base_dir), winslash = "/"))
+  files <- list.files(file.path(dir, base_dir), all.files = TRUE, 
+                      full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
+  expect_equal(sort(normalizePath(files, winslash = "/")), 
+  			   sort(normalizePath(
+  			     file.path(dir, base_dir, c(expected_files, paste0(base_dir, ".Rproj"))), 
+  			               winslash = "/")))
 })
 
 test_that("analysis_skeleton works with absolute path and git clone", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, git_clone = bare_repo)
-  expect_equal(normalizePath(ret), 
-  			   normalizePath(dir))
+  expect_equal(normalizePath(ret, winslash = "/"), 
+  			   normalizePath(dir, winslash = "/"))
   files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
-  expect_equal(sort(normalizePath(files)), 
-  			   sort(normalizePath(file.path(dir, expected_files))))
+  expect_equal(sort(normalizePath(files, winslash = "/")), 
+  			   sort(normalizePath(
+  			     file.path(dir, c(expected_files, paste0(base_dir, ".Rproj"))), 
+  			     winslash = "/")))
 })
 
 unlink(bare_repo_path, recursive = TRUE, force = TRUE)

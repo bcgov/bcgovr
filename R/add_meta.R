@@ -67,7 +67,7 @@ add_license <- function(path = ".", package_desc = FALSE) {
 #' @return NULL
 add_file_from_template <- function(path, fname, outfile = NULL) {
 
-  path <- normalizePath(path)
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
   if (!dir.exists(path)) dir.create(path)
   
@@ -82,7 +82,7 @@ add_file_from_template <- function(path, fname, outfile = NULL) {
   } else {
     message(paste("Adding file", outfile))
     
-    template_path <- system.file("templates", fname, package = "envreportbc", 
+    template_path <- system.file("templates", fname, package = "envreportutils", 
                                  mustWork = TRUE)
     file.copy(template_path, outfile)
   }
@@ -148,7 +148,7 @@ add_to_rbuildignore <- function(path, text) {
 #' @export
 add_rproj <- function(path = ".") {
   
-  path <- normalizePath(path)
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
   projfile <- file.path(path, paste0(basename(path), ".Rproj"))
   
@@ -158,8 +158,9 @@ add_rproj <- function(path = ".") {
   
   message("Adding Rstudio project file to ", basename(projfile))
   
-  template_path <- system.file("templates/template.Rproj", 
-                               package = "envreportbc")
+  template_path <- system.file("templates", "template.Rproj", 
+                               package = "envreportutils", 
+                               mustWork = TRUE)
   
   file.copy(template_path, projfile)
   
