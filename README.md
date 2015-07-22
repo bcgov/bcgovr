@@ -46,7 +46,7 @@ This package is under continual development.
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/<pkg-name>/issues/).
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/envreportutils/issues/).
 
 ### How to Contribute
 
