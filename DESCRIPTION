@@ -9,14 +9,16 @@ Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     email = "stephanie.hazlitt@gov.bc.ca"), 
     person("Province of British Columbia", role = "cph"))
 Description: Miscellaneous functions for common things we run into.
-Depends: 
-    R (>= 3.1.0), 
+Depends:
+    R (>= 3.1.0),
     extrafont (>= 0.17)
-Imports: 
+Imports:
     ggplot2 (>= 1.0.0),
     ggthemes (>= 2.1.2),
     grid (>= 3.1.2),
     git2r (>= 0.10.1)
 License: Apache License (== 2.0) | file LICENSE
 LazyData: true
-Suggests: testthat
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
