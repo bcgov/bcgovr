@@ -3,3 +3,5 @@
 ^\.Rproj\.user$
 Makefile
 ^CONTRIBUTING.md$
+^README\.Rmd$
+^README-.*\.png$
