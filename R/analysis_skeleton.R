@@ -14,7 +14,8 @@
 #' 
 #' Creates the folder structure for a new analysis.
 #'
-#' @importFrom git2r repository init 
+#' @importFrom git2r repository init
+#'  
 #' @param  path location to create new analysis. If \code{"."} (the default), 
 #'   the name of the working directory will be taken as the analysis name. If 
 #'   not \code{"."}, the last component of the given path will be used as the 
@@ -33,7 +34,8 @@
 #'   be \code{"."} if you are within an already created project directory, or 
 #'   the name of the folder you want to create.
 #' @export
-#'  @examples \donttest{
+#' 
+#' @examples \donttest{
 #'  analysis_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 

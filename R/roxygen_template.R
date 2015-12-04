@@ -19,6 +19,7 @@
 #' @param export Is the function exported (default \code{TRUE})? If \code{FALSE}
 #'   keyword 'internal' is added
 #' @export
+#' 
 #' @return nothing, but adds the roxygen template to the top of the file
 roxygen_template <- function(funfile, func, export = TRUE) {
   
@@ -55,18 +56,17 @@ roxygen_template <- function(funfile, func, export = TRUE) {
   
   # Put together the roxygen fields:
   params <- paste0("#' @param ", params, " <parameter description goes here>")
-  top <- "#' <brief description of function>
-          #'
-          #' <full description of function>
-          #' 
-          #' @import <list imported packages separated by spaces (or each on own @import line)>
-          #' @importFrom <list package and functions in the form: package function_a function_b>"
+  top <- paste("#' <brief description of function>", 
+          "#'", "#' <full description of function>","#'",
+          "#' @import <list imported packages separated by spaces (or each on own @import line)>", 
+          "#' @importFrom <list package and functions in the form: package function_a function_b>", 
+          sep = "\n")
   exp <- ifelse(export, "#' @export", "#' @keywords internal")
-  end <- "#' @seealso <may delete this line>
-          #' @return <describe what is returned by the function>
-          #' @examples \\dontrun{
-          #' 
-          #'}"
+  end <- paste("#' @seealso <may delete this line>",
+          "#' @return <describe what is returned by the function>",
+          "#' @examples \\dontrun{",
+          "#'",
+          "#'}", sep = "\n")
   roxy <- paste(c(top, params, exp, end), sep="")
   
   ## Strip off leading whitespace from roxy lines:
