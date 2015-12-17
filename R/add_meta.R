@@ -30,13 +30,21 @@ add_readme <- function(path = ".", package = FALSE, CoC = TRUE) {
 #'                If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
-#' @return NULL
+#' @return \code{TRUE} (invisibly)
 add_contributing <- function(path = ".", package = FALSE) {
   add_file_from_template(path, "CONTRIBUTING.md")
   if (package) add_to_rbuildignore(path = path, text = "CONTRIBUTING.md")
   invisible(TRUE)
 }
 
+#' Add a CODE_OF_CONDUCT.md file to the project directory
+#' 
+#' @param path Directory path (default \code{"."})
+#' @param package Is this a package or a regular project? (Default \code{FALSE}). 
+#'                If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore
+#' @export
+#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
+#' @return \code{TRUE} (invisibly)
 add_code_of_conduct <- function(path = ".", package = FALSE) {
   add_file_from_template(path, "CODE_OF_CONDUCT.md")
   if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
