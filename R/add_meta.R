@@ -17,7 +17,7 @@
 #' @export
 #' @seealso \code{\link{add_contributing}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL
-add_readme <- function(path = ".", package = FALSE) {
+add_readme <- function(path = ".", package = FALSE, CoC = TRUE) {
   if (package) fname <- "pkg-README.md" else fname <- "README.md"
   add_file_from_template(path, fname, outfile = "README.md")
   invisible(TRUE)
@@ -34,6 +34,16 @@ add_readme <- function(path = ".", package = FALSE) {
 add_contributing <- function(path = ".", package = FALSE) {
   add_file_from_template(path, "CONTRIBUTING.md")
   if (package) add_to_rbuildignore(path = path, text = "CONTRIBUTING.md")
+  invisible(TRUE)
+}
+
+add_code_of_conduct <- function(path = ".", package = FALSE) {
+  add_file_from_template(path, "CODE_OF_CONDUCT.md")
+  if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
+  message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
+  message("Please note that this project is released with a ", 
+          "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
+          "By participating in this project you agree to abide by its terms.")
   invisible(TRUE)
 }
 

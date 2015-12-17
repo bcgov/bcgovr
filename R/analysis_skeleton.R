@@ -24,6 +24,7 @@
 #' @param git_clone the url of a git repo to clone.
 #' @param rstudio Create an Rstudio project file?
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
+#' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
 #'
@@ -39,7 +40,7 @@
 #'  analysis_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, apache = TRUE, 
+                              rstudio = TRUE, apache = TRUE, CoC = TRUE,
                               copyright_holder = "Province of British Columbia") {
 
 #   now <- Sys.time()
@@ -70,6 +71,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   lapply(Rfiles, file.create)
   lapply(dirs, dir.create)
   add_contributing(npath)
+  if (CoC) add_code_of_conduct(npath, package = FALSE)
   add_readme(npath, package = FALSE)
   
   cat('source("01_load.R")

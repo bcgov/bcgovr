@@ -4,7 +4,7 @@
 \alias{add_readme}
 \title{Add a README.md file to the project directory}
 \usage{
-add_readme(path = ".", package = FALSE)
+add_readme(path = ".", package = FALSE, CoC = TRUE)
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}

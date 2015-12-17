@@ -5,7 +5,7 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 analysis_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, apache = TRUE,
+  rstudio = TRUE, apache = TRUE, CoC = TRUE,
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
@@ -21,6 +21,8 @@ analysis name.}
 \item{rstudio}{Create an Rstudio project file?}
 
 \item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
+
+\item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
 
 \item{copyright_holder}{the name of the copyright holder (default 
 "Province of British Columbia). Only necessary if adding a license}
