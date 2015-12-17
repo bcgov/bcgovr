@@ -14,6 +14,7 @@
 #' 
 #' @param path Directory path (default \code{"."})
 #' @param package Is this a package or a regular project? (Default \code{FALSE})
+#' @param CoC Should a Code of Conduct be added to the repository?
 #' @export
 #' @seealso \code{\link{add_contributing}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL

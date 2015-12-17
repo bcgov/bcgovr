@@ -10,6 +10,8 @@ add_readme(path = ".", package = FALSE, CoC = TRUE)
 \item{path}{Directory path (default \code{"."})}
 
 \item{package}{Is this a package or a regular project? (Default \code{FALSE})}
+
+\item{CoC}{Should a Code of Conduct be added to the repository?}
 }
 \description{
 Add a README.md file to the project directory
