@@ -14,7 +14,7 @@
 #'
 #'ggplot objects can be passed in ..., or to plotlist (as a list of ggplot 
 #'objects)
-#'@import grid ggplot2
+#'@import ggplot2
 #'@export
 #'
 #'@param ... Two or more ggplot2 objects
@@ -104,24 +104,25 @@ multiplot <- function(..., plotlist=NULL, cols=1, layout=NULL, widths=NULL, heig
     
   } else {
     # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout), 
-                                               widths=colwidths, 
-                                               heights=rowheights)))
+    grid::grid.newpage()
+    grid::pushViewport(grid::viewport(layout = grid::grid.layout(nrow(layout), 
+                                                                 ncol(layout), 
+                                                                 widths=colwidths, 
+                                                                 heights=rowheights)))
     
     # Make each plot, in the correct location
     for (i in 1:numPlots) {
       # Get the i,j matrix positions of the regions that contain this subplot
       matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
       
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+      print(plots[[i]], vp = grid::viewport(layout.pos.row = matchidx$row,
                                       layout.pos.col = matchidx$col))
     }
     
     if (!is.null(title)) {
-      grid.text(title, vp = viewport(layout.pos.row = 1
+      grid::grid.text(title, vp = grid::viewport(layout.pos.row = 1
                                      , layout.pos.col = 1:ncol(layout)), 
-                gp = gpar(fontfamily = titlefont, fontface = titleface, 
+                gp = grid::gpar(fontfamily = titlefont, fontface = titleface, 
                           fontsize = titlesize))
     }
     
