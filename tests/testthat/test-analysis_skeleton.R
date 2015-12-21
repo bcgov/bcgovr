@@ -2,8 +2,8 @@ context("analysis_skeleton")
 options(warn = 2)
 expected_files <- c(".git", "data", "out", "tmp", 
                     ".gitignore", "01_load.R", "02_clean.R", "03_analysis.R", 
-                    "04_output.R", "CONTRIBUTING.md", "internal.R", 
-                    "LICENSE", "README.md", "run_all.R")
+                    "04_output.R", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", 
+                    "internal.R", "LICENSE", "README.md", "run_all.R")
 
 name_incrementer <- function(name) {
   i <- 0
