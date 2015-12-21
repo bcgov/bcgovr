@@ -4,14 +4,12 @@
 \alias{theme_soe_facet}
 \title{Soe plot theme for facetted graphs}
 \usage{
-theme_soe_facet(base_size = 12, base_family = "Verdana", use_sizes = TRUE)
+theme_soe_facet(base_size = 12, base_family = "Verdana")
 }
 \arguments{
 \item{base_size}{base font size (default = 12)}
 
 \item{base_family}{base font family (default = Verdana)}
-
-\item{use_sizes}{use relative font sizes (?)}
 }
 \value{
 a ggplot2 theme
