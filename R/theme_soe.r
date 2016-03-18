@@ -54,6 +54,8 @@ theme_soe_foundation <- function(base_size, base_family) {
       rect = element_rect(fill = "white", colour = "black",
                           size = 0.5, linetype = 1),
       axis.line = element_line(colour = "black"),
+      axis.line.x = element_line(colour = "black"),
+      axis.line.y = element_line(colour = "black"),
       axis.text = element_text(colour = 'black'),
       axis.text.y = element_text(hjust = 1),
       axis.ticks = element_blank(),
