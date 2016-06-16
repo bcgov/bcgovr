@@ -18,5 +18,5 @@ test_that("bgc_colours works", {
                                 PP   = "#DE7D00",
                                 CDF  = "#FFFF00"))
   expect_equal(bgc_colours(c("BAFA", "CWH")), c(BAFA = "#E5D8B1", CWH = "#208500"))
-  expect_error(bgc_colours(c("BAFA", "foo")), "Error : Unknown Biogeoclimatic Zone")
+  expect_error(bgc_colours(c("BAFA", "foo")), "Unknown Biogeoclimatic Zone")
 })
