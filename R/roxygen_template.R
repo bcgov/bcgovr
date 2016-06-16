@@ -18,6 +18,7 @@
 #' @param func the name of the function you want to document
 #' @param export Is the function exported (default \code{TRUE})? If \code{FALSE}
 #'   keyword 'internal' is added
+#' @importFrom utils file.edit
 #' @export
 #' 
 #' @return nothing, but adds the roxygen template to the top of the file
