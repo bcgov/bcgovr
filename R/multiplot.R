@@ -15,6 +15,7 @@
 #'ggplot objects can be passed in ..., or to plotlist (as a list of ggplot 
 #'objects)
 #'@import ggplot2
+#'@import grid
 #'@export
 #'
 #'@param ... Two or more ggplot2 objects
