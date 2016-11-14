@@ -36,9 +36,9 @@ theme_soe <- function(base_size=12, base_family="Verdana") {
 
 theme_soe_facet <- function(base_size = 12, base_family = "Verdana") {
   
-  theme_soe_foundation(base_size = base_size, base_family = base_family) %+replace%
+  theme_soe_foundation(base_size = base_size, base_family = base_family) + 
     theme(
-      panel.margin = unit(.6,"lines"),
+      panel.spacing = unit(.6,"lines"),
       panel.border = element_rect(colour = "black", fill = NA),
       strip.background = element_rect(colour = "black", fill = "grey85"))
   
@@ -67,9 +67,8 @@ theme_soe_foundation <- function(base_size, base_family) {
       panel.grid.major = element_line(colour = "grey80",size = 0.5),
       axis.title.y = element_text(vjust = 1, angle = 90),
       axis.title.x = element_text(vjust = 0),
-      panel.margin = unit(0.25, "lines"),
+      panel.spacing = unit(0.25, "lines"),
       plot.background = element_blank(),
-      panel.border = element_blank(),
       legend.key = element_blank(), 
       complete = TRUE)
   
