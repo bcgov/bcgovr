@@ -1,8 +1,8 @@
 Package: envreportutils
 Type: Package
 Title: Utilities for common operations, mainly plotting
-Version: 0.3.1
-Date: 2014-11-26
+Version: 0.4
+Date: 2017-01-19
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
