@@ -17,4 +17,3 @@ html
 \description{
 Add html for BC DevExchange project state badge
 }
-

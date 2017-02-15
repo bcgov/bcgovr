@@ -20,4 +20,3 @@ Add the boilerplate Apache header to the top of a source code file
 \seealso{
 \code{\link{add_license}}
 }
-

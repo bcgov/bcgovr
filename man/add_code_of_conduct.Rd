@@ -21,4 +21,3 @@ Add a CODE_OF_CONDUCT.md file to the project directory
 \seealso{
 \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 }
-

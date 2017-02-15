@@ -22,4 +22,3 @@ Should really only be called by other functions
 \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license}}
 }
 \keyword{internal}
-

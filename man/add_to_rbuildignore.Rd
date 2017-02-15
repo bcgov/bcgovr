@@ -18,4 +18,3 @@ TRUE
 Add text to Rbuildignore
 }
 \keyword{internal}
-

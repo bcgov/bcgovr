@@ -38,4 +38,3 @@ df <- data.frame(Col1 = rep(letters[1:3], 3),
 order_df(df, target_col = "Col1", value_col = "Col2", fun = mean)
 order_df(df, target_col = "Col1", factor_order = c("b", "a", "c"))
 }
-

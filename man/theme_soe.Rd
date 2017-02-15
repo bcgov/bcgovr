@@ -19,4 +19,3 @@ Default theme for EnvReportBC graphs and plots
 }
 \keyword{plotting}
 \keyword{theme}
-

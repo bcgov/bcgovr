@@ -17,4 +17,3 @@ a repository object
 \description{
 Clones a remote repository
 }
-

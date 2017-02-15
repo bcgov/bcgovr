@@ -21,4 +21,3 @@ nothing, but adds the roxygen template to the top of the file
 Inspired by Karthik Ram's RTools Sublime Text 2 plugin: 
 https://github.com/karthik/Rtools
 }
-

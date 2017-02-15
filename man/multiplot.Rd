@@ -69,4 +69,3 @@ multiplot(plotlist = myplots, layout =matrix(c(1,2,3,3), nrow=2),
           titlefont = "Wingdings", titleface = 4, titlesize = 20)
 }
 }
-

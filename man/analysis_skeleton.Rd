@@ -43,4 +43,3 @@ If you are cloning a repository (\code{git_clone = "path_to_repo"}),
  analysis_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 }
 }
-

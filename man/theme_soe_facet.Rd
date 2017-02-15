@@ -19,4 +19,3 @@ Soe plot theme for facetted graphs
 }
 \keyword{plotting}
 \keyword{theme}
-

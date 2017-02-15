@@ -20,4 +20,3 @@ Get colour codes for B.C. Biogeoclimatic (BGC) Zones
 bgc_colours()
 bgc_colours(c("BAFA", "CWH"))
 }
-

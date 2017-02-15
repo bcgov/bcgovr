@@ -36,4 +36,3 @@ get_data_license("ogl-canada")
 
 get_data_license("statscan", "html_link")
 }
-
