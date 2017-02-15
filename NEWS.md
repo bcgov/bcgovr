@@ -1,3 +1,7 @@
+# envreportutils 0.4.1
+
+* Updated `devex_badge()` to refer to new location of BCDevExchange project state badges. 
+
 # envreportutils 0.4
 
 * Added three RStudio Addins:
