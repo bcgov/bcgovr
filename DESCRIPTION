@@ -1,24 +1,22 @@
 Package: envreportutils
 Type: Package
-Title: Utilities for common operations, mainly plotting
+Title: BC Government R user start-up package
 Version: 0.4.1
 Date: 2017-01-19
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
     email = "stephanie.hazlitt@gov.bc.ca"), 
+    person("Sam", "Albers", role = "aut", 
+    email = "sam.albers@gov.bc.ca"),
     person("Province of British Columbia", role = "cph"))
-Description: Miscellaneous functions for common things we run into.
+Description: Create directories that contain all the files needed to meet BC Government GitHub requirements and sensible R analysis or package templates. 
 Depends:
-    R (>= 3.3.0),
-    extrafont (>= 0.17)
+    R (>= 3.4.0),
 Imports:
-    ggplot2 (>= 2.2.0),
-    ggthemes (>= 3.2.0),
     git2r (>= 0.15.0),
-    dplyr (>= 0.5.0),
-    lazyeval (>= 0.2.0),
-    rstudioapi (>= 0.6.0)
+    rstudioapi (>= 0.6.0),
+    devtools (>= 1.13.1)
 License: Apache License (== 2.0) | file LICENSE
 LazyData: true
 Suggests:
