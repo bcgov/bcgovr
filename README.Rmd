@@ -15,34 +15,28 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, echo=FALSE, results='asis'}
-envreportutils::devex_badge("delivery")
+envreportutils::devex_badge("exploration")
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/bcgov/envreportutils.svg?branch=master)](https://travis-ci.org/bcgov/envreportutils)
 
 ---
 
-# envreportutils
-
-A few functions that the Environmental Reporting BC team uses to be more
-efficient in the code we write. Most of the functions relate to plotting with 
-the [ggplot2](http://ggplot2.org/) plotting package by Hadley Wickham.
+# grover
 
 ### Features
 
-Currently there are five main functions:
+Currently there are two main functions:
+- `analysis_skeleton()`
+- `package_skeleton()`
 
-#### Plotting
-
-- `multiplot()` - combine multiple `ggplot2` plots into one
-- `theme_soe()` - our default theme for the graphs we make
-- `theme_soe_facet()` - default theme for plots using facetting
+### Usage
+Create a new directory named after the analysis project you using (if using `analysis_skeleton()`) or the name of the package you are trying to create (if using `package_skeleton()`)
 
 #### Miscellaneous
 
 - `roxygen_template()` - Add boilerplate documentation to a function using
   [Roxygen2](https://github.com/klutometis/roxygen) syntax.
-- `analysis_skeleton()` - Set up the folder structure for a new analysis
 
 ### Installation
 
@@ -62,7 +56,7 @@ install_github("bcgov/envreportutils")
 
 ### Project Status
 
-This package is under continual development.
+This package is under active development. Features on the `master` branch are stable while the `grover_exp` branch may not be ready for wide use. 
 
 ### Getting Help or Reporting an Issue
 
@@ -77,7 +71,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-    Copyright 2015 Province of British Columbia
+    Copyright 2017 Province of British Columbia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
