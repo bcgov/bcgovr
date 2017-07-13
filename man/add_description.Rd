@@ -8,9 +8,6 @@ add_description(path = ".")
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}
-
-\item{package}{Is this a package or a regular project? (Default \code{FALSE}). 
-If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore}
 }
 \value{
 \code{TRUE} (invisibly)

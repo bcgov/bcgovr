@@ -22,10 +22,10 @@ analysis name.}
 
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
 
+\item{description_template}{Should the BC Gov DESCRIPTION template be used?}
+
 \item{copyright_holder}{the name of the copyright holder (default 
 "Province of British Columbia). Only necessary if adding a license}
-
-\item{descrption_template}{Should the BC Gov DESCRIPTION template be used?}
 }
 \description{
 Creates the framework of a new package development folder

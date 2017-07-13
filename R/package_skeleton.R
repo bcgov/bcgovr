@@ -23,7 +23,7 @@
 #' @param git_clone the url of a git repo to clone.
 #' @param rstudio Create an Rstudio project file?
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
-#' @param descrption_template Should the BC Gov DESCRIPTION template be used?
+#' @param description_template Should the BC Gov DESCRIPTION template be used?
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
 
