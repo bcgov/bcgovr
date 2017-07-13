@@ -180,3 +180,17 @@ add_to_rbuildignore <- function(path, text) {
   }
   invisible(TRUE)
 }
+
+
+#' Add a BC GOV standard DESCRIPTION file to the project directory
+#' 
+#' @param path Directory path (default \code{"."})
+#' @param package Is this a package or a regular project? (Default \code{FALSE}). 
+#'                If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore
+#' @export
+#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
+#' @return \code{TRUE} (invisibly)
+add_description <- function(path = ".") {
+  add_file_from_template(path, "DESCRIPTION")
+  invisible(TRUE)
+}

@@ -5,7 +5,7 @@
 \title{Creates the framework of a new package development folder}
 \usage{
 package_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, CoC = TRUE,
+  rstudio = TRUE, CoC = TRUE, description_template = TRUE,
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
@@ -24,6 +24,8 @@ analysis name.}
 
 \item{copyright_holder}{the name of the copyright holder (default 
 "Province of British Columbia). Only necessary if adding a license}
+
+\item{descrption_template}{Should the BC Gov DESCRIPTION template be used?}
 }
 \description{
 Creates the framework of a new package development folder

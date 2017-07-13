@@ -23,8 +23,10 @@
 #' @param git_clone the url of a git repo to clone.
 #' @param rstudio Create an Rstudio project file?
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
+#' @param descrption_template Should the BC Gov DESCRIPTION template be used?
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
+
 #'
 #' @details If you are cloning a repository (\code{git_clone = "path_to_repo"}),
 #'   you should run this function from the root of your dev folder and leave 
@@ -38,10 +40,10 @@
 #'  package_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, CoC = TRUE,
+                              rstudio = TRUE, CoC = TRUE, description_template = TRUE,
                               copyright_holder = "Province of British Columbia") {
   
-    if (path != ".") dir.create(path, recursive = TRUE)
+  if (path != ".") dir.create(path, recursive = TRUE)
   
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
@@ -50,9 +52,15 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     git_init = FALSE
   }
   
+  if (description_template ) {
+    add_description()
+  }
+  
+  ## Add in package setup files
+  devtools::setup(rstudio = FALSE) 
 
   ## Add the necessary R files and directories
-  message("Creating new package in ", npath)
+  #message("Creating new package in ", npath)
   add_contributing(npath)
   if (CoC) add_code_of_conduct(npath, package = FALSE)
   add_readme(npath, package = FALSE)
@@ -63,8 +71,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   #         copyright_holder = copyright_holder)
   #}
   
-  ## Add in package setup files
-  devtools::setup(rstudio = FALSE)
+
   
   if (rstudio) {
     if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {

@@ -10,7 +10,10 @@ grover
 
 ### Features
 
-Currently there are two main functions: - `analysis_skeleton()` - `package_skeleton()`
+Currently there are two main functions:
+
+-   `analysis_skeleton()`
+-   `package_skeleton()`
 
 ### Usage
 
