@@ -1,7 +1,7 @@
-Package: envreportutils
+Package: bcgovr
 Type: Package
 Title: BC Government R user start-up package
-Version: 0.4.1
+Version: 0.1.0
 Date: 2017-01-19
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 

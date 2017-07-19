@@ -1,5 +1,5 @@
 library(testthat)
-library(envreportutils)
+library(bcgovr)
 library(git2r)
 
 test_check("envreportutils")
