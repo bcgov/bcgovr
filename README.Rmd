@@ -18,11 +18,14 @@ knitr::opts_chunk$set(
 envreportutils::devex_badge("exploration")
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/envreportutils.svg?branch=master)](https://travis-ci.org/bcgov/envreportutils)
+[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 
 ---
 
-# grover
+# bcgovr
+
+An [R](http://r-project.org) package to support R-based data analysis and package development in [bcgov](https://github.com/bcgov/BC-Policy-Framework-For-GitHub)
+
 
 ### Features
 
@@ -31,13 +34,10 @@ Currently there are two main functions:
 - `analysis_skeleton()`
 - `package_skeleton()`
 
-### Usage
-Create a new directory named after the analysis project you using (if using `analysis_skeleton()`) or the name of the package you are trying to create (if using `package_skeleton()`)
+And one R package development function:
 
-#### Miscellaneous
+- `roxygen_template()`
 
-- `roxygen_template()` - Add boilerplate documentation to a function using
-  [Roxygen2](https://github.com/klutometis/roxygen) syntax.
 
 ### Installation
 
@@ -48,20 +48,34 @@ need the [devtools](https://github.com/hadley/devtools/) package:
 install.packages("devtools")
 ```
 
-Next, install the `envreportutils` package using `devtools::install_github()`:
+Next, install the `bcgovr` package using `devtools::install_github()`:
 
 ```{r, eval=FALSE}
 library("devtools")
-install_github("bcgov/envreportutils")
+install_github("bcgov/bcgovr")
 ```
+
+
+### Usage
+Auto-populate a new data analysis or R package project directory with `analysis_skeleton` or `package_skeleton`:
+
+```{r, eval = FALSE}
+library(bcgovr)
+analysis_skeleton(path = ".")
+```
+
+Add boilerplate documentation to a function using [Roxygen2](https://github.com/klutometis/roxygen) syntax with `roxygen_template()`.
+
 
 ### Project Status
 
-This package is under active development. Features on the `master` branch are stable while the `grover_exp` branch may not be ready for wide use. 
+This package is under active development.
+
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/envreportutils/issues/).
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/bcgovr/issues/).
+
 
 ### How to Contribute
 
@@ -69,6 +83,7 @@ If you would like to contribute to the package, please see our
 [CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 
 ### License
 
