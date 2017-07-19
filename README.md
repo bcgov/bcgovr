@@ -1,12 +1,14 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <a rel="Exploration" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/exploration.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a>
 
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/envreportutils.svg?branch=master)](https://travis-ci.org/bcgov/envreportutils)
+[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 
 ------------------------------------------------------------------------
 
-grover
+bcgovr
 ======
+
+An [R](http://r-project.org) package to support R-based data analysis and package development in [bcgov](https://github.com/bcgov/BC-Policy-Framework-For-GitHub)
 
 ### Features
 
@@ -15,13 +17,9 @@ Currently there are two main functions:
 -   `analysis_skeleton()`
 -   `package_skeleton()`
 
-### Usage
+And one R package development function:
 
-Create a new directory named after the analysis project you using (if using `analysis_skeleton()`) or the name of the package you are trying to create (if using `package_skeleton()`)
-
-#### Miscellaneous
-
--   `roxygen_template()` - Add boilerplate documentation to a function using [Roxygen2](https://github.com/klutometis/roxygen) syntax.
+-   `roxygen_template()`
 
 ### Installation
 
@@ -31,20 +29,31 @@ You can install the package directly from this repository. To do so, you will ne
 install.packages("devtools")
 ```
 
-Next, install the `envreportutils` package using `devtools::install_github()`:
+Next, install the `bcgovr` package using `devtools::install_github()`:
 
 ``` r
 library("devtools")
-install_github("bcgov/envreportutils")
+install_github("bcgov/bcgovr")
 ```
+
+### Usage
+
+Auto-populate a new data analysis or R package project directory with `analysis_skeleton` or `package_skeleton`:
+
+``` r
+library(bcgovr)
+analysis_skeleton(path = ".")
+```
+
+Add boilerplate documentation to a function using [Roxygen2](https://github.com/klutometis/roxygen) syntax with `roxygen_template()`.
 
 ### Project Status
 
-This package is under active development. Features on the `master` branch are stable while the `grover_exp` branch may not be ready for wide use.
+This package is under active development.
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/envreportutils/issues/).
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/bcgovr/issues/).
 
 ### How to Contribute
 
