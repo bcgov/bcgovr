@@ -34,7 +34,7 @@ install_github("bcgov/bcgovr")
 
 ### Usage
 
-Auto-populate a new data analysis or R package project directory with `analysis_skeleton` or `package_skeleton`:
+Auto-populate a new R-based data analysis or package project directory with `analysis_skeleton` or `package_skeleton`:
 
 ``` r
 library(bcgovr)
