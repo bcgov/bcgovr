@@ -8,7 +8,7 @@
 bcgovr
 ======
 
-An [R](http://r-project.org) package to support R-based data analysis and package development in [bcgov](https://github.com/bcgov/BC-Policy-Framework-For-GitHub)
+An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 ### Features
 
@@ -16,10 +16,6 @@ Currently there are two main functions:
 
 -   `analysis_skeleton()`
 -   `package_skeleton()`
-
-And one R package development function:
-
--   `roxygen_template()`
 
 ### Installation
 
@@ -44,8 +40,6 @@ Auto-populate a new data analysis or R package project directory with `analysis_
 library(bcgovr)
 analysis_skeleton(path = ".")
 ```
-
-Add boilerplate documentation to a function using [Roxygen2](https://github.com/klutometis/roxygen) syntax with `roxygen_template()`.
 
 ### Project Status
 
