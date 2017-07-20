@@ -49,7 +49,7 @@ analysis_skeleton(path = ".") # path = location to create new analysis. If path 
 
 Resulting in a [bcgov](https://github.com/bcgov) 'ready-to-go' directory for a new data analysis project:
 
-![](img/analysis_skeleton_output.png)
+![](img/analysis_skeleton_output.PNG)
 
 Using RStudio and need to add that Apache 2.0 license header in new .R file? Just click twice:
 
