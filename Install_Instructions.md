@@ -57,7 +57,7 @@
 
 ## Other tips:
 
-* ** Work locally:** It is a good idea to try to do your R work on your hard (C:/) drive whenever possible as it is usually much faster than working over the network, especially reading and writing large data files or if you use [Git](https://git-scm.com/) for version control. However, note that **C: drives are not backed up**, so make sure you have a strategy in place for making sure any work you do on your C: drive is backed up.
+* **Work locally:** It is a good idea to try to do your R work on your hard (C:/) drive whenever possible as it is usually much faster than working over the network, especially reading and writing large data files or if you use [Git](https://git-scm.com/) for version control. However, note that **C: drives are not backed up**, so make sure you have a strategy in place for making sure any work you do on your C: drive is backed up.
 
 * **Keep your packages up date:** Check for package updates every day by clicking Tools -> Check for Package Updates in RStudio. You'll get the latest bug fixes and features in your packages and it will make sharing code with other people easier if we all have up-to-date packages.
 
