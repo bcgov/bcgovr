@@ -7,8 +7,3 @@ Name: Insert Apache License Header
 Description: Inserts biolerplate Apache license header in the top of the current file.
 Binding: license_header_addin
 Interactive: false
-
-Name: Insert EnvReportBC footer
-Description: Inserts EnvReportBC footer for README
-Binding: envreportbc_footer_addin
-Interactive: false
