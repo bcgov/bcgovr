@@ -44,7 +44,7 @@
     ```
 
     If you get no errors, and a message saying:
-    **"Installing package into 'C:/Users/[your_username]/R/win-library/3.3/'"** 
+    **"Installing package into 'C:/Users/[your_username]/R/win-library/[R-version]/'"** 
     (plus more) you should be good to go!
    
 7. If you are updating R from a previous version, you will need to update your packages as well. Run:
