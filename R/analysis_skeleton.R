@@ -80,14 +80,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 source("02_clean.R")
 source("03_analysis.R")
 source("04_output.R")
-
-## Make print version
-mon_year <- format(Sys.Date(), "%B%Y")
-outfile <- paste0("envreportbc_[indicator_name]_", mon_year, ".pdf")
-rmarkdown::render("print_ver/[indicator_name].Rmd", output_file = outfile)
-extrafont::embed_fonts(file.path("print_ver/", outfile))
-## You will likely want to "optimize pdf" in Acrobat to make the print version smaller.\n', 
-      file = file.path(npath,"run_all.R"))
+', file = file.path(npath,"run_all.R"))
   
   if (apache) {
     add_license(npath)
@@ -95,14 +88,6 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
            copyright_holder = copyright_holder)
   }
   
-  if (rstudio) {
-    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
-      add_rproj(npath, paste0(basename(npath), ".Rproj"))
-    } else {
-      warning("Rproj file already exists, so not adding a new one")
-    }
-  }
-
   if (git_init) {
     if (file.exists(file.path(npath,".git"))) {
       warning("This directory is already a git repository. Not creating a new one")
@@ -115,8 +100,14 @@ extrafont::embed_fonts(file.path("print_ver/", outfile))
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  setwd(npath)
-  message("Setting working directory to ", npath)
+  if (rstudio) {
+    # rstudioapi::initializeProject(npath)
+    rstudioapi::openProject(npath)
+    message("Initializing and opening new Rstudio project in ", npath)
+  } else {
+    setwd(npath)
+    message("Setting working directory to ", npath)
+  }
   invisible(npath)
 }
 
