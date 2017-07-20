@@ -16,7 +16,7 @@ devex_badge_addin <- function() {
   txt <- "
 ```{r echo=FALSE, results='asis'}
 ## Insert 'inspiration', 'exploration', or 'delivery'
-envreportutils::devex_badge('')
+bcgovr::devex_badge('')
 ```
 "
   rstudioapi::insertText(text = txt)

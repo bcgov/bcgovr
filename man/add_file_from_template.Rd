@@ -4,7 +4,7 @@
 \alias{add_file_from_template}
 \title{Add a file to a directory from a template in inst/templates}
 \usage{
-add_file_from_template(path, fname, outfile = NULL, pkg = "envreportutils")
+add_file_from_template(path, fname, outfile = NULL, pkg = "bcgovr")
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}

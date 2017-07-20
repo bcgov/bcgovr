@@ -97,7 +97,7 @@ add_rproj <- function(path = ".", outfile) {
 #' @keywords internal
 #' @seealso \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license}}
 #' @return NULL
-add_file_from_template <- function(path, fname, outfile = NULL, pkg = "envreportutils") {
+add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") {
 
   if (!dir.exists(path)) dir.create(path)
   
