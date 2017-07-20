@@ -34,8 +34,9 @@ Currently there are two main functions for auto-populating a new R-based data an
 - `package_skeleton()` # starting a new R package
 
 The package also installs two [RStudio Addins](https://rstudio.github.io/rstudioaddins/) for adding:
-(1) the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
-(2) a [BCDevExchange project state badge](https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md) to a README file.
+
+1. the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
+2. a [BCDevExchange project state badge](https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md) to a README file.
 
 
 ### Installation
