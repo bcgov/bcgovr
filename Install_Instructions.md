@@ -31,10 +31,10 @@
     .libPaths()
     ```
     
-    The output should look like this:
+    The output should look something like this:
     
     ```
-    [1] "C:/Users/[your_username]/R/win-library/3.3/"     "C:/Program Files/R/[R-version]/library"
+    [1] "C:/Users/[your_username]/R/win-library/[R-version]/"     "C:/Program Files/R/[R-version]/library"
     ```
 
 6. It's a good idea to test installing some packages. Try:
@@ -43,11 +43,23 @@
     install.packages(c("dplyr", "ggplot2"))
     ```
 
-   If you get no errors, and a message saying:
-   **"Installing package into 'C:/Users/[your_username]/R/win-library/3.3/'"** 
-   (plus more) you should be good to go!
+    If you get no errors, and a message saying:
+    **"Installing package into 'C:/Users/[your_username]/R/win-library/3.3/'"** 
+    (plus more) you should be good to go!
+   
+7. If you are updating R from a previous version, you will need to update your packages as well. Run:
+
+    ```r
+    update.packages(checkBuilt = TRUE)
+    ```
+    
+    This will ensure your packages were built for the version of R that you are runnning.
 
 ## Other tips:
 
-It is a good idea to try to do your R work on your hard (C:/) drive whenever possible as it is usually much faster than working over the network, especially reading and writing large data files or if you use [git](https://git-scm.com/) for version control. However, note that **C: drives are not backed up**, so make sure you have a strategy in place for making sure any work you do on your C: drive is backed up.
+* ** Work locally:** It is a good idea to try to do your R work on your hard (C:/) drive whenever possible as it is usually much faster than working over the network, especially reading and writing large data files or if you use [Git](https://git-scm.com/) for version control. However, note that **C: drives are not backed up**, so make sure you have a strategy in place for making sure any work you do on your C: drive is backed up.
+
+* **Keep your packages up date:** Check for package updates every day by clicking Tools -> Check for Package Updates in RStudio. You'll get the latest bug fixes and features in your packages and it will make sharing code with other people easier if we all have up-to-date packages.
+
+* **Use Git and GitHub for version control:** See the [BC Policy Framework](https://github.com/bcgov/BC-Policy-Framework-For-GitHub) for how to get started using GitHub in government. [Happy Git with R](http://happygitwithr.com/) is an excellent resource for best practices using Git and GitHub with R and Rstudio.
 
