@@ -4,13 +4,16 @@
 \alias{add_code_of_conduct}
 \title{Add a CODE_OF_CONDUCT.md file to the project directory}
 \usage{
-add_code_of_conduct(path = ".", package = FALSE)
+add_code_of_conduct(path = ".", package = FALSE,
+  coc_email = getOption("bcgovr.coc_email"))
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}
 
 \item{package}{Is this a package or a regular project? (Default \code{FALSE}). 
 If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.}
 }
 \value{
 \code{TRUE} (invisibly)
