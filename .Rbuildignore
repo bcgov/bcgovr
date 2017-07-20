@@ -4,5 +4,6 @@
 Makefile
 ^CONTRIBUTING.md$
 ^README\.Rmd$
-^README-.*\.png$
+^Install_Instructions\.md$
 CODE_OF_CONDUCT.md
+^img/

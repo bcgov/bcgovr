@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "img/README-"
 )
 ```
 
@@ -26,14 +26,12 @@ envreportutils::devex_badge("exploration")
 
 An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
-
 ### Features
 
 Currently there are two main functions:
 
 - `analysis_skeleton()`
 - `package_skeleton()`
-
 
 
 ### Installation
