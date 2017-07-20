@@ -8,7 +8,7 @@
 bcgovr
 ======
 
-An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov open source guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 ### Features
 
@@ -39,7 +39,7 @@ install_github("bcgov/bcgovr")
 
 ### Usage
 
-Auto-populate a new R-based data analysis or package project directory, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton` or `package_skeleton`:
+Auto-populate a new R-based open source data analysis or package project directory, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton` or `package_skeleton`:
 
 ``` r
 library(bcgovr)
