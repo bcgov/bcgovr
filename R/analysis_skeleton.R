@@ -78,14 +78,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 source("02_clean.R")
 source("03_analysis.R")
 source("04_output.R")
-
-## Make print version
-mon_year <- format(Sys.Date(), "%B%Y")
-outfile <- paste0("envreportbc_[indicator_name]_", mon_year, ".pdf")
-rmarkdown::render("print_ver/[indicator_name].Rmd", output_file = outfile)
-extrafont::embed_fonts(file.path("print_ver/", outfile))
-## You will likely want to "optimize pdf" in Acrobat to make the print version smaller.\n', 
-      file = file.path(npath,"run_all.R"))
+', file = file.path(npath,"run_all.R"))
   
   if (apache) {
     add_license(npath)
