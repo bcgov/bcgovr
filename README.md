@@ -12,10 +12,12 @@ An [R](http://r-project.org) package to support development of R-based projects 
 
 ### Features
 
-Currently there are two main functions:
+Currently there are two main functions for auto-populating a new R-based data analysis or package project directory:
 
--   `analysis_skeleton()`
--   `package_skeleton()`
+-   `analysis_skeleton()` \# starting a new data analysis project
+-   `package_skeleton()` \# starting a new R package
+
+The package also installs two [RStudio Addins](https://rstudio.github.io/rstudioaddins/) for adding: (1) the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file. (2) a [BCDevExchange project state badge](https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md) to a README file.
 
 ### Installation
 
@@ -23,23 +25,32 @@ You can install the package directly from this repository. To do so, you will ne
 
 ``` r
 install.packages("devtools")
+library("devtools")
 ```
 
 Next, install the `bcgovr` package using `devtools::install_github()`:
 
 ``` r
-library("devtools")
 install_github("bcgov/bcgovr")
 ```
 
 ### Usage
 
-Auto-populate a new R-based data analysis or package project directory with `analysis_skeleton` or `package_skeleton`:
+Auto-populate a new R-based data analysis or package project directory, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton` or `package_skeleton`:
 
 ``` r
 library(bcgovr)
-analysis_skeleton(path = ".")
+analysis_skeleton(path = ".") # path = location to create new analysis. If path = "." the name of 
+                              # the working directory will be taken as the analysis name. 
 ```
+
+Resulting in a [bcgov](https://github.com/bcgov) 'ready-to-go' directory for a new data analysis project:
+
+![](img/analysis_skeleton_output.png)
+
+Using RStudio and need to add that Apache 2.0 license header in new .R file? Just click twice:
+
+![](img/bcgovr_addin_example.gif)
 
 ### Project Status
 
