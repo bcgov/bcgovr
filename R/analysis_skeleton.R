@@ -102,7 +102,7 @@ source("04_output.R")
   }
   if (rstudio) {
     # rstudioapi::initializeProject(npath)
-    rstudioapi::openProject(npath)
+    rstudioapi::openProject(npath, newSession = TRUE)
     message("Initializing and opening new Rstudio project in ", npath)
   } else {
     setwd(npath)
