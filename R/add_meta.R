@@ -43,12 +43,22 @@ add_contributing <- function(path = ".", package = FALSE) {
 #' @param path Directory path (default \code{"."})
 #' @param package Is this a package or a regular project? (Default \code{FALSE}). 
 #'                If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore
+#' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return \code{TRUE} (invisibly)
-add_code_of_conduct <- function(path = ".", package = FALSE) {
+add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc_email")) {
   add_file_from_template(path, "CODE_OF_CONDUCT.md")
   if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
+
+  if (!is.null(coc_email)) {
+    coc_path <- normalizePath(file.path(path, "CODE_OF_CONDUCT.md"), 
+                              winslash = "/", mustWork = TRUE)
+    coc_text <- readLines(coc_path)
+    coc_text <- gsub("{COC_CONTACT_EMAIL}", coc_email, coc_text, fixed = TRUE)
+    writeLines(coc_text, coc_path)
+  }
+  
   message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
   message("Please note that this project is released with a ", 
           "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
@@ -192,3 +202,4 @@ add_description <- function(path = ".") {
   add_file_from_template(path, "DESCRIPTION")
   invisible(TRUE)
 }
+
