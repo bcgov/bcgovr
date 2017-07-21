@@ -100,7 +100,7 @@ source("04_output.R")
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  if (rstudio) {
+  if (rstudio && rstudioapi::isAvailable()) {
     # rstudioapi::initializeProject(npath)
     rstudioapi::openProject(npath, newSession = TRUE)
     message("Initializing and opening new Rstudio project in ", npath)
