@@ -5,7 +5,8 @@
 \title{Creates the framework of a new package development folder}
 \usage{
 package_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, CoC = TRUE, description_template = TRUE,
+  rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
+  description_template = TRUE,
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
@@ -21,6 +22,8 @@ analysis name.}
 \item{rstudio}{Create an Rstudio project file?}
 
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
 \item{description_template}{Should the BC Gov DESCRIPTION template be used?}
 

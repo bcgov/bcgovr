@@ -15,18 +15,8 @@
 #'
 #' @importFrom git2r repository init
 #'  
-#' @param  path location to create new analysis. If \code{"."} (the default), 
-#'   the name of the working directory will be taken as the analysis name. If 
-#'   not \code{"."}, the last component of the given path will be used as the 
-#'   analysis name.
-#' @param git_init Create a new git repository? Logical, default \code{TRUE}.
-#' @param git_clone the url of a git repo to clone.
-#' @param rstudio Create an Rstudio project file?
-#' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
+#' @inheritParams analysis_skeleton
 #' @param description_template Should the BC Gov DESCRIPTION template be used?
-#' @param copyright_holder the name of the copyright holder (default 
-#' "Province of British Columbia). Only necessary if adding a license
-
 #'
 #' @details If you are cloning a repository (\code{git_clone = "path_to_repo"}),
 #'   you should run this function from the root of your dev folder and leave 
@@ -40,8 +30,9 @@
 #'  package_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, CoC = TRUE, description_template = TRUE,
-                              copyright_holder = "Province of British Columbia") {
+                             rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
+                             description_template = TRUE,
+                             copyright_holder = "Province of British Columbia") {
   
   if (path != ".") dir.create(path, recursive = TRUE)
   
@@ -62,7 +53,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   ## Add the necessary R files and directories
   #message("Creating new package in ", npath)
   add_contributing(npath)
-  if (CoC) add_code_of_conduct(npath, package = FALSE)
+  if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   add_readme(npath, package = FALSE)
   
   #if (apache) {
