@@ -4,13 +4,13 @@
 \alias{add_license_header}
 \title{Add the boilerplate Apache header to the top of a source code file}
 \usage{
-add_license_header(file, year,
+add_license_header(file, year = format(Sys.Date(), "\%Y"),
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
 \item{file}{Path to the file}
 
-\item{year}{The year the license should apply}
+\item{year}{The year the license should apply (Default current year)}
 
 \item{copyright_holder}{Copyright holder (Default "Province of British Columbia")}
 }

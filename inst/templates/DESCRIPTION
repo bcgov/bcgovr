@@ -1,8 +1,11 @@
 Package: Package name
-Title: Package title
 Version: 0.0.1 
-Authors@R: person("", "", email = "@gov.bc.ca", role = c("aut", "cre"))
-Description: What does your package do?
+Title: What the Package Does (one line, title case)
+Description: What does your package do (one paragraph)?
+Authors@R: c(
+    person("First", "Last", email = "First.Last@gov.bc.ca", role = c("aut", "cre")), 
+    person("Province of British Columbia", role = "cph")
+    )
 Depends: R (>= 3.4.0)
 License: Apache License (== 2.0) | file LICENSE
 Encoding: UTF-8

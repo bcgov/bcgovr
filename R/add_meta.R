@@ -43,12 +43,22 @@ add_contributing <- function(path = ".", package = FALSE) {
 #' @param path Directory path (default \code{"."})
 #' @param package Is this a package or a regular project? (Default \code{FALSE}). 
 #'                If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore
+#' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return \code{TRUE} (invisibly)
-add_code_of_conduct <- function(path = ".", package = FALSE) {
+add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc_email")) {
   add_file_from_template(path, "CODE_OF_CONDUCT.md")
   if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
+
+  if (!is.null(coc_email)) {
+    coc_path <- normalizePath(file.path(path, "CODE_OF_CONDUCT.md"), 
+                              winslash = "/", mustWork = TRUE)
+    coc_text <- readLines(coc_path)
+    coc_text <- gsub("{COC_CONTACT_EMAIL}", coc_email, coc_text, fixed = TRUE)
+    writeLines(coc_text, coc_path)
+  }
+  
   message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
   message("Please note that this project is released with a ", 
           "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
@@ -76,13 +86,12 @@ add_license <- function(path = ".", package_desc = FALSE) {
 
 #' Add an RProject file to a directory
 #'
-#' @param  path folder path of the project
-#' @param outfile the name of the RProj file
+#' @param  path folder path of the project. Default \code{"."}
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL
-add_rproj <- function(path = ".", outfile) {
-  add_file_from_template(path, "template.Rproj", outfile)
+add_rproj <- function(path = ".") {
+  rstudioapi::initializeProject(path)
   invisible(TRUE)
 }
 
@@ -125,12 +134,12 @@ add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") 
 #' Add the boilerplate Apache header to the top of a source code file
 #' 
 #' @param file Path to the file
-#' @param year The year the license should apply
+#' @param year The year the license should apply (Default current year)
 #' @param copyright_holder Copyright holder (Default "Province of British Columbia")
 #' @export
 #' @seealso \code{\link{add_license}}
 #' @return NULL
-add_license_header <- function(file, year, copyright_holder = "Province of British Columbia") {
+add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia") {
   
   file_text <- readLines(file)
   
@@ -142,8 +151,8 @@ add_license_header <- function(file, year, copyright_holder = "Province of Briti
   invisible(TRUE)
 }
 
-make_license_header_text <- function(year = NULL, copyright_holder = "Province of British Columbia") {
-  license_txt <- '# Copyright YYYY COPYRIGHT_HOLDER
+make_license_header_text <- function(year = NULL, copyright_holder = NULL) {
+  license_txt <- '# Copyright {YYYY} {COPYRIGHT_HOLDER}
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -156,10 +165,15 @@ make_license_header_text <- function(year = NULL, copyright_holder = "Province o
 # See the License for the specific language governing permissions and limitations under the License.
 
 '
-  if (is.null(year)) year <- format(Sys.Date(), "%Y")
   
-  license_txt <- gsub("YYYY", year, license_txt)
-  license_txt <- gsub("COPYRIGHT_HOLDER", copyright_holder, license_txt)
+  if (!is.null(year)) {
+    license_txt <- gsub("{YYYY}", year, license_txt, fixed = TRUE)
+  }
+  
+  if (!is.null(copyright_holder)) {
+    license_txt <- gsub("{COPYRIGHT_HOLDER}", copyright_holder, license_txt, fixed = TRUE)
+  }
+  
   license_txt
 }
 
@@ -192,3 +206,4 @@ add_description <- function(path = ".") {
   add_file_from_template(path, "DESCRIPTION")
   invisible(TRUE)
 }
+

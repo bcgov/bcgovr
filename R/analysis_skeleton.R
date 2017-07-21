@@ -25,6 +25,7 @@
 #' @param rstudio Create an Rstudio project file?
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
+#' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
 #'
@@ -40,7 +41,8 @@
 #'  analysis_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, apache = TRUE, CoC = TRUE,
+                              rstudio = TRUE, apache = TRUE, CoC = TRUE, 
+                              coc_email = getOption("bcgovr.coc_email"),
                               copyright_holder = "Province of British Columbia") {
 
 #   now <- Sys.time()
@@ -71,7 +73,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   lapply(Rfiles, file.create)
   lapply(dirs, dir.create)
   add_contributing(npath)
-  if (CoC) add_code_of_conduct(npath, package = FALSE)
+  if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   add_readme(npath, package = FALSE)
   
   cat('source("01_load.R")
@@ -98,7 +100,7 @@ source("04_output.R")
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  if (rstudio) {
+  if (rstudio && rstudioapi::isAvailable()) {
     # rstudioapi::initializeProject(npath)
     rstudioapi::openProject(npath, newSession = TRUE)
     message("Initializing and opening new Rstudio project in ", npath)

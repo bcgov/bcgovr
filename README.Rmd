@@ -74,6 +74,13 @@ Using RStudio and need to add that Apache 2.0 license header in new .R file? Jus
 
 ![](img/bcgovr_addin_example.gif)
 
+#### Options
+
+* **Code of Conduct contact email address:** To avoid having to always edit your Codes of Conduct to add contact email addresses you can add this line to your `.Rprofile` file:
+
+```r
+if (interactive()) options("bcgovr.coc_email" = "my.email@gov.bc.ca")
+```
 
 ### Project Status
 
