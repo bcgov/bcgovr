@@ -17,13 +17,9 @@
 #'  
 #' @inheritParams analysis_skeleton
 #' @param description_template Should the BC Gov DESCRIPTION template be used?
+#' 
+#' @inherit analysis_skeleton details
 #'
-#' @details If you are cloning a repository (\code{git_clone = "path_to_repo"}),
-#'   you should run this function from the root of your dev folder and leave 
-#'   \code{path = "."}, as the repository will be cloned into a new folder. If 
-#'   you are setting up a new project (with or without git), \code{path} should 
-#'   be \code{"."} if you are within an already created project directory, or 
-#'   the name of the folder you want to create.
 #' @export
 #' 
 #' @examples \donttest{
