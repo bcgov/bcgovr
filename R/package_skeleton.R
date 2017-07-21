@@ -71,16 +71,6 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   #         copyright_holder = copyright_holder)
   #}
   
-
-  
-  if (rstudio) {
-    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
-      add_rproj(npath, paste0(basename(npath), ".Rproj"))
-    } else {
-      warning("Rproj file already exists, so not adding a new one")
-    }
-  }
-  
   if (git_init) {
     if (file.exists(file.path(npath,".git"))) {
       warning("This directory is already a git repository. Not creating a new one")
@@ -93,8 +83,16 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  setwd(npath)
-  message("Setting working directory to ", npath)
+  
+  if (rstudio && rstudioapi::isAvailable()) {
+    # rstudioapi::initializeProject(npath)
+    rstudioapi::openProject(npath, newSession = TRUE)
+    message("Initializing and opening new Rstudio project in ", npath)
+  } else {
+    setwd(npath)
+    message("Setting working directory to ", npath)
+  }
+  
   invisible(npath)
 }
 
