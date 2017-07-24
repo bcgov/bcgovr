@@ -15,8 +15,8 @@ Depends:
     R (>= 3.4.0),
 Imports:
     git2r (>= 0.15.0),
+    rstudioapi (>= 0.6.0),
     devtools (>= 1.13.1)
-Remotes: rstudio/rstudioapi
 License: Apache License (== 2.0) | file LICENSE
 LazyData: true
 Suggests:
