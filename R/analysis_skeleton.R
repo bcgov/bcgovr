@@ -45,14 +45,16 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                               coc_email = getOption("bcgovr.coc_email"),
                               copyright_holder = "Province of British Columbia") {
 
-#   now <- Sys.time()
-#   options(error = quote(error_cleanup(now)))
-#   on.exit(options(error = NULL), add = TRUE)
+
+  ## Create directory is path is not current working directory
+  ## Suppress warning if directory is already there. 
+  if (path != ".") tryCatch(dir.create(path, recursive = TRUE),
+                            warning = function(war){})
   
-  if (path != ".") dir.create(path, recursive = TRUE)
-  
+  ## Convert file path to canonical
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
 
+  
   if (is.character(git_clone)) {
     clone_git(git_clone, npath)
     git_init = FALSE
@@ -82,6 +84,26 @@ source("03_analysis.R")
 source("04_output.R")
 ', file = file.path(npath,"run_all.R"))
   
+  ## Use this template version until next rstudioapi CRAN release
+  if (rstudio) {
+    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
+      add_rproj(npath, paste0(basename(npath), ".Rproj"))
+    } else {
+      warning("Rproj file already exists, so not adding a new one")
+    }
+  }
+  
+  
+  ## Use when these functions are available on CRAN
+  #if (rstudio && rstudioapi::isAvailable()) {
+  #  #rstudioapi::initializeProject(npath)
+  #  rstudioapi::openProject(npath, newSession = TRUE)
+  #  message("Initializing and opening new Rstudio project in ", npath)
+  #} else {
+  #  setwd(npath)
+  #  message("Setting working directory to ", npath)
+  #}
+  
   if (apache) {
     add_license(npath)
     lapply(Rfiles, add_license_header, year = substr(Sys.Date(), 1, 4), 
@@ -100,14 +122,10 @@ source("04_output.R")
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  if (rstudio && rstudioapi::isAvailable()) {
-    # rstudioapi::initializeProject(npath)
-    rstudioapi::openProject(npath, newSession = TRUE)
-    message("Initializing and opening new Rstudio project in ", npath)
-  } else {
-    setwd(npath)
-    message("Setting working directory to ", npath)
-  }
+  
+
+  
+  
   invisible(npath)
 }
 

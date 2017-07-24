@@ -27,10 +27,13 @@
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
                              rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
-                             description_template = TRUE,
+                             description_template = TRUE, 
                              copyright_holder = "Province of British Columbia") {
   
-  if (path != ".") dir.create(path, recursive = TRUE)
+  ## Create directory is path is not current working directory
+  ## Suppress warning if directory is already there. 
+  if (path != ".") tryCatch(dir.create(path, recursive = TRUE),
+                            warning = function(war){})
   
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
@@ -40,17 +43,19 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
   if (description_template ) {
-    add_description()
+    add_description(npath)
   }
   
   ## Add in package setup files
-  devtools::setup(rstudio = FALSE) 
+  devtools::setup(npath, rstudio = FALSE) 
 
   ## Add the necessary R files and directories
   #message("Creating new package in ", npath)
   add_contributing(npath)
   if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   add_readme(npath, package = FALSE)
+  
+  add_rbuildignore(npath)
   
   #if (apache) {
   #  add_license(npath)
@@ -71,14 +76,22 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-  if (rstudio && rstudioapi::isAvailable()) {
-    # rstudioapi::initializeProject(npath)
-    rstudioapi::openProject(npath, newSession = TRUE)
-    message("Initializing and opening new Rstudio project in ", npath)
-  } else {
-    setwd(npath)
-    message("Setting working directory to ", npath)
+  if (rstudio) {
+    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
+      add_rproj(npath, paste0(basename(npath), ".Rproj"))
+    } else {
+      warning("Rproj file already exists, so not adding a new one")
+    }
   }
+  
+  #if (rstudio && rstudioapi::isAvailable()) {
+  #  # rstudioapi::initializeProject(npath)
+  #  rstudioapi::openProject(npath, newSession = TRUE)
+  #  message("Initializing and opening new Rstudio project in ", npath)
+  #} else {
+  #  setwd(npath)
+  #  message("Setting working directory to ", npath)
+  #}
   
   invisible(npath)
 }
