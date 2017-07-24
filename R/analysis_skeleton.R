@@ -48,8 +48,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 
   ## Create directory is path is not current working directory
   ## Suppress warning if directory is already there. 
-  if (path != ".") tryCatch(dir.create(path, recursive = TRUE),
-                            warning = function(war){})
+  if (path != ".") dir.create(path, recursive = TRUE, showWarnings = FALSE)
   
   ## Convert file path to canonical
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
