@@ -16,7 +16,6 @@
 #' @importFrom git2r repository init
 #'  
 #' @inheritParams analysis_skeleton
-#' @param description_template Should the BC Gov DESCRIPTION template be used?
 #' 
 #' @inherit analysis_skeleton details
 #'
@@ -27,7 +26,6 @@
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
                              rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
-                             description_template = TRUE, 
                              copyright_holder = "Province of British Columbia") {
   
   ## Create directory is path is not current working directory
@@ -45,7 +43,11 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   bcgovr_desc = list("Package" = sub('.*\\/', '', npath))
   
   ## Add in package setup files
+  if(rstudio == TRUE){
   devtools::setup(npath, rstudio = TRUE, description = bcgovr_desc) 
+  } else {
+    devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc)
+  }
   
   ## Add all bcgov files into RBuildignore
   add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
