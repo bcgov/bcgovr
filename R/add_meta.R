@@ -202,25 +202,4 @@ add_to_rbuildignore <- function(path, text) {
 }
 
 
-#' Add a BC GOV standard DESCRIPTION file to the project directory
-#' 
-#' @param path Directory path (default \code{"."})
-#' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
-#' @return \code{TRUE} (invisibly)
-add_description <- function(path = ".") {
-  add_file_from_template(path, "DESCRIPTION")
-  invisible(TRUE)
-}
-
-
-#' Add a RBuildignore file to the project directory
-#' 
-#' @param path Directory path (default \code{"."})
-#' @export
-#' @return \code{TRUE} (invisibly)
-add_rbuildignore <- function(path = ".") {
-  add_file_from_template(path, "RBuildignore_template", outfile = ".RBuildignore")
-  invisible(TRUE)
-}
 

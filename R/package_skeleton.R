@@ -41,12 +41,16 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     git_init = FALSE
   }
   
-  if (description_template ) {
-    add_description(npath)
-  }
+
+  bcgovr_desc = list("Package" = sub('.*\\/', '', npath))
   
   ## Add in package setup files
-  devtools::setup(npath, rstudio = FALSE) 
+  devtools::setup(npath, rstudio = TRUE, description = bcgovr_desc) 
+  
+  ## Add all bcgov files into RBuildignore
+  add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
+  add_to_rbuildignore(path = npath, text = "^README.md$")
+  add_to_rbuildignore(path = npath, text = "^CODE_OF_CONDUCT.md$")
 
   ## Add the necessary R files and directories
   #message("Creating new package in ", npath)
@@ -54,7 +58,6 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   add_readme(npath, package = FALSE)
   
-  add_rbuildignore(npath)
   
   #if (apache) {
   #  add_license(npath)
@@ -75,22 +78,6 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-  if (rstudio) {
-    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
-      add_rproj(npath, paste0(basename(npath), ".Rproj"))
-    } else {
-      warning("Rproj file already exists, so not adding a new one")
-    }
-  }
-  
-  #if (rstudio && rstudioapi::isAvailable()) {
-  #  # rstudioapi::initializeProject(npath)
-  #  rstudioapi::openProject(npath, newSession = TRUE)
-  #  message("Initializing and opening new Rstudio project in ", npath)
-  #} else {
-  #  setwd(npath)
-  #  message("Setting working directory to ", npath)
-  #}
   
   invisible(npath)
 }
