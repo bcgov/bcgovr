@@ -1,12 +1,10 @@
 <div id="devex-badge">
-*Add a project state badge. See https://raw.githubusercontent.com/BCDevExchange/docs/master/discussion/projectstates.md*
+*Add a project state badge. See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md*
 </div>
 
 ---
 
-# Description of analysis/indicator code
-
-With links to envreportbc packages being used and indicator page if available
+# Description of analysis code
 
 ### Usage
 
@@ -33,7 +31,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-    Copyright 2016 Province of British Columbia
+    Copyright 2017 Province of British Columbia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
