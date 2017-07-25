@@ -1,4 +1,4 @@
-*Add a project state badge. See https://raw.githubusercontent.com/BCDevExchange/docs/master/discussion/projectstates.md*
+*Add a project state badge. See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md*
 
 ---
 
@@ -27,4 +27,4 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-Apache 2.0. See our [license](LICENSE) for more details.
+Apache 2.0 See our [license](LICENSE) for more details.
