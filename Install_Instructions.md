@@ -3,7 +3,7 @@
 \*Note that the B.C. Software Centre has **R** and **RStudio** packaged for installation. If you
 install from the Software Centre, skip steps 1 and 2. If you have your supervisor's approval 
 (following the [Appropriate Use Policy](http://www2.gov.bc.ca/gov/content?id=33A6DE0643E54676B21033E5DA8E03CF)), 
-follow steps 1 and 2 do get up-to-date versions of the software.
+*follow steps 1 and 2 to get up-to-date versions of the software*.
 
 1. Install **R** from [this webpage](http://cran.rstudio.com) (Or click 
    [here](http://cran.r-project.org/bin/windows/base/release.htm) to download 
