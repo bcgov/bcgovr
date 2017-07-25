@@ -4,10 +4,12 @@
 \alias{add_rproj}
 \title{Add an RProject file to a directory}
 \usage{
-add_rproj(path = ".")
+add_rproj(path = ".", outfile)
 }
 \arguments{
 \item{path}{folder path of the project. Default \code{"."}}
+
+\item{outfile}{the name of the RProj file}
 }
 \description{
 Add an RProject file to a directory

@@ -1,7 +1,6 @@
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-Makefile
 ^CONTRIBUTING.md$
 ^README\.Rmd$
 ^Install_Instructions\.md$

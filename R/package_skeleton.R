@@ -16,7 +16,6 @@
 #' @importFrom git2r repository init
 #'  
 #' @inheritParams analysis_skeleton
-#' @param description_template Should the BC Gov DESCRIPTION template be used?
 #' 
 #' @inherit analysis_skeleton details
 #'
@@ -27,10 +26,11 @@
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
                              rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
-                             description_template = TRUE,
                              copyright_holder = "Province of British Columbia") {
   
-  if (path != ".") dir.create(path, recursive = TRUE)
+  ## Create directory is path is not current working directory
+  ## Suppress warning if directory is already there. 
+  if (path != ".") dir.create(path, recursive = TRUE, showWarnings = FALSE)
   
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
@@ -39,18 +39,27 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     git_init = FALSE
   }
   
-  if (description_template ) {
-    add_description()
-  }
+
+  bcgovr_desc = list("Package" = sub('.*\\/', '', npath))
   
   ## Add in package setup files
-  devtools::setup(rstudio = FALSE) 
+  if(rstudio == TRUE){
+  devtools::setup(npath, rstudio = TRUE, description = bcgovr_desc) 
+  } else {
+    devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc)
+  }
+  
+  ## Add all bcgov files into RBuildignore
+  add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
+  add_to_rbuildignore(path = npath, text = "^README.md$")
+  add_to_rbuildignore(path = npath, text = "^CODE_OF_CONDUCT.md$")
 
   ## Add the necessary R files and directories
   #message("Creating new package in ", npath)
   add_contributing(npath)
   if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   add_readme(npath, package = FALSE)
+  
   
   #if (apache) {
   #  add_license(npath)
@@ -71,14 +80,6 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-  if (rstudio && rstudioapi::isAvailable()) {
-    # rstudioapi::initializeProject(npath)
-    rstudioapi::openProject(npath, newSession = TRUE)
-    message("Initializing and opening new Rstudio project in ", npath)
-  } else {
-    setwd(npath)
-    message("Setting working directory to ", npath)
-  }
   
   invisible(npath)
 }

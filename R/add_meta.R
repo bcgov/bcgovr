@@ -59,10 +59,10 @@ add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOpti
     writeLines(coc_text, coc_path)
   }
   
-  message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
-  message("Please note that this project is released with a ", 
-          "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
-          "By participating in this project you agree to abide by its terms.")
+  #message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
+  #message("Please note that this project is released with a ", 
+  #        "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
+  #        "By participating in this project you agree to abide by its terms.")
   invisible(TRUE)
 }
 
@@ -87,13 +87,19 @@ add_license <- function(path = ".", package_desc = FALSE) {
 #' Add an RProject file to a directory
 #'
 #' @param  path folder path of the project. Default \code{"."}
+#' @param outfile the name of the RProj file
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL
-add_rproj <- function(path = ".") {
-  rstudioapi::initializeProject(path)
-  invisible(TRUE)
+#' 
+add_rproj <- function(path = ".", outfile) {
+ add_file_from_template(path, "template.Rproj", outfile)
 }
+
+#add_rproj <- function(path = ".") {
+#  rstudioapi::initializeProject(path)
+#  invisible(TRUE)
+#}
 
 #' Add a file to a directory from a template in inst/templates
 #'
@@ -146,7 +152,7 @@ add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_
   license_text <- make_license_header_text(year, copyright_holder)
 
   writeLines(c(license_text, file_text), file)
-  message("adding Apache boilerplate header to the top of ", file)
+  message("Adding Apache boilerplate header to the top of ", file)
   
   invisible(TRUE)
 }
@@ -196,14 +202,4 @@ add_to_rbuildignore <- function(path, text) {
 }
 
 
-#' Add a BC GOV standard DESCRIPTION file to the project directory
-#' 
-#' @param path Directory path (default \code{"."})
-#' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
-#' @return \code{TRUE} (invisibly)
-add_description <- function(path = ".") {
-  add_file_from_template(path, "DESCRIPTION")
-  invisible(TRUE)
-}
 
