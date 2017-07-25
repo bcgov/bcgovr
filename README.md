@@ -24,7 +24,7 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 
 ### Installation
 
-If you have not already installed R itself or RStudio on a BC government computer, you can follow these [installation instruction](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md) to get set up using R.
+If you have not already installed R itself or RStudio on a BC Government computer, you can follow these [installation instructions](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md) to get set up using R.
 
 Once you have R and RStudio installed on your machine, open up RStudio so you can install the `bcgovr` package directly from this repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
 
@@ -41,7 +41,9 @@ install_github("bcgov/bcgovr")
 
 ### Usage
 
-Most first time users will want to start with the `analysis_skeleton()` function. If RStudio is still open from the above [Installation](#installation) steps, you can now immediately auto-populate a new R-based open source data analysis, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton`. By default `analysis_skeleton()` will create a 'ready-to-go' directory in the current working directory. You can check the working directory using `getwd()`. The project name will be inherited from the working directory:
+#### analysis\_skeleton()
+
+Most first time users will want to start with the `analysis_skeleton()` function. If RStudio is still open from the above [Installation](#installation) steps, you can now immediately auto-populate a new R-based open source data analysis project folder, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton`. By default `analysis_skeleton()` will create a 'ready-to-go' directory in the current working directory. You can check the working directory using `getwd()`. The project name will be inherited from the working directory:
 
 ``` r
 library(bcgovr)
@@ -52,22 +54,12 @@ Frequently you may want to create an analysis skeleton outside of the working di
 
 ``` r
 library(bcgovr)
-analysis_skeleton(path = "C:\-dev\bcgovr_analysis") 
+analysis_skeleton(path = "C:\_dev\bcgovr_analysis") 
 ```
 
 Regardless of the path, ultimately, `analysis_skeleton()` results in a [bcgov](https://github.com/bcgov) 'ready-to-go' directory for a new data analysis project:
 
 ![](img/analysis_skeleton_output.PNG)
-
-#### RStudio Addins
-
-Using RStudio and need to add that Apache 2.0 license header in new .R file? Just click twice:
-
-![](img/bcgovr_addin_example.gif)
-
-#### package\_skeleton
-
-The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files and folders to get started on creating a package. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
 #### Options
 
@@ -76,6 +68,16 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 ``` r
 if (interactive()) options("bcgovr.coc_email" = "my.email@gov.bc.ca")
 ```
+
+#### package\_skeleton()
+
+The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files and folders to get started on creating an R package. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
+
+#### RStudio Addins
+
+Using RStudio and need to add that Apache 2.0 license header in new .R file or project state badge? Just click twice:
+
+![](img/bcgovr_addin_example.gif)
 
 ### Project Status
 
