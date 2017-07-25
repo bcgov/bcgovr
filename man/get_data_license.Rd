@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_data_license.R
 \name{get_data_license}
 \alias{get_data_license}
-\title{Returns a url, or a markdown or html-formatted link to one of several B.C. or Candadian licenses}
+\title{Returns a url, or a markdown or html-formatted link to one of several B.C. or Canadian licences}
 \usage{
 get_data_license(license = c("ogl-bc", "bc-crown", "ogl-canada", "statscan"),
   what = "md_link")
@@ -10,9 +10,9 @@ get_data_license(license = c("ogl-bc", "bc-crown", "ogl-canada", "statscan"),
 \arguments{
 \item{license}{Which license? One of:
 \itemize{
-  \item ogl-bc Open Government License - British Columbia
+  \item ogl-bc Open Government Licence - British Columbia
   \item bc-crown B.C. Crown Copyright
-  \item ogl-canada Open Government License - Canada
+  \item ogl-canada Open Government Licence - Canada
   \item statscan Statistics Canada Open Licence Agreement
 }}
 
@@ -27,7 +27,7 @@ get_data_license(license = c("ogl-bc", "bc-crown", "ogl-canada", "statscan"),
 character containing the desired output
 }
 \description{
-Returns a url, or a markdown or html-formatted link to one of several B.C. or Candadian licenses
+Returns a url, or a markdown or html-formatted link to one of several B.C. or Canadian licences
 }
 \examples{
 get_data_license("ogl-bc", "url")

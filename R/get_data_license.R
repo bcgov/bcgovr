@@ -10,13 +10,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Returns a url, or a markdown or html-formatted link to one of several B.C. or Candadian licenses
+#' Returns a url, or a markdown or html-formatted link to one of several B.C. or Canadian licences
 #'
 #' @param license Which license? One of:
 #' \itemize{
-#'   \item ogl-bc Open Government License - British Columbia
+#'   \item ogl-bc Open Government Licence - British Columbia
 #'   \item bc-crown B.C. Crown Copyright
-#'   \item ogl-canada Open Government License - Canada
+#'   \item ogl-canada Open Government Licence - Canada
 #'   \item statscan Statistics Canada Open Licence Agreement
 #' }
 #' @param what What do you want returned? One of
