@@ -1,11 +1,11 @@
-# Instructions for installing **R** and **RStudio** on a BC government computer
+# Instructions for installing **R** and **RStudio** on a BC Government computer
 
 \*Note that the B.C. Software Centre has **R** and **RStudio** packaged for installation. If you
 install from the Software Centre, skip steps 1 and 2. If you have your supervisor's approval 
 (following the [Appropriate Use Policy](http://www2.gov.bc.ca/gov/content?id=33A6DE0643E54676B21033E5DA8E03CF)), 
 *follow steps 1 and 2 to get up-to-date versions of the software*.
 
-1. Install **R** from [this webpage](http://cran.rstudio.com) (Or click 
+1. Install **R** from [this webpage](http://cran.rstudio.com) (or click 
    [here](http://cran.r-project.org/bin/windows/base/release.htm) to download 
    the current version directly). Accept the defaults for all the installation 
    options.
@@ -65,5 +65,5 @@ install from the Software Centre, skip steps 1 and 2. If you have your superviso
 
 * **Keep your packages up date:** Check for package updates every day by clicking Tools -> Check for Package Updates in RStudio. You'll get the latest bug fixes and features in your packages and it will make sharing code with other people easier if we all have up-to-date packages.
 
-* **Use Git and GitHub for version control:** See the [BC Policy Framework](https://github.com/bcgov/BC-Policy-Framework-For-GitHub) for how to get started using GitHub in government. [Happy Git with R](http://happygitwithr.com/) is an excellent resource for best practices using Git and GitHub with R and Rstudio.
+* **Use Git and GitHub for version control:** See the [BC Policy Framework](https://github.com/bcgov/BC-Policy-Framework-For-GitHub) for how to get started using GitHub in the BC Government. [Happy Git with R](http://happygitwithr.com/) is an excellent resource for best practices using Git and GitHub with R and Rstudio.
 
