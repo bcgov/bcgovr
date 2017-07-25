@@ -1,10 +1,10 @@
-<div id="devex-badge">
-__Add a project state badge.__ See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
-</div>
+#### Add a project state badge. 
+See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
+
 
 ---
 
-# Description of analysis code
+# Description of Analysis Code
 
 ### Usage
 
