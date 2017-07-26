@@ -22,10 +22,11 @@
 #' @export
 #' 
 #' @examples \donttest{
-#'  package_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
+#'  bcgovr::package_skeleton(path = "c:/_dev/tarballs")
 #' }
-package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                             rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
+package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apache = TRUE,
+                             rstudio = TRUE, CoC = TRUE, rmarkdown = TRUE, 
+                             coc_email = getOption("bcgovr.coc_email"),
                              copyright_holder = "Province of British Columbia") {
   
   ## Create directory is path is not current working directory
@@ -40,14 +41,15 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
 
-  bcgovr_desc = list("Package" = sub('.*\\/', '', npath))
+  bcgovr_desc = list("Package" = sub('.*\\/', '', npath),
+                     "License" = "Apache License (== 2.0) | file LICENSE",
+                     "Authors@R" = paste0('c(person("First", "Last", email = "first.last@example.com", role = c("aut", "cre")), 
+                                   person("Province of British Columbia", role = "cph"))')
+  )
+  
   
   ## Add in package setup files
-  if(rstudio == TRUE){
-  devtools::setup(npath, rstudio = TRUE, description = bcgovr_desc) 
-  } else {
-    devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc)
-  }
+  devtools::setup(npath, rstudio = rstudio, description = bcgovr_desc, quiet = TRUE) 
   
   ## Add all bcgov files into RBuildignore
   add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
@@ -58,14 +60,14 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   #message("Creating new package in ", npath)
   add_contributing(npath)
   if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
-  add_readme(npath, package = FALSE)
   
   
-  #if (apache) {
-  #  add_license(npath)
-  #  lapply(Rfiles, add_license_header, year = substr(Sys.Date(), 1, 4), 
-  #         copyright_holder = copyright_holder)
-  #}
+  add_readme(npath, package = TRUE, rmd = rmarkdown)
+  
+  
+  if (apache) {
+    add_license(npath)
+  }
   
   if (git_init) {
     if (file.exists(file.path(npath,".git"))) {
