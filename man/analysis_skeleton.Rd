@@ -5,7 +5,7 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 analysis_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, apache = TRUE, CoC = TRUE,
+  rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = TRUE,
   coc_email = getOption("bcgovr.coc_email"),
   copyright_holder = "Province of British Columbia")
 }
@@ -25,6 +25,9 @@ analysis name.}
 
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
 
+\item{rmarkdown}{Should an rmarkdown file be added to the repository
+with its corresponding markdown file? Default \code{TRUE}.}
+
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
 \item{copyright_holder}{the name of the copyright holder (default 
@@ -43,6 +46,6 @@ If you are cloning a repository (\code{git_clone = "path_to_repo"}),
 }
 \examples{
 \donttest{
- analysis_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
+ bcgovr::analysis_skeleton(path = "c:/_dev/tarballs")
 }
 }
