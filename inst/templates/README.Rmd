@@ -1,10 +1,23 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-#### Add a project state badge
 
-See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md>
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
 
-Description of Analysis Code
-============================
+#### Add a project state badge 
+See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
+
+# Description of Analysis Code
 
 ### Usage
 
@@ -12,17 +25,16 @@ Describe data being used (links), and how to run. Eg:
 
 There are four core scripts that are required for the analysis, they need to be run in order:
 
--   01\_clean.R
--   02\_analysis.R
--   03\_visualize.R
--   04\_output.R
+- 01_clean.R
+- 02_analysis.R
+- 03_visualize.R
+- 04_output.R
 
-Example
--------
+## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```{r example}
 ## basic example code
 ```
 
@@ -30,7 +42,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/%3Crepo-name%3E/issues/).
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/<repo-name>/issues/).
 
 ### How to Contribute
 

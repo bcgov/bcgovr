@@ -5,7 +5,8 @@
 \title{Creates the framework of a new package development folder}
 \usage{
 package_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, CoC = TRUE, coc_email = getOption("bcgovr.coc_email"),
+  apache = TRUE, rstudio = TRUE, CoC = TRUE, rmarkdown = TRUE,
+  coc_email = getOption("bcgovr.coc_email"),
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
@@ -18,9 +19,14 @@ analysis name.}
 
 \item{git_clone}{the url of a git repo to clone.}
 
+\item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
+
 \item{rstudio}{Create an Rstudio project file?}
 
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
+
+\item{rmarkdown}{Should an rmarkdown file be added to the repository
+with its corresponding markdown file? Default \code{TRUE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
@@ -40,6 +46,6 @@ If you are cloning a repository (\code{git_clone = "path_to_repo"}),
 }
 \examples{
 \donttest{
- package_skeleton(path = "c:/_dev/tarballs", rstudio = TRUE)
+ bcgovr::package_skeleton(path = "c:/_dev/tarballs")
 }
 }

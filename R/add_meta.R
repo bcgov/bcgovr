@@ -14,13 +14,32 @@
 #' 
 #' @param path Directory path (default \code{"."})
 #' @param package Is this a package or a regular project? (Default \code{FALSE})
-#' @param CoC Should a Code of Conduct be added to the repository?
+#' @param rmd Should rmarkdown file be used (Default \code{FALSE})
 #' @export
 #' @seealso \code{\link{add_contributing}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL
-add_readme <- function(path = ".", package = FALSE, CoC = TRUE) {
-  if (package) fname <- "pkg-README.md" else fname <- "README.md"
-  add_file_from_template(path, fname, outfile = "README.md")
+add_readme <- function(path = ".",
+                       package = FALSE,
+                       rmd = FALSE) {
+
+  if (package == FALSE & rmd == FALSE) {
+    add_file_from_template(path, "README.md", outfile = "README.md")
+  } 
+  
+  if (package == TRUE & rmd == FALSE) {
+    add_file_from_template(path, "pkg-README.md", outfile = "README.md")
+  } 
+  
+  if (package == FALSE & rmd == TRUE) {
+    add_file_from_template(path, "README.md", outfile = "README.md")
+    add_file_from_template(path, "README.rmd", outfile = "README.rmd")
+  } 
+  
+  if (package == TRUE & rmd == TRUE) {
+    add_file_from_template(path, "pkg-README.md", outfile = "README.md")
+    add_file_from_template(path, "pkg-README.rmd", outfile = "README.rmd")
+  } 
+  
   invisible(TRUE)
 } 
 
@@ -76,11 +95,11 @@ add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOpti
 #' @return NULL
 add_license <- function(path = ".", package_desc = FALSE) {
   add_file_from_template(path, "LICENSE")
-  if (package_desc) {
-    desc <- readLines(file.path(path, "DESCRIPTION"))
-    desc[grep("License:", desc)] <- "License: Apache License (== 2.0) | file LICENSE"
-    writeLines(desc, "DESCRIPTION")
-  }
+  #if (package_desc) {
+  #  desc <- readLines(file.path(path, "DESCRIPTION"))
+  #  desc[grep("License:", desc)] <- "License: Apache License (== 2.0) | file LICENSE"
+  #  writeLines(desc, "DESCRIPTION")
+  #}
   invisible(TRUE)
 }
 

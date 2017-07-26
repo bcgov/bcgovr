@@ -4,14 +4,14 @@
 \alias{add_readme}
 \title{Add a README.md file to the project directory}
 \usage{
-add_readme(path = ".", package = FALSE, CoC = TRUE)
+add_readme(path = ".", package = FALSE, rmd = FALSE)
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}
 
 \item{package}{Is this a package or a regular project? (Default \code{FALSE})}
 
-\item{CoC}{Should a Code of Conduct be added to the repository?}
+\item{rmd}{Should rmarkdown file be used (Default \code{FALSE})}
 }
 \description{
 Add a README.md file to the project directory
