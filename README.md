@@ -30,31 +30,28 @@ Once you have R and RStudio installed on your machine, open up RStudio so you ca
 
 ``` r
 install.packages("devtools")
-library("devtools")
 ```
 
 Next, install the `bcgovr` package using `devtools::install_github()`:
 
 ``` r
-install_github("bcgov/bcgovr")
+devtools::install_github("bcgov/bcgovr")
 ```
 
 ### Usage
 
 #### analysis\_skeleton()
 
-Most first time users will want to start with the `analysis_skeleton()` function. If RStudio is still open from the above [Installation](#installation) steps, you can now immediately auto-populate a new R-based open source data analysis project folder, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton`. By default `analysis_skeleton()` will create a 'ready-to-go' directory in the current working directory. You can check the working directory using `getwd()`. The project name will be inherited from the working directory:
+Most first time users will want to start with the `analysis_skeleton()` function. If RStudio is still open from the above [Installation](#installation) steps, you can now immediately auto-populate a new R-based open source data analysis project folder, including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md), with `analysis_skeleton`. You can use `bcgovr::analysis_skeleton()` which directly calls the function from `bcgovr` library rather than loading the entire library. By default `analysis_skeleton()` will create a 'ready-to-go' directory in the current working directory. You can check the working directory using `getwd()`. The project name will be inherited from the working directory:
 
 ``` r
-library(bcgovr)
-analysis_skeleton() 
+bcgovr::analysis_skeleton() 
 ```
 
 Frequently you may want to create an analysis skeleton outside of the working directory. This directory can be set using the `path` argument. Consider if you wanted to create an analysis skeleton named `bcgovr_analysis` in the `C:/_dev` directory. In this case, you would directly input the path which would also automatically create a `bcgovr_analysis` folder if it did not exist already:
 
 ``` r
-library(bcgovr)
-analysis_skeleton(path = "C:\_dev\bcgovr_analysis") 
+bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis") 
 ```
 
 Regardless of the path, ultimately, `analysis_skeleton()` results in a [bcgov](https://github.com/bcgov) 'ready-to-go' directory for a new data analysis project:
