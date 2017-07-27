@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, echo=FALSE, results='asis'}
-bcgovr::devex_badge("exploration")
+bcgovr::devex_badge("delivery")
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
