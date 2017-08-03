@@ -116,13 +116,13 @@ Simply follow the steps below:
   
 2. In RStudio, open a new project.
 
-  * <File/New Project>, <Version Control>, <Git>
+  * File/New Project, Version Control, Git
   
   * paste in the URL of the new repo you created in step #1.
   
 3. RStudio: set the working directory to the project directory
 
-  * <Session>, <Set Working Directory>, <To Project Directory>
+  * Session, Set Working Directory, To Project Directory
   
 4. Run either the analysis or package skeleton
 
