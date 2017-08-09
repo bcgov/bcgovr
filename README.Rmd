@@ -108,32 +108,36 @@ Using RStudio and need to add that Apache 2.0 license header in new .R file or p
 
 Simply follow the steps below:
 
-1. At github.com/bcgov, click on the green "New" button to create a new repository.
-
-  * Note: create an empty repo, without initializing with a README, and without a .gitignore file or a license. `bcgovr` will take care of that for you.
-  
-  * Copy the URL of the repo; you'll need it in step #2.
-  
-2. In RStudio, open a new project.
-
-  * File/New Project, Version Control, Git
-  
-  * paste in the URL of the new repo you created in step #1.
-  
-3. RStudio: set the working directory to the project directory
-
-  * Session, Set Working Directory, To Project Directory
-  
-4. Run either the analysis or package skeleton
-
-```{r, eval = FALSE}
-bcgovr::analysis_skeleton() 
-```
-  
-5. Open project file (with ".Rproj" extension)
-
-6. Commit, push, and pull as you would normally 
-
+1. At [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. For this example, we will use the repository name *my_new_repo*. Your actual repository names will be informative and specific to your project. 
+    * Be sure to create an empty repo, without initializing a README, a .gitignore file or a license. `bcgovr` will take care of that for you later.
+    * Copy the URL of the repo; you'll need it later.
+2. Determine the path where you want your repository to exist locally (i.e. on your computer). For example this could be: *H:/GitHub_repos/my_new_repo*. The last folder in the path should match the name of the repo you are creating - in this case **my_new_repo**. 
+3. Open a fresh session of RStudio and type the following into console:
+    ```{r eval = FALSE}
+    bcgovr::analysis_skeleton(path = "H:/GitHub_repos/my_new_repo")
+    ```
+This step will setup everything you need to connect you local repository to the remote one. 
+4. Now you need to open Git BASH in the *H:/GitHub_repos/my_new_repo* directory. One easy way to do this is to navigate to the folder and right click on the directory. If git is installed you should see Git BASH. Click that. If git is not install on computer, you will not see `Git BASH`. Git can be downloaded from this link [https://git-scm.com/downloads](https://git-scm.com/downloads). You should now see something like this on your console `/h/GitHub_repos/my_new_repo (master)`
+5. Now we are ready to push changes to our directory created by `analysis_skeleton()` to the remote bcgov repo. Our first step is to stage the changes (All commands beginning with `git` should be entered into Git BASH:
+    ```{r "git add", engine="bash", eval = FALSE}
+    git add .
+    ```
+6. Then commit the files with an informative message:
+    ```{r "git commit", engine="bash", eval = FALSE}
+    git commit -m "First commit of analysis_skeleton files"
+    ```
+7. Now we need to tell our local git repo (storedo n your computer) where the remote (bcgov github) repo is. That way changes that are **pushed** will go to where we want to go:
+    ```{r "git origin", engine="bash", eval = FALSE}
+    git remote add origin https://github.com/bcgov/my_new_repo.git
+    # Sets the new remote
+    git remote -v
+    # Verifies the new remote URL
+    ```
+8. Lastly you can push the changes you made to bcgov repo that you created: 
+    ```{r "git push", engine="bash", eval = FALSE}
+    git push origin master
+    # Pushes the changes in your local repository up to the remote repository you specified as the origin
+    ```
 
 
 

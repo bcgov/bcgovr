@@ -1,4 +1,4 @@
-<!-- README.md is generated from README.Rmd. Please edit README.Rmd -->
+<!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
 <a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
 
 [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
@@ -9,6 +9,8 @@ bcgovr
 ======
 
 An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov open source guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+
+------------------------------------------------------------------------
 
 ### Features
 
@@ -21,6 +23,8 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 
 1.  The [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
 2.  A [BCDevExchange project state badge](https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md) to a README file.
+
+------------------------------------------------------------------------
 
 ### Installation
 
@@ -37,6 +41,8 @@ Next, install the `bcgovr` package using `devtools::install_github()`:
 ``` r
 devtools::install_github("bcgov/bcgovr")
 ```
+
+------------------------------------------------------------------------
 
 ### Usage
 
@@ -58,7 +64,7 @@ Regardless of the path, ultimately, `analysis_skeleton()` results in a [bcgov](h
 
 ![](img/analysis_skeleton_output.PNG)
 
-#### Options
+##### Options
 
 -   **Code of Conduct contact email address:** To avoid having to always edit your Codes of Conduct to add contact email addresses you can add this line to your `.Rprofile` file:
 
@@ -75,6 +81,57 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 Using RStudio and need to add that Apache 2.0 license header in new .R file or project state badge? Just click twice:
 
 ![](img/bcgovr_addin_example.gif)
+
+------------------------------------------------------------------------
+
+### Setting up a github repo with `bcgovr`
+
+`bcgovr` can also be used as part of sequence to set up a repository on the [BC Government github space](https://github.com/bcgov).
+
+Simply follow the steps below:
+
+1.  At [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. For this example, we will use the repository name *my\_new\_repo*. Your actual repository names will be informative and specific to your project.
+    -   Be sure to create an empty repo, without initializing a README, a .gitignore file or a license. `bcgovr` will take care of that for you later.
+    -   Copy the URL of the repo; you'll need it later.
+
+2.  Determine the path where you want your repository to exist locally (i.e. on your computer). For example this could be: *H:/GitHub\_repos/my\_new\_repo*. The last folder in the path should match the name of the repo you are creating - in this case **my\_new\_repo**.
+3.  Open a fresh session of RStudio and type the following into console:
+
+    ``` r
+    bcgovr::analysis_skeleton(path = "H:/GitHub_repos/my_new_repo")
+    ```
+
+    This step will setup everything you need to connect you local repository to the remote one.
+4.  Now you need to open Git BASH in the *H:/GitHub\_repos/my\_new\_repo* directory. One easy way to do this is to navigate to the folder and right click on the directory. If git is installed you should see Git BASH. Click that. If git is not install on computer, you will not see `Git BASH`. Git can be downloaded from this link <https://git-scm.com/downloads>. You should now see something like this on your console `/h/GitHub_repos/my_new_repo (master)`
+5.  Now we are ready to push changes to our directory created by `analysis_skeleton()` to the remote bcgov repo. Our first step is to stage the changes (All commands beginning with `git` should be entered into Git BASH:
+
+    ``` bash
+    git add .
+    ```
+
+6.  Then commit the files with an informative message:
+
+    ``` bash
+    git commit -m "First commit of analysis_skeleton files"
+    ```
+
+7.  Now we need to tell our local git repo (storedo n your computer) where the remote (bcgov github) repo is. That way changes that are **pushed** will go to where we want to go:
+
+    ``` bash
+    git remote add origin https://github.com/bcgov/my_new_repo.git
+    # Sets the new remote
+    git remote -v
+    # Verifies the new remote URL
+    ```
+
+8.  Lastly you can push the changes you made to bcgov repo that you created:
+
+    ``` bash
+    git push origin master
+    # Pushes the changes in your local repository up to the remote repository you specified as the origin
+    ```
+
+------------------------------------------------------------------------
 
 ### Project Status
 
