@@ -51,6 +51,9 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   ## Add in package setup files
   devtools::setup(npath, rstudio = rstudio, description = bcgovr_desc, quiet = TRUE) 
   
+  ##Add in a news file
+  #devtools::use_news_md()
+  
   ## Add all bcgov files into RBuildignore
   add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
   add_to_rbuildignore(path = npath, text = "^README.md$")
