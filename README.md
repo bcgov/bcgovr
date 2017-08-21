@@ -54,7 +54,7 @@ The analysis\_skeleton function auto-populates a new R-based open source data an
 
 For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)---our example repository name is `bcgovr_analysis`. You can open an empty repository---without initializing a README, a .gitignore file or a license--- as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
 
-**Step 2: Set up and populate local repository using `bcgovr`**
+**Step 2: Set up & populate local repository using `bcgovr`**
 
 *RStudio GUI users:* Open a fresh session of RStudio where you will open your New Project. By default, RStudio will create any New Project in the current working directory. You can check the working directory using `getwd()`. Set your preferred local working directory in the R console (e.g. `setwd(C:/_dev)`) or using the RStudio navigation tools (Session -&gt; Set Working Directory -&gt; Choose Directory...). Now open your New Project: Select Version Control from the Create Project menu -&gt; Select Git -&gt; Paste the URL of the github.com/bcgov repository from step 1 in Repository URL -&gt; Click 'Create Project'. The local project name will be inherited from the remote repository, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov).
 
