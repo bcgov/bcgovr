@@ -104,19 +104,19 @@ This should result in a [bcgov](https://github.com/bcgov) 'ready-to-go' local di
 
 *Git Command Line Users:* Stage, Commit & Push changes in your local repository to the remote repository in [github.com/bcgov](github.com/bcgov) using the Command Line (e.g. [Git Bash](https://git-scm.com/downloads) or Terminal).
 
-    ```{sh}
-    git add README.md # stage the README file OR
-    git add . # stage all the changes in the local repo
-    git commit -m "First commit of analysis_skeleton files" # commit the files with an informative message
-    git push origin master # pushes the changes in your local repository up to the remote repository
-    ```
+```{r, engine = 'sh', eval = FALSE}
+git add README.md # stage the README file OR
+git add . # stage all the changes in the local repo
+git commit -m "First commit of analysis_skeleton files" # commit the files with an informative message
+git push origin master # pushes the changes in your local repository up to the remote repository
+```
 
 You can use the Command Line to [confirm or add the remote url for an existing local project](https://help.github.com/articles/adding-a-remote/). Checkout [GitHubHelp](https://help.github.com/) for more resources for using Git and the Command Line.
 
-    ```{sh}
-    git remote -v # verifies the new remote URL
-    git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the remote
-    ```
+```{r, engine = 'sh', eval = FALSE}
+git remote -v # verifies the new remote URL
+git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the remote
+```
 
 
 #### package_skeleton
