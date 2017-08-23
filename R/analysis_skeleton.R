@@ -74,6 +74,8 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   if (is.null(dir_struct)) {
     dir_struct <- c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")
     default_str <- TRUE
+  } else {
+    default_str <- FALSE
   }
   dirs <- file.path(npath, dir_struct[grepl("/$", dir_struct)])
   files <- setdiff(file.path(npath, dir_struct), dirs)
@@ -86,6 +88,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   ## Add the necessary R files and directories
   message("Creating new analysis in ", npath)
+  message("Adding folders and files to ", npath, ": ", paste(dir_struct, collapse = ", "))
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
 
