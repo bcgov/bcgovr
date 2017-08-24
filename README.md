@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
 <a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
 
@@ -109,10 +110,21 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 
 #### Options
 
--   **Code of Conduct contact email address:** To avoid having to always edit your Codes of Conduct to add contact email addresses you can add this line to your `.Rprofile` file:
+There are several options you can specify in your `.Rprofile` to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
+
+-   `bcgovr.coc.email`: Code of Conduct contact email address
+-   `bcgovr.dir.struct`: Alternative analysis directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
+
+    The default is: `c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+
+There should a section in your `.Rprofile` that looks something like this:
 
 ``` r
-if (interactive()) options("bcgovr.coc_email" = "my.email@gov.bc.ca")
+if (interactive()) {
+    options("bcgovr.coc.email" = "my.email@gov.bc.ca")
+    options("bcgvor.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R",
+            "src/03_analysis.r", "src/04_output.R", "src/runall.R"))
+} 
 ```
 
 ------------------------------------------------------------------------

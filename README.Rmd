@@ -1,7 +1,7 @@
 ---
 output:
-  md_document:
-    variant: markdown_github
+  github_document:
+    html_preview: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
@@ -133,10 +133,23 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 
 #### Options
 
-* **Code of Conduct contact email address:** To avoid having to always edit your Codes of Conduct to add contact email addresses you can add this line to your `.Rprofile` file:
+There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
+
+* `bcgovr.coc.email`: Code of Conduct contact email address
+* `bcgovr.dir.struct`: Alternative analysis directory structure. This should be specified as
+    a character vector of directory and file paths (relative to the root of the project). 
+    Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
+    
+    The default is: `c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+
+To make use of these options, there should a section in your `.Rprofile` file that looks something like this:
 
 ```r
-if (interactive()) options("bcgovr.coc_email" = "my.email@gov.bc.ca")
+if (interactive()) {
+    options("bcgovr.coc.email" = "my.email@gov.bc.ca")
+    options("bcgvor.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R",
+            "src/03_analysis.r", "src/04_output.R", "src/runall.R"))
+} 
 ```
 
 ---

@@ -27,9 +27,22 @@
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{TRUE}.
-#' @param coc_email Contact email address(es) for the Code of Conduct.
+#' @param coc_email Contact email address(es) for the Code of Conduct. 
+#' 
+#' You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your 
+#' .Rprofile file so that every time you start a new analysis, it will be automatically populated.
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
+#' @param dir_struct alternative analysis directory structure. This should be specified as
+#' a character vector of directory and file paths (relative to the root of the project). 
+#' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
+#' 
+#' The default is: \code{c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+#' 
+#' This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your 
+#' .Rprofile file so that every time you start a new analysis, your custom structure is set up.
+#' The line in your \code{.Rprofile} file would look something like this: 
+#' \code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}
 #'
 #' @details If you are cloning a repository (\code{git_clone = "path_to_repo"}),
 #'   you should run this function from the root of your dev folder and leave 
@@ -44,7 +57,8 @@
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
                               rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = TRUE,
-                              coc_email = getOption("bcgovr.coc_email"),
+                              coc_email = getOption("bcgovr.coc.email", default = NULL),
+                              dir_struct = getOption("bcgovr.dir.struct", default = NULL),
                               copyright_holder = "Province of British Columbia") {
 
 
@@ -62,29 +76,37 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
   ## Need to check for analysis structure
-  Rfiles <- file.path(npath, c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", 
-              "internal.R", "run_all.R"))
-  dirs <- file.path(npath, c("R","out", "graphics", "data"))
+  if (is.null(dir_struct)) {
+    dir_struct <- c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")
+    default_str <- TRUE
+  } else {
+    default_str <- FALSE
+  }
+  dirs <- file.path(npath, dir_struct[grepl("/$", dir_struct)])
+  files <- setdiff(file.path(npath, dir_struct), dirs)
+  filedirs <- dirname(files)
   
-  if (any(file.exists(Rfiles, dirs))) { ## file.exists is case-insensitive
+  if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
     #if (git) unlink(c(".git", ".gitignore", recursive = TRUE, force = TRUE)
     stop("It looks as though you already have an analysis set up here!")
   }
   
   ## Add the necessary R files and directories
   message("Creating new analysis in ", npath)
-  lapply(Rfiles, file.create)
-  lapply(dirs, dir.create)
+  message("Adding folders and files to ", npath, ": ", paste(dir_struct, collapse = ", "))
+  lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
+  lapply(files, file.create)
+
+  if (default_str) {
+    cat('source("01_load.R")\nsource("02_clean.R")\nsource("03_analysis.R")\nsource("04_output.R")\n', 
+        file = file.path(npath,"run_all.R"))
+  }
+  
   add_contributing(npath)
+  
   if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
   
   add_readme(npath, package = FALSE, rmd = rmarkdown)
-  
-  cat('source("01_load.R")
-source("02_clean.R")
-source("03_analysis.R")
-source("04_output.R")
-', file = file.path(npath,"run_all.R"))
   
   ## Use this template version until next rstudioapi CRAN release
   if (rstudio) {
@@ -108,7 +130,7 @@ source("04_output.R")
   
   if (apache) {
     add_license(npath)
-    lapply(Rfiles, add_license_header, year = substr(Sys.Date(), 1, 4), 
+    lapply(files, add_license_header, year = substr(Sys.Date(), 1, 4), 
            copyright_holder = copyright_holder)
   }
   
