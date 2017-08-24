@@ -27,13 +27,18 @@
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{TRUE}.
-#' @param coc_email Contact email address(es) for the Code of Conduct.
+#' @param coc_email Contact email address(es) for the Code of Conduct. 
+#' 
+#' You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your 
+#' .Rprofile file so that every time you start a new analysis, it will be automatically populated.
 #' @param copyright_holder the name of the copyright holder (default 
 #' "Province of British Columbia). Only necessary if adding a license
 #' @param dir_struct alternative analysis directory structure. This should be specified as
 #' a character vector of directory and file paths (relative to the root of the project). 
-#' Directories should be identified as such by having a trailing forward-slash (e.g., \code{"dir/"}).
+#' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
+#' 
 #' The default is: \code{c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+#' 
 #' This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your 
 #' .Rprofile file so that every time you start a new analysis, your custom structure is set up.
 #' The line in your \code{.Rprofile} file would look something like this: 
