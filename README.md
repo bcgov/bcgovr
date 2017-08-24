@@ -46,6 +46,12 @@ devtools::install_github("bcgov/bcgovr")
 
 ### Usage
 
+#### RStudio Addins
+
+Using RStudio and need to add that Apache 2.0 license header in new .R file or a project state badge? Just click twice:
+
+![](img/bcgovr_addin_example.gif)
+
 #### analysis\_skeleton
 
 The analysis\_skeleton function auto-populates a new R-based open source data analysis project with folders & files that encourage best practice in scientific computing and including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
@@ -108,12 +114,6 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 ``` r
 if (interactive()) options("bcgovr.coc_email" = "my.email@gov.bc.ca")
 ```
-
-#### RStudio Addins
-
-Using RStudio and need to add that Apache 2.0 license header in new .R file or a project state badge? Just click twice:
-
-![](img/bcgovr_addin_example.gif)
 
 ------------------------------------------------------------------------
 
