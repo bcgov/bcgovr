@@ -26,7 +26,7 @@
 #' }
 package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apache = TRUE,
                              rstudio = TRUE, CoC = TRUE, rmarkdown = TRUE, 
-                             coc_email = getOption("bcgovr.coc_email"),
+                             coc_email = getOption("bcgovr.coc.email"),
                              copyright_holder = "Province of British Columbia") {
   
   ## Create directory is path is not current working directory

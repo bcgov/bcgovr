@@ -66,7 +66,7 @@ add_contributing <- function(path = ".", package = FALSE) {
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return \code{TRUE} (invisibly)
-add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc_email")) {
+add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc.email")) {
   add_file_from_template(path, "CODE_OF_CONDUCT.md")
   if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
 

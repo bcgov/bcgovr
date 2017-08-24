@@ -5,7 +5,7 @@
 \title{Add a CODE_OF_CONDUCT.md file to the project directory}
 \usage{
 add_code_of_conduct(path = ".", package = FALSE,
-  coc_email = getOption("bcgovr.coc_email"))
+  coc_email = getOption("bcgovr.coc.email"))
 }
 \arguments{
 \item{path}{Directory path (default \code{"."})}

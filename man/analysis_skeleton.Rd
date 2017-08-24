@@ -6,7 +6,7 @@
 \usage{
 analysis_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
   rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = TRUE,
-  coc_email = getOption("bcgovr.coc_email", default = NULL),
+  coc_email = getOption("bcgovr.coc.email", default = NULL),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL),
   copyright_holder = "Province of British Columbia")
 }
