@@ -1,7 +1,7 @@
 Name: Insert BCDevex Badge
 Description: Inserts RMarkdown code for the BCDevex badge at the cursor position.
 Binding: devex_badge_addin
-Interactive: false
+Interactive: true
 
 Name: Insert Apache License Header
 Description: Inserts biolerplate Apache license header in the top of the current file.

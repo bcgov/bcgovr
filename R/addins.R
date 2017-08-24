@@ -13,14 +13,50 @@
 #' @importFrom rstudioapi insertText getActiveDocumentContext
 
 devex_badge_addin <- function() {
-  txt <- "
-```{r echo=FALSE, results='asis'}
-## Insert 'inspiration', 'exploration', or 'delivery'
-bcgovr::devex_badge('')
-```
-"
-  rstudioapi::insertText(text = txt)
+  badge <- devex_gadget()
+  
+  if (!is.null(badge)) {
+    txt <- devex_badge(badge, cat = FALSE)
+    rstudioapi::insertText(text = txt)
+  }
+  
+  invisible(NULL)
 }
+
+#' @import shiny
+#' @import miniUI
+devex_gadget <- function() {
+  ui <- miniUI::miniPage(
+    miniUI::gadgetTitleBar("Choose a Project State"), 
+    
+    miniContentPanel(
+      radioButtons("stateRadio", "Project State", 
+                   choiceNames = list(
+                     span(img(src="https://assets.bcdevexchange.org/images/badges/insipiration.svg"), 
+                          p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
+                     span(img(src="https://assets.bcdevexchange.org/images/badges/exploration.svg"),
+                          p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
+                     span(img(src = "https://assets.bcdevexchange.org/images/badges/delivery.svg"), 
+                         p("In production, but maybe in Alpha or Beta. Intended to persist and be supported."))), 
+                   choiceValues = c("inspiration", "exploration", "delivery")),
+      p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
+    )
+  )
+  
+  server <- function(input, output, session) {
+    observeEvent(input$done, {
+      stopApp(input$stateRadio)
+    })
+    observeEvent(input$cancel, {
+      stopApp(NULL)
+    })
+  }
+  
+  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 400)
+  shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
+                   stopOnCancel = FALSE)
+}
+
 
 license_header_addin <- function() {
   txt <- make_license_header_text()
