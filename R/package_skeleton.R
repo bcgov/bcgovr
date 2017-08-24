@@ -36,7 +36,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
   if (is.character(git_clone)) {
-    clone_git(git_clone, npath)
+    git2r::clone(git_clone, npath)
     git_init = FALSE
   }
   
@@ -84,7 +84,8 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", path = npath)
   }
-  
+  message("Setting working directory to ", npath)
+  setwd(npath)
   
   invisible(npath)
 }

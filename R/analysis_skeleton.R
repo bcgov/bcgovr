@@ -14,7 +14,7 @@
 #' 
 #' Creates the folder structure for a new analysis.
 #'
-#' @importFrom git2r repository init
+#' @importFrom git2r repository init clone
 #'  
 #' @param  path location to create new analysis. If \code{"."} (the default), 
 #'   the name of the working directory will be taken as the analysis name. If 
@@ -71,7 +71,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 
   
   if (is.character(git_clone)) {
-    clone_git(git_clone, npath)
+    git2r::clone(git_clone, npath)
     git_init = FALSE
   }
   
@@ -117,17 +117,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     }
   }
   
-  
-  ## Use when these functions are available on CRAN
-  #if (rstudio && rstudioapi::isAvailable()) {
-  #  #rstudioapi::initializeProject(npath)
-  #  rstudioapi::openProject(npath, newSession = TRUE)
-  #  message("Initializing and opening new Rstudio project in ", npath)
-  #} else {
-  #  setwd(npath)
-  #  message("Setting working directory to ", npath)
-  #}
-  
   if (apache) {
     add_license(npath)
     lapply(files, add_license_header, year = substr(Sys.Date(), 1, 4), 
@@ -138,7 +127,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     if (file.exists(file.path(npath,".git"))) {
       warning("This directory is already a git repository. Not creating a new one")
     } else {
-      init(npath)
+      git2r::init(npath)
     }
   }
   
@@ -147,8 +136,15 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-
-  
+  ## Use when these functions are available on CRAN
+  #if (rstudio && rstudioapi::isAvailable()) {
+  #  #rstudioapi::initializeProject(npath)
+  #  rstudioapi::openProject(npath, newSession = TRUE)
+  #  message("Initializing and opening new Rstudio project in ", npath)
+  #} else {
+  message("Setting working directory to ", npath)
+  setwd(npath)
+  #}
   
   invisible(npath)
 }
