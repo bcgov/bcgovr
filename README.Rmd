@@ -69,15 +69,14 @@ The analysis_skeleton function auto-populates a new R-based open source data ana
 
 **Step 1: Set up a [remote repository](https://help.github.com/articles/about-remote-repositories/)**
 
-For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)---our example repository name is `bcgovr_analysis`. You can open an empty repository---without initializing a README, a .gitignore file or a license--- as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
+For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)---our example repository name is `bcgovr_analysis`. You should open an empty repository---without initializing a README, a .gitignore file or a license--- as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
 
 
 **Step 2: Set up & populate local repository using `bcgovr`**
 
-*RStudio GUI users:* Open a fresh session of RStudio where you will open your New Project. By default, RStudio will create any New Project in the current working directory. You can check the working directory using `getwd()`. Set your preferred local working directory in the R console (e.g. `setwd(C:/_dev)`) or using the RStudio navigation tools (Session -> Set Working Directory -> Choose Directory...). Now open your New Project: Select Version Control from the Create Project menu -> Select Git -> Paste the URL of the github.com/bcgov repository from step 1 in Repository URL -> Click 'Create Project'. The local project name will be inherited from the remote repository, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov).
+*RStudio GUI users:* Open a fresh session of RStudio. Start a New Project: File -> New Project -> Select Version Control from the Create Project menu -> Select Git -> Paste the URL of the github.com/bcgov repository from step 1 in Repository URL and confirm local location of your new project -> Click 'Create Project'. The local project name will be inherited from the remote repository, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov).
 
-You can now run `analysis_skeleton()` to create a 'ready-to-go' set of folders & files in your local repository that encourage best practice in scientific computing and include all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
-
+You can now run `analysis_skeleton()` to create a set of folders & files in your local repository.
 
 ```{r, eval = FALSE}
 bcgovr::analysis_skeleton() ## directly calls the function from `bcgovr` library
@@ -86,16 +85,17 @@ library(bcgovr)
 analysis_skeleton()
 ```
 
-
-*R/RStudio Console Users:* You can set your local working directory in the R/RStudio Console (e.g. `setwd(C:/_dev)`) or you can use the `path` argument in `analysis_skeleton` to set the path where you want your local repository to exist. Supply the remote location using the `clone_git` argument.
-
-```{r, eval = FALSE}
-bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", clone_git = "url of remote repository") 
-```
-
-This should result in a [bcgov](https://github.com/bcgov) 'ready-to-go' local directory for a new data analysis project:
+The result is a [bcgov](https://github.com/bcgov) 'ready-to-go' local directory for a new data analysis project:
 
 ![](img/analysis_skeleton_output.PNG)
+
+
+*R/RStudio Console Users:* As an alternative to using the 'New Project -> Version Control...' dialogue in RStudio, you can use the R console and `bcgovr::analysis_skeleton()` to create a new local project. You can specify the URL of the remote repository (from step 1) using the `git_clone` argument. Be sure to either specify your new analysis local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `analysis_skeleton()`.
+
+```{r, eval = FALSE}
+bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of remote repository") 
+```
+
 
 
 **Step 3: Stage, Commit & Push local repository folders & files to remote repository** 
@@ -111,7 +111,7 @@ git commit -m "First commit of analysis_skeleton files" # commit the files with 
 git push origin master # pushes the changes in your local repository up to the remote repository
 ```
 
-You can use the Command Line to [confirm or add the remote url for an existing local project](https://help.github.com/articles/adding-a-remote/). Checkout [GitHubHelp](https://help.github.com/) for more resources for using Git and the Command Line.
+You can use the Command Line to [confirm or add the remote url for an existing local project](https://help.github.com/articles/adding-a-remote/). Checkout [GitHubHelp](https://help.github.com/) for more resources for using Git and the Command Line. The [Happy Git and GitHub for the useR](http://happygitwithr.com/) e-book is a great, free resource for learning and using Git and GitHub with R.
 
 ```{r, engine = 'sh', eval = FALSE}
 git remote -v # verifies the new remote URL
