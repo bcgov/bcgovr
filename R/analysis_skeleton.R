@@ -117,17 +117,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     }
   }
   
-  
-  ## Use when these functions are available on CRAN
-  #if (rstudio && rstudioapi::isAvailable()) {
-  #  #rstudioapi::initializeProject(npath)
-  #  rstudioapi::openProject(npath, newSession = TRUE)
-  #  message("Initializing and opening new Rstudio project in ", npath)
-  #} else {
-  setwd(npath)
-  #  message("Setting working directory to ", npath)
-  #}
-  
   if (apache) {
     add_license(npath)
     lapply(files, add_license_header, year = substr(Sys.Date(), 1, 4), 
@@ -147,8 +136,15 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-
-  
+  ## Use when these functions are available on CRAN
+  #if (rstudio && rstudioapi::isAvailable()) {
+  #  #rstudioapi::initializeProject(npath)
+  #  rstudioapi::openProject(npath, newSession = TRUE)
+  #  message("Initializing and opening new Rstudio project in ", npath)
+  #} else {
+  message("Setting working directory to ", npath)
+  setwd(npath)
+  #}
   
   invisible(npath)
 }
