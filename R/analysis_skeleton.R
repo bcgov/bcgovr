@@ -14,7 +14,7 @@
 #' 
 #' Creates the folder structure for a new analysis.
 #'
-#' @importFrom git2r repository init
+#' @importFrom git2r repository init clone
 #'  
 #' @param  path location to create new analysis. If \code{"."} (the default), 
 #'   the name of the working directory will be taken as the analysis name. If 
@@ -71,7 +71,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
 
   
   if (is.character(git_clone)) {
-    clone_git(git_clone, npath)
+    git2r::clone(git_clone, npath)
     git_init = FALSE
   }
   
@@ -124,7 +124,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   #  rstudioapi::openProject(npath, newSession = TRUE)
   #  message("Initializing and opening new Rstudio project in ", npath)
   #} else {
-  #  setwd(npath)
+  setwd(npath)
   #  message("Setting working directory to ", npath)
   #}
   
@@ -138,7 +138,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     if (file.exists(file.path(npath,".git"))) {
       warning("This directory is already a git repository. Not creating a new one")
     } else {
-      init(npath)
+      git2r::init(npath)
     }
   }
   

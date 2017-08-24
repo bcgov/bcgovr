@@ -10,25 +10,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Clones a remote repository
-#'
-#' @importFrom git2r repository clone is_empty
-#'
-#' @param url url of remote git repository
-#' @param path path to clone into
-#'
-#' @return a repository object
-clone_git <- function(url, path) {
-  remote_repo <- repository(url)
-  if (!is_empty(remote_repo)) {
-    warning("Not cloning a non-empty repository")
-    return(invisible(NULL))
-  } else {
-    repo <- clone(remote_repo@path, path)
-  }
-  repo
-}
-
 write_gitignore <- function(..., path = ".") {
   gitignew <- c(...)
   if (file.exists(".gitignore")) {

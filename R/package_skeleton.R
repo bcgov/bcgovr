@@ -36,7 +36,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
   if (is.character(git_clone)) {
-    clone_git(git_clone, npath)
+    git2r::clone(git_clone, npath)
     git_init = FALSE
   }
   
