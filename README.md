@@ -100,10 +100,10 @@ bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of 
 *Git Command Line Users:* Stage, Commit & Push changes in your local repository to the remote repository in [github.com/bcgov](github.com/bcgov) using the Command Line (e.g. [Git Bash](https://git-scm.com/downloads) or Terminal).
 
 ``` sh
-git add README.md # stage the README file OR
-git add . # stage all the changes in the local repo
-git commit -m "First commit of analysis_skeleton files" # commit the files with an informative message
-git push origin master # pushes the changes in your local repository up to the remote repository
+git status # see what file(s) are new or have changed
+git add README.md # stage the README file
+git commit -m "First commit of README file" # commit the file with an informative message
+git push origin master # push the changes in your local repository up to the remote repository
 ```
 
 You can use the Command Line to [confirm or add the remote url for an existing local project](https://help.github.com/articles/adding-a-remote/). Checkout [GitHubHelp](https://help.github.com/) for more resources for using Git and the Command Line. The [Happy Git and GitHub for the useR](http://happygitwithr.com/) e-book is a great, free resource for learning and using Git and GitHub with R.
