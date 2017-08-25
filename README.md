@@ -60,7 +60,9 @@ Need to add a project state badge to your .md or .Rmd? Just click-click-click:
 
 ![](img/bcgovr_addin_example2.gif)
 
-#### analysis\_skeleton
+#### Functions
+
+**analysis\_skeleton**
 
 The analysis\_skeleton function auto-populates a new R-based open source data analysis project with folders & files that encourage best practice in scientific computing and including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
@@ -111,7 +113,7 @@ git remote -v # verifies the new remote URL
 git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the remote
 ```
 
-#### package\_skeleton
+**package\_skeleton**
 
 The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
