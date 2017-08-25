@@ -1,7 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 #### Add a project state badge
 
-See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md>
+See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md> 
+If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin.
 
 Description of Analysis Code
 ============================
