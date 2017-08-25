@@ -68,7 +68,7 @@ The analysis\_skeleton function auto-populates a new R-based open source data an
 
 **Step 1: Set up a [remote repository](https://help.github.com/articles/about-remote-repositories/)**
 
-For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)---our example repository name is `bcgovr_analysis`. You should open an empty repository---without initializing a README, a .gitignore file or a license--- as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
+For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)—our example repository name is `bcgovr_analysis`. You should open an empty repository—without initializing a README, a .gitignore file or a license—as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
 
 **Step 2: Set up & populate local repository using `bcgovr`**
 
