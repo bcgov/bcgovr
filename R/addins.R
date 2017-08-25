@@ -30,6 +30,7 @@ devex_gadget <- function() {
     miniUI::gadgetTitleBar("Choose a Project State"), 
     
     miniContentPanel(
+      p("Choose a project state, which is intended to give a rough indication of where the project is at in its development."),
       radioButtons("stateRadio", "Project State", 
                    choiceNames = list(
                      span(img(src="https://assets.bcdevexchange.org/images/badges/insipiration.svg"), 
@@ -52,7 +53,7 @@ devex_gadget <- function() {
     })
   }
   
-  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 400)
+  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 450)
   shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
                    stopOnCancel = FALSE)
 }
