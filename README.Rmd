@@ -42,21 +42,19 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 
 ---
 
-### Installation
+### Installation 
 
-If you have not already installed R itself or RStudio on a BC Government computer, you can follow these [installation instructions](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md) to get set up using R. 
-
-Once you have R & RStudio installed on your machine, open up RStudio so you can install the `bcgovr` package directly from this repository. To do so, you will 
-first need the [devtools](https://github.com/hadley/devtools/) package:
+Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
 
 ```{r, eval=FALSE}
 install.packages("devtools")
 ```
 
-Next, install the `bcgovr` package using `devtools::install_github()`:
+Next, install and load the `bcgovr` package using `devtools::install_github()`:
 
 ```{r, eval=FALSE}
 devtools::install_github("bcgov/bcgovr")
+library(bcgovr)
 ```
 
 ---
@@ -65,10 +63,17 @@ devtools::install_github("bcgov/bcgovr")
 
 #### RStudio Addins
 
-Using RStudio and need to add that Apache 2.0 license header in new .R file or a project state badge? Just click twice:
+**Apache 2.0 License Header**
+
+Need to add that Apache 2.0 license header to a new .R file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
 
+**BCDevExchange Project State Badge**
+
+Need to add a project state badge to your .md or .Rmd? Just click-click-click:
+
+![](img/bcgovr_addin_example2.gif)
 
 #### analysis_skeleton
 

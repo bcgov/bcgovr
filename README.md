@@ -29,18 +29,17 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 
 ### Installation
 
-If you have not already installed R itself or RStudio on a BC Government computer, you can follow these [installation instructions](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md) to get set up using R.
-
-Once you have R & RStudio installed on your machine, open up RStudio so you can install the `bcgovr` package directly from this repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
+Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
 
 ``` r
 install.packages("devtools")
 ```
 
-Next, install the `bcgovr` package using `devtools::install_github()`:
+Next, install and load the `bcgovr` package using `devtools::install_github()`:
 
 ``` r
 devtools::install_github("bcgov/bcgovr")
+library(bcgovr)
 ```
 
 ------------------------------------------------------------------------
@@ -49,9 +48,17 @@ devtools::install_github("bcgov/bcgovr")
 
 #### RStudio Addins
 
-Using RStudio and need to add that Apache 2.0 license header in new .R file or a project state badge? Just click twice:
+**Apache 2.0 License Header**
+
+Need to add that Apache 2.0 license header to a new .R file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
+
+**BCDevExchange Project State Badge**
+
+Need to add a project state badge to your .md or .Rmd? Just click-click-click:
+
+![](img/bcgovr_addin_example2.gif)
 
 #### analysis\_skeleton
 
@@ -110,14 +117,14 @@ The `package_skeleton()` function is used the same way as `analysis_skeleton()` 
 
 #### Options
 
-There are several options you can specify in your `.Rprofile` to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
+There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
 -   `bcgovr.dir.struct`: Alternative analysis directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
 
     The default is: `c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
-There should a section in your `.Rprofile` that looks something like this:
+To make use of these options, there should a section in your `.Rprofile` file that looks something like this:
 
 ``` r
 if (interactive()) {
