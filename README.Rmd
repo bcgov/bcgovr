@@ -71,7 +71,7 @@ Need to add that Apache 2.0 license header to a new .R file? Just click-click:
 
 **BCDevExchange Project State Badge**
 
-Need to add a project state badge to your .md or .Rmd? Just click-click-click:
+Need to add a project state badge to your .md or .Rmd file? Just click-click-click:
 
 ![](img/bcgovr_addin_example2.gif)
 
