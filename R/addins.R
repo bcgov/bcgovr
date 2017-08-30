@@ -33,7 +33,7 @@ devex_gadget <- function() {
       p("Choose a project state, which is intended to give a rough indication of where the project is at in its development."),
       radioButtons("stateRadio", "Project State", 
                    choiceNames = list(
-                     span(img(src="https://assets.bcdevexchange.org/images/badges/insipiration.svg"), 
+                     span(img(src="https://assets.bcdevexchange.org/images/badges/inspiration.svg"), 
                           p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
                      span(img(src="https://assets.bcdevexchange.org/images/badges/exploration.svg"),
                           p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
