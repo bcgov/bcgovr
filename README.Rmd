@@ -14,21 +14,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, echo=FALSE, results='asis'}
-bcgovr::devex_badge("delivery")
-```
+# bcgovr <img src="img/logo.png" align="right" />
 
+
+<div id="devex-badge"><a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a></div>
 [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 
----
 
-# bcgovr
+
+## Overview
 
 An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov open source guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
----
 
-### Features
+
+## Features
 
 Currently there are two main functions for auto-populating a new R-based data analysis or package project directory with folders & files that encourage best practice in scientific computing and ensure the project has all the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md):
 
@@ -40,9 +40,9 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 1. The [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
 2. A [BCDevExchange project state badge](https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md) to a README file.
 
----
 
-### Installation 
+
+## Installation 
 
 Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgovr/blob/master/Install_Instructions.md), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
 
@@ -57,11 +57,11 @@ devtools::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
----
 
-### Usage
 
-#### RStudio Addins
+## Usage
+
+### RStudio Addins
 
 **Apache 2.0 License Header**
 
@@ -75,7 +75,7 @@ Need to add a project state badge to your .md or .Rmd file? Just click-click-cli
 
 ![](img/bcgovr_addin_example2.gif)
 
-#### Functions
+### Functions
 
 **analysis_skeleton**
 
@@ -138,7 +138,7 @@ git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the re
 The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
 
-#### Options
+### Options
 
 There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
 
@@ -159,19 +159,19 @@ if (interactive()) {
 } 
 ```
 
----
 
-### Project Status
+
+## Project Status
 
 This package is under active development.
 
 
-### Getting Help or Reporting an Issue
+## Getting Help or Reporting an Issue
 
 To report bugs/issues/feature requests, please file an [Issue](https://github.com/bcgov/bcgovr/issues/).
 
 
-### How to Contribute
+## How to Contribute
 
 If you would like to contribute to the package, please see our 
 [CONTRIBUTING](CONTRIBUTING.md) guidelines.
@@ -179,7 +179,7 @@ If you would like to contribute to the package, please see our
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 
-### License
+## License
 
     Copyright 2017 Province of British Columbia
 
