@@ -20,7 +20,7 @@ analysis name.}
 
 \item{git_clone}{the url of a git repo to clone.}
 
-\item{rstudio}{Create an Rstudio project file?}
+\item{rstudio}{Create an Rstudio project file? If true, a new RStudio session will open.}
 
 \item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
 

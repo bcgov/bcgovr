@@ -49,7 +49,16 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   
   ## Add in package setup files
-  devtools::setup(npath, rstudio = rstudio, description = bcgovr_desc, quiet = TRUE) 
+  devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc, quiet = TRUE) 
+  
+  if (rstudio && rstudioapi::isAvailable()) {
+    rstudioapi::initializeProject(npath)
+    #rstudioapi::openProject(npath, newSession = TRUE)
+    message("Initializing and opening new R package in ", npath)
+  } else {
+    message("Setting working directory to ", npath)
+    setwd(npath)
+  }
   
   ##Add in a news file
   #devtools::use_news_md()

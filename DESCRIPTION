@@ -1,8 +1,8 @@
 Package: bcgovr
 Type: Package
 Title: BC Government R user start-up package
-Version: 0.1.1
-Date: 2017-08-24
+Version: 0.1.2
+Date: 2017-09-11
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
@@ -15,7 +15,7 @@ Depends:
     R (>= 3.4.0),
 Imports:
     git2r (>= 0.15.0),
-    rstudioapi (>= 0.6.0),
+    rstudioapi (>= 0.7.0),
     devtools (>= 1.13.1),
     shiny (>= 1.0),
     miniUI (>= 0.1)
