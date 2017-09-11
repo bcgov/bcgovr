@@ -22,7 +22,8 @@
 #'   analysis name.
 #' @param git_init Create a new git repository? Logical, default \code{TRUE}.
 #' @param git_clone the url of a git repo to clone.
-#' @param rstudio Create an Rstudio project file?
+#' @param rstudio Create an Rstudio project file? If true, a new RStudio session will open for \code{analysis_skeleton}
+#'   while only a \code{.Rproj} file is created for \code{package_skeleton}. 
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
@@ -109,13 +110,13 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   add_readme(npath, package = FALSE, rmd = rmarkdown)
   
   ## Use this template version until next rstudioapi CRAN release
-  if (rstudio) {
-    if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
-      add_rproj(npath, paste0(basename(npath), ".Rproj"))
-    } else {
-      warning("Rproj file already exists, so not adding a new one")
-    }
-  }
+  #if (rstudio) {
+  #  if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
+  #    add_rproj(npath, paste0(basename(npath), ".Rproj"))
+  #  } else {
+  #    warning("Rproj file already exists, so not adding a new one")
+  #  }
+  #}
   
   if (apache) {
     add_license(npath)
@@ -136,15 +137,15 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", path = npath)
   }
   
-  ## Use when these functions are available on CRAN
-  #if (rstudio && rstudioapi::isAvailable()) {
-  #  #rstudioapi::initializeProject(npath)
-  #  rstudioapi::openProject(npath, newSession = TRUE)
-  #  message("Initializing and opening new Rstudio project in ", npath)
-  #} else {
+  # Use when these functions are available on CRAN
+  if (rstudio && rstudioapi::isAvailable()) {
+    #rstudioapi::initializeProject(npath)
+    rstudioapi::openProject(npath, newSession = TRUE)
+    message("Initializing and opening new Rstudio project in ", npath)
+  } else {
   message("Setting working directory to ", npath)
   setwd(npath)
-  #}
+  }
   
   invisible(npath)
 }

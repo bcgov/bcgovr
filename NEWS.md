@@ -1,3 +1,8 @@
+# bcgovr 0.1.2
+* Making use of rstudioapi functions
+* fixed small bug in `analysis_skeleton()` tests
+* Now depends on rstudioapi >=0.7.0
+
 # bcgovr 0.1.1
 
 * Updated README with better instructions (#12)
