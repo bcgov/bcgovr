@@ -22,7 +22,8 @@
 #'   analysis name.
 #' @param git_init Create a new git repository? Logical, default \code{TRUE}.
 #' @param git_clone the url of a git repo to clone.
-#' @param rstudio Create an Rstudio project file? If true, a new RStudio session will open. 
+#' @param rstudio Create an Rstudio project file? If true, a new RStudio session will open for \code{analysis_skeleton}
+#'   while only a \code{.Rproj} file is created for \code{package_skeleton}. 
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
