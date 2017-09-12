@@ -109,15 +109,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   add_readme(npath, package = FALSE, rmd = rmarkdown)
   
-  ## Use this template version until next rstudioapi CRAN release
-  #if (rstudio) {
-  #  if (!length(list.files(npath, pattern = "*.Rproj", ignore.case = TRUE))) {
-  #    add_rproj(npath, paste0(basename(npath), ".Rproj"))
-  #  } else {
-  #    warning("Rproj file already exists, so not adding a new one")
-  #  }
-  #}
-  
   if (apache) {
     add_license(npath)
     lapply(files, add_license_header, year = substr(Sys.Date(), 1, 4), 
@@ -139,7 +130,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   # Use when these functions are available on CRAN
   if (rstudio && rstudioapi::isAvailable()) {
-    #rstudioapi::initializeProject(npath)
     rstudioapi::openProject(npath, newSession = TRUE)
     message("Initializing and opening new Rstudio project in ", npath)
   } else {
