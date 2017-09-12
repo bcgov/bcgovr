@@ -53,7 +53,6 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   if (rstudio && rstudioapi::isAvailable()) {
     rstudioapi::initializeProject(npath)
-    #rstudioapi::openProject(npath, newSession = TRUE)
     message("Initializing and opening new R package in ", npath)
   } else {
     message("Setting working directory to ", npath)
