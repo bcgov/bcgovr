@@ -125,7 +125,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   if (git_init || is.character(git_clone)) {
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
-                    "internal.R", path = npath)
+                    "internal.R", "*.DS_Store", path = npath)
   }
   
   # Use when these functions are available on CRAN
