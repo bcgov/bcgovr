@@ -60,7 +60,7 @@ devex_gadget <- function() {
 
 
 license_header_addin <- function() {
-  txt <- make_license_header_text()
+  txt <- make_license_header_text(year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia")
   rstudioapi::insertText(location = c(1,1), text = txt)
 }
 
