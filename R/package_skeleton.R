@@ -65,6 +65,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   ## Add all bcgov files into RBuildignore
   add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
   add_to_rbuildignore(path = npath, text = "^README.md$")
+  add_to_rbuildignore(path = npath, text = "^README.Rmd$")
   add_to_rbuildignore(path = npath, text = "^CODE_OF_CONDUCT.md$")
 
   ## Add the necessary R files and directories
