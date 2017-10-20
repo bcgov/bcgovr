@@ -21,24 +21,13 @@
 add_readme <- function(path = ".",
                        package = FALSE,
                        rmd = FALSE) {
+  
+  ext <- ifelse(rmd, ".Rmd", ".md")
+  fbase <- ifelse(package, "pkg-README", "README")
 
-  if (package == FALSE & rmd == FALSE) {
-    add_file_from_template(path, "README.md", outfile = "README.md")
-  } 
-  
-  if (package == TRUE & rmd == FALSE) {
-    add_file_from_template(path, "pkg-README.md", outfile = "README.md")
-  } 
-  
-  if (package == FALSE & rmd == TRUE) {
-    add_file_from_template(path, "README.md", outfile = "README.md")
-    add_file_from_template(path, "README.rmd", outfile = "README.rmd")
-  } 
-  
-  if (package == TRUE & rmd == TRUE) {
-    add_file_from_template(path, "pkg-README.md", outfile = "README.md")
-    add_file_from_template(path, "pkg-README.rmd", outfile = "README.rmd")
-  } 
+  add_file_from_template(path, 
+                         fname = paste0(fbase, ext), 
+                         outfile = paste0("README", ext))
   
   invisible(TRUE)
 } 
