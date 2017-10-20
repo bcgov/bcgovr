@@ -27,7 +27,7 @@
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
-#'   with its corresponding markdown file? Default \code{TRUE}.
+#'   with its corresponding markdown file? Default \code{FALSE}.
 #' @param coc_email Contact email address(es) for the Code of Conduct. 
 #' 
 #' You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your 
@@ -57,7 +57,7 @@
 #'  bcgovr::analysis_skeleton(path = "c:/_dev/tarballs")
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = TRUE,
+                              rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
                               coc_email = getOption("bcgovr.coc.email", default = NULL),
                               dir_struct = getOption("bcgovr.dir.struct", default = NULL),
                               copyright_holder = "Province of British Columbia") {

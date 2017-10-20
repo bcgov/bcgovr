@@ -16,6 +16,8 @@
 #' @importFrom git2r repository init
 #'  
 #' @inheritParams analysis_skeleton
+#' @param rmarkdown Should an rmarkdown file be added to the repository
+#'   with its corresponding markdown file? Default \code{TRUE}.
 #' 
 #' @inherit analysis_skeleton details
 #'

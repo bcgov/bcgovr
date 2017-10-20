@@ -5,7 +5,7 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 analysis_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = TRUE,
+  rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
   coc_email = getOption("bcgovr.coc.email", default = NULL),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL),
   copyright_holder = "Province of British Columbia")
@@ -28,7 +28,7 @@ while only a \code{.Rproj} file is created for \code{package_skeleton}.}
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
 
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
-with its corresponding markdown file? Default \code{TRUE}.}
+with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct. 
 
