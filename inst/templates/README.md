@@ -19,8 +19,7 @@ There are four core scripts that are required for the analysis, they need to be 
 -   03\_visualize.R
 -   04\_output.R
 
-Example
--------
+#### Example
 
 This is a basic example which shows you how to solve a common problem:
 
