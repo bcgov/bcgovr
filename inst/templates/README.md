@@ -1,8 +1,10 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-#### Add a project state badge
+<!-- You can either use this README.md directly or you can generate the repository .md file using README.Rmd and `knitr`. If the latter approach, which is useful for stitching code and text together in your README, please edit the .Rmd file only.
+
+Add a project state badge
 
 See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md> 
 If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin.
+-->
 
 Description of Analysis Code
 ============================

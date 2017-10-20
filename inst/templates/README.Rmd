@@ -4,8 +4,6 @@ output:
     variant: markdown_github
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -14,9 +12,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-#### Add a project state badge 
+<!-- Add a project state badge
 See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
-If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin.
+If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin. -->
 
 # Description of Analysis Code
 

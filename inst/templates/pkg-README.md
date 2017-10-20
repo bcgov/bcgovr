@@ -1,7 +1,10 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-#### Add a project state badge
-See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md>
+<!-- You can either use this README.md directly or you can generate the repository .md file using README.Rmd and `knitr`. If the latter approach, which is useful for stitching code and text together in your README, please edit the .Rmd file only.
+
+Add a project state badge
+
+See <https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md> 
 If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin.
+-->
 
 package name
 ============
@@ -28,13 +31,18 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-Apache 2.0 See our [license](LICENSE) for more details.
+    Copyright 2017 Province of British Columbia
 
-Example
--------
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at 
 
-This is a basic example which shows you how to solve a common problem:
+       http://www.apache.org/licenses/LICENSE-2.0
 
-``` r
-## basic example code
-```
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+
