@@ -1,3 +1,7 @@
+# bcgovr 0.1.3
+* More consistent provision of README files in `analysis_skeleton()` and `package_skeleton()` (#19)
+* Tidy formatting of README files
+
 # bcgovr 0.1.2
 * Making use of rstudioapi functions
 * fixed small bug in `analysis_skeleton()` tests
