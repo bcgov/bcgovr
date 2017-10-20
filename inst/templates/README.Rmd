@@ -29,7 +29,7 @@ There are four core scripts that are required for the analysis, they need to be 
 - 03_visualize.R
 - 04_output.R
 
-## Example
+#### Example
 
 This is a basic example which shows you how to solve a common problem:
 
