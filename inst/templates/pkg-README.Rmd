@@ -26,6 +26,14 @@ Description of package
 
 ### Usage
 
+#### Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+## basic example code
+```
+
 ### Project Status
 
 ### Getting Help or Reporting an Issue
