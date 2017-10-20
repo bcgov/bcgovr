@@ -3,7 +3,7 @@ options(warn = 2)
 expected_files <- c(".git", "data", "out", "graphics", "R",
                     ".gitignore", "01_load.R", "02_clean.R", "03_analysis.R", 
                     "04_output.R", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", 
-                    "internal.R", "LICENSE", "README.md", "README.rmd","run_all.R")
+                    "internal.R", "LICENSE", "README.md", "run_all.R")
 
 name_incrementer <- function(name) {
   i <- 0
@@ -112,6 +112,19 @@ test_that("analysis_skeleton works with absolute path and git clone", {
   			   sort(normalizePath(
   			     file.path(dir, expected_files), 
   			     winslash = "/")))
+})
+
+test_that("rmarkdown argument works", {
+  base_dir <- increment_foo()
+  dir <- file.path(tempdir(), base_dir)
+  ret <- analysis_skeleton(dir)
+  skip_on_travis()
+  expect_true(file.exists(file.path(dir, "README.md")))
+  base_dir <- increment_foo()
+  dir <- file.path(tempdir(), base_dir)
+  ret <- analysis_skeleton(dir, rmarkdown = TRUE)
+  skip_on_travis()
+  expect_true(file.exists(file.path(dir, "README.Rmd")))
 })
 
 unlink(bare_repo_path, recursive = TRUE, force = TRUE)
