@@ -1,4 +1,4 @@
-# Instructions for installing **R** and **RStudio** on a BC Government computer
+# Instructions for installing **R** and **RStudio** on a Windows BC Government computer
 
 \*Note that the B.C. Software Centre has **R** and **RStudio** packaged for installation. If you
 install from the Software Centre, skip steps 1 and 2. If you have your supervisor's approval 
@@ -14,7 +14,7 @@ install from the Software Centre, skip steps 1 and 2. If you have your superviso
     and go to `C:/Program Files/R/[prev_R_version]` and delete all folders and files left over.
 
     
-2. Install RStudio: Go to https://www.rstudio.com/products/rstudio/download/preview/, and 
+2. Install RStudio: Go to https://www.rstudio.com/products/rstudio/download/#download, and 
    download and install the version for your system.  Accept all of the defaults 
    for the installation options.
    
