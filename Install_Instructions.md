@@ -1,4 +1,4 @@
-# Instructions for installing **R** and **RStudio** on a Windows BC Government computer
+# Instructions for installing **R** and **RStudio** on a Windows 7 BC Government computer
 
 \*Note that the B.C. Software Centre has **R** and **RStudio** packaged for installation. If you
 install from the Software Centre, skip steps 1 and 2. If you have your supervisor's approval 
