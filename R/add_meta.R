@@ -139,10 +139,13 @@ add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") 
     
     template_path <- system.file("templates", fname, package = pkg)
     
-    file.copy(template_path, outfile)
+    copied <- file.copy(template_path, outfile)
+    if (!copied) {
+      stop("Unable to copy ", template_path, " to ", outfile, call. = FALSE)
+    }
   }
   
-  invisible(TRUE)
+  invisible(outfile)
 }
 
 #' Add the boilerplate Apache header to the top of a source code file
