@@ -55,17 +55,20 @@ add_contributing <- function(path = ".", package = FALSE) {
 #' @export
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return \code{TRUE} (invisibly)
-add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc.email")) {
-  add_file_from_template(path, "CODE_OF_CONDUCT.md")
-  if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
+add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
+  coc_path <- add_file_from_template(path, "CoC.md")
 
+  coc_path <- normalizePath(coc_path, 
+                            winslash = "/", mustWork = TRUE)
   if (!is.null(coc_email)) {
-    coc_path <- normalizePath(file.path(path, "CODE_OF_CONDUCT.md"), 
-                              winslash = "/", mustWork = TRUE)
     coc_text <- readLines(coc_path)
     coc_text <- gsub("{COC_CONTACT_EMAIL}", coc_email, coc_text, fixed = TRUE)
     writeLines(coc_text, coc_path)
   }
+  
+  stopifnot(file.rename(coc_path, 
+                        file.path(dirname(coc_path), "CODE_OF_CONDUCT.md")))
+  if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
   
   #message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
   #message("Please note that this project is released with a ", 

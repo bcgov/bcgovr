@@ -127,4 +127,12 @@ test_that("rmarkdown argument works", {
   expect_true(file.exists(file.path(dir, "README.Rmd")))
 })
 
+test_that("add_code_of_conduct works", {
+  base_dir <- increment_foo()
+  dir <- file.path(tempdir(), base_dir)
+  dir.create(dir, showWarnings = FALSE)
+  expect_true(add_code_of_conduct(dir, coc_email = NULL))
+  expect_true(file.exists(file.path(dir, "CODE_OF_CONDUCT.md")))
+})
+
 unlink(bare_repo_path, recursive = TRUE, force = TRUE)
