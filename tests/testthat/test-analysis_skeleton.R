@@ -21,11 +21,11 @@ test_that("analysis_skeleton works with dot path and git_init", {
   dir.create(file.path(dir, base_dir))
   setwd(file.path(dir, base_dir))
   ret <- analysis_skeleton(rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret, winslash = "/"), 
                normalizePath(".", winslash = "/"))
   files <- list.files(all.files = TRUE, full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files, winslash = "/")), 
                sort(normalizePath(
                  file.path(".", expected_files), 
@@ -37,12 +37,12 @@ test_that("analysis_skeleton works with relative path and git init", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_init = TRUE, rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret, winslash = "/"), 
                normalizePath(file.path(dir, base_dir), winslash = "/"))
   files <- list.files(file.path(dir, base_dir), all.files = TRUE, 
                       full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files, winslash = "/")), 
                sort(normalizePath(
                  file.path(dir, base_dir, expected_files), 
@@ -53,11 +53,11 @@ test_that("analysis_skeleton works with absolute path and git init", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, git_init = TRUE, rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret), normalizePath(dir))
   files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files)), 
   			   sort(normalizePath(file.path(dir, expected_files))))
 })
@@ -72,11 +72,11 @@ test_that("analysis_skeleton works with dot path and git clone", {
   dir.create(file.path(dir, base_dir))
   setwd(file.path(dir, base_dir))
   ret <- analysis_skeleton(git_clone = bare_repo, rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret), normalizePath("."))
   files <- list.files(all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files)), 
   			   sort(normalizePath(file.path(".", expected_files))))
 })
@@ -86,12 +86,12 @@ test_that("analysis_skeleton works with relative path and git clone", {
   dir <- tempdir()
   setwd(dir)
   ret <- analysis_skeleton(base_dir, git_clone = bare_repo, rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret, winslash = "/"), 
   			   normalizePath(file.path(dir, base_dir), winslash = "/"))
   files <- list.files(file.path(dir, base_dir), all.files = TRUE, 
                       full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files, winslash = "/")), 
   			   sort(normalizePath(
   			     file.path(dir, base_dir, expected_files), 
@@ -102,12 +102,12 @@ test_that("analysis_skeleton works with absolute path and git clone", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, git_clone = bare_repo, rstudio = FALSE)
-  # skip_on_travis()
+  
   expect_equal(normalizePath(ret, winslash = "/"), 
   			   normalizePath(dir, winslash = "/"))
   files <- list.files(dir, all.files = TRUE, full.names = TRUE, 
                       include.dirs = TRUE, no.. = TRUE)
-  # skip_on_travis()
+  
   expect_equal(sort(normalizePath(files, winslash = "/")), 
   			   sort(normalizePath(
   			     file.path(dir, expected_files), 
@@ -118,12 +118,12 @@ test_that("rmarkdown argument works", {
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir)
-  # skip_on_travis()
+  
   expect_true(file.exists(file.path(dir, "README.md")))
   base_dir <- increment_foo()
   dir <- file.path(tempdir(), base_dir)
   ret <- analysis_skeleton(dir, rmarkdown = TRUE)
-  # skip_on_travis()
+  
   expect_true(file.exists(file.path(dir, "README.Rmd")))
 })
 
