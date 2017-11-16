@@ -1,0 +1,39 @@
+Binding: analysis_skeleton
+Title: BC Gov Analysis Skeleton
+
+Parameter: git_init
+Widget: CheckboxInput
+Label: Initialize git repo
+Default: On
+Position: left
+
+Parameter: rmarkdown
+Widget: CheckboxInput
+Label: Use README.Rmd?
+Default: Off
+Position: right
+
+Parameter: CoC
+Widget: CheckboxInput
+Label: Use Code of Conduct?
+Default: On
+Position: left
+
+Parameter: coc_email
+Widget: TextInput
+Label: Email address for CODE_OF_CONDUCT.md
+Default: your.email@gov.bc.ca
+Position: right
+
+Parameter: apache
+Widget: CheckboxInput
+Label: Use Apache 2.0 License?
+Default: On
+Position: left
+
+Parameter: copyright_holder
+Widget: TextInput
+Label: Copyright Holder
+Default: Province of British Columbia
+Position: right
+
