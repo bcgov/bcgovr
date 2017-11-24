@@ -7,7 +7,7 @@
 devex_badge(project_state, cat = TRUE)
 }
 \arguments{
-\item{project_state}{one of:'inspiration', 'exploration', or 'delivery'}
+\item{project_state}{one of:'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'}
 
 \item{cat}{use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?}
 }

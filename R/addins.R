@@ -37,9 +37,13 @@ devex_gadget <- function() {
                           p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
                      span(img(src="https://assets.bcdevexchange.org/images/badges/exploration.svg"),
                           p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
+                     span(img(src="https://assets.bcdevexchange.org/images/badges/dormant.svg"), 
+                          p("Not currently being worked on, but with plans to come back to the work in the future.")), 
                      span(img(src = "https://assets.bcdevexchange.org/images/badges/delivery.svg"), 
-                         p("In production, but maybe in Alpha or Beta. Intended to persist and be supported."))), 
-                   choiceValues = c("inspiration", "exploration", "delivery")),
+                         p("In production, but maybe in Alpha or Beta. Intended to persist and be supported.")),
+                     span(img(src="https://assets.bcdevexchange.org/images/badges/retired.svg"), 
+                          p("No longer being used or supported, recommend not using an alternative option."))), 
+                   choiceValues = c("inspiration", "exploration", "dormant", "delivery", "retired")),
       p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
     )
   )
@@ -53,7 +57,7 @@ devex_gadget <- function() {
     })
   }
   
-  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 450)
+  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 615)
   shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
                    stopOnCancel = FALSE)
 }
