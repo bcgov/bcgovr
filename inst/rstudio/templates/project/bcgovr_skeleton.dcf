@@ -2,7 +2,7 @@ Binding: skeleton_addin
 Title: BC Gov Analysis/Package Skeleton
 Subtitle: Create the framework of a new analysis or package folder with bcgov GitHub boilerplate
 Caption: BC Gov Analysis/Package Skeleton with bcgov GitHub
-Icon: logo.png
+Icon: bcgovr_logo_sm_sq.png
 
 Parameter: package
 Widget: CheckboxInput
