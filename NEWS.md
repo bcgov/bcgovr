@@ -1,3 +1,6 @@
+# bcgovr 0.1.4
+* Add new [BCDevExchange Project State Badges](https://github.com/BCDevExchange/assets/blob/master/README.md) to `devex_badge()` and RStudio addin
+
 # bcgovr 0.1.3
 * More consistent provision of README files in `analysis_skeleton()` and `package_skeleton()` (#19)
 * Tidy formatting of README files
