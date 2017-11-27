@@ -68,4 +68,18 @@ license_header_addin <- function() {
   rstudioapi::insertText(location = c(1,1), text = txt)
 }
 
-
+skeleton_addin <- function(path, package, git_init, CoC, coc_email, apache, copyright_holder, readme_type) {
+  args <- list(path = path, 
+               git_init = git_init, 
+               git_clone = NULL, 
+               apache = apache, 
+               rstudio = TRUE, 
+               CoC = CoC, 
+               coc_email = coc_email,
+               copyright_holder = copyright_holder,
+               rmarkdown = ifelse(readme_type == "README.Rmd", TRUE, FALSE))
+  
+  fun <- switch(as.character(package), "TRUE" = package_skeleton, "FALSE" = analysis_skeleton)
+  
+  do.call(fun, args)
+}

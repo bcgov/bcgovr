@@ -60,10 +60,13 @@ add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOpti
 
   coc_path <- normalizePath(coc_path, 
                             winslash = "/", mustWork = TRUE)
-  if (!is.null(coc_email)) {
+  if (!is.null(coc_email) && nzchar(coc_email)) {
     coc_text <- readLines(coc_path)
     coc_text <- gsub("{COC_CONTACT_EMAIL}", coc_email, coc_text, fixed = TRUE)
     writeLines(coc_text, coc_path)
+  } else {
+    message("No contact email has been added to your CODE_OF_CONDUCT.md.", 
+            "Please do so manually")
   }
   
   stopifnot(file.rename(coc_path, 
