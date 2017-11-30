@@ -43,7 +43,7 @@ The package also installs two [RStudio Addins](https://rstudio.github.io/rstudio
 
 ## Installation 
 
-Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgovr/wiki/Installing-R-&-RStudio), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
+Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgov-data-science-resources/wiki/Installing-R-&-RStudio), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
 
 ```{r, eval=FALSE}
 install.packages("devtools")
