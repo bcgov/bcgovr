@@ -27,8 +27,8 @@ make_badge <- function(state) {
                   delivery = "In production, but maybe in Alpha or Beta. Intended to persist and be supported.",
                   dormant = "Not currently being worked on, but with plans to come back to the work in the future.",
                   retired = "No longer being used or supported, recommend not using an alternative option.")[state]
-  paste0('<div id="devex-badge"><a rel="', title, 
+  paste0('<a id="devex-badge" rel="', title, 
          '" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="', state_desc, 
          '" style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/', state, 
-         '.svg" title="', state_desc, '" /></a></div>')
+         '.svg" title="', state_desc, '" /></a>')
 }
