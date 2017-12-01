@@ -141,7 +141,7 @@ add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") 
   if (file.exists(outfile)) {
     not_done(paste(outfile, "already exists. Not adding a new one"))
   } else {
-    usethis:::done(paste("Adding file", outfile))
+    usethis:::done(paste("Adding file", usethis:::code(outfile)))
     
     template_path <- system.file("templates", fname, package = pkg)
     
@@ -169,7 +169,7 @@ add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_
   license_text <- make_license_header_text(year, copyright_holder)
 
   writeLines(c(license_text, file_text), file)
-  usethis:::done("Adding Apache boilerplate header to the top of ", file)
+  usethis:::done("Adding Apache boilerplate header to the top of ", usethis:::code(file))
   
   invisible(TRUE)
 }
