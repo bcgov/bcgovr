@@ -93,8 +93,8 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
   ## Add the necessary R files and directories
-  message("Creating new analysis in ", npath)
-  message("Adding folders and files to ", npath, ": ", paste(dir_struct, collapse = ", "))
+  usethis:::done("Creating new analysis in ", npath)
+  usethis:::done("Adding folders and files to ", npath, ": ", paste(dir_struct, collapse = ", "))
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
 
@@ -117,7 +117,7 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   
   if (git_init) {
     if (file.exists(file.path(npath,".git"))) {
-      warning("This directory is already a git repository. Not creating a new one")
+      not_done("This directory is already a git repository. Not creating a new one")
     } else {
       git2r::init(npath)
     }
@@ -131,9 +131,9 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   # Use when these functions are available on CRAN
   if (rstudio && rstudioapi::isAvailable()) {
     rstudioapi::openProject(npath, newSession = TRUE)
-    message("Initializing and opening new Rstudio project in ", npath)
+    usethis:::done("Initializing and opening new Rstudio project in ", npath)
   } else {
-  message("Setting working directory to ", npath)
+  usethis:::done("Setting working directory to ", npath)
   setwd(npath)
   }
   

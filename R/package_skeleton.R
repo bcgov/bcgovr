@@ -51,7 +51,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   
   ## Add in package setup files
-  devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc, quiet = TRUE) 
+  usethis::create_package(fields = bcgovr_desc, rstudio = FALSE)
   
   if (rstudio && rstudioapi::isAvailable()) {
     rstudioapi::initializeProject(npath)
@@ -62,7 +62,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   }
   
   ##Add in a news file
-  #devtools::use_news_md()
+  usethis::use_news_md()
   
   ## Add all bcgov files into RBuildignore
   add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")

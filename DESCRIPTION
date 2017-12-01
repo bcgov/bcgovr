@@ -14,6 +14,9 @@ Description: Create directories that contain all the files needed to meet BC Gov
 Depends:
     R (>= 3.4.0),
 Imports:
+    usethis (>= 1.1.0),
+    crayon,
+    clisymbols,
     git2r (>= 0.15.0),
     rstudioapi (>= 0.7.0),
     devtools (>= 1.13.1),
