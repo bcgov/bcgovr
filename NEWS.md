@@ -2,6 +2,7 @@
 * Utilized as many usethis functions as was reasonable for bcgov format
 * removed devtools dependency
 * add nicer messages for what is added to the repo
+* removed add_rbuildignore
 
 # bcgovr 0.1.4
 * Add new [BCDevExchange Project State Badges](https://github.com/BCDevExchange/assets/blob/master/README.md) to `devex_badge()` and RStudio addin

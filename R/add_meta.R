@@ -200,23 +200,5 @@ make_license_header_text <- function(year = NULL, copyright_holder = NULL) {
   license_txt
 }
 
-#' Add text to Rbuildignore
-#'
-#' @param path 
-#' @param text 
-#'
-#' @return TRUE
-#' @keywords internal
-add_to_rbuildignore <- function(path, text) {
-  fpath <- file.path(path, ".Rbuildignore")
-  rbuildignore <- character(0)
-  if (file.exists(fpath)) rbuildignore <- readLines(fpath)
-  if (!any(grepl(text, rbuildignore))) { 
-    rbuildignore <- c(rbuildignore, text)
-    writeLines(rbuildignore, fpath)
-  }
-  invisible(TRUE)
-}
-
 
 
