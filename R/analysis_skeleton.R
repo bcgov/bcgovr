@@ -93,8 +93,8 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   }
   
   ## Add the necessary R files and directories
-  usethis:::done("Creating new analysis in ", usethis:::code(npath))
-  usethis:::done("Populating ", usethis:::code(npath), " with directory structure")
+  usethis:::done("Creating new analysis in ", usethis:::value(npath))
+  usethis:::done("Populating ", usethis:::value(npath), " with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
 
@@ -131,9 +131,9 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   # Use when these functions are available on CRAN
   if (rstudio && rstudioapi::isAvailable()) {
     rstudioapi::openProject(npath, newSession = TRUE)
-    usethis:::done("Initializing and opening new Rstudio project in ", usethis:::code(npath))
+    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
   } else {
-  usethis:::done("Setting working directory to ", usethis:::code(npath))
+  congrats("Setting working directory to ", usethis:::value(npath))
   setwd(npath)
   }
   
