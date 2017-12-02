@@ -1,7 +1,7 @@
 Package: bcgovr
 Type: Package
 Title: BC Government R user start-up package
-Version: 0.1.4
+Version: 0.1.5
 Date: 2017-09-11
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
@@ -14,9 +14,11 @@ Description: Create directories that contain all the files needed to meet BC Gov
 Depends:
     R (>= 3.4.0),
 Imports:
+    usethis (>= 1.1.0),
+    crayon (>= 1.3.4),
+    clisymbols (>= 1.2.0),
     git2r (>= 0.15.0),
     rstudioapi (>= 0.7.0),
-    devtools (>= 1.13.1),
     shiny (>= 1.0),
     miniUI (>= 0.1)
 License: Apache License (== 2.0) | file LICENSE

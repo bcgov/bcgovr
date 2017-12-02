@@ -51,32 +51,39 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   
   ## Add in package setup files
-  devtools::setup(npath, rstudio = FALSE, description = bcgovr_desc, quiet = TRUE) 
+  usethis::create_package(fields = bcgovr_desc, rstudio = FALSE)
   
   if (rstudio && rstudioapi::isAvailable()) {
-    rstudioapi::initializeProject(npath)
-    message("Initializing and opening new R package in ", npath)
+    rstudioapi::openProject(npath, newSession = TRUE)
+    usethis:::done("Initializing and opening new Rstudio project in ", usethis:::value(npath))
   } else {
-    message("Setting working directory to ", npath)
+    usethis:::done("Setting working directory to ", usethis:::value(npath))
     setwd(npath)
   }
   
-  ##Add in a news file
-  #devtools::use_news_md()
+  ## Add individual elements
+  usethis::use_news_md()
+  add_readme(npath, package = TRUE, rmd = rmarkdown)
+  usethis::use_roxygen_md()
+  usethis::use_vignette()
   
-  ## Add all bcgov files into RBuildignore
-  add_to_rbuildignore(path = npath, text = "^CONTRIBUTING.md$")
-  add_to_rbuildignore(path = npath, text = "^README.md$")
-  add_to_rbuildignore(path = npath, text = "^README.Rmd$")
-  add_to_rbuildignore(path = npath, text = "^CODE_OF_CONDUCT.md$")
 
   ## Add the necessary R files and directories
   #message("Creating new package in ", npath)
   add_contributing(npath)
-  if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
+  if (CoC) {
+    add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
+    usethis::use_build_ignore(file.path(npath,"CODE_OF_CONDUCT.md"))
+  }
+  
+
+
   
   
-  add_readme(npath, package = TRUE, rmd = rmarkdown)
+  ## Add all bcgov files into RBuildignore
+  usethis::use_build_ignore(file.path(npath,"CONTRIBUTING.md"))
+  usethis::use_build_ignore(file.path(npath,"README.md"))
+  usethis::use_build_ignore(file.path(npath,"README.Rmd"))
   
   
   if (apache) {
@@ -85,7 +92,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   if (git_init) {
     if (file.exists(file.path(npath,".git"))) {
-      warning("This directory is already a git repository. Not creating a new one")
+      not_done("This directory is already a git repository. Not creating a new one")
     } else {
       init(npath)
     }
@@ -95,7 +102,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", "*.DS_Store", path = npath)
   }
-  message("Setting working directory to ", npath)
+  congrats("Setting up package in working directory:", npath)
   setwd(npath)
   
   invisible(npath)

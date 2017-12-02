@@ -139,9 +139,9 @@ add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") 
   }
   
   if (file.exists(outfile)) {
-    warning(paste(outfile, "already exists. Not adding a new one"))
+    not_done(paste(outfile, "already exists. Not adding a new one"))
   } else {
-    message(paste("Adding file", outfile))
+    usethis:::done("Adding ", usethis:::value(basename(outfile)), " file")
     
     template_path <- system.file("templates", fname, package = pkg)
     
@@ -169,7 +169,7 @@ add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_
   license_text <- make_license_header_text(year, copyright_holder)
 
   writeLines(c(license_text, file_text), file)
-  message("Adding Apache boilerplate header to the top of ", file)
+  usethis:::done("Adding Apache boilerplate header to the top of ", usethis:::value(file))
   
   invisible(TRUE)
 }
@@ -198,24 +198,6 @@ make_license_header_text <- function(year = NULL, copyright_holder = NULL) {
   }
   
   license_txt
-}
-
-#' Add text to Rbuildignore
-#'
-#' @param path 
-#' @param text 
-#'
-#' @return TRUE
-#' @keywords internal
-add_to_rbuildignore <- function(path, text) {
-  fpath <- file.path(path, ".Rbuildignore")
-  rbuildignore <- character(0)
-  if (file.exists(fpath)) rbuildignore <- readLines(fpath)
-  if (!any(grepl(text, rbuildignore))) { 
-    rbuildignore <- c(rbuildignore, text)
-    writeLines(rbuildignore, fpath)
-  }
-  invisible(TRUE)
 }
 
 
