@@ -1,3 +1,6 @@
+# bcgovr 0.1.6
+* Default `analysis_skeleton` behaviour doesn't open a new RStudio session
+
 # bcgovr 0.1.5
 * Utilized as many usethis functions as was reasonable for bcgov format
 * removed devtools dependency
