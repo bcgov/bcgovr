@@ -22,8 +22,8 @@
 #'   analysis name.
 #' @param git_init Create a new git repository? Logical, default \code{TRUE}.
 #' @param git_clone the url of a git repo to clone.
-#' @param rstudio Create an Rstudio project file? If true, a new RStudio session will open for \code{analysis_skeleton}
-#'   while only a \code{.Rproj} file is created for \code{package_skeleton}. 
+#' @param rstudio Create an Rstudio project file? 
+#' @param newSession If using RStudio do you want a new RStudio session to open? Defaults to FALSE. 
 #' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
 #' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
@@ -57,7 +57,7 @@
 #'  bcgovr::analysis_skeleton(path = "c:/_dev/tarballs")
 #' }
 analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, 
-                              rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
+                              rstudio = TRUE, newSession = FALSE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
                               coc_email = getOption("bcgovr.coc.email", default = NULL),
                               dir_struct = getOption("bcgovr.dir.struct", default = NULL),
                               copyright_holder = "Province of British Columbia") {
@@ -90,6 +90,15 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
     #if (git) unlink(c(".git", ".gitignore", recursive = TRUE, force = TRUE)
     stop("It looks as though you already have an analysis set up here!")
+  }
+  
+  ## Check to see if .Rproj file exists and the user is using rstudio.
+  if (rstudio && rstudioapi::isAvailable() && length(list.files(pattern = "\\.Rproj$")) == 0) {
+    rstudioapi::openProject(npath, newSession = newSession)
+    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
+  } else {
+    congrats("Setting working directory to ", usethis:::value(npath))
+    setwd(npath)
   }
   
   ## Add the necessary R files and directories
@@ -126,15 +135,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
   if (git_init || is.character(git_clone)) {
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", "*.DS_Store", path = npath)
-  }
-  
-  # Use when these functions are available on CRAN
-  if (rstudio && rstudioapi::isAvailable()) {
-    rstudioapi::openProject(npath, newSession = TRUE)
-    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
-  } else {
-  congrats("Setting working directory to ", usethis:::value(npath))
-  setwd(npath)
   }
   
   invisible(npath)

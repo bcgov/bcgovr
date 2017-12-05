@@ -5,9 +5,9 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 analysis_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
-  rstudio = TRUE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
-  coc_email = getOption("bcgovr.coc.email", default = NULL),
-  dir_struct = getOption("bcgovr.dir.struct", default = NULL),
+  rstudio = TRUE, newSession = FALSE, apache = TRUE, CoC = TRUE,
+  rmarkdown = FALSE, coc_email = getOption("bcgovr.coc.email", default =
+  NULL), dir_struct = getOption("bcgovr.dir.struct", default = NULL),
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
@@ -20,8 +20,9 @@ analysis name.}
 
 \item{git_clone}{the url of a git repo to clone.}
 
-\item{rstudio}{Create an Rstudio project file? If true, a new RStudio session will open for \code{analysis_skeleton}
-while only a \code{.Rproj} file is created for \code{package_skeleton}.}
+\item{rstudio}{Create an Rstudio project file?}
+
+\item{newSession}{If using RStudio do you want a new RStudio session to open? Defaults to FALSE.}
 
 \item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
 

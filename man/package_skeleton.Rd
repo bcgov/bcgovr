@@ -21,8 +21,7 @@ analysis name.}
 
 \item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
 
-\item{rstudio}{Create an Rstudio project file? If true, a new RStudio session will open for \code{analysis_skeleton}
-while only a \code{.Rproj} file is created for \code{package_skeleton}.}
+\item{rstudio}{Create an Rstudio project file?}
 
 \item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
 
