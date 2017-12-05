@@ -42,7 +42,6 @@ add_readme <- function(path = ".",
 #' @return \code{TRUE} (invisibly)
 add_contributing <- function(path = ".", package = FALSE) {
   add_file_from_template(path, "CONTRIBUTING.md")
-  if (package) add_to_rbuildignore(path = path, text = "CONTRIBUTING.md")
   invisible(TRUE)
 }
 
@@ -71,7 +70,6 @@ add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOpti
   
   stopifnot(file.rename(coc_path, 
                         file.path(dirname(coc_path), "CODE_OF_CONDUCT.md")))
-  if (package) add_to_rbuildignore(path = path, text = "CODE_OF_CONDUCT.md")
   
   #message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
   #message("Please note that this project is released with a ", 
