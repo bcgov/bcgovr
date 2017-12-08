@@ -1,3 +1,7 @@
+# bcgovr 0.1.7
+* Added ability to start a new analysis or package skeleton via RStudio project templates 
+  (New Project -> New Directory -> BC Gov Analysis/Package Skeleton)
+
 # bcgovr 0.1.6
 * Default `analysis_skeleton` behaviour doesn't open a new RStudio session
 

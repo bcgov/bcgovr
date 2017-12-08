@@ -18,6 +18,8 @@ Currently there are two main functions for auto-populating a new R-based data an
 -   `analysis_skeleton()` \# starting a new data analysis project
 -   `package_skeleton()` \# starting a new R package
 
+### Addins
+
 The package also installs two [RStudio Addins](https://rstudio.github.io/rstudioaddins/) for adding:
 
 1.  The [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
@@ -131,6 +133,12 @@ if (interactive()) {
             "src/03_analysis.r", "src/04_output.R", "src/runall.R"))
 } 
 ```
+
+### Project Template GUI
+
+If you are an RStudio user you can also access this functionality via the RStudio Projects window (New Project -&gt; New Directory -&gt; BC Gov Analysis/Package Skeleton):
+
+![](img/bcgovr_proj_templat.gif)
 
 Project Status
 --------------
