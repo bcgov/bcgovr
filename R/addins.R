@@ -68,10 +68,21 @@ license_header_addin <- function() {
   rstudioapi::insertText(location = c(1,1), text = txt)
 }
 
-skeleton_addin <- function(path, package, git_init, CoC, coc_email, apache, copyright_holder, readme_type) {
+skeleton_addin <- function(path, package, git_init, repo, CoC, coc_email, apache, copyright_holder, readme_type) {
+  
+  if (nzchar(repo))  {
+    git_init <- FALSE
+    if (!nzchar(path)) {
+      # this doesn't actually do anything because user can't not put anything into the 'Directory'
+      # text box, which is where the 'path' value comes from. But I'm leaving it here because I'd like
+      # to be able to do this ;)
+      path <- gsub("\\.git$", "", basename(repo))
+    }
+  }
+  
   args <- list(path = path, 
                git_init = git_init, 
-               git_clone = NULL, 
+               git_clone = if (nzchar(repo)) repo else NULL, 
                apache = apache, 
                rstudio = TRUE, 
                CoC = CoC, 
