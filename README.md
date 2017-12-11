@@ -18,6 +18,8 @@ Currently there are two main functions for auto-populating a new R-based data an
 -   `analysis_skeleton()` \# starting a new data analysis project
 -   `package_skeleton()` \# starting a new R package
 
+These functions are most easily used by using the [*bcgovr Project Template*](#analysis-and-package-templates) as described below.
+
 ### Addins
 
 The package also installs two [RStudio Addins](https://rstudio.github.io/rstudioaddins/) for adding:
@@ -58,40 +60,27 @@ Need to add a project state badge to your .md or .Rmd file? Just click-click-cli
 
 ![](img/bcgovr_addin_example2.gif)
 
-### Functions
+### Analysis and Package Templates
 
-**analysis\_skeleton**
+`bcgovr` allows you to set up a new R-based open source data analysis project (or package) with folders & files that encourage best practice in scientific computing and including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-The analysis\_skeleton function auto-populates a new R-based open source data analysis project with folders & files that encourage best practice in scientific computing and including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+The easiest way to set up a new project is to use the bcgovr project template through RStudio:
 
-**Step 1: Set up a [remote repository](https://help.github.com/articles/about-remote-repositories/)**
+#### Step 1: Set up a [remote repository](https://help.github.com/articles/about-remote-repositories/)
 
 For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)—our example repository name is `bcgovr_analysis`. You should open an empty repository—without initializing a README, a .gitignore file or a license—as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
 
-**Step 2: Set up & populate local repository using `bcgovr`**
+#### Step 2: Set up & populate local repository using `bcgovr`
 
-*RStudio GUI users:* Open a fresh session of RStudio. Start a New Project: File -&gt; New Project -&gt; Select Version Control from the Create Project menu -&gt; Select Git -&gt; Paste the URL of the github.com/bcgov repository from step 1 in Repository URL and confirm local location of your new project -&gt; Click 'Create Project'. The local project name will be inherited from the remote repository, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov).
+*RStudio GUI users:* Open a fresh session of RStudio. Start a New Project: New Project -&gt; New Directory -&gt; BC Gov Analysis/Package Skeleton. Confirm local location of your new project in the *Directory Name* field, and paste the URL of the github.com/bcgov repository from step 1 in the *Repository URL* field. Check/uncheck, and fill in the other fields as relevant to your project, and Click 'Create Project'. The bcgov template files and folders will be created in the new directory, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov). For different folder templates, see the [Options](#options) section below.
 
-You can now run `analysis_skeleton()` to create a set of folders & files in your local repository.
-
-``` r
-bcgovr::analysis_skeleton() ## directly calls the function from `bcgovr` library
-## OR
-library(bcgovr)
-analysis_skeleton()
-```
+![](img/bcgovr_proj_templat.gif)
 
 The result is a [bcgov](https://github.com/bcgov) 'ready-to-go' local directory for a new data analysis project:
 
 ![](img/analysis_skeleton_output.PNG)
 
-*R/RStudio Console Users:* As an alternative to using the 'New Project -&gt; Version Control...' dialogue in RStudio, you can use the R console and `bcgovr::analysis_skeleton()` to create a new local project. You can specify the URL of the remote repository (from step 1) using the `git_clone` argument. Be sure to either specify your new analysis local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `analysis_skeleton()`.
-
-``` r
-bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of remote repository") 
-```
-
-**Step 3: Stage, Commit & Push local repository folders & files to remote repository**
+#### Step 3: Stage, Commit & Push local repository folders & files to remote repository
 
 *RStudio GUI users:* Now you are ready to Stage, Commit & Push changes in your local repository to the remote repository in [github.com/bcgov](github.com/bcgov). Using the functions in the Git tab in RStudio, you can Stage your changes by selecting files, Commit the staged changes---including informative commit messages---and Push the changes to the remote repository. Remember to make use of the .gitignore file for files & folders you do *not* want to keep under version control (e.g. outputs or source data sets), and to use the Pull function before you start work to ensure your local repository is up-to-date with the remote repository.
 
@@ -110,10 +99,6 @@ You can use the Command Line to [confirm or add the remote url for an existing l
 git remote -v # verifies the new remote URL
 git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the remote
 ```
-
-**package\_skeleton**
-
-The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
 ### Options
 
@@ -134,11 +119,19 @@ if (interactive()) {
 } 
 ```
 
-### Project Template GUI
+### Project Template Functions
 
-If you are an RStudio user you can also access this functionality via the RStudio Projects window (New Project -&gt; New Directory -&gt; BC Gov Analysis/Package Skeleton):
+#### analysis\_skeleton
 
-![](img/bcgovr_proj_templat.gif)
+As an alternative to using the 'New Project -&gt; ...' dialogue in RStudio, you can use the R console and `bcgovr::analysis_skeleton()` to create a new local project. You can specify the URL of the remote repository (from step 1 above) using the `git_clone` argument. Be sure to either specify your new analysis local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `analysis_skeleton()`. Type `?analysis_skeleton` in the R console for help.
+
+``` r
+bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of remote repository") 
+```
+
+#### package\_skeleton
+
+The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. Type `?package_skeleton` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
 Project Status
 --------------
