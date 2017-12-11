@@ -6,7 +6,7 @@ Icon: bcgovr_logo_sm_sq.png
 
 Parameter: repo
 Widget: TextInput
-Label: GitHub repo URL
+Label: Repository URL
 Position: left
 
 Parameter: git_init
