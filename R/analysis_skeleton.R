@@ -128,9 +128,9 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     if (file.exists(file.path(npath,".git"))) {
       not_done("This directory is already a git repository. Not creating a new one")
     } else {
-      # TODO - use use_this git stuff
+      # TODO - use usethis git stuff
       git2r::init(npath)
-      use_this:::done("Initializing git repo in ", use_this:::value(npath))
+      usethis:::done("Initializing git repo in ", usethis:::value(npath))
     }
   }
   
