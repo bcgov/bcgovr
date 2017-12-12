@@ -2,3 +2,7 @@ language: r
 sudo: false
 cache: packages
 warnings_are_errors: true
+
+notifications:
+  - on_success: change
+  - on_failure: change
