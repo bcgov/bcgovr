@@ -92,15 +92,6 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
     stop("It looks as though you already have an analysis set up here!")
   }
   
-  ## Check to see if .Rproj file exists and the user is using rstudio.
-  if (rstudio && rstudioapi::isAvailable() && length(list.files(pattern = "\\.Rproj$")) == 0) {
-    rstudioapi::openProject(npath, newSession = newSession)
-    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
-  } else {
-    congrats("Setting working directory to ", usethis:::value(npath))
-    setwd(npath)
-  }
-  
   ## Add the necessary R files and directories
   usethis:::done("Creating new analysis in ", usethis:::value(npath))
   usethis:::done("Populating ", usethis:::value(npath), " with directory structure")
@@ -139,7 +130,25 @@ analysis_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL,
                     "internal.R", "*.DS_Store", path = npath)
   }
   
+  ## Check to see if .Rproj file exists and the user is using rstudio.
+  if (rstudio && rstudioapi::isAvailable() && length(list.files(npath, pattern = "\\.Rproj$")) == 0) {
+    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
+    switch_now()
+    rstudioapi::openProject(npath, newSession = newSession)
+  } else {
+    congrats("Setting working directory to ", usethis:::value(npath))
+    switch_now()
+    setwd(npath)
+  }
+  
   invisible(npath)
+}
+
+switch_now <- function() {
+  if (interactive()) {
+    readline("Press any key to switch to your new project\n")
+  }
+  return(NULL)
 }
 
 # Function to be executed on error, to clean up files that were created

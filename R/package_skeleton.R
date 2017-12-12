@@ -37,6 +37,9 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
   
+  congrats("Setting up package in working directory:", npath)
+  setwd(npath)
+  
   if (is.character(git_clone)) {
     git2r::clone(git_clone, npath)
     git_init = FALSE
@@ -53,19 +56,11 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   ## Add in package setup files
   usethis::create_package(fields = bcgovr_desc, rstudio = FALSE)
   
-  if (rstudio && rstudioapi::isAvailable()) {
-    rstudioapi::openProject(npath, newSession = TRUE)
-    usethis:::done("Initializing and opening new Rstudio project in ", usethis:::value(npath))
-  } else {
-    usethis:::done("Setting working directory to ", usethis:::value(npath))
-    setwd(npath)
-  }
-  
   ## Add individual elements
   usethis::use_news_md()
   add_readme(npath, package = TRUE, rmd = rmarkdown)
   usethis::use_roxygen_md()
-  usethis::use_vignette()
+  usethis::use_vignette(name = basename(npath))
   
 
   ## Add the necessary R files and directories
@@ -102,8 +97,15 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
     write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
                     "internal.R", "*.DS_Store", path = npath)
   }
-  congrats("Setting up package in working directory:", npath)
-  setwd(npath)
+  
+  if (rstudio && rstudioapi::isAvailable()) {
+    usethis:::done("Initializing and opening new Rstudio project in ", usethis:::value(npath))
+    switch_now()
+    rstudioapi::openProject(npath, newSession = TRUE)
+  } else {
+    usethis:::done("Setting working directory to ", usethis:::value(npath))
+    switch_now()
+  }
   
   invisible(npath)
 }
