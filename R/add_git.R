@@ -16,6 +16,6 @@ write_gitignore <- function(..., path = ".") {
     gitignore <- readLines(".gitignore")
     gitignew <- union(gitignore, gitignew)
   }
-  cat(gitignew, file = file.path(path, ".gitignore"), append = FALSE, sep = "\n")
+  cat(c(gitignew, "\n"), file = file.path(path, ".gitignore"), append = FALSE, sep = "\n")
   invisible(TRUE)
 }
