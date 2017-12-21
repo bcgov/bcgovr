@@ -82,18 +82,17 @@ set_cran_repo <- function() {
   
   rprofile_file <- file.path(Sys.getenv("HOME"), ".Rprofile", fsep = "/")
   
-  # Write it to the .Rprofile file, but this doesn't take effect this session
-  cat("local({
-      r <- getOption(\"repos\")
+  # Code to set the default CRAN repo to "https://cran.rstudio.com
+  set_repo_text <- "r <- getOption(\"repos\")
       r[\"CRAN\"] <- \"https://cran.rstudio.com\"
-      options(repos = r)
-})\n",
+      options(repos = r)"
+  
+  # Write it to the .Rprofile file, but this doesn't take effect this session
+  cat("local({\n", set_repo_text, "\n})\n",
       file = rprofile_file, append = TRUE)
   
   # Set CRAN repo in current session too so user doesn't have to restart
-  r <- getOption("repos")
-  r["CRAN"] <- "https://cran.rstudio.com"
-  options(repos = r)
+  eval(parse(text = set_repo_text))
   
   message("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", rprofile_file)
   invisible(TRUE)
