@@ -97,7 +97,7 @@ set_cran_repo <- function() {
   
   message("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", rprofile_file)
   invisible(TRUE)
-  }
+}
 
 #' @noRd
 win_home_is_good <- function() {
