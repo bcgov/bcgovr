@@ -59,6 +59,7 @@ set_home <- function() {
   # If there isn't a library set already, set .libPaths in
   # this session to the path that R will set in future
   # sessions now that HOME has been set
+  copy_packages()
   if (!nzchar(Sys.getenv("R_LIBS"))) set_session_lib_path()
   
   invisible(home_dir)
@@ -106,10 +107,25 @@ win_home_is_good <- function() {
 
 #' @noRd
 set_session_lib_path <- function() {
+  path <- make_new_libpath()
+  .libPaths(new = path)
+  usethis:::done("Setting library location to ", usethis:::value(path))
+}
+
+#' @noRd
+copy_packages <- function() {
+  # find where bcgovr was installed to
+  oldpath <- gsub("/bcgovr$", "", find.package("bcgovr"))
+  newpath <-  make_new_libpath()
+  packages <- list.dirs(oldpath, full.names = TRUE, recursive = FALSE)
+  usethis:::done("Copying installed packages to new library location at ", usethis:::value(newpath))
+  file.copy(packages, newpath, recursive = TRUE)
+}
+
+make_new_libpath <- function() {
   rver <- getRversion()
   path <- file.path(Sys.getenv("HOME"), "R", "win-library",
                     paste0(rver$major, ".", rver$minor))
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
-  .libPaths(new = path)
-  message("Setting library location to ", path)
+  path
 }
