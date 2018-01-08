@@ -25,7 +25,7 @@ set_home <- function() {
   # Get existing HOME
   home_dir <- Sys.getenv("HOME")
   if (win_home_is_good()) {
-    message("HOME env variable already set appropriately")
+    usethis:::done("HOME env variable already set appropriately")
     return(invisible(home_dir))
   }
   
@@ -43,17 +43,17 @@ set_home <- function() {
   # Check and make sure it worked
   home_dir <- Sys.getenv("HOME")
   if (result > 0L || home_dir != user_profile_dir) stop("HOME not set")
-  message("HOME env variable set to ", home_dir)
+  usethis:::done("HOME env variable set to ", usethis:::value(home_dir))
   
   # Copy any existing .Renviron or .Rprofile files over to new HOME
   if (file.exists(renviron_file)) {
     file.copy(renviron_file, home_dir)
-    message("Copied existing .Renviron to new HOME directory")
+    usethis:::done("Copied existing .Renviron to new HOME directory")
   }
   
   if (file.exists(rprofile_file)) {
     file.copy(rprofile_file, home_dir)
-    message("Copied existing .Rprofile to new HOME directory")
+    usethis:::done("Copied existing .Rprofile to new HOME directory")
   }
   
   # If there isn't a library set already, set .libPaths in
@@ -95,7 +95,7 @@ set_cran_repo <- function() {
   # Set CRAN repo in current session too so user doesn't have to restart
   eval(parse(text = set_repo_text))
   
-  message("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", rprofile_file)
+  usethis:::done("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", usethis:::value(rprofile_file))
   invisible(TRUE)
 }
 
