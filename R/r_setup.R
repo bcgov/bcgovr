@@ -45,7 +45,7 @@ set_home <- function() {
   result <- system('setx HOME "%USERPROFILE%"')
   
   # Set HOME for current session
-  user_profile_dir <- Sys.getenv("%USERPROFILE%")
+  user_profile_dir <- Sys.getenv("USERPROFILE")
   Sys.setenv("HOME" = user_profile_dir)
   
   # Check and make sure it worked
