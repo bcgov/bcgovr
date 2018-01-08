@@ -1,3 +1,13 @@
+#' Set up R for use on a standard B.C. government Windows computer
+#'
+#' @seealso set_home set_cran_repo
+#' @export
+#' 
+setup_r <- function() {
+  set_home()
+  set_cran_repo()
+}
+
 #' Set HOME environment variable on Windows
 #'
 #' On many Windows computers in an enterprise environment, the
@@ -12,10 +22,8 @@
 #'
 #' This also ensures that the user's personal package library is at
 #' `C:/Users/[your_username]/R/win-library/[R-version]/` if you
-#' haven't already set it via the `R_LIBS` environment variable. If you
-#' previously had packages installed elsewhere, you will need to
-#' reinstall them via `install.packages()`, or move them from your old
-#' location to the new one
+#' haven't already set it via the `R_LIBS` environment variable. It also moves
+#' all of your packages from your old library location to the new one.
 #' 
 #' @seealso set_cran_repo
 #'

@@ -23,10 +23,8 @@ directory these will be copied to the new location of `HOME`.
 
 This also ensures that the user's personal package library is at
 `C:/Users/[your_username]/R/win-library/[R-version]/` if you
-haven't already set it via the `R_LIBS` environment variable. If you
-previously had packages installed elsewhere, you will need to
-reinstall them via `install.packages()`, or move them from your old
-location to the new one
+haven't already set it via the `R_LIBS` environment variable. It also moves
+all of your packages from your old library location to the new one.
 }
 \seealso{
 set_cran_repo
