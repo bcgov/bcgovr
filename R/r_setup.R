@@ -24,7 +24,7 @@
 set_home <- function() {
   # Get existing HOME
   home_dir <- Sys.getenv("HOME")
-  if (win_home_is_good()) {
+  if (win_env_is_good("HOME")) {
     usethis:::done("HOME env variable already set appropriately")
     return(invisible(home_dir))
   }
@@ -59,8 +59,14 @@ set_home <- function() {
   # If there isn't a library set already, set .libPaths in
   # this session to the path that R will set in future
   # sessions now that HOME has been set
-  copy_packages()
-  if (!nzchar(Sys.getenv("R_LIBS"))) set_session_lib_path()
+  if (!nzchar(Sys.getenv("R_LIBS"))) {
+      set_session_lib_path()
+      copy_packages()
+  } 
+  
+  if (!win_env_is_good("R_LIBS")) {
+      warning("You have your R_LIBS environment variable set to a location not on your C drive. Consider changing it in your .Renviron file.")
+  }
   
   invisible(home_dir)
 }
@@ -76,7 +82,7 @@ set_home <- function() {
 #' @export
 set_cran_repo <- function() {
   
-  if (!win_home_is_good()) {
+  if (!win_env_is_good("HOME")) {
     msg <- "It looks like you have your HOME set to a location not on your C drive. See ?set_home"
     warning(paste(strwrap(msg), collapse = "\n"))
   }
@@ -100,9 +106,9 @@ set_cran_repo <- function() {
 }
 
 #' @noRd
-win_home_is_good <- function() {
+win_env_is_good <- function(env_var = "HOME") {
   if (.Platform$OS.type != "windows") return(TRUE)
-  grepl("^[Cc]", Sys.getenv("HOME"))
+  grepl("^[Cc]", Sys.getenv(env_var))
 }
 
 #' @noRd
