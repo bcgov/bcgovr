@@ -54,7 +54,7 @@ package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apac
   
   
   ## Add in package setup files
-  usethis::create_package(fields = bcgovr_desc, rstudio = FALSE)
+  usethis::create_package(path = npath, fields = bcgovr_desc, rstudio = FALSE)
   
   ## Add individual elements
   usethis::use_news_md()
