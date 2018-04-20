@@ -4,14 +4,14 @@
 \alias{use_bcgov_readme}
 \title{Add a README.md file to the project directory}
 \usage{
-use_bcgov_readme(path = ".", project = NULL, package = FALSE)
+use_bcgov_readme(project = NULL, package = FALSE)
 }
 \arguments{
-\item{path}{Directory path (default `"."``)}
-
 \item{project}{Name of the project. Defaults to the name of the Rstudio project/working directory}
 
-\item{package}{Is this a package or a regular project? (Default  `FALSE``)}
+\item{package}{Is this a package or a regular project? (Default  \code{FALSE})}
+
+\item{path}{Directory path (default \code{"."})}
 }
 \description{
 Add a README.md file to the project directory
