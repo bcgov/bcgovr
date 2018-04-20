@@ -12,34 +12,32 @@
 
 #' Add a README.md file to the project directory
 #' 
-#' @param path Directory path (default `"."``)
+#' @param path Directory path (default `"."`)
 #' @param project Name of the project. Defaults to the name of the Rstudio project/working directory
-#' @param package Is this a package or a regular project? (Default  `FALSE``)
+#' @param package Is this a package or a regular project? (Default  `FALSE`)
 #'
 #' @export
 #' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [add_license_header()]
 #' @return NULL
-use_bcgov_readme <- function(path = ".", project = NULL, package = FALSE) {
-  add_readme(path = path, project = project, 
-             package = package, extension = ".md")
+use_bcgov_readme <- function(project = NULL, package = FALSE) {
+  add_readme(project = project, package = package, extension = ".md")
 }
 
 #' @inherit use_bcgov_readme
 #' @export
-use_bcgov_readme_rmd <- function(path = ".", project = NULL, package = FALSE) {
-  add_readme(path = path, project = project, 
-             package = package, extension = ".Rmd")
+use_bcgov_readme_rmd <- function(project = NULL, package = FALSE) {
+  add_readme(project = project, package = package, extension = ".Rmd")
 }
 
-add_readme <- function(path, project, package, extension) {
+add_readme <- function(project, package, extension) {
   if (is.null(project)) {
-    project = basename(normalizePath(path))
+    project = basename(usethis::proj_get())
   }
   
   fbase <- ifelse(package, "pkg-README", "README")
   
   usethis::use_template(template = paste0(fbase, extension), 
-                        save_as = "README.md",
+                        save_as = paste0("README", extension),
                         data = list(project_name = project, 
                                     year = format(Sys.Date(), "%Y")), 
                         ignore = package,
@@ -55,8 +53,7 @@ add_readme <- function(path, project, package, extension) {
 #' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return \code{TRUE} (invisibly)
 add_contributing <- function(path = ".", package = FALSE) {
-  add_file_from_template(path, "CONTRIBUTING.md")
-  invisible(TRUE)
+  usethis::use_template("CONTRIBUTING.md", ignore = package, package = "bcgovr")
 }
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
