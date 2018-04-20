@@ -101,7 +101,7 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
 }
 
 #' @export
-use_bcgov_license <- use_bcgov_license
+use_bcgov_license <- use_bcgov_licence
 
 #' Add the boilerplate Apache header to the top of a source code file
 #' 
