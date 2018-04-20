@@ -1,8 +1,7 @@
-#' Set up R for use on a standard B.C. government Windows computer
+
+#' Set up R
 #'
-#' @seealso set_home set_cran_repo
-#' @export
-#' 
+#' @noRd 
 setup_r <- function() {
   set_home()
   set_cran_repo()
@@ -28,7 +27,7 @@ setup_r <- function() {
 #' @seealso set_cran_repo
 #'
 #' @return the path to `HOME`, invisibly
-#' @export
+#' @noRd
 set_home <- function() {
   # Get existing HOME
   home_dir <- Sys.getenv("HOME")
@@ -87,7 +86,7 @@ set_home <- function() {
 #' @seealso set_home
 #'
 #' @return TRUE (invisibly)
-#' @export
+#' @noRd
 set_cran_repo <- function() {
   
   if (!win_env_is_good("HOME")) {
