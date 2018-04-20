@@ -18,18 +18,20 @@
 #' @export
 #' @seealso \code{\link{add_contributing}}, \code{\link{add_license}}, \code{\link{add_license_header}}
 #' @return NULL
-add_readme <- function(path = ".",
-                       package = FALSE,
-                       rmd = FALSE) {
+use_bcgov_readme <- function(path = ".", project = NULL, package = FALSE) {
   
-  ext <- ifelse(rmd, ".Rmd", ".md")
+  if (is.null(project)) {
+    project = basename(normalizePath(path))
+  }
+
   fbase <- ifelse(package, "pkg-README", "README")
 
-  add_file_from_template(path, 
-                         fname = paste0(fbase, ext), 
-                         outfile = paste0("README", ext))
-  
-  invisible(TRUE)
+  usethis::use_template(template = paste0(fbase, ".md"), 
+                        save_as = "README.md",
+                        data = list(project_name = project, 
+                                    year = format(Sys.Date(), "%Y")), 
+                        ignore = package,
+                        package = "bcgovr")
 } 
 
 #' Add a CONTRIBUTING.md file to the project directory
