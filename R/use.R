@@ -10,6 +10,31 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
+#' Add BC Government requirements to your project directory
+#' 
+#' Adds a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
+#' 
+#' @param rmarkdown Should an rmarkdown file be added to the repository
+#'   with its corresponding markdown file? Default \code{FALSE}.
+#' 
+#' @export
+
+use_bcgov_req <- function(rmarkdown = TRUE){
+  
+  if(rmarkdown == TRUE){
+    use_bcgov_readme_rmd()
+  } else{use_bcgov_readme()}
+  
+  if(!(usethis:::is_package() | usethis:::is_proj())){
+    usethis::create_project()
+  }
+  
+  use_bcgov_contributing()
+  use_bcgov_code_of_conduct()
+  use_bcgov_licence()
+  
+}
+
 #' Add a README.md file to the project directory
 #' 
 #' @param path Directory path (default `"."`)
