@@ -15,12 +15,6 @@ the name of the working directory will be taken as the analysis name. If
 not \code{"."}, the last component of the given path will be used as the
 analysis name.}
 
-\item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
-
-\item{rstudio}{Create an Rstudio project file?}
-
-\item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
-
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{TRUE}.}
 

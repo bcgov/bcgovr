@@ -18,10 +18,7 @@
 #'   the name of the working directory will be taken as the analysis name. If 
 #'   not \code{"."}, the last component of the given path will be used as the 
 #'   analysis name.
-#' @param rstudio Create an Rstudio project file? 
 #' @param newSession If using RStudio do you want a new RStudio session to open? Defaults to FALSE. 
-#' @param apache Add licensing info for release under Apache 2.0? Default \code{TRUE}.
-#' @param CoC Should a Code of Conduct be added to the repository? Default \code{TRUE}.
 #' @param rmarkdown Should an rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{FALSE}.
 #' @param coc_email Contact email address(es) for the Code of Conduct. 
@@ -44,11 +41,10 @@
 #' @export
 #' 
 #' @examples \donttest{
-#'  bcgovr::analysis_skeleton(path = "c:/_dev/tarballs")
+#'  bcgovr::create_bcgov_project(path = "c:/_dev/tarballs")
 #' }
 create_bcgov_project <- function(path = ".", 
-                              rstudio = TRUE, newSession = FALSE, apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
-                              coc_email = getOption("bcgovr.coc.email", default = NULL),
+                              rstudio = TRUE, newSession = FALSE, 
                               dir_struct = getOption("bcgovr.dir.struct", default = NULL),
                               copyright_holder = "Province of British Columbia") {
 
@@ -86,39 +82,10 @@ create_bcgov_project <- function(path = ".",
         file = file.path(npath,"run_all.R"))
   }
   
-  add_contributing(npath)
-  
-  if (CoC) add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
-  
-  add_readme(npath, package = FALSE, rmd = rmarkdown)
-  
-  if (apache) {
-    add_license(npath)
-    lapply(files, add_license_header, year = substr(Sys.Date(), 1, 4), 
-           copyright_holder = copyright_holder)
-  }
-  
-  
-  ## Check to see if .Rproj file exists and the user is using rstudio.
-  if (rstudio && rstudioapi::isAvailable() && length(list.files(npath, pattern = "\\.Rproj$")) == 0) {
-    congrats("Initializing and opening new Rstudio project in ", usethis:::value(npath))
-    switch_now()
-    rstudioapi::openProject(npath, newSession = newSession)
-  } else {
-    congrats("Setting working directory to ", usethis:::value(npath))
-    switch_now()
-    setwd(npath)
-  }
   
   invisible(npath)
 }
 
-switch_now <- function() {
-  if (interactive()) {
-    readline("Press any key to switch to your new project\n")
-  }
-  return(NULL)
-}
 
 # Function to be executed on error, to clean up files that were created
 # error_cleanup <- function(t) {
