@@ -5,14 +5,6 @@ expected_files <- c("data", "out", "graphics", "R",
                     "04_output.R", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", 
                     "internal.R", "LICENSE", "README.md", "run_all.R")
 
-name_incrementer <- function(name) {
-  i <- 0
-  function() {
-    i <<- i + 1
-    paste0(name, i)
-  }
-}
-
 increment_foo <- name_incrementer("foo")
 
 test_that("create_bcgov_project works with dot path", {
