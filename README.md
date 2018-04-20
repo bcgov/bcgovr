@@ -8,38 +8,40 @@ bcgovr <img src="img/logo.png" align="right" />
 Overview
 --------
 
-An [R](http://r-project.org) package to support development of R-based projects and packages following [bcgov open source guidelines and policies](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to help set up and push bcgov R projects & packages to [GitHub](https://github.com/bcgov) following [bcgov open source guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 Features
 --------
 
-Currently there are two main functions for auto-populating a new R-based data analysis or package project directory with folders & files that encourage best practice in scientific computing and ensure the project has all the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md):
+### Functions
 
--   `analysis_skeleton()` \# starting a new data analysis project
--   `package_skeleton()` \# starting a new R package
+`use_bcgov_github` Open a new bcgov GitHub repository and auto-populate the R-based repository with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-These functions are most easily used by using the [*bcgovr Project Template*](#analysis-and-package-templates) as described below.
+`create_bcgov_project` & `create_bcgov_package` Create—or auto-populate an existing—R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can also be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in the [RStudio](https://www.rstudio.com/) New Project dialog box.
+
+`use_bcgov_req` Auto-populate an existing R project or package with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
 
 ### Addins
 
-The package also installs two [RStudio Addins](https://rstudio.github.io/rstudioaddins/) for adding:
+The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.io/rstudioaddins/):
 
-1.  The [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of every source code file.
-2.  A [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) to a README file.
+1.  Add the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .R file.
+2.  Add the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .Rmd or .md file.
+3.  Add a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md README file.
 
 Installation
 ------------
 
-Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgov-data-science-resources/wiki/Installing-R-&-RStudio), open up RStudio so you can install the `bcgovr` package directly from this GitHub repository. To do so, you will first need the [devtools](https://github.com/hadley/devtools/) package:
+You can install `bcgovr` directly from this GitHub repository. To do so, you will need the [remotes](https://cran.r-project.org/web/packages/remotes/index.html) package:
 
 ``` r
-install.packages("devtools")
+install.packages("remotes")
 ```
 
-Next, install and load the `bcgovr` package using `devtools::install_github()`:
+Next, install and load the `bcgovr` package using `remotes::install_github()`:
 
 ``` r
-devtools::install_github("bcgov/bcgovr")
+remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
@@ -133,6 +135,9 @@ bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of 
 
 The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. Type `?package_skeleton` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
+Something About Data Licencing HERE.
+------------------------------------
+
 Project Status
 --------------
 
@@ -140,6 +145,8 @@ This package is under active development.
 
 Getting Help or Reporting an Issue
 ----------------------------------
+
+Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgov-data-science-resources/wiki/Installing-R-&-RStudio), open up RStudio so
 
 To report bugs/issues/feature requests, please file an [Issue](https://github.com/bcgov/bcgovr/issues/).
 
