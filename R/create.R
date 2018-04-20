@@ -72,7 +72,6 @@ create_bcgov_project <- function(path = ".",
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
-    #if (git) unlink(c(".git", ".gitignore", recursive = TRUE, force = TRUE)
     stop("It looks as though you already have an analysis set up here!")
   }
   
@@ -99,20 +98,6 @@ create_bcgov_project <- function(path = ".",
            copyright_holder = copyright_holder)
   }
   
-  if (git_init) {
-    if (file.exists(file.path(npath,".git"))) {
-      not_done("This directory is already a git repository. Not creating a new one")
-    } else {
-      # TODO - use usethis git stuff
-      git2r::init(npath)
-      usethis:::done("Initializing git repo in ", usethis:::value(npath))
-    }
-  }
-  
-  if (git_init || is.character(git_clone)) {
-    write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
-                    "internal.R", "*.DS_Store", path = npath)
-  }
   
   ## Check to see if .Rproj file exists and the user is using rstudio.
   if (rstudio && rstudioapi::isAvailable() && length(list.files(npath, pattern = "\\.Rproj$")) == 0) {
