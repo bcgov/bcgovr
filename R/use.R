@@ -46,14 +46,14 @@ add_readme <- function(project, package, extension) {
 
 #' Add a CONTRIBUTING.md file to the project directory
 #' 
-#' @param path Directory path (default \code{"."})
-#' @param package Is this a package or a regular project? (Default \code{FALSE}). 
-#'                If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore
+#' @param package Is this a package or a regular project? (Default `FALSE`). 
+#'                If `TRUE`, "CONTRIBUTING.md" will be added to .Rbuildignore
 #' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
+#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
 #' @return \code{TRUE} (invisibly)
-add_contributing <- function(path = ".", package = FALSE) {
-  usethis::use_template("CONTRIBUTING.md", ignore = package, package = "bcgovr")
+use_bcgov_contributing <- function(package = FALSE) {
+  usethis::use_template(template = "CONTRIBUTING.md", 
+                        ignore = package, package = "bcgovr")
 }
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
