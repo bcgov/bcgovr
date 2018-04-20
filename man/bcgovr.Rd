@@ -11,11 +11,11 @@ bcgovr: A package for helping create project directories that meet BC Government
 \section{bcgovr functions}{
 
 
-  \itemize{ 
-  \item Functions for auto-populating a new R-based data 
-   analysis or package project directory
-  \item RStudio addins for adding the Apache 2.0 license header 
-  and BCDevExchange project state badges
+\itemize{
+\item Functions for auto-populating a new R-based data
+analysis or package project directory
+\item RStudio addins for adding the Apache 2.0 license header
+and BCDevExchange project state badges
 
 }
 }
