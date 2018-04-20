@@ -15,11 +15,11 @@
 #'
 #' @importFrom git2r repository init
 #'  
-#' @inheritParams analysis_skeleton
+#' @inheritParams create_bcgov_project
 #' @param rmarkdown Should an rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{TRUE}.
 #' 
-#' @inherit analysis_skeleton details
+#' @inherit create_bcgov_project details
 #'
 #' @export
 #' 

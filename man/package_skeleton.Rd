@@ -15,10 +15,6 @@ the name of the working directory will be taken as the analysis name. If
 not \code{"."}, the last component of the given path will be used as the 
 analysis name.}
 
-\item{git_init}{Create a new git repository? Logical, default \code{TRUE}.}
-
-\item{git_clone}{the url of a git repo to clone.}
-
 \item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
 
 \item{rstudio}{Create an Rstudio project file?}
@@ -38,14 +34,6 @@ You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@go
 }
 \description{
 Creates the framework of a new package development folder
-}
-\details{
-If you are cloning a repository (\code{git_clone = "path_to_repo"}),
-  you should run this function from the root of your dev folder and leave 
-  \code{path = "."}, as the repository will be cloned into a new folder. If 
-  you are setting up a new project (with or without git), \code{path} should 
-  be \code{"."} if you are within an already created project directory, or 
-  the name of the folder you want to create.
 }
 \examples{
 \donttest{
