@@ -197,6 +197,3 @@ make_license_header_text <- function(year = NULL, copyright_holder = NULL) {
   
   license_txt
 }
-
-
-
