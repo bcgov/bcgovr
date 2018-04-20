@@ -60,7 +60,7 @@ use_bcgov_contributing <- function(package = FALSE) {
 #' @inheritParams use_bcgov_readme
 #' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
-#' @seealso  [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
+#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
 #' @return `TRUE` (invisibly)
 use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
   usethis::use_template(template = "CoC.md", 
@@ -75,16 +75,23 @@ use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bc
   }
 }
 
-#' Add a LICENSE file (Apache 2.0) to the project directory
+#' Add a LICENSE file (Apache 2.0 or CB-BY) to the project directory
 #' 
-#' @param path Directory path (default \code{"."})
-#' @param package_desc Should the license be added to the DESCRIPTION file if this is a package?
+#' @param licence Which license to apply? Default is Apache 2.0 (`"apache2"`). 
+#' Use `"cc-by"` [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 #'
 #' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license_header}}
+#' @seealso  [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
 #' @return NULL
-add_license <- function(path = ".", package_desc = FALSE) {
-  add_file_from_template(path, "LICENSE")
+use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
+  licence <- match.arg(licence)
+  template <- switch(licence, 
+                     "apache2" = "LICENSE-Apache", 
+                     "cc-by" = "LICENSE-CC-BY")
+  usethis::use_template(template = template,
+                        save_as = "LICENSE",
+                        package = "bcgovr")
+  # TODO
   #if (package_desc) {
   #  desc <- readLines(file.path(path, "DESCRIPTION"))
   #  desc[grep("License:", desc)] <- "License: Apache License (== 2.0) | file LICENSE"
@@ -93,61 +100,8 @@ add_license <- function(path = ".", package_desc = FALSE) {
   invisible(TRUE)
 }
 
-#' Add an RProject file to a directory
-#'
-#' @param  path folder path of the project. Default \code{"."}
-#' @param outfile the name of the RProj file
 #' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
-#' @return NULL
-#' 
-add_rproj <- function(path = ".", outfile) {
- add_file_from_template(path, "template.Rproj", outfile)
-}
-
-#add_rproj <- function(path = ".") {
-#  rstudioapi::initializeProject(path)
-#  invisible(TRUE)
-#}
-
-#' Add a file to a directory from a template in inst/templates
-#'
-#' Should really only be called by other functions
-#' 
-#' @param path Directory path (default \code{"."})
-#' @param fname the name of the template file in inst/templates
-#' @param outfile name of the file to be written, if different from the name of the template file
-#' @param pkg package from which to load the template
-#' @keywords internal
-#' @seealso \code{\link{add_readme}}, \code{\link{add_contributing}}, \code{\link{add_license}}
-#' @return NULL
-add_file_from_template <- function(path, fname, outfile = NULL, pkg = "bcgovr") {
-
-  if (!dir.exists(path)) dir.create(path)
-  
-  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
-  
-  if (is.null(outfile)) {
-    outfile <- file.path(path, fname)
-  } else {
-    outfile <- file.path(path, outfile)
-  }
-  
-  if (file.exists(outfile)) {
-    not_done(paste(outfile, "already exists. Not adding a new one"))
-  } else {
-    usethis:::done("Adding ", usethis:::value(basename(outfile)), " file")
-    
-    template_path <- system.file("templates", fname, package = pkg)
-    
-    copied <- file.copy(template_path, outfile)
-    if (!copied) {
-      stop("Unable to copy ", template_path, " to ", outfile, call. = FALSE)
-    }
-  }
-  
-  invisible(outfile)
-}
+use_bcgov_license <- use_bcgov_license
 
 #' Add the boilerplate Apache header to the top of a source code file
 #' 
