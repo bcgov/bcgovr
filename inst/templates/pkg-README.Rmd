@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
 If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin. -->
 
-# package name
+# {{project_name}}
 
 Description of package
 
@@ -38,7 +38,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/<pkg-name>/issues/).
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/{{project_name}}/issues/).
 
 ### How to Contribute
 
@@ -49,7 +49,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-    Copyright 2017 Province of British Columbia
+    Copyright {{year}} Province of British Columbia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

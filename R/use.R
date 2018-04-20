@@ -12,27 +12,37 @@
 
 #' Add a README.md file to the project directory
 #' 
-#' @param path Directory path (default \code{"."})
-#' @param package Is this a package or a regular project? (Default \code{FALSE})
-#' @param rmd Should rmarkdown file be used (Default \code{FALSE})
+#' @param path Directory path (default `"."``)
+#' @param project Name of the project. Defaults to the name of the Rstudio project/working directory
+#' @param package Is this a package or a regular project? (Default  `FALSE``)
+#'
 #' @export
-#' @seealso \code{\link{add_contributing}}, \code{\link{add_license}}, \code{\link{add_license_header}}
+#' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [add_license_header()]
 #' @return NULL
 use_bcgov_readme <- function(path = ".", project = NULL, package = FALSE) {
-  
+  add_readme(path, project, package, extension = ".md")
+}
+
+#' @inherit use_bcgov_readme
+#' @export
+use_bcgov_readme_rmd <- function(path = ".", project = NULL, package = FALSE) {
+  add_readme(path, project, package, extension = ".Rmd")
+}
+
+add_readme <- function(path, project, package, extension) {
   if (is.null(project)) {
     project = basename(normalizePath(path))
   }
-
+  
   fbase <- ifelse(package, "pkg-README", "README")
-
-  usethis::use_template(template = paste0(fbase, ".md"), 
+  
+  usethis::use_template(template = paste0(fbase, extension), 
                         save_as = "README.md",
                         data = list(project_name = project, 
                                     year = format(Sys.Date(), "%Y")), 
                         ignore = package,
                         package = "bcgovr")
-} 
+}
 
 #' Add a CONTRIBUTING.md file to the project directory
 #' 
