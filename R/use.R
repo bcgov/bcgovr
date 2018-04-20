@@ -17,7 +17,7 @@
 #' @param package Is this a package or a regular project? (Default  `FALSE`)
 #'
 #' @export
-#' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [add_license_header()]
+#' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [use_bcgov_code_of_conduct()]
 #' @return NULL
 use_bcgov_readme <- function(project = NULL, package = FALSE) {
   add_readme(project = project, package = package, extension = ".md")
@@ -46,11 +46,10 @@ add_readme <- function(project, package, extension) {
 
 #' Add a CONTRIBUTING.md file to the project directory
 #' 
-#' @param package Is this a package or a regular project? (Default `FALSE`). 
-#'                If `TRUE`, "CONTRIBUTING.md" will be added to .Rbuildignore
+#' @inheritParams use_bcgov_readme
 #' @export
-#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
-#' @return \code{TRUE} (invisibly)
+#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
+#' @return `TRUE` (invisibly)
 use_bcgov_contributing <- function(package = FALSE) {
   usethis::use_template(template = "CONTRIBUTING.md", 
                         ignore = package, package = "bcgovr")
@@ -58,35 +57,22 @@ use_bcgov_contributing <- function(package = FALSE) {
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
 #' 
-#' @param path Directory path (default \code{"."})
-#' @param package Is this a package or a regular project? (Default \code{FALSE}). 
-#'                If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore
+#' @inheritParams use_bcgov_readme
 #' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
-#' @seealso \code{\link{add_readme}}, \code{\link{add_license}}, \code{\link{add_license_header}}
-#' @return \code{TRUE} (invisibly)
-add_code_of_conduct <- function(path = ".", package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
-  coc_path <- add_file_from_template(path, "CoC.md")
-
-  coc_path <- normalizePath(coc_path, 
-                            winslash = "/", mustWork = TRUE)
-  if (!is.null(coc_email) && nzchar(coc_email)) {
-    coc_text <- readLines(coc_path)
-    coc_text <- gsub("{COC_CONTACT_EMAIL}", coc_email, coc_text, fixed = TRUE)
-    writeLines(coc_text, coc_path)
-  } else {
+#' @seealso  [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
+#' @return `TRUE` (invisibly)
+use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
+  usethis::use_template(template = "CoC.md", 
+                        save_as = "CODE_OF_CONDUCT.md",
+                        ignore = package, 
+                        data = list(COC_CONTACT_EMAIL = coc_email),
+                        package = "bcgovr")
+  
+  if (is.null(coc_email)) {
     message("No contact email has been added to your CODE_OF_CONDUCT.md.", 
             "Please do so manually")
   }
-  
-  stopifnot(file.rename(coc_path, 
-                        file.path(dirname(coc_path), "CODE_OF_CONDUCT.md")))
-  
-  #message("* Don't forget to describe the code of conduct in your README.md/Rmd:")
-  #message("Please note that this project is released with a ", 
-  #        "[Contributor Code of Conduct](CODE_OF_CONDUCT.md). ", 
-  #        "By participating in this project you agree to abide by its terms.")
-  invisible(TRUE)
 }
 
 #' Add a LICENSE file (Apache 2.0) to the project directory
