@@ -7,8 +7,7 @@
 use_bcgov_contributing(package = FALSE)
 }
 \arguments{
-\item{package}{Is this a package or a regular project? (Default \code{FALSE}).
-If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore}
+\item{package}{Is this a package or a regular project? (Default  \code{FALSE})}
 }
 \value{
 \code{TRUE} (invisibly)
@@ -17,5 +16,5 @@ If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore}
 Add a CONTRIBUTING.md file to the project directory
 }
 \seealso{
-\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=add_license_header]{add_license_header()}}
+\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=use_bcgov_code_of_conduct]{use_bcgov_code_of_conduct()}}
 }

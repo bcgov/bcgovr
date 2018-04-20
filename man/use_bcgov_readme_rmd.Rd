@@ -15,5 +15,5 @@ use_bcgov_readme_rmd(project = NULL, package = FALSE)
 Add a README.md file to the project directory
 }
 \seealso{
-\code{\link[=use_bcgov_contributing]{use_bcgov_contributing()}}, \code{\link[=use_bcgov_license]{use_bcgov_license()}}, \code{\link[=add_license_header]{add_license_header()}}
+\code{\link[=use_bcgov_contributing]{use_bcgov_contributing()}}, \code{\link[=use_bcgov_license]{use_bcgov_license()}}, \code{\link[=use_bcgov_code_of_conduct]{use_bcgov_code_of_conduct()}}
 }
