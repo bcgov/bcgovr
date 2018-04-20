@@ -5,3 +5,5 @@ name_incrementer <- function(name) {
     paste0(name, i)
   }
 }
+
+original_wd <- getwd()

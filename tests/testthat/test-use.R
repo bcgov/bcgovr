@@ -10,4 +10,6 @@ test_that("use_readme works", {
   file.create(".here")
   use_bcgov_readme()
   expect_true(file.exists("README.md"))
+  use_bcgov_readme_rmd()
+  expect_true(file.exists("README.Rmd"))
 })
