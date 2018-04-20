@@ -20,13 +20,15 @@
 #' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [add_license_header()]
 #' @return NULL
 use_bcgov_readme <- function(path = ".", project = NULL, package = FALSE) {
-  add_readme(path, project, package, extension = ".md")
+  add_readme(path = path, project = project, 
+             package = package, extension = ".md")
 }
 
 #' @inherit use_bcgov_readme
 #' @export
 use_bcgov_readme_rmd <- function(path = ".", project = NULL, package = FALSE) {
-  add_readme(path, project, package, extension = ".Rmd")
+  add_readme(path = path, project = project, 
+             package = package, extension = ".Rmd")
 }
 
 add_readme <- function(path, project, package, extension) {
