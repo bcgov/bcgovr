@@ -10,7 +10,7 @@ add_code_of_conduct(path = ".", package = FALSE,
 \arguments{
 \item{path}{Directory path (default \code{"."})}
 
-\item{package}{Is this a package or a regular project? (Default \code{FALSE}). 
+\item{package}{Is this a package or a regular project? (Default \code{FALSE}).
 If \code{TRUE}, "CODE_OF_CONDUCT.md" will be added to .Rbuildignore}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}

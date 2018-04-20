@@ -10,8 +10,8 @@ set_cran_repo()
 TRUE (invisibly)
 }
 \description{
-This is achieved by setting the `repos["CRAN"]` option to
-https://cran.rstudio.com in your `.Rprofile` file
+This is achieved by setting the \code{repos["CRAN"]} option to
+https://cran.rstudio.com in your \code{.Rprofile} file
 }
 \seealso{
 set_home

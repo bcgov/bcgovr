@@ -5,52 +5,44 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 create_bcgov_project(path = ".", rstudio = TRUE, newSession = FALSE,
-  apache = TRUE, CoC = TRUE, rmarkdown = FALSE,
-  coc_email = getOption("bcgovr.coc.email", default = NULL),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL),
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
-\item{path}{location to create new analysis. If \code{"."} (the default), 
-the name of the working directory will be taken as the analysis name. If 
-not \code{"."}, the last component of the given path will be used as the 
+\item{path}{location to create new analysis. If \code{"."} (the default),
+the name of the working directory will be taken as the analysis name. If
+not \code{"."}, the last component of the given path will be used as the
 analysis name.}
-
-\item{rstudio}{Create an Rstudio project file?}
 
 \item{newSession}{If using RStudio do you want a new RStudio session to open? Defaults to FALSE.}
 
-\item{apache}{Add licensing info for release under Apache 2.0? Default \code{TRUE}.}
-
-\item{CoC}{Should a Code of Conduct be added to the repository? Default \code{TRUE}.}
-
-\item{rmarkdown}{Should an rmarkdown file be added to the repository
-with its corresponding markdown file? Default \code{FALSE}.}
-
-\item{coc_email}{Contact email address(es) for the Code of Conduct. 
-
-You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your 
-.Rprofile file so that every time you start a new analysis, it will be automatically populated.}
-
 \item{dir_struct}{alternative analysis directory structure. This should be specified as
-a character vector of directory and file paths (relative to the root of the project). 
+a character vector of directory and file paths (relative to the root of the project).
 Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
 
 The default is: \code{c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
 
-This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your 
+This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your
 .Rprofile file so that every time you start a new analysis, your custom structure is set up.
-The line in your \code{.Rprofile} file would look something like this: 
+The line in your \code{.Rprofile} file would look something like this:
 \code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}}
 
-\item{copyright_holder}{the name of the copyright holder (default 
+\item{copyright_holder}{the name of the copyright holder (default
 "Province of British Columbia). Only necessary if adding a license}
+
+\item{rmarkdown}{Should an rmarkdown file be added to the repository
+with its corresponding markdown file? Default \code{FALSE}.}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.
+
+You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your
+.Rprofile file so that every time you start a new analysis, it will be automatically populated.}
 }
 \description{
 Creates the folder structure for a new analysis.
 }
 \examples{
 \donttest{
- bcgovr::analysis_skeleton(path = "c:/_dev/tarballs")
+ bcgovr::create_bcgov_project(path = "c:/_dev/tarballs")
 }
 }

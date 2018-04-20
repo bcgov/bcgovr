@@ -2,7 +2,7 @@
 % Please edit documentation in R/r_setup.R
 \name{setup_r}
 \alias{setup_r}
-\title{Set up R for use on a standard B.C. government Windows computer}
+\title{Setup using programmatic approach}
 \usage{
 setup_r()
 }

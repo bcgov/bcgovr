@@ -9,7 +9,7 @@ add_contributing(path = ".", package = FALSE)
 \arguments{
 \item{path}{Directory path (default \code{"."})}
 
-\item{package}{Is this a package or a regular project? (Default \code{FALSE}). 
+\item{package}{Is this a package or a regular project? (Default \code{FALSE}).
 If \code{TRUE}, "CONTRIBUTING.md" will be added to .Rbuildignore}
 }
 \value{

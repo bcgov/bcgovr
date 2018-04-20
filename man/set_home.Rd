@@ -7,23 +7,15 @@
 set_home()
 }
 \value{
-the path to `HOME`, invisibly
-}
-\description{
-On many Windows computers in an enterprise environment, the
-`HOME` environment variable is either unset, or set to a location
-on a network drive. R doesn't work well with this setup, so this
-function checks what it is set to, and if it's not on the
-`C:/` drive, it sets it to the value of `%USERPROFILE%`, usually
-`C:/Users/[username]`.
+the path to \code{HOME}, invisibly
 }
 \details{
-If you have a `.Rprofile` or `.Renviron` file in your existing `HOME`
-directory these will be copied to the new location of `HOME`.
+If you have a \code{.Rprofile} or \code{.Renviron} file in your existing \code{HOME}
+directory these will be copied to the new location of \code{HOME}.
 
 This also ensures that the user's personal package library is at
-`C:/Users/[your_username]/R/win-library/[R-version]/` if you
-haven't already set it via the `R_LIBS` environment variable. It also moves
+\code{C:/Users/[your_username]/R/win-library/[R-version]/} if you
+haven't already set it via the \code{R_LIBS} environment variable. It also moves
 all of your packages from your old library location to the new one.
 }
 \seealso{
