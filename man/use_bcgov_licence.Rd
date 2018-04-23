@@ -14,5 +14,6 @@ Use \code{"cc-by"} \href{https://creativecommons.org/licenses/by/4.0/}{Creative 
 Add a LICENSE file (Apache 2.0 or CB-BY) to the project directory
 }
 \seealso{
-\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=add_license_header]{add_license_header()}}
+\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_contributing]{use_bcgov_contributing()}}, \code{\link[=use_bcgov_code_of_conduct]{use_bcgov_code_of_conduct()}}
+\code{\link[=insert_bcgov_apache_header]{insert_bcgov_apache_header()}}, \code{\link[=insert_bcgov_cc_header]{insert_bcgov_cc_header()}}
 }

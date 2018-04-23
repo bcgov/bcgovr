@@ -52,7 +52,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 #' @param package Is this a package or a regular project? (Default  `FALSE`)
 #'
 #' @export
-#' @seealso [use_bcgov_contributing()], [use_bcgov_license()], [use_bcgov_code_of_conduct()]
+#' @seealso [use_bcgov_contributing()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
 #' @return NULL
 use_bcgov_readme <- function(project = NULL, package = FALSE) {
   add_readme(project = project, package = package, extension = ".md")
@@ -95,7 +95,7 @@ use_bcgov_contributing <- function(package = FALSE) {
 #' @inheritParams use_bcgov_readme
 #' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
-#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
+#' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
 #' @return `TRUE` (invisibly)
 use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
   usethis::use_template(template = "CoC.md", 
@@ -116,13 +116,15 @@ use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bc
 #' Use `"cc-by"` [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 #'
 #' @export
-#' @seealso  [use_bcgov_readme()], [use_bcgov_licence()], [add_license_header()]
+#' @seealso [use_bcgov_readme()], [use_bcgov_contributing()], [use_bcgov_code_of_conduct()]
+#' [insert_bcgov_apache_header()], [insert_bcgov_cc_header()]
 #' @return NULL
 use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
   licence <- match.arg(licence)
   template <- switch(licence, 
                      "apache2" = "LICENSE-Apache", 
                      "cc-by" = "LICENSE-CC-BY")
+  
   usethis::use_template(template = template,
                         save_as = "LICENSE",
                         package = "bcgovr")
@@ -142,44 +144,95 @@ use_bcgov_license <- use_bcgov_licence
 #' 
 #' @param file Path to the file
 #' @param year The year the license should apply (Default current year)
-#' @param copyright_holder Copyright holder (Default "Province of British Columbia")
 #' @export
-#' @seealso \code{\link{add_license}}
+#' @seealso [use_bcgov_licence()] [insert_bcgov_cc_header()]
 #' @return NULL
-add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia") {
+insert_bcgov_apache_header <- function(file, year = format(Sys.Date(), "%Y")) {
   
-  file_text <- readLines(file)
-  
-  license_text <- make_license_header_text(year, copyright_holder)
+  licence_text <- make_licence_header_text(year, "apache")
 
-  writeLines(c(license_text, file_text), file)
+  write_licence_header(licence_text, file)
   usethis:::done("Adding Apache boilerplate header to the top of ", usethis:::value(file))
   
   invisible(TRUE)
 }
 
-make_license_header_text <- function(year = NULL, copyright_holder = NULL) {
-  license_txt <- '# Copyright {YYYY} {COPYRIGHT_HOLDER}
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-# http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and limitations under the License.
+#' Add the boilerplate Creative Commons Attribution 4.0 (CC-BY) header to the 
+#' top of a source code file
+#' 
+#' @inheritParams insert_bcgov_apache_header
+#' @export
+#' @seealso [use_bcgov_licence()] [insert_bcgov_cc_header()]
+#' @return NULL
+insert_bcgov_cc_header <- function(file, year = format(Sys.Date(), "%Y")) {
+  
+  licence_text <- make_licence_header_text(year, "cc-by")
+  
+  write_licence_header(licence_text, file)
+  usethis:::done("Adding CC-BY 4.0 boilerplate header to the top of ", usethis:::value(file))
+  
+  invisible(TRUE)
+}
 
-'
+make_licence_header_text <- function(year = NULL, licence = c("apache2", "cc-by")) {
+  licence <- match.arg(licence)
+  licence_txt <- switch(licence, 
+                        "apache2" = c('Copyright {YYYY} Province of British Columbia',
+'',
+'Licensed under the Apache License, Version 2.0 (the "License");',
+'you may not use this file except in compliance with the License.',
+'You may obtain a copy of the License at',
+'',
+'http://www.apache.org/licenses/LICENSE-2.0',
+'',
+'Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,',
+'WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.',
+'See the License for the specific language governing permissions and limitations under the License.'),
+                        "cc-by" = c('Copyright {YYYY} Province of British Columbia',
+'',
+'This work is licensed under the Creative Commons Attribution 4.0 International License.', 
+'To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.'
+))
   
   if (!is.null(year)) {
-    license_txt <- gsub("{YYYY}", year, license_txt, fixed = TRUE)
+    licence_txt <- gsub("{YYYY}", year, licence_txt, fixed = TRUE)
   }
   
-  if (!is.null(copyright_holder)) {
-    license_txt <- gsub("{COPYRIGHT_HOLDER}", copyright_holder, license_txt, fixed = TRUE)
-  }
+  licence_txt
+}
+
+write_licence_header <- function(licence_text, file) {
+  conn <- file(file)
+  on.exit(close(conn))
+  in_text <- readLines(conn)
   
-  license_txt
+  fileext <- tolower(tools::file_ext(file))
+  # if html/rmd/md, find yaml and insert <!-- comments -->
+  licence_text <- if (fileext %in% c("html", "rmd", "md")) {
+    licence_text <- c("<!--", licence_text, "-->")
+    # Check if yaml header, if so, write after the yaml header
+    pos <- grep("^---", in_text)[2]
+    out_text <- if (length(pos)) {
+      c(
+        in_text[1:pos], 
+        '',
+        licence_text, 
+        '',
+        in_text[(pos + 1):length(in_text)]
+      )
+    } else {
+      c(licence_text, 
+        '', 
+        in_text)
+    }
+  } else {
+    # Not a html, rmd, or md, use #-style comments
+    out_text <- c(
+      paste("#", licence_text), 
+      '',
+      in_text
+      )
+  }
+  writeLines(out_text, conn)
+  invisible(TRUE)
 }
