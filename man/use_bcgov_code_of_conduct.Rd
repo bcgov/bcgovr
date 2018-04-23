@@ -19,5 +19,5 @@ use_bcgov_code_of_conduct(package = FALSE,
 Add a CODE_OF_CONDUCT.md file to the project directory
 }
 \seealso{
-\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=add_license_header]{add_license_header()}}
+\code{\link[=use_bcgov_readme]{use_bcgov_readme()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=use_bcgov_contributing]{use_bcgov_contributing()}}
 }
