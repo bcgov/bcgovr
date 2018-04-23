@@ -1,11 +1,11 @@
-#' Add html for BC DevExchange project state badge
+#' Add html for inserting a BC DevExchange project state badge
 #'
-#' @param project_state one of:'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
+#' @param project_state one of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
 #' @param cat use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
 #'
 #' @return html
 #' @export
-devex_badge <- function(project_state, cat = TRUE) {
+insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
   project_state <- tolower(project_state)
   if (!project_state %in% c("inspiration", "exploration", "dormant", "delivery", "retired") || 
       length(project_state) != 1L) {
