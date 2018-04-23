@@ -8,7 +8,9 @@ bcgovr <img src="img/logo.png" align="right" />
 Overview
 --------
 
-An [R](http://r-project.org) package to help set up and push bcgov R projects & packages to [GitHub](https://github.com/bcgov) following [bcgov open source guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to set up and push bcgov R projects & packages to [GitHub](https://github.com/bcgov) following [bcgov open source guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+
+All B.C. Government employees working in github.com/bcgov are responsible for determining whether R code can be posted to [bcgov GitHub](https://github.com/bcgov) as described in the [BC-Policy-Framework-For-GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 Features
 --------
@@ -19,15 +21,15 @@ Features
 
 `create_bcgov_project` & `create_bcgov_package` Create—or auto-populate an existing—R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can also be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in the [RStudio](https://www.rstudio.com/) New Project dialog box.
 
-`use_bcgov_req` Auto-populate an existing R project or package with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
+`use_bcgov_req` Auto-populate a new or existing R project or package with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
 
 ### Addins
 
 The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.io/rstudioaddins/):
 
-1.  Add the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .R file.
-2.  Add the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .Rmd or .md file.
-3.  Add a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md README file.
+1.  Insert the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a file (`insert_bcgov_apache_header`).
+2.  Insert the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a file (`insert_bcgov_cc_header`).
+3.  Insert a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md file (`insert_bcgov_devex_badge`).
 
 Installation
 ------------
