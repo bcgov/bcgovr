@@ -13,20 +13,10 @@
 #' Creates the framework of a new analysis development folder
 #' 
 #' Creates the folder structure for a new analysis.
-#'  
-#' @param  path location to create new analysis. If \code{"."} (the default), 
-#'   the name of the working directory will be taken as the analysis name. If 
-#'   not \code{"."}, the last component of the given path will be used as the 
-#'   analysis name.
-#' @param newSession If using RStudio do you want a new RStudio session to open? Defaults to FALSE. 
-#' @param rmarkdown Should an rmarkdown file be added to the repository
-#'   with its corresponding markdown file? Default \code{FALSE}.
-#' @param coc_email Contact email address(es) for the Code of Conduct. 
 #' 
-#' You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your 
-#' .Rprofile file so that every time you start a new analysis, it will be automatically populated.
-#' @param copyright_holder the name of the copyright holder (default 
-#' "Province of British Columbia). Only necessary if adding a license
+#' @inheritParams use_bcgov_req 
+#'  
+
 #' @param dir_struct alternative analysis directory structure. This should be specified as
 #' a character vector of directory and file paths (relative to the root of the project). 
 #' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
@@ -41,20 +31,14 @@
 #' @export
 #' 
 #' @examples \donttest{
-#'  bcgovr::create_bcgov_project(path = "c:/_dev/tarballs")
+#'  bcgovr::create_bcgov_project()
 #' }
-create_bcgov_project <- function(path = ".", 
-                              rstudio = TRUE, newSession = FALSE, 
-                              dir_struct = getOption("bcgovr.dir.struct", default = NULL),
-                              copyright_holder = "Province of British Columbia") {
-
-
-  ## Create directory is path is not current working directory
-  ## Suppress warning if directory is already there. 
-  if (path != ".") dir.create(path, recursive = TRUE, showWarnings = FALSE)
+create_bcgov_project <- function(rmarkdown = TRUE, 
+                                 licence = "apache2",
+                              dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
   
-  ## Convert file path to canonical
-  npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  ## Add in bcgov repo requirements
+  use_bcgov_req(licence = licence, rmarkdown = rmarkdown)
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
@@ -63,8 +47,8 @@ create_bcgov_project <- function(path = ".",
   } else {
     default_str <- FALSE
   }
-  dirs <- file.path(npath, dir_struct[grepl("/$", dir_struct)])
-  files <- setdiff(file.path(npath, dir_struct), dirs)
+  dirs <- file.path(dir_struct[grepl("/$", dir_struct)])
+  files <- setdiff(file.path(dir_struct), dirs)
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
@@ -72,18 +56,18 @@ create_bcgov_project <- function(path = ".",
   }
   
   ## Add the necessary R files and directories
-  usethis:::done("Creating new analysis in ", usethis:::value(npath))
-  usethis:::done("Populating ", usethis:::value(npath), " with directory structure")
+  usethis:::done("Creating new analysis")
+  usethis:::done("Populating with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
 
   if (default_str) {
     cat('source("01_load.R")\nsource("02_clean.R")\nsource("03_analysis.R")\nsource("04_output.R")\n', 
-        file = file.path(npath,"run_all.R"))
+        file = file.path("run_all.R"))
   }
   
   
-  invisible(npath)
+  invisible(TRUE)
 }
 
 

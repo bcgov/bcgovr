@@ -10,21 +10,8 @@ package_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
   copyright_holder = "Province of British Columbia")
 }
 \arguments{
-\item{path}{location to create new analysis. If \code{"."} (the default),
-the name of the working directory will be taken as the analysis name. If
-not \code{"."}, the last component of the given path will be used as the
-analysis name.}
-
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{TRUE}.}
-
-\item{coc_email}{Contact email address(es) for the Code of Conduct.
-
-You may want to set this option (\code{options("bcgovr.coc.email" = "my.email@gov.bc.ca")}) in your
-.Rprofile file so that every time you start a new analysis, it will be automatically populated.}
-
-\item{copyright_holder}{the name of the copyright holder (default
-"Province of British Columbia). Only necessary if adding a license}
 }
 \description{
 Creates the framework of a new package development folder

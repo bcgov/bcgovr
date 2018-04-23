@@ -8,26 +8,30 @@ bcgovr <img src="img/logo.png" align="right" />
 Overview
 --------
 
-An [R](http://r-project.org) package to help set up and push bcgov R projects & packages to [GitHub](https://github.com/bcgov) following [bcgov open source guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to set up and push bcgov R projects & packages to [GitHub](https://github.com/bcgov) following [bcgov open source guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+
+All B.C. Government employees working in github.com/bcgov are responsible for determining whether R code can be posted to [bcgov GitHub](https://github.com/bcgov) as described in the [BC-Policy-Framework-For-GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 Features
 --------
 
 ### Functions
 
-`use_bcgov_github` Open a new bcgov GitHub repository and auto-populate the R-based repository with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_github` Open a new bcgov R project & GitHub repository and auto-populate with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+
+`use_bcgov_git` Open a new bcgov R project with local version control and auto-populate the project with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
 `create_bcgov_project` & `create_bcgov_package` Create—or auto-populate an existing—R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can also be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in the [RStudio](https://www.rstudio.com/) New Project dialog box.
 
-`use_bcgov_req` Auto-populate an existing R project or package with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
+`use_bcgov_req` Auto-populate a new or existing R project or package with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
 
 ### Addins
 
 The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.io/rstudioaddins/):
 
-1.  Add the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .R file.
-2.  Add the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of an .Rmd or .md file.
-3.  Add a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md README file.
+1.  Insert the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a file (uses `insert_bcgov_apache_header`).
+2.  Insert the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a file (uses `insert_bcgov_cc_header`).
+3.  Insert a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md file (uses `insert_bcgov_devex_badge`).
 
 Installation
 ------------
@@ -52,7 +56,7 @@ Usage
 
 **Apache 2.0 License Header**
 
-Need to add that Apache 2.0 license header to a new .R file? Just click-click:
+Need to insert that Apache 2.0 license header to a new .R or .Rmd file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
 
@@ -104,14 +108,14 @@ git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the re
 
 ### Options
 
-There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating analysis projects and packages with `bcgovr`:
+There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating projects and packages with `bcgovr`:
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
--   `bcgovr.dir.struct`: Alternative analysis directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
+-   `bcgovr.dir.struct`: Alternative project directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
 
     The default is: `c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
-To make use of these options, there should a section in your `.Rprofile` file that looks something like this:
+To make use of these options, there should be a section in your `.Rprofile` file that looks something like this:
 
 ``` r
 if (interactive()) {
@@ -134,9 +138,6 @@ bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of 
 #### package\_skeleton
 
 The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. Type `?package_skeleton` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
-
-Something About Data Licencing HERE.
-------------------------------------
 
 Project Status
 --------------

@@ -16,7 +16,7 @@ devex_badge_addin <- function() {
   badge <- devex_gadget()
   
   if (!is.null(badge)) {
-    txt <- devex_badge(badge, cat = FALSE)
+    txt <- insert_bcgov_devex_badge(badge, cat = FALSE)
     rstudioapi::insertText(text = txt)
   }
   
