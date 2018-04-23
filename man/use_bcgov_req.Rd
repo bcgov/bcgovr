@@ -4,11 +4,14 @@
 \alias{use_bcgov_req}
 \title{Add BC Government requirements to your project directory}
 \usage{
-use_bcgov_req(rmarkdown = TRUE)
+use_bcgov_req(rmarkdown = TRUE, coc_email = getOption("bcgovr.coc.email",
+  default = NULL))
 }
 \arguments{
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.}
 }
 \description{
 Adds a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file

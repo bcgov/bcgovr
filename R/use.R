@@ -14,14 +14,16 @@
 #' 
 #' Adds a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
 #' 
+#' @inheritParams use_bcgov_code_of_conduct
 #' @param rmarkdown Should an rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{FALSE}.
 #' 
+#' 
 #' @export
 
-use_bcgov_req <- function(rmarkdown = TRUE){
+use_bcgov_req <- function(rmarkdown = TRUE, coc_email = getOption("bcgovr.coc.email", default = NULL)){
   
-  if(rmarkdown == TRUE){
+  if(rmarkdown){
     use_bcgov_readme_rmd()
   } else{use_bcgov_readme()}
   
@@ -32,6 +34,9 @@ use_bcgov_req <- function(rmarkdown = TRUE){
   use_bcgov_contributing()
   use_bcgov_code_of_conduct()
   use_bcgov_licence()
+  
+  
+  invisible(TRUE)
   
 }
 
