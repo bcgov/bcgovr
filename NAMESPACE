@@ -2,7 +2,7 @@
 
 export(add_license_header)
 export(create_bcgov_project)
-export(devex_badge)
+export(insert_bcgov_devex_badge)
 export(package_skeleton)
 export(use_bcgov_code_of_conduct)
 export(use_bcgov_contributing)
