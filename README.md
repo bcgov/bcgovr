@@ -54,15 +54,29 @@ I WANT TO...
 
 <details><summary>Open a new bcgov R project using git & GitHub</summary> </details>
 
-<br />
-
 <details><summary>Open a new bcgov R project using git (*without* GitHub)</summary> </details>
 
-<details><summary>Create a new—or populate an existing—bcgov R project or package with an out-of-the-box folder & file structure </summary> </details>
+<details><summary>Create a new—or populate an existing—bcgov R project or package with a 'ready-to-go' folder & file structure </summary>
 
-<br />
+Start a New Project in RStudio: New Project -&gt; New Directory -&gt; BC Gov Project/Package. Confirm the local location of the project in the *Directory Name* field. Check/uncheck and fill in the other fields as relevant to the project, and click 'Create Project'. The template `bcgovr` files and folders will be created in the new directory. For using different project templates, see the [Options](#options) section below.
 
-<details><summary>Add all or some of the required GitHub files to my bcgov R project or package</summary> <br /> Add the [bcgov GitHub required](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENSE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`.
+![](img/bcgovr_proj_templat.gif)
+
+The result is a 'ready-to-go' local directory for a new R project:
+
+![](img/analysis_skeleton_output.PNG)
+
+As an alternative to using the 'New Project -&gt; ...' dialogue box in RStudio, you can use the R console and `bcgovr::create_bcgov_project()` to create a new local project. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. Type `?create_bcgov_project` in the R console for help.
+
+``` r
+bcgovr::bcgovr::create_bcgov_project(path = "C:\_dev\bcgovr_analysis") 
+```
+
+The `create_bcgov_package()` function is used the same way as `create_bcgov_project()` but will create all the files & folders to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages. </details>
+
+</details>
+
+<details><summary>Add all or some of the required GitHub files to my bcgov R project or package</summary> <br /> Add the [bcgov GitHub required](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENSE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`. Type `?use_bcgov_req` in the R console for help.
 
 You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 licence, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md?
 
@@ -81,21 +95,13 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 </details>
 
-<br />
-
-<details><summary>Insert a license header</summary> <br /> Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click:
-
-![](img/bcgovr_addin_example.gif)
+<details><summary>Insert a license header</summary> <br /> Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click: <br /> ![](img/bcgovr_addin_example.gif)
 
 You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`. </details>
 
-<br />
+<details><summary>Insert a BCDevExchange project state badge</summary> <br /> Need to add a Project State Badge to your README file? Just click-click-click: <br /> ![](img/bcgovr_addin_example2.gif)
 
-<details><summary>Insert a BCDevExchange project state badge</summary> <br /> Need to add a Project State Badge to your README file? Just click-click-click:
-
-![](img/bcgovr_addin_example2.gif)
-
-You can also use `insert_bcgov_devex_badge("inspiration")`. </details>
+You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_devex_badge` in the R console for the list of badge options and other help. </details>
 
 ### Options
 
