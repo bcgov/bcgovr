@@ -64,17 +64,21 @@ library(bcgovr)
 
 ## I WANT TO...
 
+
 <details><summary>Open a new bcgov R project using git & GitHub</summary>
 </details>
 
+
 <details><summary>Open a new bcgov R project using git (_without_ GitHub)</summary>
 </details>
+
 
 <details><summary>Create a new&mdash;or populate an existing&mdash;bcgov R project or package with an out-of-the-box folder & file structure </summary>
 </details>
 
 
 <details><summary>Add all or some of the required GitHub files to my bcgov R project or package</summary>
+
 
 Add the [bcgov GitHub required](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files&mdash;a LICENSE, a README, a CODE OF CONDUCT and a CONTRIBUTING file&mdash;to any new or existing bcgov R project or package using `use_bcgov_req()`. 
 
@@ -96,6 +100,7 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 
 <details><summary>Insert a license header</summary>
+
 Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
@@ -105,6 +110,7 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 
 <details><summary>Insert a BCDevExchange project state badge</summary>
+
 Need to add a Project State Badge to your README file? Just click-click-click:
 
 ![](img/bcgovr_addin_example2.gif)
