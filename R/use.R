@@ -21,7 +21,6 @@
 #' 
 #' 
 #' @export
-
 use_bcgov_req <- function(rmarkdown = TRUE, 
                           coc_email = getOption("bcgovr.coc.email", default = NULL), 
                           licence = "apache2"){
@@ -148,3 +147,28 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
 
 #' @export
 use_bcgov_license <- use_bcgov_licence
+
+
+#' Add your project to the bcgov github org
+#'
+#' @param ... 
+#'
+#' @return
+#' @export
+use_bcgov_github <- function(...) {
+  check_git_commiter_address()
+}
+
+check_git_committer_address <- function() {
+  config <- git2r::config()
+  local_email <- config$local$user.email
+  gov_pattern <- "gov\\.bc\\.ca$"
+  if (!is.null(local_email)) {
+    if (!grepl(gov_pattern, local_email)) 
+      warning("You have a non-bcgov email address set as your user.email for this repository.")
+  } else if (!grepl(gov_pattern, config$global$user.email)) {
+    warning("You have a non-bcgov email address set as your global user.email.
+    Either change it or set it locally for this repository (if you are a bcgov employee).")
+  }
+  invisible(TRUE)
+}
