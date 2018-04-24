@@ -4,7 +4,8 @@
 \alias{use_bcgov_readme_rmd}
 \title{Add a README.md file to the project directory}
 \usage{
-use_bcgov_readme_rmd(project = NULL, package = FALSE)
+use_bcgov_readme_rmd(project = NULL, licence = c("apache2", "cc-by"),
+  package = FALSE)
 }
 \arguments{
 \item{project}{Name of the project. Defaults to the name of the Rstudio project/working directory}
