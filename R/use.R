@@ -151,12 +151,29 @@ use_bcgov_license <- use_bcgov_licence
 
 #' Add your project to the bcgov github org
 #'
-#' @param ... 
+#' @param organisation GitHub organisation where the repo will be hosted. 
+#'     One of `'bcgov'` (default), `'bcgov-c'`, or `NULL` to set up in your 
+#'     personal GitHub account
+#' @inheritParams use_bcgov_req
+#' @param protocol transer protocol. One of `'https'` (default) or `'ssh'`.
+#' @param ... Other arguments passed on to [usethis::use_github()]
 #'
-#' @return
 #' @export
-use_bcgov_github <- function(...) {
+use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE, 
+                             licence = "apache2", 
+                             coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                             protocol = "https",
+                             ...) {
+  if (!is.null(organisation) || !organisation %in% c("bcgov", "bcgov-c")) {
+    stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL")
+  }
+  
   check_git_commiter_address()
+  use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
+                licence = licence)
+  private <- if (organisation == "bcgov-c") TRUE else FALSE
+  usethis::use_github(organisation = organisation, protocol = protocol, 
+                      private = private, ...)
 }
 
 check_git_committer_address <- function() {
