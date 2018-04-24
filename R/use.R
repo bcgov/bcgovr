@@ -185,8 +185,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
     stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL")
   }
   
-  check_git_committer_address()
-  use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
+  use_bcgov_git(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
   use_bcgov_gitattributes()
   
@@ -195,6 +194,21 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...)
 }
 
+#' Initialize a git repository, with necessary bcgov infrastructure
+#'
+#' @inheritParams use_bcgov_req
+#' @param message git commit message
+#'
+#' @export
+use_bcgov_git <- function(rmarkdown = TRUE, 
+                          licence = "apache2", 
+                          coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                          message = "Initial commit") {
+  use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
+                licence = licence)
+  check_git_committer_address()
+  usethis::use_git(message)
+}
 
 check_git_committer_address <- function() {
   config <- git2r::config()
