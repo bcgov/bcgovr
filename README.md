@@ -145,10 +145,10 @@ You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_
 
 ### Options
 
-<details><summary>There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov` and `use_bcgov` functions in `bcgovr`.</summary>
+There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov` and `use_bcgov` functions in `bcgovr`.
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
--   `bcgovr.dir.struct`: Alternative project directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
+-   `bcgovr.dir.struct`: Alternative project directory structure for `create_bcgov_project()`. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
 
     The default is: `c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
@@ -161,8 +161,6 @@ if (interactive()) {
             "src/03_analysis.R", "src/04_output.R", "src/runall.R"))
 } 
 ```
-
-</details>
 
 Project Status
 --------------
