@@ -53,7 +53,7 @@ create_bcgov_project <- function(rmarkdown = TRUE,
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
-    stop("It looks as though you already have an analysis set up here!")
+    stop("It looks as though you already have an analysis set up here!", call. = FALSE)
   }
   
   ## Add the necessary R files and directories
