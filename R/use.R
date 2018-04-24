@@ -52,27 +52,32 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 #' @export
 #' @seealso [use_bcgov_contributing()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
 #' @return NULL
-use_bcgov_readme <- function(project = NULL, package = FALSE) {
-  add_readme(project = project, package = package, extension = ".md")
+use_bcgov_readme <- function(project = NULL, licence = c("apache2", "cc-by"), 
+                             package = FALSE) {
+  add_readme(project = project, licence = licence, package = package, extension = ".md")
 }
 
 #' @inherit use_bcgov_readme
 #' @export
-use_bcgov_readme_rmd <- function(project = NULL, package = FALSE) {
-  add_readme(project = project, package = package, extension = ".Rmd")
+use_bcgov_readme_rmd <- function(project = NULL, licence = c("apache2", "cc-by"), 
+                                 package = FALSE) {
+  add_readme(project = project, licence = licence, package = package, extension = ".Rmd")
 }
 
-add_readme <- function(project, package, extension) {
+add_readme <- function(project, licence = c("apache2", "cc-by"), package, extension) {
+  licence <- match.arg(licence)
   if (is.null(project)) {
     project = basename(usethis::proj_get())
   }
   
   fbase <- ifelse(package, "pkg-README", "README")
   
+  year <- format(Sys.Date(), "%Y")
   usethis::use_template(template = paste0(fbase, extension), 
                         save_as = paste0("README", extension),
-                        data = list(project_name = project, 
-                                    year = format(Sys.Date(), "%Y")), 
+                        data = list(project_name = project,
+                                    licence_text = paste0(make_licence_header_text(year, licence), 
+                                                          collapse = "\n")), 
                         ignore = package,
                         package = "bcgovr")
 }
