@@ -13,7 +13,7 @@ setup_r <- function() {
 #' `HOME` environment variable is either unset, or set to a location
 #' on a network drive. R doesn't work well with this setup, so this
 #' function checks what it is set to, and if it's not on the
-#' `C:/` drive, it sets it to the value of `%USERPROFILE%`, usually
+#' `C:/` drive, it sets it to the value of `USERPROFILE`, usually
 #' `C:/Users/[username]`.
 #'
 #' If you have a `.Rprofile` or `.Renviron` file in your existing `HOME`
