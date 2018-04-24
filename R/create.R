@@ -61,6 +61,11 @@ create_bcgov_project <- function(rmarkdown = TRUE,
   usethis:::done("Populating with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
+  # Insert appropriate licence header into source files
+  insert_licence_header <- switch(licence, 
+                                  "apache2" = insert_bcgov_apache_header,
+                                  "cc-by" = insert_bcgov_cc_header)
+  lapply(files, insert_licence_header)
 
   if (default_str) {
     cat('source("01_load.R")\nsource("02_clean.R")\nsource("03_analysis.R")\nsource("04_output.R")\n', 

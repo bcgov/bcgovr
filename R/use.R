@@ -122,7 +122,7 @@ use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", 
 #' Add a LICENSE file (Apache 2.0 or CB-BY) to the project directory
 #' 
 #' @param licence Which license to apply? Default is Apache 2.0 (`"apache2"`). 
-#' Use `"cc-by"` [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
+#' Use `"cc-by"` for [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 #'
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_contributing()], [use_bcgov_code_of_conduct()]
