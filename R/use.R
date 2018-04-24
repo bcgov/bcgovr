@@ -21,7 +21,6 @@
 #' 
 #' 
 #' @export
-
 use_bcgov_req <- function(rmarkdown = TRUE, 
                           coc_email = getOption("bcgovr.coc.email", default = NULL), 
                           licence = "apache2"){
@@ -165,4 +164,44 @@ use_bcgov_gitattributes <- function(){
                         package = "bcgovr")
   
   
+
+#' Add your project to the bcgov github org
+#'
+#' @param organisation GitHub organisation where the repo will be hosted. 
+#'     One of `'bcgov'` (default), `'bcgov-c'`, or `NULL` to set up in your 
+#'     personal GitHub account
+#' @inheritParams use_bcgov_req
+#' @param protocol transer protocol. One of `'https'` (default) or `'ssh'`.
+#' @param ... Other arguments passed on to [usethis::use_github()]
+#'
+#' @export
+use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE, 
+                             licence = "apache2", 
+                             coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                             protocol = "https",
+                             ...) {
+  if (!is.null(organisation) && !organisation %in% c("bcgov", "bcgov-c")) {
+    stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL")
+  }
+  
+  check_git_committer_address()
+  use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
+                licence = licence)
+  private <- if (!is.null(organisation) && organisation == "bcgov-c") TRUE else FALSE
+  usethis::use_github(organisation = organisation, protocol = protocol, 
+                      private = private, ...)
+}
+
+check_git_committer_address <- function() {
+  config <- git2r::config()
+  local_email <- config$local$user.email
+  gov_pattern <- "gov\\.bc\\.ca$"
+  if (!is.null(local_email)) {
+    if (!grepl(gov_pattern, local_email)) 
+      warning("You have a non-bcgov email address set as your user.email for this repository.")
+  } else if (!grepl(gov_pattern, config$global$user.email)) {
+    warning("You have a non-bcgov email address set as your global user.email.
+    Either change it or set it locally for this repository (if you are a bcgov employee).")
+  }
+  invisible(TRUE)
 }
