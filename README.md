@@ -52,9 +52,21 @@ library(bcgovr)
 I WANT TO...
 ------------
 
-<details><summary><strong>Open a new bcgov R project using git & GitHub</strong></summary> </details>
+<details><summary><strong>Open a new bcgov R project using git & GitHub</strong></summary>
 
-<details><summary><strong>Open a new bcgov R project using git (*without* GitHub)</strong></summary> </details>
+some text here
+
+<br />
+
+</details>
+
+<details><summary><strong>Open a new bcgov R project using git (*without* GitHub)</strong></summary>
+
+some text here
+
+<br />
+
+</details>
 
 <details><summary><strong>Create a new—or populate an existing—bcgov R project or package with a 'ready-to-go' folder & file structure</strong></summary>
 
@@ -75,6 +87,8 @@ bcgovr::bcgovr::create_bcgov_project(path = "C:\_dev\bcgovr_analysis")
 ```
 
 The `create_bcgov_package()` function is used the same way as `create_bcgov_project()` but will create all the files & folders to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
+
+<br />
 
 </details>
 
@@ -99,6 +113,8 @@ use_bcgov_contributing()
 use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 ```
 
+<br />
+
 </details>
 
 <details><summary><strong>Insert a license header</strong></summary>
@@ -107,11 +123,11 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click:
 
-<br />
-
 ![](img/bcgovr_addin_example.gif)
 
 You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
+
+<br />
 
 </details>
 
@@ -120,8 +136,6 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 <br />
 
 Need to add a Project State Badge to your README file? Just click-click-click:
-
-<br />
 
 ![](img/bcgovr_addin_example2.gif)
 
