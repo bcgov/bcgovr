@@ -162,6 +162,7 @@ use_bcgov_gitattributes <- function(){
   
   usethis::use_template(template = ".gitattributes",
                         package = "bcgovr")
+}
   
   
 
@@ -192,6 +193,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...)
 }
 
+
 check_git_committer_address <- function() {
   config <- git2r::config()
   local_email <- config$local$user.email
@@ -204,4 +206,5 @@ check_git_committer_address <- function() {
     Either change it or set it locally for this repository (if you are a bcgov employee).")
   }
   invisible(TRUE)
+  
 }
