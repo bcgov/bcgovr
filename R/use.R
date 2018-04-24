@@ -36,12 +36,9 @@ use_bcgov_req <- function(rmarkdown = TRUE,
     use_bcgov_readme(licence = licence)
   }
   
-  
-  
   use_bcgov_contributing()
   use_bcgov_code_of_conduct(coc_email = coc_email)
   use_bcgov_licence(licence = licence)
-  
   
   invisible(TRUE)
   
@@ -51,24 +48,21 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 #' 
 #' @param path Directory path (default `"."`)
 #' @param project Name of the project. Defaults to the name of the Rstudio project/working directory
-#' @param package Is this a package or a regular project? (Default  `FALSE`)
 #'
 #' @export
 #' @seealso [use_bcgov_contributing()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
 #' @return NULL
-use_bcgov_readme <- function(project = NULL, licence = c("apache2", "cc-by"), 
-                             package = FALSE) {
-  add_readme(project = project, licence = licence, package = package, extension = ".md")
+use_bcgov_readme <- function(project = NULL, licence = c("apache2", "cc-by")) {
+  add_readme(project = project, licence = licence, extension = ".md")
 }
 
 #' @inherit use_bcgov_readme
 #' @export
-use_bcgov_readme_rmd <- function(project = NULL, licence = c("apache2", "cc-by"), 
-                                 package = FALSE) {
-  add_readme(project = project, licence = licence, package = package, extension = ".Rmd")
+use_bcgov_readme_rmd <- function(project = NULL, licence = c("apache2", "cc-by")) {
+  add_readme(project = project, licence = licence, extension = ".Rmd")
 }
 
-add_readme <- function(project, licence = c("apache2", "cc-by"), package, extension) {
+add_readme <- function(project, licence = c("apache2", "cc-by"), extension) {
   licence <- match.arg(licence)
   if (is.null(project)) {
     project = basename(usethis::proj_get())
@@ -81,7 +75,7 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), package, extens
   } else {
     NULL
   }
-  
+  package <- usethis:::is_package()
   fbase <- ifelse(package, "pkg-README", "README")
   
   year <- format(Sys.Date(), "%Y")
@@ -91,32 +85,31 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), package, extens
                                     cc_link = cc_link,
                                     licence_text = paste0(make_licence_header_text(year, licence), 
                                                           collapse = "\n")), 
-                        ignore = package,
+                        ignore = package && extension == ".Rmd",
                         package = "bcgovr")
 }
 
 #' Add a CONTRIBUTING.md file to the project directory
 #' 
-#' @inheritParams use_bcgov_readme
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
 #' @return `TRUE` (invisibly)
-use_bcgov_contributing <- function(package = FALSE) {
+use_bcgov_contributing <- function() {
   usethis::use_template(template = "CONTRIBUTING.md", 
-                        ignore = package, package = "bcgovr")
+                        ignore = usethis:::is_package(), 
+                        package = "bcgovr")
 }
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
 #' 
-#' @inheritParams use_bcgov_readme
 #' @param coc_email Contact email address(es) for the Code of Conduct.
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
 #' @return `TRUE` (invisibly)
-use_bcgov_code_of_conduct <- function(package = FALSE, coc_email = getOption("bcgovr.coc.email", default = NULL)) {
+use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", default = NULL)) {
   usethis::use_template(template = "CoC.md", 
                         save_as = "CODE_OF_CONDUCT.md",
-                        ignore = package, 
+                        ignore = usethis:::is_package(), 
                         data = list(COC_CONTACT_EMAIL = coc_email),
                         package = "bcgovr")
   
