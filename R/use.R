@@ -206,25 +206,32 @@ write_licence_header <- function(licence_text, file) {
   
   fileext <- tolower(tools::file_ext(file))
   # if html/rmd/md, find yaml and insert <!-- comments -->
-  licence_text <- if (fileext %in% c("html", "rmd", "md")) {
+  if (fileext %in% c("html", "rmd", "md")) {
     licence_text <- c("<!--", licence_text, "-->")
-    # Check if yaml header, if so, write after the yaml header
+    # Check if there is a yaml header, if so, write after the yaml header
     pos <- grep("^---", in_text)[2]
-    out_text <- if (length(pos)) {
-      c(
-        in_text[1:pos], 
+    out_text <- if (length(pos) == 1 && !is.na(pos)[1]) {
+      header <- in_text[1:pos]
+      
+      # Catch the case where there is only a yaml header but no text
+      n_lines <- length(in_text)
+      rest_of_text <- if (n_lines > pos) in_text[(pos + 1):n_lines] else ''
+                             
+      c(header, 
         '',
         licence_text, 
         '',
-        in_text[(pos + 1):length(in_text)]
+        rest_of_text
       )
+      
     } else {
+      # otherwise just put it at the top
       c(licence_text, 
         '', 
         in_text)
     }
   } else {
-    # Not a html, rmd, or md, use #-style comments
+    # Not a html, rmd, or md: use #-style comments
     out_text <- c(
       paste("#", licence_text), 
       '',
