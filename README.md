@@ -79,23 +79,17 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 </details>
 
-<details><summary>Insert a license header</summary>
-
-Need to insert that Apache 2.0 or Creative Commons license header to a source file? Just click-click:
+<details><summary>Insert a license header</summary> Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
 
 You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`. </details>
 
-<details><summary>Insert a BCDevExchange project state badge</summary>
-
-Need to add a Project State Badge to your README file? Just click-click-click:
+<details><summary>Insert a BCDevExchange project state badge</summary> Need to add a Project State Badge to your README file? Just click-click-click:
 
 ![](img/bcgovr_addin_example2.gif)
 
-You can also use `insert_bcgov_devex_badge("inspiration")`.
-
-</details>
+You can also use `insert_bcgov_devex_badge("inspiration")`. </details>
 
 ### Options
 
