@@ -146,8 +146,25 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
 }
 
 #' @export
+#' 
 use_bcgov_license <- use_bcgov_licence
 
+#' Add an R flavoured .gitattributes file
+#' 
+#' Adds a .gitattributes file that will identify the repository as a R-based code project
+#' even if amny lines of another language are present. 
+#' 
+#' @return NULL
+#' 
+#' @export
+#' 
+use_bcgov_gitattributes <- function(){
+  
+  usethis::use_template(template = ".gitattributes",
+                        package = "bcgovr")
+}
+  
+  
 
 #' Add your project to the bcgov github org
 #'
@@ -203,4 +220,5 @@ check_git_committer_address <- function() {
     Either change it or set it locally for this repository (if you are a bcgov employee).")
   }
   invisible(TRUE)
+  
 }
