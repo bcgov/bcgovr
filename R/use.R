@@ -164,11 +164,11 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                              coc_email = getOption("bcgovr.coc.email", default = NULL), 
                              protocol = "https",
                              ...) {
-  if (!is.null(organisation) || !organisation %in% c("bcgov", "bcgov-c")) {
+  if (!is.null(organisation) && !organisation %in% c("bcgov", "bcgov-c")) {
     stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL")
   }
   
-  check_git_commiter_address()
+  check_git_committer_address()
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
   private <- if (organisation == "bcgov-c") TRUE else FALSE
