@@ -30,9 +30,11 @@ use_bcgov_req <- function(rmarkdown = TRUE,
     usethis::create_project(path = ".")
   }
   
-  if(rmarkdown){
-    use_bcgov_readme_rmd()
-  } else{use_bcgov_readme()}
+  if (rmarkdown) {
+    use_bcgov_readme_rmd(licence = licence)
+  } else {
+    use_bcgov_readme(licence = licence)
+  }
   
 
   
