@@ -29,7 +29,7 @@ The line in your \code{.Rprofile} file would look something like this:
 \code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}}
 }
 \description{
-Creates the folder structure for a new analysis.
+Creates the folder structure for a new analysis in your current working directory.
 }
 \examples{
 \donttest{
