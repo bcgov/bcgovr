@@ -38,7 +38,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
   use_bcgov_contributing()
   use_bcgov_code_of_conduct(coc_email = coc_email)
   use_bcgov_licence(licence = licence)
-  
+
   invisible(TRUE)
   
 }
@@ -188,6 +188,8 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
   check_git_committer_address()
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
+  use_bcgov_gitattributes()
+  
   private <- if (!is.null(organisation) && organisation == "bcgov-c") TRUE else FALSE
   usethis::use_github(organisation = organisation, protocol = protocol, 
                       private = private, ...)
