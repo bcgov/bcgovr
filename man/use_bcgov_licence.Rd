@@ -8,7 +8,7 @@ use_bcgov_licence(licence = c("apache2", "cc-by"))
 }
 \arguments{
 \item{licence}{Which license to apply? Default is Apache 2.0 (\code{"apache2"}).
-Use \code{"cc-by"} \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
+Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 }
 \description{
 Add a LICENSE file (Apache 2.0 or CB-BY) to the project directory
