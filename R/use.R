@@ -74,12 +74,21 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), package, extens
     project = basename(usethis::proj_get())
   }
   
+  cc_link <- if (licence == "cc-by") {
+    '
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+'
+  } else {
+    NULL
+  }
+  
   fbase <- ifelse(package, "pkg-README", "README")
   
   year <- format(Sys.Date(), "%Y")
   usethis::use_template(template = paste0(fbase, extension), 
                         save_as = paste0("README", extension),
                         data = list(project_name = project,
+                                    cc_link = cc_link,
                                     licence_text = paste0(make_licence_header_text(year, licence), 
                                                           collapse = "\n")), 
                         ignore = package,
