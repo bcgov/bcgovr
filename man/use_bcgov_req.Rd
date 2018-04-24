@@ -14,7 +14,7 @@ with its corresponding markdown file? Default \code{FALSE}.}
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
 \item{licence}{Which license to apply? Default is Apache 2.0 (\code{"apache2"}).
-Use \code{"cc-by"} \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
+Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 }
 \description{
 Adds a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file

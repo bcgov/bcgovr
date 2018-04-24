@@ -13,7 +13,7 @@ create_bcgov_project(rmarkdown = TRUE, licence = "apache2",
 with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{licence}{Which license to apply? Default is Apache 2.0 (\code{"apache2"}).
-Use \code{"cc-by"} \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
+Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 

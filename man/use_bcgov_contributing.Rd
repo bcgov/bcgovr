@@ -4,10 +4,7 @@
 \alias{use_bcgov_contributing}
 \title{Add a CONTRIBUTING.md file to the project directory}
 \usage{
-use_bcgov_contributing(package = FALSE)
-}
-\arguments{
-\item{package}{Is this a package or a regular project? (Default  \code{FALSE})}
+use_bcgov_contributing()
 }
 \value{
 \code{TRUE} (invisibly)
