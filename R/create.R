@@ -35,14 +35,15 @@
 #' }
 create_bcgov_project <- function(rmarkdown = TRUE, 
                                  licence = "apache2",
-                              dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
+                                 coc_email = getOption("bcgovr.coc.email", default = NULL),
+                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
   
   ## Add in bcgov repo requirements
-  use_bcgov_req(licence = licence, rmarkdown = rmarkdown)
+  use_bcgov_req(licence = licence, rmarkdown = rmarkdown, coc_email = coc_email)
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
-    dir_struct <- c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")
+    dir_struct <- c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")
     default_str <- TRUE
   } else {
     default_str <- FALSE

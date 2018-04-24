@@ -12,6 +12,8 @@ package_skeleton(path = ".", git_init = TRUE, git_clone = NULL,
 \arguments{
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{TRUE}.}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.}
 }
 \description{
 Creates the framework of a new package development folder

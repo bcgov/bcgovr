@@ -5,6 +5,7 @@
 \title{Creates the framework of a new analysis development folder}
 \usage{
 create_bcgov_project(rmarkdown = TRUE, licence = "apache2",
+  coc_email = getOption("bcgovr.coc.email", default = NULL),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL))
 }
 \arguments{
@@ -13,6 +14,8 @@ with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{licence}{Which license to apply? Default is Apache 2.0 (\code{"apache2"}).
 Use \code{"cc-by"} \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
+
+\item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
 \item{dir_struct}{alternative analysis directory structure. This should be specified as
 a character vector of directory and file paths (relative to the root of the project).

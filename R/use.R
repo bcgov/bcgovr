@@ -26,13 +26,15 @@ use_bcgov_req <- function(rmarkdown = TRUE,
                           coc_email = getOption("bcgovr.coc.email", default = NULL), 
                           licence = "apache2"){
   
+  if(!(usethis:::is_package() | usethis:::is_proj())){
+    usethis::create_project(path = ".")
+  }
+  
   if(rmarkdown){
     use_bcgov_readme_rmd()
   } else{use_bcgov_readme()}
   
-  if(!(usethis:::is_package() | usethis:::is_proj())){
-    usethis::create_project()
-  }
+
   
   use_bcgov_contributing()
   use_bcgov_code_of_conduct(coc_email = coc_email)
