@@ -60,7 +60,7 @@ some text here
 
 </details>
 
-<details><summary><strong>Open a new bcgov R project using git (*without* GitHub)</strong></summary>
+<details><summary><strong>Open a new bcgov R project using git *without* GitHub</strong></summary>
 
 some text here
 
