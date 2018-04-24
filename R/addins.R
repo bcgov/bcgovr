@@ -63,9 +63,14 @@ devex_gadget <- function() {
 }
 
 
-license_header_addin <- function() {
-  txt <- make_license_header_text(year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia")
-  rstudioapi::insertText(location = c(1,1), text = txt)
+apache_header_addin <- function() {
+  txt <- make_licence_header_text(year = format(Sys.Date(), "%Y"), licence = "apache2")
+  write_licence_header(txt, rstudio = TRUE)
+}
+
+ccby_header_addin <- function() {
+  txt <- make_licence_header_text(year = format(Sys.Date(), "%Y"), licence = "cc-by")
+  write_licence_header(txt, rstudio = TRUE)
 }
 
 skeleton_addin <- function(path, package, git_init, repo, CoC, coc_email, apache, copyright_holder, readme_type) {

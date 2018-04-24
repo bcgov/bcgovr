@@ -5,5 +5,10 @@ Interactive: true
 
 Name: Insert Apache License Header
 Description: Inserts biolerplate Apache license header in the top of the current file.
-Binding: license_header_addin
+Binding: apache_header_addin
+Interactive: false
+
+Name: Insert CC-BY 4.0 License Header
+Description: Inserts biolerplate CC-BY 4.0 license header in the top of the current file.
+Binding: ccby_header_addin
 Interactive: false
