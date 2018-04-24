@@ -36,7 +36,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
     use_bcgov_readme(licence = licence)
   }
   
-
+  
   
   use_bcgov_contributing()
   use_bcgov_code_of_conduct(coc_email = coc_email)
@@ -74,12 +74,21 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), package, extens
     project = basename(usethis::proj_get())
   }
   
+  cc_link <- if (licence == "cc-by") {
+    '
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+'
+  } else {
+    NULL
+  }
+  
   fbase <- ifelse(package, "pkg-README", "README")
   
   year <- format(Sys.Date(), "%Y")
   usethis::use_template(template = paste0(fbase, extension), 
                         save_as = paste0("README", extension),
                         data = list(project_name = project,
+                                    cc_link = cc_link,
                                     licence_text = paste0(make_licence_header_text(year, licence), 
                                                           collapse = "\n")), 
                         ignore = package,
@@ -157,7 +166,7 @@ use_bcgov_license <- use_bcgov_licence
 insert_bcgov_apache_header <- function(file, year = format(Sys.Date(), "%Y")) {
   
   licence_text <- make_licence_header_text(year, "apache")
-
+  
   write_licence_header(licence_text, file)
   usethis:::done("Adding Apache boilerplate header to the top of ", usethis:::value(file))
   
@@ -185,21 +194,21 @@ make_licence_header_text <- function(year = NULL, licence = c("apache2", "cc-by"
   licence <- match.arg(licence)
   licence_txt <- switch(licence, 
                         "apache2" = c('Copyright {YYYY} Province of British Columbia',
-'',
-'Licensed under the Apache License, Version 2.0 (the "License");',
-'you may not use this file except in compliance with the License.',
-'You may obtain a copy of the License at',
-'',
-'http://www.apache.org/licenses/LICENSE-2.0',
-'',
-'Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,',
-'WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.',
-'See the License for the specific language governing permissions and limitations under the License.'),
+                                      '',
+                                      'Licensed under the Apache License, Version 2.0 (the "License");',
+                                      'you may not use this file except in compliance with the License.',
+                                      'You may obtain a copy of the License at',
+                                      '',
+                                      'http://www.apache.org/licenses/LICENSE-2.0',
+                                      '',
+                                      'Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,',
+                                      'WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.',
+                                      'See the License for the specific language governing permissions and limitations under the License.'),
                         "cc-by" = c('Copyright {YYYY} Province of British Columbia',
-'',
-'This work is licensed under the Creative Commons Attribution 4.0 International License.', 
-'To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.'
-))
+                                    '',
+                                    'This work is licensed under the Creative Commons Attribution 4.0 International License.', 
+                                    'To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.'
+                        ))
   
   if (!is.null(year)) {
     licence_txt <- gsub("{YYYY}", year, licence_txt, fixed = TRUE)
@@ -208,24 +217,39 @@ make_licence_header_text <- function(year = NULL, licence = c("apache2", "cc-by"
   licence_txt
 }
 
-write_licence_header <- function(licence_text, file) {
-  conn <- file(file)
-  on.exit(close(conn))
-  in_text <- readLines(conn)
+write_licence_header <- function(licence_text, file, rstudio = FALSE) {
   
-  fileext <- tolower(tools::file_ext(file))
+  if (rstudio) {
+    file_context <- rstudioapi::getSourceEditorContext()
+    in_text <- file_context$contents
+    fileext <- tolower(tools::file_ext(basename(file_context$path)))
+  } else {
+    conn <- file(file)
+    on.exit(close(conn))
+    in_text <- readLines(conn)
+    fileext <- tolower(tools::file_ext(file))
+  }
+  
   # if html/rmd/md, find yaml and insert <!-- comments -->
-  if (fileext %in% c("html", "rmd", "md")) {
-    licence_text <- c("<!--", licence_text, "-->")
-    # Check if there is a yaml header, if so, write after the yaml header
-    pos <- grep("^---", in_text)[2]
-    out_text <- if (length(pos) == 1 && !is.na(pos)[1]) {
-      header <- in_text[1:pos]
+  licence_text <- if (fileext %in% c("html", "rmd", "md")) {
+    c("<!--", licence_text, "-->")
+  } else {
+    # Not a html, rmd, or md: use #-style comments
+    paste("#", licence_text)
+  }
+  
+  # Check if there is a yaml header, if so, write after the yaml header
+  yaml_end <- grep("^---", in_text)[2]
+  has_yaml <- if (length(yaml_end) == 1 && !is.na(yaml_end)[1]) TRUE else FALSE
+  
+  if (!rstudio) {
+    out_text <- if (has_yaml) {
+      header <- in_text[1:yaml_end]
       
       # Catch the case where there is only a yaml header but no text
       n_lines <- length(in_text)
-      rest_of_text <- if (n_lines > pos) in_text[(pos + 1):n_lines] else ''
-                             
+      rest_of_text <- if (n_lines > yaml_end) in_text[(yaml_end + 1):n_lines] else ''
+      
       c(header, 
         '',
         licence_text, 
@@ -239,14 +263,11 @@ write_licence_header <- function(licence_text, file) {
         '', 
         in_text)
     }
+    writeLines(out_text, conn)
+    invisible(TRUE)
   } else {
-    # Not a html, rmd, or md: use #-style comments
-    out_text <- c(
-      paste("#", licence_text), 
-      '',
-      in_text
-      )
+    loc <- if (has_yaml) yaml_end + 1 else 1
+    rstudioapi::insertText(paste0(c(licence_text, "\n"), collapse = "\n"), location = c(loc, 1))
   }
-  writeLines(out_text, conn)
-  invisible(TRUE)
+  
 }
