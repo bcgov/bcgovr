@@ -12,7 +12,7 @@
 
 #' Creates the framework of a new analysis development folder
 #' 
-#' Creates the folder structure for a new analysis.
+#' Creates the folder structure for a new analysis in your current working directory.
 #' 
 #' @inheritParams use_bcgov_req 
 #'  
@@ -80,7 +80,6 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 #' Creates the framework of a new package development folder
 #' 
 #'
-#' @importFrom git2r repository init
 #'  
 #' @inheritParams create_bcgov_project
 #' @param rmarkdown Should an rmarkdown file be added to the repository
@@ -91,90 +90,50 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 #' @export
 #' 
 #' @examples \donttest{
-#'  bcgovr::package_skeleton(path = "c:/_dev/tarballs")
+#'  bcgovr::create_bcgov_package()
 #' }
-package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apache = TRUE,
-                             rstudio = TRUE, CoC = TRUE, rmarkdown = TRUE, 
-                             coc_email = getOption("bcgovr.coc.email"),
-                             copyright_holder = "Province of British Columbia") {
+create_bcgov_package <- function(rmarkdown = TRUE, 
+                                 coc_email = getOption("bcgovr.coc.email", default = NULL),
+                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
   
-  ## Create directory is path is not current working directory
-  ## Suppress warning if directory is already there. 
-  if (path != ".") dir.create(path, recursive = TRUE, showWarnings = FALSE)
+
   
-  npath <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  package_name <- sub('.*\\/', '', getwd())
   
-  congrats("Setting up package in working directory:", npath)
-  setwd(npath)
-  
-  if (is.character(git_clone)) {
-    git2r::clone(git_clone, npath)
-    git_init = FALSE
-  }
+  congrats("Setting up the ", package_name, " package")
+
   
   
-  bcgovr_desc = list("Package" = sub('.*\\/', '', npath),
+  bcgovr_desc = list("Package" = package_name,
                      "License" = "Apache License (== 2.0) | file LICENSE",
                      "Authors@R" = paste0('c(person("First", "Last", email = "first.last@example.com", role = c("aut", "cre")), 
                                           person("Province of British Columbia", role = "cph"))')
   )
   
   
+  
   ## Add in package setup files
-  usethis::create_package(path = npath, fields = bcgovr_desc, rstudio = FALSE)
+  usethis::create_package(path = ".", fields = bcgovr_desc, rstudio = TRUE)
   
-  ## Add individual elements
+  ## Add individual elements via usethis
   usethis::use_news_md()
-  add_readme(npath, package = TRUE, rmd = rmarkdown)
   usethis::use_roxygen_md()
-  usethis::use_vignette(name = basename(npath))
+  usethis::use_vignette(name = package_name)
   
-  
-  ## Add the necessary R files and directories
-  #message("Creating new package in ", npath)
-  add_contributing(npath)
-  if (CoC) {
-    add_code_of_conduct(npath, package = FALSE, coc_email = coc_email)
-    usethis::use_build_ignore(file.path(npath,"CODE_OF_CONDUCT.md"))
-  }
-  
-  
+  ## Add in bcgov repo requirements
+  ## A package will only ever need apache2 licence
+  use_bcgov_req(licence = "apache2", rmarkdown = rmarkdown, coc_email = coc_email)
   
   
   
   ## Add all bcgov files into RBuildignore
-  usethis::use_build_ignore(file.path(npath,"CONTRIBUTING.md"))
-  usethis::use_build_ignore(file.path(npath,"README.md"))
-  usethis::use_build_ignore(file.path(npath,"README.Rmd"))
+  usethis::use_build_ignore("CONTRIBUTING.md")
+  usethis::use_build_ignore("CODE_OF_CONDUCT.md")
+  usethis::use_build_ignore("README.md")
+  usethis::use_build_ignore("README.Rmd")
   
-  
-  if (apache) {
-    add_license(npath)
-  }
-  
-  if (git_init) {
-    if (file.exists(file.path(npath,".git"))) {
-      not_done("This directory is already a git repository. Not creating a new one")
-    } else {
-      init(npath)
-    }
-  }
-  
-  if (git_init || is.character(git_clone)) {
-    write_gitignore(".Rproj.user", ".Rhistory", ".RData", "out/", 
-                    "internal.R", "*.DS_Store", path = npath)
-  }
-  
-  if (rstudio && rstudioapi::isAvailable()) {
-    usethis:::done("Initializing and opening new Rstudio project in ", usethis:::value(npath))
-    switch_now()
-    rstudioapi::openProject(npath, newSession = TRUE)
-  } else {
-    usethis:::done("Setting working directory to ", usethis:::value(npath))
-    switch_now()
-  }
-  
-  invisible(npath)
+ 
+  invisible(TRUE)
 }
 
 
