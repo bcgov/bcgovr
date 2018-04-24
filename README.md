@@ -17,9 +17,9 @@ Features
 
 ### Functions
 
-`use_bcgov_github` Open a new bcgov R project with local version control, a GitHub repository and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_github` Open a new bcgov R project with [git version control](https://git-scm.com/), a [bcgov GitHub repository](https://github.com/bcgov), and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_git` Open a new bcgov R project with local version control and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_git` Open a new bcgov R project with [git version control](https://git-scm.com/) and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
 `create_bcgov_project` & `create_bcgov_package` Create a new—or populate an existing—R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can also be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in the [RStudio](https://www.rstudio.com/) New Project dialog box.
 
@@ -49,95 +49,74 @@ remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
-Usage
------
+I WANT TO...
+------------
 
-### RStudio Addins
+<details><summary>Open a new bcgov R project using git & GitHub</summary> </details>
 
-**Apache 2.0 License Header**
+<details><summary>Open a new bcgov R project using git (*without* GitHub)</summary> </details>
 
-Need to insert that Apache 2.0 license header to a new .R or .Rmd file? Just click-click:
+<details><summary>Create a new—or populate an existing—bcgov R project or package with an out-of-the-box folder & file structure </summary> </details>
+
+<details><summary>Add all or some of the required GitHub files to my bcgov R project or package</summary>
+
+Add the [bcgov GitHub required](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENSE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`.
+
+You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 licence, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md?
+
+``` r
+use_bcgov_req(licence="cc-by", rmarkdown=FALSE, coc_email="my.email@gov.bc.ca")
+```
+
+You can also add the individual required files as needed using:
+
+``` r
+use_bcgov_licence()
+use_bcgov_readme()
+use_bcgov_contributing()
+use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
+```
+
+</details>
+
+<details><summary>Insert a license header</summary>
+
+Need to insert that Apache 2.0 or Creative Commons license header to a source file? Just click-click:
 
 ![](img/bcgovr_addin_example.gif)
 
-**BCDevExchange Project State Badge**
+You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`. </details>
 
-Need to add a project state badge to your .md or .Rmd file? Just click-click-click:
+<details><summary>Insert a BCDevExchange project state badge</summary>
+
+Need to add a Project State Badge to your README file? Just click-click-click:
 
 ![](img/bcgovr_addin_example2.gif)
 
-### Analysis and Package Templates
+You can also use `insert_bcgov_devex_badge("inspiration")`.
 
-`bcgovr` allows you to set up a new R-based open source data analysis project (or package) with folders & files that encourage best practice in scientific computing and including all of the [required bcgov items](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
-
-The easiest way to set up a new project is to use the bcgovr project template through RStudio:
-
-#### Step 1: Set up a [remote repository](https://help.github.com/articles/about-remote-repositories/)
-
-For a remote in [github.com/bcgov](github.com/bcgov), click on the green **New** button to create a new repository. [Choose a repository name](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Naming-Repos.md)—our example repository name is `bcgovr_analysis`. You should open an empty repository—without initializing a README, a .gitignore file or a license—as `bcgovr` will take care of all of that for you later. Copy the URL of the repository, you'll need it to set up your local repository in the next step.
-
-#### Step 2: Set up & populate local repository using `bcgovr`
-
-*RStudio GUI users:* Open a fresh session of RStudio. Start a New Project: New Project -&gt; New Directory -&gt; BC Gov Analysis/Package Skeleton. Confirm local location of your new project in the *Directory Name* field, and paste the URL of the github.com/bcgov repository from step 1 in the *Repository URL* field. Check/uncheck, and fill in the other fields as relevant to your project, and Click 'Create Project'. The bcgov template files and folders will be created in the new directory, and your local project is now "connected" to your remote in [github.com/bcgov](github.com/bcgov). For different folder templates, see the [Options](#options) section below.
-
-![](img/bcgovr_proj_templat.gif)
-
-The result is a [bcgov](https://github.com/bcgov) 'ready-to-go' local directory for a new data analysis project:
-
-![](img/analysis_skeleton_output.PNG)
-
-#### Step 3: Stage, Commit & Push local repository folders & files to remote repository
-
-*RStudio GUI users:* Now you are ready to Stage, Commit & Push changes in your local repository to the remote repository in [github.com/bcgov](github.com/bcgov). Using the functions in the Git tab in RStudio, you can Stage your changes by selecting files, Commit the staged changes---including informative commit messages---and Push the changes to the remote repository. Remember to make use of the .gitignore file for files & folders you do *not* want to keep under version control (e.g. outputs or source data sets), and to use the Pull function before you start work to ensure your local repository is up-to-date with the remote repository.
-
-*Git Command Line Users:* Stage, Commit & Push changes in your local repository to the remote repository in [github.com/bcgov](github.com/bcgov) using the Command Line (e.g. [Git Bash](https://git-scm.com/downloads) or Terminal).
-
-``` sh
-git status # see what file(s) are new or have changed
-git add README.md # stage the README file
-git commit -m "First commit of README file" # commit the file with an informative message
-git push origin master # push the changes in your local repository up to the remote repository
-```
-
-You can use the Command Line to [confirm or add the remote url for an existing local project](https://help.github.com/articles/adding-a-remote/). Checkout [GitHubHelp](https://help.github.com/) for more resources for using Git and the Command Line. The [Happy Git and GitHub for the useR](http://happygitwithr.com/) e-book is a great, free resource for learning and using Git and GitHub with R.
-
-``` sh
-git remote -v # verifies the new remote URL
-git remote add origin https://github.com/bcgov/bcgovr_analysis.git # sets the remote
-```
+</details>
 
 ### Options
 
-There are several options you can specify in your `.Rprofile` file to customise the default behaviour when creating projects and packages with `bcgovr`:
+<details><summary>There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov` and `use_bcgov` functions in `bcgovr`.</summary>
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
 -   `bcgovr.dir.struct`: Alternative project directory structure. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
 
-    The default is: `c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+    The default is: `c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
 To make use of these options, there should be a section in your `.Rprofile` file that looks something like this:
 
 ``` r
 if (interactive()) {
     options("bcgovr.coc.email" = "my.email@gov.bc.ca")
-    options("bcgvor.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R",
-            "src/03_analysis.r", "src/04_output.R", "src/runall.R"))
+    options("bcgvor.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
+            "src/03_analysis.R", "src/04_output.R", "src/runall.R"))
 } 
 ```
 
-### Project Template Functions
-
-#### analysis\_skeleton
-
-As an alternative to using the 'New Project -&gt; ...' dialogue in RStudio, you can use the R console and `bcgovr::analysis_skeleton()` to create a new local project. You can specify the URL of the remote repository (from step 1 above) using the `git_clone` argument. Be sure to either specify your new analysis local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `analysis_skeleton()`. Type `?analysis_skeleton` in the R console for help.
-
-``` r
-bcgovr::analysis_skeleton(path = "C:\_dev\bcgovr_analysis", git_clone = "url of remote repository") 
-```
-
-#### package\_skeleton
-
-The `package_skeleton()` function is used the same way as `analysis_skeleton()` but will create all the files & folders to get started on creating an R package. Type `?package_skeleton` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
+</details>
 
 Project Status
 --------------
@@ -146,8 +125,6 @@ This package is under active development.
 
 Getting Help or Reporting an Issue
 ----------------------------------
-
-Once you have R & RStudio [installed on your machine](https://github.com/bcgov/bcgov-data-science-resources/wiki/Installing-R-&-RStudio), open up RStudio so
 
 To report bugs/issues/feature requests, please file an [Issue](https://github.com/bcgov/bcgovr/issues/).
 
