@@ -86,9 +86,9 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 #' @export
 #' 
 #' @examples \donttest{
-#'  bcgovr::package_skeleton(path = "c:/_dev/tarballs")
+#'  bcgovr::create_bcgov_package(path = "c:/_dev/tarballs")
 #' }
-package_skeleton <- function(path = ".", git_init = TRUE, git_clone = NULL, apache = TRUE,
+create_bcgov_package <- function(path = ".", git_init = TRUE, git_clone = NULL, apache = TRUE,
                              rstudio = TRUE, CoC = TRUE, rmarkdown = TRUE, 
                              coc_email = getOption("bcgovr.coc.email"),
                              copyright_holder = "Province of British Columbia") {
