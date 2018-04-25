@@ -2,7 +2,7 @@
 % Please edit documentation in R/create.R
 \name{create_bcgov_package}
 \alias{create_bcgov_package}
-\title{Creates the framework of a new package development folder}
+\title{Create a bcgov R package directory structure}
 \usage{
 create_bcgov_package(rmarkdown = TRUE,
   coc_email = getOption("bcgovr.coc.email", default = NULL),
@@ -14,11 +14,11 @@ with its corresponding markdown file? Default \code{TRUE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
-\item{dir_struct}{alternative analysis directory structure. This should be specified as
+\item{dir_struct}{alternative project directory structure. This should be specified as
 a character vector of directory and file paths (relative to the root of the project).
 Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
 
-The default is: \code{c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+The default is: \code{c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
 
 This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your
 .Rprofile file so that every time you start a new analysis, your custom structure is set up.
@@ -26,7 +26,7 @@ The line in your \code{.Rprofile} file would look something like this:
 \code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}}
 }
 \description{
-Creates the framework of a new package development folder
+Create a bcgov R package directory structure
 }
 \examples{
 \donttest{

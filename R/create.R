@@ -10,18 +10,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Creates the framework of a new analysis development folder
+#' Create a bcgov R project directory structure 
 #' 
-#' Creates the folder structure for a new analysis in your current working directory.
+#' Create the folder & file directory structure for a new bcgov R project in your current working directory.
 #' 
 #' @inheritParams use_bcgov_req 
 #'  
 
-#' @param dir_struct alternative analysis directory structure. This should be specified as
+#' @param dir_struct alternative project directory structure. This should be specified as
 #' a character vector of directory and file paths (relative to the root of the project). 
 #' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
 #' 
-#' The default is: \code{c("R/","out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+#' The default is: \code{c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
 #' 
 #' This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your 
 #' .Rprofile file so that every time you start a new analysis, your custom structure is set up.
@@ -77,7 +77,7 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 }
 
 
-#' Creates the framework of a new package development folder
+#' Create a bcgov R package directory structure 
 #' 
 #'
 #'  

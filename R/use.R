@@ -10,9 +10,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Add BC Government requirements to your project directory
+#' Add bcgov GitHub requirements to your project directory
 #' 
-#' Adds a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
+#' Add a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
 #' 
 #' @inheritParams use_bcgov_code_of_conduct
 #' @inheritParams use_bcgov_licence
@@ -46,7 +46,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 #' Add a README.md file to the project directory
 #' 
 #' @param path Directory path (default `"."`)
-#' @param project Name of the project. Defaults to the name of the Rstudio project/working directory
+#' @param project Name of the project. Defaults to the name of the RStudio project/working directory
 #'
 #' @export
 #' @seealso [use_bcgov_contributing()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
@@ -55,6 +55,9 @@ use_bcgov_readme <- function(project = NULL, licence = c("apache2", "cc-by")) {
   add_readme(project = project, licence = licence, extension = ".md")
 }
 
+
+#' Add a README.Rmd file to the project directory
+#' 
 #' @inherit use_bcgov_readme
 #' @export
 use_bcgov_readme_rmd <- function(project = NULL, licence = c("apache2", "cc-by")) {
@@ -118,9 +121,9 @@ use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", 
   }
 }
 
-#' Add a LICENSE file (Apache 2.0 or CB-BY) to the project directory
+#' Add a LICENSE file (Apache 2.0 or CC-BY) to the project directory
 #' 
-#' @param licence Which license to apply? Default is Apache 2.0 (`"apache2"`). 
+#' @param licence Which licence to apply? Default is Apache 2.0 (`"apache2"`). 
 #' Use `"cc-by"` for [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 #'
 #' @export
@@ -149,10 +152,10 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
 #' 
 use_bcgov_license <- use_bcgov_licence
 
-#' Add an R flavoured .gitattributes file
+#' Add an R-flavoured .gitattributes file
 #' 
-#' Adds a .gitattributes file that will identify the repository as a R-based code project
-#' even if amny lines of another language are present. 
+#' Adds a .gitattributes file that will identify the repository as an R-based code project
+#' even if many lines of another language are present. 
 #' 
 #' @return NULL
 #' 
@@ -166,7 +169,7 @@ use_bcgov_gitattributes <- function(){
   
   
 
-#' Add your project to the bcgov github org
+#' Add your project to bcgov GitHub
 #'
 #' @param organisation GitHub organisation where the repo will be hosted. 
 #'     One of `'bcgov'` (default), `'bcgov-c'`, or `NULL` to set up in your 

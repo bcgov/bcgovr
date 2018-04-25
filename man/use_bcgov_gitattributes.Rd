@@ -2,11 +2,11 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_gitattributes}
 \alias{use_bcgov_gitattributes}
-\title{Add an R flavoured .gitattributes file}
+\title{Add an R-flavoured .gitattributes file}
 \usage{
 use_bcgov_gitattributes()
 }
 \description{
-Adds a .gitattributes file that will identify the repository as a R-based code project
-even if amny lines of another language are present.
+Adds a .gitattributes file that will identify the repository as an R-based code project
+even if many lines of another language are present.
 }

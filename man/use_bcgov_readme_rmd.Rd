@@ -2,15 +2,15 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_readme_rmd}
 \alias{use_bcgov_readme_rmd}
-\title{Add a README.md file to the project directory}
+\title{Add a README.Rmd file to the project directory}
 \usage{
 use_bcgov_readme_rmd(project = NULL, licence = c("apache2", "cc-by"))
 }
 \arguments{
-\item{project}{Name of the project. Defaults to the name of the Rstudio project/working directory}
+\item{project}{Name of the project. Defaults to the name of the RStudio project/working directory}
 }
 \description{
-Add a README.md file to the project directory
+Add a README.Rmd file to the project directory
 }
 \seealso{
 \code{\link[=use_bcgov_contributing]{use_bcgov_contributing()}}, \code{\link[=use_bcgov_licence]{use_bcgov_licence()}}, \code{\link[=use_bcgov_code_of_conduct]{use_bcgov_code_of_conduct()}}

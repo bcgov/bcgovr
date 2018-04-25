@@ -2,7 +2,7 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_github}
 \alias{use_bcgov_github}
-\title{Add your project to the bcgov github org}
+\title{Add your project to bcgov GitHub}
 \usage{
 use_bcgov_github(organisation = "bcgov", rmarkdown = TRUE,
   licence = "apache2", coc_email = getOption("bcgovr.coc.email", default =
@@ -16,7 +16,7 @@ personal GitHub account}
 \item{rmarkdown}{Should an rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
 
-\item{licence}{Which license to apply? Default is Apache 2.0 (\code{"apache2"}).
+\item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
 Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
@@ -26,5 +26,5 @@ Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creat
 \item{...}{Other arguments passed on to \code{\link[usethis:use_github]{usethis::use_github()}}}
 }
 \description{
-Add your project to the bcgov github org
+Add your project to bcgov GitHub
 }

@@ -46,6 +46,7 @@ The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.i
 (ii) Insert the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a source file (uses `insert_bcgov_cc_header`).
 (iii) Insert a [BCDevExchange project state badge](https://github.com/BCDevExchange/assets/blob/master/README.md) into an .Rmd or .md file (uses `insert_bcgov_devex_badge`).
 
+
 ## Installation 
 
 You can install `bcgovr` directly from this GitHub repository. To do so, you will need the [remotes](https://cran.r-project.org/web/packages/remotes/index.html) package:

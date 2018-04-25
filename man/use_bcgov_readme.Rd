@@ -7,7 +7,7 @@
 use_bcgov_readme(project = NULL, licence = c("apache2", "cc-by"))
 }
 \arguments{
-\item{project}{Name of the project. Defaults to the name of the Rstudio project/working directory}
+\item{project}{Name of the project. Defaults to the name of the RStudio project/working directory}
 
 \item{path}{Directory path (default \code{"."})}
 }
