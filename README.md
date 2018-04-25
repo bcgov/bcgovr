@@ -8,9 +8,9 @@ bcgovr <img src="img/logo.png" align="right" />
 Overview
 --------
 
-An [R](http://r-project.org) package to set up bcgov R projects & packages following [bcgov GitHub guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to automate set up of bcgov R projects & packages following [bcgov GitHub guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
-All B.C. Government employees are responsible for determining whether bcgov R source code can be shared on [bcgov GitHub](https://github.com/bcgov) following the [BC-Policy-Framework-For-GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+All B.C. Government employees are responsible for determining whether bcgov R source code can be shared on [bcgov GitHub](https://github.com/bcgov) and for following the [BC-Policy-Framework-For-GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 Features
 --------
@@ -21,9 +21,9 @@ Features
 
 `use_bcgov_git` Open a new bcgov R project with [git version control](https://git-scm.com/) and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`create_bcgov_project` & `create_bcgov_package` Create a new—or populate an existing—R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can also be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in the [RStudio](https://www.rstudio.com/) New Project dialog box.
+`create_bcgov_project` & `create_bcgov_package` Create a new R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can be used to create a new project in the R console or by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in [RStudio](https://www.rstudio.com/). The `create_bcgov_` functions can also be used to populate an existing R project or package.
 
-`use_bcgov_req` Add files to a new or existing R project that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
+`use_bcgov_req` Add files to a new or existing R project or package to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
 
 ### Addins
 
