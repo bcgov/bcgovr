@@ -49,10 +49,14 @@ remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
-I WANT TO...
-------------
+Usage
+-----
+
+### I WANT TO...
 
 <details><summary><strong>Open a new bcgov R project using git & GitHub</strong></summary>
+
+<br />
 
 some text here
 
@@ -61,6 +65,8 @@ some text here
 </details>
 
 <details><summary><strong>Open a new bcgov R project using git (<i>without</i> GitHub)</strong></summary>
+
+<br />
 
 some text here
 
@@ -117,7 +123,7 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 </details>
 
-<details><summary><strong>Insert a license header</strong></summary>
+<details><summary><strong>Insert a licence header to a source file</strong></summary>
 
 <br />
 
@@ -131,7 +137,7 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 </details>
 
-<details><summary><strong>Insert a BCDevExchange project state badge</strong></summary>
+<details><summary><strong>Insert a BCDevExchange project state badge to a README file</strong></summary>
 
 <br />
 
@@ -145,7 +151,7 @@ You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_
 
 ### Options
 
-There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov` and `use_bcgov` functions in `bcgovr`.
+There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov_` and `use_bcgov_` functions in `bcgovr`.
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
 -   `bcgovr.dir.struct`: Alternative project directory structure for `create_bcgov_project()`. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
