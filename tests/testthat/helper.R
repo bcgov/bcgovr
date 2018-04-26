@@ -10,7 +10,7 @@ original_proj <- usethis::proj_get()
 make_test_proj <- function(rstudio = FALSE) {
   dir <- tempfile(pattern = "foo")
   
-  usethis::create_project(dir, rstudio = rstudio, open = FALSE)
+  capture.output(usethis::create_project(dir, rstudio = rstudio, open = FALSE))
   invisible(dir)
 }
 
