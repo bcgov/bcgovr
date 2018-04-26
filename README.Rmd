@@ -39,12 +39,12 @@ All B.C. Government employees are responsible for determining whether bcgov R so
 `use_bcgov_req` Add files to a new or existing R project to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [bcgov required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_readme_rmd`, `use_bcgov_code_of_conduct`.
 
 
-### bcgovR Project & Package Templates in RStudio
+### RStudio bcgovr Project/Package Template
 
 The `create_bcgov_` and `use_bcgov_git` functions can be used simultaneously through the *bcgovr Project/Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box. The dialogue box allows a user to create a new R project with the option to select and individualize the required bcgov GitHub files, initialise git and synchronize with an existing bcgov GitHub repository by pasting in the bcgov GitHub repository URL.
 
 
-### Addins
+### RStudio Addins
 
 The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.io/rstudioaddins/):
 
