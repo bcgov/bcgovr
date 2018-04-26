@@ -116,7 +116,7 @@ use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", 
                         package = "bcgovr")
   
   if (is.null(coc_email)) {
-    message("No contact email has been added to your CODE_OF_CONDUCT.md.", 
+    not_done("No contact email has been added to your CODE_OF_CONDUCT.md.", 
             "Please do so manually")
   }
 }
