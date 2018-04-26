@@ -184,12 +184,18 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                              coc_email = getOption("bcgovr.coc.email", default = NULL), 
                              protocol = "https",
                              ...) {
+  
+  if (!is.null(git2r::discover_repository(usethis::proj_get()))) {
+    stop("This doesn't appear to be a git repository.\n
+         Please run use_bcgov_git().", call. = FALSE)
+  }
   if (!is.null(organisation) && !organisation %in% c("bcgov", "bcgov-c")) {
     stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL")
   }
-  
-  use_bcgov_git(rmarkdown = rmarkdown, coc_email = coc_email, 
+
+  use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
+  check_git_committer_address()
   use_bcgov_gitattributes()
   
   private <- if (!is.null(organisation) && organisation == "bcgov-c") TRUE else FALSE
