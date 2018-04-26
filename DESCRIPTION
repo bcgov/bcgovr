@@ -10,7 +10,7 @@ Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     person("Sam", "Albers", role = "aut", 
     email = "sam.albers@gov.bc.ca"),
     person("Province of British Columbia", role = "cph"))
-Description: The 'bcgovr' package provides functions and RStudio addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements. 
+Description: The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements. 
 License: Apache License (== 2.0) | file LICENSE
 Depends: 
     R (>= 3.2.0)

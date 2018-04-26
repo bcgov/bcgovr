@@ -7,15 +7,15 @@
 \alias{bcgovr-package}
 \title{bcgovr: Set up of bcgov R projects & packages}
 \description{
-The 'bcgovr' package provides functions and RStudio addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements.
+The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements.
 }
 \section{bcgovr functions}{
 
 
 \itemize{
 \item Functions for automating the creation and set up of bcgov R
-projects and packages
-\item RStudio IDE Addins for inserting licence headers
+projects and packages for bcgov GitHub
+\item RStudio Addins for inserting licence headers
 and BCDevExchange project state badges
 
 }

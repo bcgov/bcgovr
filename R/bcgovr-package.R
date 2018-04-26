@@ -15,8 +15,8 @@
 #' 
 #'   \itemize{ 
 #'   \item Functions for automating the creation and set up of bcgov R  
-#'    projects and packages
-#'   \item RStudio IDE Addins for inserting licence headers
+#'    projects and packages for bcgov GitHub
+#'   \item RStudio Addins for inserting licence headers
 #'   and BCDevExchange project state badges
 #'
 #' }
