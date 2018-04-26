@@ -203,7 +203,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...)
 }
 
-#' Initialize a git repository, with bcgov GitHub requirements
+#' Initialise a git repository, with bcgov GitHub requirements
 #'
 #' @inheritParams use_bcgov_req
 #' @param message git commit message
