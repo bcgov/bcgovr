@@ -21,7 +21,7 @@ Features
 
 `use_bcgov_git` Add [git](https://git-scm.com/) version control to an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_github` Open a [bcgov GitHub repository](https://github.com/bcgov) for an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_github` Open a [bcgov GitHub repository](https://github.com/bcgov) for a git-initialised R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
 `use_bcgov_req` Add files to a new or existing R project to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [bcgov required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_readme_rmd`, `use_bcgov_code_of_conduct`.
 
@@ -62,7 +62,7 @@ Usage
 
 <br />
 
-Create, populate and open a new, local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. The template `bcgovr` folders and files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
+Create, populate and open a new, local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. The template `bcgovr` folders and files and required bcgov GitHub files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
 
 ``` r
 bcgovr::bcgovr::create_bcgov_project(path = "C:\_dev\bcgovr_analysis") 
@@ -78,17 +78,19 @@ The `create_bcgov_package()` function is used the same way as `create_bcgov_proj
 
 <br />
 
-some text here
+Put your local R project under version control by creating a [git](https://git-scm.com/) repository using `use_bcgov_git`—this automatically completes staging and committing of the initial folders & files inside the project. The `use_bcgov_git` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_git` in the R console for help.
 
 <br />
 
 </details>
 
-<details><summary><strong>Open a bcgov GitHub repository for my R project</strong></summary>
+<details><summary><strong>Open a bcgov GitHub repository for my git-initialised R project</strong></summary>
 
 <br />
 
-some text here
+Share your git-initialised R project on [bcgov GitHub](https://github.com/bcgov) using `use_bcgov_github`. The `use_bcgov_github` function creates a repository on bcgov GitHub and adds and synchronizes your local project with the newly created bcgov GitHub origin. The `use_bcgov_github` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_github` in the R console for help.
+
+To add you project to bcgov GitHub with `use_bcgov_github` users need to have a GitHub account *and* be a [member of the bcgov GitHub organization](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
 <br />
 
@@ -100,7 +102,7 @@ some text here
 
 Add the [required bcgov GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENCE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`. Type `?use_bcgov_req` in the R console for help.
 
-You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 License, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md for this project?
+You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 License, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md for the project?
 
 ``` r
 use_bcgov_req(licence="cc-by", rmarkdown=FALSE, coc_email="my.email@gov.bc.ca")
