@@ -8,7 +8,7 @@ bcgovr <img src="img/logo.png" align="right" />
 Overview
 --------
 
-An [R](http://r-project.org) package to automate set up of bcgov R projects & packages following [bcgov GitHub guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
+An [R](http://r-project.org) package to automate set up and sharing of R projects in [bcgov GitHub](https://github.com/bcgov) following [bcgov guidelines](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
 All B.C. Government employees are responsible for determining whether bcgov R source code can be shared on [bcgov GitHub](https://github.com/bcgov) and for following the [BC-Policy-Framework-For-GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub).
 
@@ -17,13 +17,15 @@ Features
 
 ### Functions
 
-`use_bcgov_github` Open a new bcgov R project with [git version control](https://git-scm.com/), a [bcgov GitHub repository](https://github.com/bcgov), and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`create_bcgov_project` & `create_bcgov_package` Create a new R project or R package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_git` Open a new bcgov R project with [git version control](https://git-scm.com/) and add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_git` Add [git](https://git-scm.com/) version control to an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`create_bcgov_project` & `create_bcgov_package` Create a new R project or package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). These functions can be used to create a new project in the R console or by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in [RStudio](https://www.rstudio.com/). The `create_bcgov_` functions can also be used to populate an existing R project or package.
+`use_bcgov_github` Open a [bcgov GitHub repository](https://github.com/bcgov) for an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_req` Add files to a new or existing R project or package to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_code_of_conduct`.
+`use_bcgov_req` Add files to a new or existing R project to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [bcgov required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_readme_rmd`, `use_bcgov_code_of_conduct`.
+
+These functions can collectively be used by selecting the [*bcgovr Project Template*](#analysis-and-package-templates) in [RStudio](https://www.rstudio.com/) to create a new R project or R package for bcgov GitHub.
 
 ### Addins
 
@@ -49,62 +51,56 @@ remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
+🎉 The authors of `bcgovr` acknowledge and thank [RStudio](https://www.rstudio.com/) and the authors of the [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) R package—`bcgovr` uses `usethis` *a lot*.
+
 Usage
 -----
 
 ### I WANT TO...
 
-<details><summary><strong>Open a new bcgov R project using git & GitHub</strong></summary>
+<details><summary><strong>Create a new bcgov R project or package with a 'ready-to-go' folder & file structure</strong></summary>
 
 <br />
 
-some text here
-
-<br />
-
-</details>
-
-<details><summary><strong>Open a new bcgov R project using git (<i>without</i> GitHub)</strong></summary>
-
-<br />
-
-some text here
-
-<br />
-
-</details>
-
-<details><summary><strong>Create a new—or populate an existing—bcgov R project or package with a 'ready-to-go' folder & file structure</strong></summary>
-
-<br />
-
-Start a New Project in RStudio: New Project -&gt; New Directory -&gt; BC Gov Project/Package. Confirm the local location of the project in the *Directory Name* field. Check/uncheck and fill in the other fields as relevant to the project, and click 'Create Project'. The template `bcgovr` files and folders will be created in the new directory. For using different project templates, see the [Options](#options) section below.
-
-![](img/bcgovr_proj_templat.gif)
-
-The result is a 'ready-to-go' local directory for a new R project:
-
-![](img/analysis_skeleton_output.PNG)
-
-As an alternative to using the 'New Project -&gt; ...' dialogue box in RStudio, you can use the R console and `bcgovr::create_bcgov_project()` to create a new local project. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. Type `?create_bcgov_project` in the R console for help.
+Create, populate and open a new, local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. The template `bcgovr` folders and files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
 
 ``` r
 bcgovr::bcgovr::create_bcgov_project(path = "C:\_dev\bcgovr_analysis") 
 ```
 
-The `create_bcgov_package()` function is used the same way as `create_bcgov_project()` but will create all the files & folders to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
+The `create_bcgov_package()` function is used the same way as `create_bcgov_project()` but will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is an incredible resource if you are looking to create packages.
 
 <br />
 
 </details>
 
-<details><summary><strong>Add all or some of the required GitHub files to my bcgov R project or package</strong></summary>
+<details><summary><strong>Add git version control to my R project (i.e. version control <i>without</i> GitHub)</strong></summary>
 
 <br />
 
-Add the [bcgov GitHub required](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENSE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`. Type `?use_bcgov_req` in the R console for help.
+some text here
 
-You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 licence, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md?
+<br />
+
+</details>
+
+<details><summary><strong>Open a bcgov GitHub repository for my R project</strong></summary>
+
+<br />
+
+some text here
+
+<br />
+
+</details>
+
+<details><summary><strong>Add all or some of the required bcgov GitHub files to my R project</strong></summary>
+
+<br />
+
+Add the [required bcgov GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) files—a LICENCE, a README, a CODE OF CONDUCT and a CONTRIBUTING file—to any new or existing bcgov R project or package using `use_bcgov_req()`. Type `?use_bcgov_req` in the R console for help.
+
+You can use the `licence`, `coc_email` & `rmarkdown` arguments to change the default Apache 2.0 License, add your contact details to the Code of Conduct, or decline a README.Rmd file—maybe you only want a README.md for this project?
 
 ``` r
 use_bcgov_req(licence="cc-by", rmarkdown=FALSE, coc_email="my.email@gov.bc.ca")
@@ -123,13 +119,11 @@ use_bcgov_code_of_conduct(coc_email="my.email@gov.bc.ca")
 
 </details>
 
-<details><summary><strong>Insert a licence header to a source file</strong></summary>
+<details><summary><strong>Insert a licence header into my source file</strong></summary>
 
 <br />
 
-Need to insert that Apache 2.0 or Creative Commons licence header to a source file? Just click-click:
-
-![](img/bcgovr_addin_example.gif)
+Need to add that Apache 2.0 or Creative Commons License header to a source file? Just click-click:
 
 You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
@@ -137,13 +131,11 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 </details>
 
-<details><summary><strong>Insert a BCDevExchange project state badge to a README file</strong></summary>
+<details><summary><strong>Insert a BCDevExchange project state badge into my README file</strong></summary>
 
 <br />
 
 Need to add a Project State Badge to your README file? Just click-click-click:
-
-![](img/bcgovr_addin_example2.gif)
 
 You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_devex_badge` in the R console for the list of badge options and other help.
 
@@ -154,9 +146,9 @@ You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_
 There are several options you can specify in your `.Rprofile` file to customise the default behaviour when using the `create_bcgov_` and `use_bcgov_` functions in `bcgovr`.
 
 -   `bcgovr.coc.email`: Code of Conduct contact email address
--   `bcgovr.dir.struct`: Alternative project directory structure for `create_bcgov_project()`. This should be specified as a character vector of directory and file paths (relative to the root of the project). Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
+-   `bcgovr.dir.struct`: Alternative project directory structure for `create_bcgov_project()`. This should be specified as a character vector of directory (i.e. folders) and file paths, relative to the root of the project. Directories should be identified by having a trailing forward-slash (e.g., `"dir/"`).
 
-    The default is: `c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+    The default is: `c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
 To make use of these options, there should be a section in your `.Rprofile` file that looks something like this:
 
@@ -164,7 +156,7 @@ To make use of these options, there should be a section in your `.Rprofile` file
 if (interactive()) {
     options("bcgovr.coc.email" = "my.email@gov.bc.ca")
     options("bcgvor.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
-            "src/03_analysis.R", "src/04_output.R", "src/runall.R"))
+            "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
 } 
 ```
 
