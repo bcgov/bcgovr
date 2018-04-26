@@ -11,6 +11,7 @@ make_test_proj <- function(rstudio = FALSE) {
   dir <- tempfile(pattern = "foo")
   
   usethis::create_project(dir, rstudio = rstudio, open = FALSE)
+  invisible(dir)
 }
 
 proj_file <- function(file) {
