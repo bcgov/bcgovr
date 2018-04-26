@@ -9,7 +9,7 @@ create_bcgov_project(rmarkdown = TRUE, licence = "apache2",
   dir_struct = getOption("bcgovr.dir.struct", default = NULL))
 }
 \arguments{
-\item{rmarkdown}{Should an rmarkdown file be added to the repository
+\item{rmarkdown}{Should an Rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
@@ -18,15 +18,15 @@ Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creat
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
 \item{dir_struct}{Alternative project directory structure. This should be specified as
-a character vector of directory and file paths (relative to the root of the project).
+a character vector of directory (i.e. folders) and file paths, relative to the root of the project.
 Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
 
-The default is: \code{c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+The default is: \code{c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "run_all.R")}.
 
 This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your
 .Rprofile file so that every time you start a new project, your custom project structure is set up.
 The line in your \code{.Rprofile} file would look something like this:
-\code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}}
+\code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}}
 }
 \description{
 Create a project directory structure for a new bcgov R project in your current working directory.

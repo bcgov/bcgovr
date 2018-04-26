@@ -2,14 +2,14 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_git}
 \alias{use_bcgov_git}
-\title{Initialize a git repository, with necessary bcgov GitHub infrastructure}
+\title{Initialize a git repository, with bcgov GitHub requirements}
 \usage{
 use_bcgov_git(rmarkdown = TRUE, licence = "apache2",
   coc_email = getOption("bcgovr.coc.email", default = NULL),
   message = "Initial commit")
 }
 \arguments{
-\item{rmarkdown}{Should an rmarkdown file be added to the repository
+\item{rmarkdown}{Should an Rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
@@ -20,5 +20,5 @@ Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creat
 \item{message}{git commit message}
 }
 \description{
-Initialize a git repository, with necessary bcgov GitHub infrastructure
+Initialize a git repository, with bcgov GitHub requirements
 }

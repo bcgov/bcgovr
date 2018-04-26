@@ -18,15 +18,15 @@
 #'  
 
 #' @param dir_struct Alternative project directory structure. This should be specified as
-#' a character vector of directory and file paths (relative to the root of the project). 
+#' a character vector of directory (i.e. folders) and file paths, relative to the root of the project. 
 #' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
 #' 
-#' The default is: \code{c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")}.
+#' The default is: \code{c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "run_all.R")}.
 #' 
 #' This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your 
 #' .Rprofile file so that every time you start a new project, your custom project structure is set up.
 #' The line in your \code{.Rprofile} file would look something like this: 
-#' \code{options("bcgovr.dir.struct" = c("doc/", "data/", "bin/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/runall.R"))}
+#' \code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}
 #'
 #' @export
 #' 
@@ -43,7 +43,7 @@ create_bcgov_project <- function(rmarkdown = TRUE,
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
-    dir_struct <- c("out/", "graphics/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")
+    dir_struct <- c("out/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "run_all.R")
     default_str <- TRUE
   } else {
     default_str <- FALSE
@@ -82,7 +82,7 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 #' Create a package directory structure for a new bcgov R package in your current working directory.
 #'  
 #' @inheritParams create_bcgov_project
-#' @param rmarkdown Should an rmarkdown file be added to the repository
+#' @param rmarkdown Should an Rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{TRUE}.
 #' 
 #' @inherit create_bcgov_project details

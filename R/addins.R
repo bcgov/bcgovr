@@ -30,7 +30,7 @@ devex_gadget <- function() {
     miniUI::gadgetTitleBar("Choose a Project State"), 
     
     miniContentPanel(
-      p("Choose a project state, which is intended to give a rough indication of where the project is at in its development."),
+      p("Choose a project state, which is intended to give an indication of where the project is at in the development cycle."),
       radioButtons("stateRadio", "Project State", 
                    choiceNames = list(
                      span(img(src="https://assets.bcdevexchange.org/images/badges/inspiration.svg"), 

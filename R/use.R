@@ -12,11 +12,11 @@
 
 #' Add bcgov GitHub requirements to your project directory
 #' 
-#' Add a LICENSE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
+#' Add a LICENCE file, a README, a CODE OF CONDUCT and a CONTRIBUTING file
 #' 
 #' @inheritParams use_bcgov_code_of_conduct
 #' @inheritParams use_bcgov_licence
-#' @param rmarkdown Should an rmarkdown file be added to the repository
+#' @param rmarkdown Should an Rmarkdown file be added to the repository
 #'   with its corresponding markdown file? Default \code{FALSE}.
 #' 
 #' 
@@ -121,7 +121,7 @@ use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", 
   }
 }
 
-#' Add a LICENSE file (Apache 2.0 or CC-BY) to the project directory
+#' Add a LICENCE file (Apache 2.0 or CC-BY) to the project directory
 #' 
 #' @param licence Which licence to apply? Default is Apache 2.0 (`"apache2"`). 
 #' Use `"cc-by"` for [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
@@ -197,7 +197,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...)
 }
 
-#' Initialize a git repository, with necessary bcgov GitHub infrastructure
+#' Initialize a git repository, with bcgov GitHub requirements
 #'
 #' @inheritParams use_bcgov_req
 #' @param message git commit message

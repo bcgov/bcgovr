@@ -13,7 +13,7 @@ use_bcgov_github(organisation = "bcgov", rmarkdown = TRUE,
 One of \code{'bcgov'} (default), \code{'bcgov-c'}, or \code{NULL} to set up in your
 personal GitHub account}
 
-\item{rmarkdown}{Should an rmarkdown file be added to the repository
+\item{rmarkdown}{Should an Rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).

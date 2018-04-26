@@ -15,7 +15,7 @@ The 'bcgovr' package provides functions and RStudio addins that automate the cre
 \itemize{
 \item Functions for automating the creation and set up of bcgov R
 projects and packages
-\item RStudio Addins for inserting licence headers
+\item RStudio IDE Addins for inserting licence headers
 and BCDevExchange project state badges
 
 }
