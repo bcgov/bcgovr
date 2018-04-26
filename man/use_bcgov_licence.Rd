@@ -2,9 +2,12 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_licence}
 \alias{use_bcgov_licence}
+\alias{use_bcgov_license}
 \title{Add a LICENCE file (Apache 2.0 or CC-BY) to the project directory}
 \usage{
 use_bcgov_licence(licence = c("apache2", "cc-by"))
+
+use_bcgov_license(licence = c("apache2", "cc-by"))
 }
 \arguments{
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).

@@ -148,6 +148,8 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
   invisible(TRUE)
 }
 
+#' @rdname use_bcgov_licence
+#' 
 #' @export
 #' 
 use_bcgov_license <- use_bcgov_licence
