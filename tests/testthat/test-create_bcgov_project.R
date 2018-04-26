@@ -1,28 +1,28 @@
-context("create_bcgov_project")
-options(warn = 2)
-expected_files <- c("data", "out", "graphics", "R",
-                    "01_load.R", "02_clean.R", "03_analysis.R", 
-                    "04_output.R", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", 
-                    "internal.R", "LICENSE", "README.md", "run_all.R")
-
-increment_foo <- name_incrementer("foo")
-
-test_that("create_bcgov_project works with dot path", {
-  base_dir <- increment_foo()
-  dir <- tempdir()
-  dir.create(file.path(dir, base_dir))
-  setwd(file.path(dir, base_dir))
-  ret <- create_bcgov_project(rstudio = FALSE)
-  
-  expect_equal(normalizePath(ret, winslash = "/"), 
-               normalizePath(".", winslash = "/"))
-  files <- list.files(all.files = TRUE, full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
-  
-  expect_equal(sort(normalizePath(files, winslash = "/")), 
-               sort(normalizePath(
-                 file.path(".", expected_files), 
-                 winslash = "/")))
-})
+# context("create_bcgov_project")
+# options(warn = 2)
+# expected_files <- c("data", "out", "graphics", "R",
+#                     "01_load.R", "02_clean.R", "03_analysis.R", 
+#                     "04_output.R", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", 
+#                     "internal.R", "LICENSE", "README.md", "run_all.R")
+# 
+# increment_foo <- name_incrementer("foo")
+# 
+# test_that("create_bcgov_project works with dot path", {
+#   base_dir <- increment_foo()
+#   dir <- tempdir()
+#   dir.create(file.path(dir, base_dir))
+#   setwd(file.path(dir, base_dir))
+#   ret <- create_bcgov_project(rstudio = FALSE)
+#   
+#   expect_equal(normalizePath(ret, winslash = "/"), 
+#                normalizePath(".", winslash = "/"))
+#   files <- list.files(all.files = TRUE, full.names = TRUE, include.dirs = TRUE, no.. = TRUE)
+#   
+#   expect_equal(sort(normalizePath(files, winslash = "/")), 
+#                sort(normalizePath(
+#                  file.path(".", expected_files), 
+#                  winslash = "/")))
+# })
 
 # test_that("create_bcgov_project works with relative path and git init", {
 #   base_dir <- increment_foo()

@@ -1,9 +1,20 @@
-name_incrementer <- function(name) {
-  i <- 0
-  function() {
-    i <<- i + 1
-    paste0(name, i)
-  }
+if (!usethis:::is_proj()) {
+  file.create(".here")
+  tmp_here <- TRUE
+} else {
+  tmp_here <- FALSE
 }
 
-original_wd <- getwd()
+original_proj <- usethis::proj_get()
+
+make_test_proj <- function(rstudio = FALSE) {
+  dir <- tempfile(pattern = "foo")
+  
+  usethis::create_project(dir, rstudio = rstudio, open = FALSE)
+  invisible(dir)
+}
+
+proj_file <- function(file) {
+  proj <- usethis::proj_get()
+  file.path(proj, file)
+}
