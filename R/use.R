@@ -45,7 +45,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 
 #' Add a README.md file to the project directory
 #' 
-#' @param path Directory path (default `"."`)
+#' @param path Directory path (Default `"."`)
 #' @param project Name of the project. Defaults to the name of the RStudio project/working directory
 #'
 #' @export
@@ -175,7 +175,7 @@ use_bcgov_gitattributes <- function(){
 #'     One of `'bcgov'` (default), `'bcgov-c'`, or `NULL` to set up in your 
 #'     personal GitHub account
 #' @inheritParams use_bcgov_req
-#' @param protocol transer protocol. One of `'https'` (default) or `'ssh'`.
+#' @param protocol Transfer protocol. One of `'https'` (default) or `'ssh'`.
 #' @param ... Other arguments passed on to [usethis::use_github()]
 #'
 #' @export
@@ -197,7 +197,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...)
 }
 
-#' Initialize a git repository, with necessary bcgov infrastructure
+#' Initialize a git repository, with necessary bcgov GitHub infrastructure
 #'
 #' @inheritParams use_bcgov_req
 #' @param message git commit message

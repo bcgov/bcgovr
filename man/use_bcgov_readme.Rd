@@ -9,7 +9,7 @@ use_bcgov_readme(project = NULL, licence = c("apache2", "cc-by"))
 \arguments{
 \item{project}{Name of the project. Defaults to the name of the RStudio project/working directory}
 
-\item{path}{Directory path (default \code{"."})}
+\item{path}{Directory path (Default \code{"."})}
 }
 \description{
 Add a README.md file to the project directory

@@ -10,7 +10,7 @@ insert_bcgov_cc_header(file, year = format(Sys.Date(), "\%Y"))
 \arguments{
 \item{file}{Path to the file}
 
-\item{year}{The year the license should apply (Default current year)}
+\item{year}{The year the licence should apply (Default current year)}
 }
 \description{
 Add the boilerplate Creative Commons Attribution 4.0 (CC-BY) header to the

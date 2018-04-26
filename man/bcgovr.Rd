@@ -7,7 +7,7 @@
 \alias{bcgovr-package}
 \title{bcgovr: Set up of bcgov R projects & packages}
 \description{
-The 'bcgovr' package provides functions and RStudio addins that automate the creation and set up of bcgov R projects and packages so that they meet bcgov GitHub requirements.
+The 'bcgovr' package provides functions and RStudio addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements.
 }
 \section{bcgovr functions}{
 

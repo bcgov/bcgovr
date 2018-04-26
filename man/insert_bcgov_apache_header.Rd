@@ -9,7 +9,7 @@ insert_bcgov_apache_header(file, year = format(Sys.Date(), "\%Y"))
 \arguments{
 \item{file}{Path to the file}
 
-\item{year}{The year the license should apply (Default current year)}
+\item{year}{The year the licence should apply (Default current year)}
 }
 \description{
 Add the boilerplate Apache header to the top of a source code file

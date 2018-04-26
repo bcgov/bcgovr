@@ -2,7 +2,7 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_git}
 \alias{use_bcgov_git}
-\title{Initialize a git repository, with necessary bcgov infrastructure}
+\title{Initialize a git repository, with necessary bcgov GitHub infrastructure}
 \usage{
 use_bcgov_git(rmarkdown = TRUE, licence = "apache2",
   coc_email = getOption("bcgovr.coc.email", default = NULL),
@@ -20,5 +20,5 @@ Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creat
 \item{message}{git commit message}
 }
 \description{
-Initialize a git repository, with necessary bcgov infrastructure
+Initialize a git repository, with necessary bcgov GitHub infrastructure
 }

@@ -13,7 +13,7 @@
 #' Add the boilerplate Apache header to the top of a source code file
 #' 
 #' @param file Path to the file
-#' @param year The year the license should apply (Default current year)
+#' @param year The year the licence should apply (Default current year)
 #' @export
 #' @seealso [use_bcgov_licence()] [insert_bcgov_cc_header()]
 #' @return NULL

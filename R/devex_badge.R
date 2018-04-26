@@ -1,7 +1,7 @@
 #' Add html for inserting a BC DevExchange project state badge
 #'
-#' @param project_state one of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
-#' @param cat use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
+#' @param project_state One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
+#' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
 #'
 #' @return html
 #' @export

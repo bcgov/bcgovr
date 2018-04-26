@@ -7,9 +7,9 @@
 insert_bcgov_devex_badge(project_state, cat = TRUE)
 }
 \arguments{
-\item{project_state}{one of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'}
+\item{project_state}{One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'}
 
-\item{cat}{use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?}
+\item{cat}{Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?}
 }
 \value{
 html

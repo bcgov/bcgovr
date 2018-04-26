@@ -21,7 +21,7 @@ Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creat
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
 
-\item{protocol}{transer protocol. One of \code{'https'} (default) or \code{'ssh'}.}
+\item{protocol}{Transfer protocol. One of \code{'https'} (default) or \code{'ssh'}.}
 
 \item{...}{Other arguments passed on to \code{\link[usethis:use_github]{usethis::use_github()}}}
 }
