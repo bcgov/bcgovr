@@ -37,7 +37,8 @@
 create_bcgov_project <- function(path = ".", rmarkdown = TRUE, 
                                  licence = "apache2",
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
-                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
+                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
+                                 open = TRUE) {
   
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
@@ -85,7 +86,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
         file = file.path(normalizePath(path), "run_all.R"))
   }
   
-  open_project(path)
+  if (open) open_project(path)
 }
 
 
@@ -106,7 +107,8 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 #' }
 create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
-                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
+                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
+                                 open = TRUE) {
   
   package_name <- sub('.*\\/', '', basename(suppressWarnings(normalizePath(path))))
   
@@ -137,7 +139,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   ## A package will only ever need apache2 licence
   use_bcgov_req(licence = "apache2", rmarkdown = rmarkdown, coc_email = coc_email)
 
-  open_project(path)
+  if (open) open_project(path)
 }
 
 #' Get the path to the current project if it exists, otherwise return NULL
