@@ -4,11 +4,14 @@
 \alias{create_bcgov_package}
 \title{Create a bcgov R package directory structure}
 \usage{
-create_bcgov_package(rmarkdown = TRUE,
+create_bcgov_package(path = ".", rmarkdown = TRUE,
   coc_email = getOption("bcgovr.coc.email", default = NULL),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL))
 }
 \arguments{
+\item{path}{Path to the directory in which to initialize the project.
+Default \code{"."} - your current working directory.}
+
 \item{rmarkdown}{Should an Rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{TRUE}.}
 

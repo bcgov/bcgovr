@@ -16,7 +16,8 @@
 #' 
 #' @inheritParams use_bcgov_req 
 #'  
-
+#' @param path Path to the directory in which to initialize the project. 
+#'   Default `"."` - your current working directory.
 #' @param dir_struct Alternative project directory structure. This should be specified as
 #' a character vector of directory (i.e. folders) and file paths, relative to the root of the project. 
 #' Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
@@ -33,17 +34,27 @@
 #' @examples \donttest{
 #'  bcgovr::create_bcgov_project()
 #' }
-create_bcgov_project <- function(rmarkdown = TRUE, 
+create_bcgov_project <- function(path = ".", rmarkdown = TRUE, 
                                  licence = "apache2",
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
+  
+  # If calling this from a current project, reset it on exit
+  old_proj <- get_proj()
+  if (!is.null(old_proj)) {
+    on.exit(usethis::proj_set(old_proj), add = TRUE)
+  }
+  
+  create_proj(path = path)
   
   ## Add in bcgov repo requirements
   use_bcgov_req(licence = licence, rmarkdown = rmarkdown, coc_email = coc_email)
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
-    dir_struct <- c("out/", "data/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "run_all.R")
+    dir_struct <- file.path(normalizePath(path), 
+                            c("out/", "data/", "01_load.R", "02_clean.R", 
+                              "03_analysis.R", "04_output.R", "run_all.R"))
     default_str <- TRUE
   } else {
     default_str <- FALSE
@@ -69,9 +80,10 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 
   if (default_str) {
     cat('source("01_load.R")\nsource("02_clean.R")\nsource("03_analysis.R")\nsource("04_output.R")\n', 
-        file = file.path("run_all.R"))
+        file = file.path(normalizePath(path), "run_all.R"))
   }
   
+  open_project(path)
   
   invisible(TRUE)
 }
@@ -92,28 +104,23 @@ create_bcgov_project <- function(rmarkdown = TRUE,
 #' @examples \donttest{
 #'  bcgovr::create_bcgov_package()
 #' }
-create_bcgov_package <- function(rmarkdown = TRUE, 
+create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
   
-
-  
-  package_name <- sub('.*\\/', '', getwd())
+  package_name <- sub('.*\\/', '', basename(normalizePath(path)))
   
   congrats("Setting up the ", package_name, " package")
 
-  
-  
   bcgovr_desc = list("Package" = package_name,
                      "License" = "Apache License (== 2.0) | file LICENSE",
                      "Authors@R" = paste0('c(person("First", "Last", email = "first.last@example.com", role = c("aut", "cre")), 
                                           person("Province of British Columbia", role = "cph"))')
   )
   
-  
-  
   ## Add in package setup files
-  usethis::create_package(path = ".", fields = bcgovr_desc, rstudio = TRUE)
+  usethis::create_package(path = path, fields = bcgovr_desc, rstudio = TRUE, 
+                          open = FALSE)
   
   ## Add individual elements via usethis
   usethis::use_news_md()
@@ -123,19 +130,47 @@ create_bcgov_package <- function(rmarkdown = TRUE,
   ## Add in bcgov repo requirements
   ## A package will only ever need apache2 licence
   use_bcgov_req(licence = "apache2", rmarkdown = rmarkdown, coc_email = coc_email)
-  
-  
-  
+
   ## Add all bcgov files into RBuildignore
+  # TODO - check if necessary, use_bcgov_req might take care of this
   usethis::use_build_ignore("CONTRIBUTING.md")
   usethis::use_build_ignore("CODE_OF_CONDUCT.md")
   usethis::use_build_ignore("README.md")
   usethis::use_build_ignore("README.Rmd")
   
- 
+  open_project(path)
+  
   invisible(TRUE)
 }
 
+#' Get the path to the current project if it exists, otherwise return NULL
+#' @noRd
+get_proj <- function() {
+  if (usethis:::is_package() | usethis:::is_proj()) {
+    return(usethis::proj_get())
+  } 
+  NULL
+}
+
+#' Create a project if one doesn't exist
+#' @noRd
+create_proj <- function(path = ".") {
+  if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
+    usethis::create_project(path = path, open = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' Open a project if in RStudio
+#' @noRd
+open_project <- function(path) {
+  if (rstudioapi::isAvailable() && interactive()) {
+    rstudioapi::openProject(path, newSession = TRUE)
+  } else if (normalizePath(path) != getwd()) {
+    congrats("Your new project is created in ", path)
+  }
+  invisible(TRUE)
+}
 
 # Function to be executed on error, to clean up files that were created
 # error_cleanup <- function(t) {

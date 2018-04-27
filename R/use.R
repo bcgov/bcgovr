@@ -25,9 +25,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
                           coc_email = getOption("bcgovr.coc.email", default = NULL), 
                           licence = "apache2"){
   
-  if(!(usethis:::is_package() | usethis:::is_proj())){
-    usethis::create_project(path = ".")
-  }
+  # create_proj(".")
   
   if (rmarkdown) {
     use_bcgov_readme_rmd(licence = licence)
