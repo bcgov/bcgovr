@@ -107,7 +107,6 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 #' }
 create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
-                                 dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
                                  open = TRUE) {
   
   package_name <- sub('.*\\/', '', basename(suppressWarnings(normalizePath(path))))
