@@ -108,7 +108,13 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
                                  coc_email = getOption("bcgovr.coc.email", default = NULL),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL)) {
   
-  package_name <- sub('.*\\/', '', basename(normalizePath(path)))
+  package_name <- sub('.*\\/', '', basename(suppressWarnings(normalizePath(path))))
+  
+  # If calling this from a current project, reset it on exit
+  old_proj <- get_proj()
+  if (!is.null(old_proj)) {
+    on.exit(usethis::proj_set(old_proj), add = TRUE)
+  }
   
   congrats("Setting up the ", package_name, " package")
 
