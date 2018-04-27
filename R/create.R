@@ -64,11 +64,13 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
-    stop("It looks as though you already have an analysis set up here!", call. = FALSE)
+    stop("It looks as though you already have a project set up here!
+         If you want to add the required GitHub files, call use_bcgov_req()", 
+         call. = FALSE)
   }
   
   ## Add the necessary R files and directories
-  usethis:::done("Creating new analysis")
+  usethis:::done("Creating new project")
   usethis:::done("Populating with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
@@ -84,8 +86,6 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   }
   
   open_project(path)
-  
-  invisible(TRUE)
 }
 
 
@@ -138,8 +138,6 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   use_bcgov_req(licence = "apache2", rmarkdown = rmarkdown, coc_email = coc_email)
 
   open_project(path)
-  
-  invisible(TRUE)
 }
 
 #' Get the path to the current project if it exists, otherwise return NULL
