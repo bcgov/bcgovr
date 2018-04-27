@@ -8,6 +8,9 @@ use_bcgov_readme_rmd(project = NULL, licence = c("apache2", "cc-by"))
 }
 \arguments{
 \item{project}{Name of the project. Defaults to the name of the RStudio project/working directory}
+
+\item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
+Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 }
 \description{
 Add a README.Rmd file to the project directory

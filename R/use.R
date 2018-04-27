@@ -45,8 +45,8 @@ use_bcgov_req <- function(rmarkdown = TRUE,
 
 #' Add a README.md file to the project directory
 #' 
-#' @param path Directory path (Default `"."`)
 #' @param project Name of the project. Defaults to the name of the RStudio project/working directory
+#' @inheritParams use_bcgov_licence
 #'
 #' @export
 #' @seealso [use_bcgov_contributing()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
