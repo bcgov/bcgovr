@@ -97,6 +97,6 @@ test_that("use_bcgov_git works", {
     c(".gitignore", "README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
   ))))
   
-  git2r::config(repo = dir, user.email = "metoo@abcxyz123.foo")
+  git2r::config(repo = git2r::repository(dir), user.email = "metoo@abcxyz123.foo")
   expect_warning(use_bcgov_git(), "You have a non-bcgov email address")
 })
