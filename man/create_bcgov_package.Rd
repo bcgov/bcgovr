@@ -5,8 +5,7 @@
 \title{Create a bcgov R package directory structure}
 \usage{
 create_bcgov_package(path = ".", rmarkdown = TRUE,
-  coc_email = getOption("bcgovr.coc.email", default = NULL),
-  dir_struct = getOption("bcgovr.dir.struct", default = NULL))
+  coc_email = getOption("bcgovr.coc.email", default = NULL), open = TRUE)
 }
 \arguments{
 \item{path}{Path to the directory in which to initialize the project.
@@ -16,17 +15,6 @@ Default \code{"."} - your current working directory.}
 with its corresponding markdown file? Default \code{TRUE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
-
-\item{dir_struct}{Alternative project directory structure. This should be specified as
-a character vector of directory (i.e. folders) and file paths, relative to the root of the project.
-Directories should be identified by having a trailing forward-slash (e.g., \code{"dir/"}).
-
-The default is: \code{c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "run_all.R")}.
-
-This can also be set as an option \code{bcgovr.dir.struct}. You may want to set this in your
-.Rprofile file so that every time you start a new project, your custom project structure is set up.
-The line in your \code{.Rprofile} file would look something like this:
-\code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}}
 }
 \description{
 Create a package directory structure for a new bcgov R package in your current working directory.

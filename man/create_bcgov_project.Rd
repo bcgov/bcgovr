@@ -6,7 +6,7 @@
 \usage{
 create_bcgov_project(path = ".", rmarkdown = TRUE, licence = "apache2",
   coc_email = getOption("bcgovr.coc.email", default = NULL),
-  dir_struct = getOption("bcgovr.dir.struct", default = NULL))
+  dir_struct = getOption("bcgovr.dir.struct", default = NULL), open = TRUE)
 }
 \arguments{
 \item{path}{Path to the directory in which to initialize the project.
