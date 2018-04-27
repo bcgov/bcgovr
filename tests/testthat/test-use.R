@@ -81,7 +81,7 @@ test_that("use_bcgov_req works", {
   # ))))
   # setwd(orig_wd)
   make_test_proj()
-  use_bcgov_req()
+  capture.output(use_bcgov_req())
   expect_true(all(file.exists(proj_file(
     c("README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
   ))))
