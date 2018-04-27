@@ -73,7 +73,7 @@ ccby_header_addin <- function() {
   write_licence_header(txt, rstudio = TRUE)
 }
 
-skeleton_addin <- function(path, package, git_init, repo, CoC, coc_email, apache, copyright_holder, readme_type) {
+create_project_addin <- function(path, readme_type, repo, licence, coc_email, git_init) {
   
   if (nzchar(repo))  {
     git_init <- FALSE
@@ -85,17 +85,20 @@ skeleton_addin <- function(path, package, git_init, repo, CoC, coc_email, apache
     }
   }
   
-  args <- list(path = path, 
-               git_init = git_init, 
-               git_clone = if (nzchar(repo)) repo else NULL, 
-               apache = apache, 
-               rstudio = TRUE, 
-               CoC = CoC, 
-               coc_email = coc_email,
-               copyright_holder = copyright_holder,
-               rmarkdown = ifelse(readme_type == "README.Rmd", TRUE, FALSE))
+  if (!nzchar(coc_email)) coc_email <- getOption("bcgovr.coc.email", default = NULL)
   
-  fun <- switch(as.character(package), "TRUE" = package_skeleton, "FALSE" = analysis_skeleton)
+  rmarkdown <- ifelse(readme_type == "README.Rmd", TRUE, FALSE)
+  licence <- ifelse(licence == "Apache 2.0", "apache2", "cc-by")
   
-  do.call(fun, args)
+  # If repo populated, use usethis::create_from_github first
+  create_bcgov_project(path, 
+                       rmarkdown = rmarkdown,
+                       licence = licence,
+                       coc_email = coc_email, 
+                       open = FALSE)
+  
+  if (git_init) {
+    check_git_committer_address()
+    git2r::init(path)
+  }
 }

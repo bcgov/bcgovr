@@ -1,7 +1,7 @@
-Binding: skeleton_addin
-Title: bcgovr Project/Package
-Subtitle: Create a new R project or package directory with bcgov GitHub requirements
-Caption: bcgovr Project/Package with bcgov GitHub
+Binding: create_project_addin
+Title: bcgovr Project
+Subtitle: Create a new R project with bcgov GitHub requirements
+Caption: bcgovr Project with bcgov GitHub
 Icon: bcgovr_logo_sm_sq.png
 
 Parameter: repo
@@ -15,34 +15,17 @@ Label: Create git repository?
 Default: On
 Position: right
 
-Parameter: package
-Widget: CheckboxInput
-Label: Create a package?
-Default: Off
-Position: right
-
-Parameter: CoC
-Widget: CheckboxInput
-Label: Use Code of Conduct?
-Default: On
-Position: left
-
 Parameter: coc_email
 Widget: TextInput
 Label: Contact email
 Position: right
 
-Parameter: apache
-Widget: CheckboxInput
-Label: Use Apache 2.0 License?
-Default: On
+Parameter: licence
+Label: Licence
+Widget: SelectInput
+Fields: Apache 2.0, CC-BY 4.0
+Default: Apache 2.0
 Position: left
-
-Parameter: copyright_holder
-Widget: TextInput
-Label: Copyright Holder
-Default: Province of British Columbia
-Position: right
 
 Parameter: readme_type
 Label: README type
