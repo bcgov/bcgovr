@@ -6,6 +6,7 @@ if (!usethis:::is_proj()) {
 }
 
 original_proj <- usethis::proj_get()
+original_wd <- getwd()
 
 make_test_proj <- function(rstudio = FALSE) {
   dir <- tempfile(pattern = "foo")
@@ -30,3 +31,8 @@ check_file_contents <- function(text, file){
   any(grepl(text, readLines(proj_file(file)), 
             ignore.case = TRUE))
 }
+
+# Save options and set dummy options:
+coc_email <- getOption("bcgovr.coc.email")
+options("bcgovr.coc.email" = NULL)
+

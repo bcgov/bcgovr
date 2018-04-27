@@ -222,7 +222,13 @@ use_bcgov_git <- function(rmarkdown = TRUE,
 }
 
 check_git_committer_address <- function() {
-  config <- git2r::config()
+  repo <- if (!is.null(git2r::discover_repository(usethis::proj_get()))) {
+    git2r::repository(usethis::proj_get())
+  } else {
+    NULL
+  }
+  
+  config <- git2r::config(repo = repo)
   local_email <- config$local$user.email
   gov_pattern <- "gov\\.bc\\.ca$"
   if (!is.null(local_email)) {
