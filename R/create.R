@@ -29,6 +29,9 @@
 #' The line in your \code{.Rprofile} file would look something like this: 
 #' \code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}
 #'
+#' @param open If TRUE and in RStudio, the new project is opened in a new instance, 
+#' if possible, or is switched to, otherwise.
+#' 
 #' @export
 #' 
 #' @examples \donttest{

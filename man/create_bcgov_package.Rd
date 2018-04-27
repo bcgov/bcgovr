@@ -15,6 +15,9 @@ Default \code{"."} - your current working directory.}
 with its corresponding markdown file? Default \code{TRUE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct.}
+
+\item{open}{If TRUE and in RStudio, the new project is opened in a new instance,
+if possible, or is switched to, otherwise.}
 }
 \description{
 Create a package directory structure for a new bcgov R package in your current working directory.
