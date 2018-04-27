@@ -137,13 +137,6 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   ## A package will only ever need apache2 licence
   use_bcgov_req(licence = "apache2", rmarkdown = rmarkdown, coc_email = coc_email)
 
-  ## Add all bcgov files into RBuildignore
-  # TODO - check if necessary, use_bcgov_req might take care of this
-  usethis::use_build_ignore("CONTRIBUTING.md")
-  usethis::use_build_ignore("CODE_OF_CONDUCT.md")
-  usethis::use_build_ignore("README.md")
-  usethis::use_build_ignore("README.Rmd")
-  
   open_project(path)
   
   invisible(TRUE)
