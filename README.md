@@ -19,15 +19,15 @@ Features
 
 `create_bcgov_project` & `create_bcgov_package` Create a new R project or R package with folders & files that encourage best practice in scientific computing *and* with files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_git` Add [git](https://git-scm.com/) version control to an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_git` Initialise [git](https://git-scm.com/) version control for an R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
-`use_bcgov_github` Open a [bcgov GitHub repository](https://github.com/bcgov) for a git-initialised R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+`use_bcgov_github` Open a [bcgov GitHub repository](https://github.com/bcgov) and synchronise with a git-initialised R project *and* add files that ensure the project meets [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
 `use_bcgov_req` Add files to a new or existing R project to meet [bcgov GitHub requirements](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md). You can also add the [bcgov required files](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) individually using `use_bcgov_contributing`, `use_bcgov_licence`, `use_bcgov_readme`, `use_bcgov_readme_rmd`, `use_bcgov_code_of_conduct`.
 
 ### RStudio bcgovr Project/Package Template
 
-The `create_bcgov_` and `use_bcgov_git` functions can be used simultaneously through the *bcgovr Project/Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box. The dialogue box allows a user to create a new R project with the option to select and individualize the required bcgov GitHub files, initialise git and synchronize with an existing bcgov GitHub repository by pasting in the bcgov GitHub repository URL.
+The `create_bcgov_` and `use_bcgov_git` functions can be used simultaneously through the *bcgovr Project/Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box. The dialogue box allows a user to create a new R project with the option to select and individualise the required bcgov GitHub files, initialise git and synchronise with an existing bcgov GitHub repository by pasting in the bcgov GitHub repository URL.
 
 ### RStudio Addins
 
@@ -76,21 +76,21 @@ The `create_bcgov_package()` function is used the same way as `create_bcgov_proj
 
 </details>
 
-<details><summary><strong>Add git version control to my R project (i.e. version control <i>without</i> GitHub)</strong></summary>
+<details><summary><strong>Initialise git version control for my R project (<i>without</i> GitHub)</strong></summary>
 
 <br />
 
-Put your local R project under version control by creating a [git](https://git-scm.com/) repository using `use_bcgov_git`—this automatically completes staging and committing of the initial folders & files inside the project. The `use_bcgov_git` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_git` in the R console for help.
+Put your local R project under version control by initialising a [git](https://git-scm.com/) repository using `use_bcgov_git`—this automatically completes staging and committing of the initial folders & files inside the project. The `use_bcgov_git` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_git` in the R console for help.
 
 <br />
 
 </details>
 
-<details><summary><strong>Open a bcgov GitHub repository for my git-initialised R project</strong></summary>
+<details><summary><strong>Open a bcgov GitHub repository and synchronise with my git-initialised R project</strong></summary>
 
 <br />
 
-Share your git-initialised R project on [bcgov GitHub](https://github.com/bcgov) using `use_bcgov_github`. The `use_bcgov_github` function creates a repository on bcgov GitHub and adds and synchronizes your local project with the newly created bcgov GitHub origin. The `use_bcgov_github` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_github` in the R console for help.
+Share your git-initialised R project on [bcgov GitHub](https://github.com/bcgov) using `use_bcgov_github`. The `use_bcgov_github` function creates a repository on bcgov GitHub and adds and synchronises your local project with the newly created bcgov GitHub origin. The `use_bcgov_github` function also ensures the project has the required bcgov GitHub files. Type `?use_bcgov_github` in the R console for help.
 
 To add your project to bcgov GitHub with `use_bcgov_github` users need to have a GitHub account *and* be a [member of the bcgov GitHub organization](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
 
@@ -98,11 +98,11 @@ To add your project to bcgov GitHub with `use_bcgov_github` users need to have a
 
 </details>
 
-<details><summary><strong>Open a new local bcgov R project and synchronize with an existing GitHub repository</strong></summary>
+<details><summary><strong>Open a new local bcgov R project and synchronise with an existing GitHub repository</strong></summary>
 
 <br />
 
-The *bcgovr Project/Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box allows a user to create a new R project with the option to select and individualize the required bcgov GitHub files, initialise git and synchronize with an existing bcgov GitHub repository by pasting in the bcgov GitHub repository URL.
+The *bcgovr Project/Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box allows a user to create a new R project with the option to select and individualise the required bcgov GitHub files, initialise git and synchronise with an existing bcgov GitHub repository by pasting in the bcgov GitHub repository URL.
 
 <br />
 
