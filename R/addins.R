@@ -74,7 +74,19 @@ ccby_header_addin <- function() {
 }
 
 create_project_addin <- function(path, readme_type, repo, licence, coc_email, git_init) {
-  
+  create_addin(path = path, readme_type = readme_type, repo = repo, 
+               licence = licence, coc_email = coc_email, git_init = git_init, 
+               fun = create_bcgov_project)
+
+}
+
+create_package_addin <- function(path, readme_type, repo, coc_email, git_init) {
+  create_addin(path = path, readme_type = readme_type, repo = repo, 
+               licence = NULL, coc_email = coc_email, git_init = git_init, 
+               fun = create_bcgov_package)
+}
+
+create_addin <- function(path, readme_type, repo, licence, coc_email, git_init, fun) {
   if (nzchar(repo))  {
     git_init <- FALSE
     if (!nzchar(path)) {
@@ -88,14 +100,22 @@ create_project_addin <- function(path, readme_type, repo, licence, coc_email, gi
   if (!nzchar(coc_email)) coc_email <- getOption("bcgovr.coc.email", default = NULL)
   
   rmarkdown <- ifelse(readme_type == "README.Rmd", TRUE, FALSE)
-  licence <- ifelse(licence == "Apache 2.0", "apache2", "cc-by")
+  
+  if (is.null(licence)) {
+    licence_type <- NULL
+  } else {
+    licence_type <- ifelse(licence == "Apache 2.0", "apache2", "cc-by")
+  }
   
   # If repo populated, use usethis::create_from_github first
-  create_bcgov_project(path, 
-                       rmarkdown = rmarkdown,
-                       licence = licence,
-                       coc_email = coc_email, 
-                       open = FALSE)
+  args <- list(path = path, 
+               rmarkdown = rmarkdown,
+               licence = licence_type,
+               coc_email = coc_email, 
+               open = FALSE)
+  args <- Filter(Negate(is.null), args)
+  
+  do.call(fun, args)
   
   if (git_init) {
     check_git_committer_address()
