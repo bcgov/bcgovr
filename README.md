@@ -76,7 +76,7 @@ The `create_bcgov_package()` function is used the same way as `create_bcgov_proj
 
 </details>
 
-<details><summary><strong>Initialise git version control for my R project (i.e. <i>without</i> GitHub)</strong></summary>
+<details><summary><strong>Initialise git version control for my R project (<i>without</i> GitHub)</strong></summary>
 
 <br />
 
