@@ -129,7 +129,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
                           open = FALSE)
   
   ## Add individual elements via usethis
-  usethis::use_news_md()
+  usethis::use_news_md(open = FALSE)
   usethis::use_roxygen_md()
   usethis::use_vignette(name = package_name)
   
