@@ -4,11 +4,6 @@ Subtitle: Create a new R package with bcgov GitHub requirements
 Caption: bcgovr Package with bcgov GitHub
 Icon: package.png
 
-Parameter: repo
-Widget: TextInput
-Label: Repository URL
-Position: left
-
 Parameter: git_init
 Widget: CheckboxInput
 Label: Create git repository?

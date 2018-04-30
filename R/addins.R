@@ -73,29 +73,29 @@ ccby_header_addin <- function() {
   write_licence_header(txt, rstudio = TRUE)
 }
 
-create_project_addin <- function(path, readme_type, repo, licence, coc_email, git_init) {
-  create_addin(path = path, readme_type = readme_type, repo = repo, 
+create_project_addin <- function(path, readme_type, licence, coc_email, git_init) {
+  create_addin(path = path, readme_type = readme_type, 
                licence = licence, coc_email = coc_email, git_init = git_init, 
                fun = create_bcgov_project)
 
 }
 
-create_package_addin <- function(path, readme_type, repo, coc_email, git_init) {
-  create_addin(path = path, readme_type = readme_type, repo = repo, 
+create_package_addin <- function(path, readme_type, coc_email, git_init) {
+  create_addin(path = path, readme_type = readme_type, 
                licence = NULL, coc_email = coc_email, git_init = git_init, 
                fun = create_bcgov_package)
 }
 
-create_addin <- function(path, readme_type, repo, licence, coc_email, git_init, fun) {
-  if (nzchar(repo))  {
-    git_init <- FALSE
-    if (!nzchar(path)) {
-      # this doesn't actually do anything because user can't not put anything into the 'Directory'
-      # text box, which is where the 'path' value comes from. But I'm leaving it here because I'd like
-      # to be able to do this ;)
-      path <- gsub("\\.git$", "", basename(repo))
-    }
-  }
+create_addin <- function(path, readme_type, licence, coc_email, git_init, fun) {
+  # if (nzchar(repo))  {
+  #   git_init <- FALSE
+  #   if (!nzchar(path)) {
+  #     # this doesn't actually do anything because user can't not put anything into the 'Directory'
+  #     # text box, which is where the 'path' value comes from. But I'm leaving it here because I'd like
+  #     # to be able to do this ;)
+  #     path <- gsub("\\.git$", "", basename(repo))
+  #   }
+  # }
   
   if (!nzchar(coc_email)) coc_email <- getOption("bcgovr.coc.email", default = NULL)
   
