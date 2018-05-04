@@ -185,7 +185,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                              protocol = "https",
                              ...) {
   
-  if (!is.null(git2r::discover_repository(usethis::proj_get()))) {
+  if (is.null(git2r::discover_repository(usethis::proj_get()))) {
     stop("This doesn't appear to be a git repository.\n
          Please run use_bcgov_git() to initialize.", call. = FALSE)
   }
@@ -199,8 +199,16 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
   use_bcgov_gitattributes()
   
   private <- if (!is.null(organisation) && organisation == "bcgov-c") TRUE else FALSE
-  usethis::use_github(organisation = organisation, protocol = protocol, 
-                      private = private, ...)
+  tryCatch(usethis::use_github(organisation = organisation, protocol = protocol, 
+                      private = private, ...), 
+           error = function(e) {
+             if (grepl("(unable to find an inherited method)|(error authenticating)", e$message)) {
+               stop("Repository created on GitHub, but unable to push. Try on the command line with:\n
+                    git push -u origin master", call. = FALSE)
+             } else {
+             stop(e)
+             }
+           })
 }
 
 #' Initialise a git repository, with bcgov GitHub requirements
