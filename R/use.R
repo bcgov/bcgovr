@@ -203,8 +203,8 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...), 
            error = function(e) {
              if (grepl("(unable to find an inherited method)|(error authenticating)", e$message)) {
-               stop("Repository created on GitHub, but unable to push. Try on the command line with:\n
-                    git push -u origin master", call. = FALSE)
+               not_done("Repository created on GitHub, but unable to push. Try on the command line with:\n
+                    git push -u origin master")
              } else {
              stop(e)
              }
