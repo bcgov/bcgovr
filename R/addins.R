@@ -120,5 +120,9 @@ create_addin <- function(path, readme_type, licence, coc_email, git_init, fun) {
   if (git_init) {
     check_git_committer_address()
     git2r::init(path)
+    congrats("If you want to push to github, use bcgovr::use_bcgov_github()")
+  } else {
+    congrats("If you want to use git, use bcgovr::use_bcgov_git(), then optionally
+             use bcgovr::use_bcgov_github()")
   }
 }
