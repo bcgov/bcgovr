@@ -6,7 +6,7 @@
 \usage{
 use_bcgov_github(organisation = "bcgov", rmarkdown = TRUE,
   licence = "apache2", coc_email = getOption("bcgovr.coc.email", default =
-  NULL), protocol = "https", ...)
+  coc_stop()), protocol = "https", ...)
 }
 \arguments{
 \item{organisation}{GitHub organisation where the repo will be hosted.
@@ -19,7 +19,10 @@ with its corresponding markdown file? Default \code{FALSE}.}
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
 Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
 
-\item{coc_email}{Contact email address(es) for the Code of Conduct.}
+\item{coc_email}{Contact email address(es) for the Code of Conduct. It is
+recommended that you save this setting by adding a line like:
+\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to yor \code{.Rprofile}.
+Use \code{\link[usethis:edit_r_profile]{usethis::edit_r_profile()}} for an easy way to find and edit this file.}
 
 \item{protocol}{Transfer protocol. One of \code{'https'} (default) or \code{'ssh'}.}
 

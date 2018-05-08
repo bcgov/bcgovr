@@ -5,13 +5,16 @@
 \title{Add bcgov GitHub requirements to your project directory}
 \usage{
 use_bcgov_req(rmarkdown = TRUE, coc_email = getOption("bcgovr.coc.email",
-  default = NULL), licence = "apache2")
+  default = coc_stop()), licence = "apache2")
 }
 \arguments{
 \item{rmarkdown}{Should an Rmarkdown file be added to the repository
 with its corresponding markdown file? Default \code{FALSE}.}
 
-\item{coc_email}{Contact email address(es) for the Code of Conduct.}
+\item{coc_email}{Contact email address(es) for the Code of Conduct. It is
+recommended that you save this setting by adding a line like:
+\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to yor \code{.Rprofile}.
+Use \code{\link[usethis:edit_r_profile]{usethis::edit_r_profile()}} for an easy way to find and edit this file.}
 
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).
 Use \code{"cc-by"} for \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0}}
