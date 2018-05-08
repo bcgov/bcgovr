@@ -39,7 +39,7 @@
 #' }
 create_bcgov_project <- function(path = ".", rmarkdown = TRUE, 
                                  licence = "apache2",
-                                 coc_email = getOption("bcgovr.coc.email", default = NULL),
+                                 coc_email = getOption("bcgovr.coc.email", default = coc_stop()),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
                                  open = TRUE) {
   
@@ -109,7 +109,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 #'  bcgovr::create_bcgov_package()
 #' }
 create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
-                                 coc_email = getOption("bcgovr.coc.email", default = NULL),
+                                 coc_email = getOption("bcgovr.coc.email", default = coc_stop()),
                                  open = TRUE) {
   
   package_name <- sub('.*\\/', '', basename(suppressWarnings(normalizePath(path))))

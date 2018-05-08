@@ -56,10 +56,8 @@ test_that("use_bcgov_code_of_conduct works", {
   make_test_proj()
 
   # With no email set
-  output <- capture.output(use_bcgov_code_of_conduct())
-  expect_true(any(grepl("No contact email has been added", output)))
-  expect_true(file.exists(proj_file("CODE_OF_CONDUCT.md")))
-  unlink(proj_file("CODE_OF_CONDUCT.md"))
+  expect_error(use_bcgov_code_of_conduct(), "You must set a contact email")
+  expect_false(file.exists(proj_file("CODE_OF_CONDUCT.md")))
   
   # With email supplied explicitly
   capture.output(use_bcgov_code_of_conduct(coc_email = "me@gov.bc.ca"))
@@ -81,7 +79,7 @@ test_that("use_bcgov_req works", {
   # ))))
   # setwd(orig_wd)
   make_test_proj()
-  capture.output(use_bcgov_req())
+  capture.output(use_bcgov_req(coc_email = "me@gov.bc.ca"))
   expect_true(all(file.exists(proj_file(
     c("README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
   ))))
@@ -90,7 +88,7 @@ test_that("use_bcgov_req works", {
 test_that("use_bcgov_git works", {
   dir <- make_test_proj()
   expect_false(git2r::in_repository(dir))
-  capture.output(use_bcgov_git())
+  capture.output(use_bcgov_git(coc_email = "me@gov.bc.ca"))
   expect_true(git2r::in_repository(dir))
   
   expect_true(all(file.exists(proj_file(
@@ -98,5 +96,6 @@ test_that("use_bcgov_git works", {
   ))))
   
   git2r::config(repo = git2r::repository(dir), user.email = "metoo@abcxyz123.foo")
-  expect_warning(use_bcgov_git(), "You have a non-bcgov email address")
+  expect_warning(use_bcgov_git(coc_email = "me@gov.bc.ca"), 
+                 "You have a non-bcgov email address")
 })

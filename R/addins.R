@@ -97,7 +97,7 @@ create_addin <- function(path, readme_type, licence, coc_email, git_init, fun) {
   #   }
   # }
   
-  if (!nzchar(coc_email)) coc_email <- getOption("bcgovr.coc.email", default = NULL)
+  if (!nzchar(coc_email)) coc_email <- getOption("bcgovr.coc.email", default = coc_stop())
   
   rmarkdown <- ifelse(readme_type == "README.Rmd", TRUE, FALSE)
   

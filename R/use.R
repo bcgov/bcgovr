@@ -22,7 +22,7 @@
 #' 
 #' @export
 use_bcgov_req <- function(rmarkdown = TRUE, 
-                          coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                          coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
                           licence = "apache2"){
   
   # create_proj(".")
@@ -102,11 +102,14 @@ use_bcgov_contributing <- function() {
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
 #' 
-#' @param coc_email Contact email address(es) for the Code of Conduct.
+#' @param coc_email Contact email address(es) for the Code of Conduct. It is 
+#'     recommended that you save this setting by adding a line like: 
+#'     `options("bcgovr.coc.email" = "your.email@gov.bc.ca")` to yor `.Rprofile`.
+#'     Use [usethis::edit_r_profile()] for an easy way to find and edit this file.
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
 #' @return `TRUE` (invisibly)
-use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", default = NULL)) {
+use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", default = coc_stop())) {
   usethis::use_template(template = "CoC.md", 
                         save_as = "CODE_OF_CONDUCT.md",
                         ignore = usethis:::is_package(), 
@@ -114,8 +117,7 @@ use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", 
                         package = "bcgovr")
   
   if (is.null(coc_email)) {
-    not_done("No contact email has been added to your CODE_OF_CONDUCT.md.", 
-            "Please do so manually")
+    congrats(coc_email, " has been set as the contact email in your CODE_OF_CONDUCT.md.")
   }
 }
 
@@ -181,7 +183,7 @@ use_bcgov_gitattributes <- function(){
 #' @export
 use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE, 
                              licence = "apache2", 
-                             coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                             coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
                              protocol = "https",
                              ...) {
   
@@ -219,7 +221,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
 #' @export
 use_bcgov_git <- function(rmarkdown = TRUE, 
                           licence = "apache2", 
-                          coc_email = getOption("bcgovr.coc.email", default = NULL), 
+                          coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
                           message = "Initial commit") {
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
@@ -246,4 +248,9 @@ check_git_committer_address <- function() {
   }
   invisible(TRUE)
   
+}
+
+coc_stop <- function() {
+  stop("You must set a contact email address for your code of conduct in the
+        coc_email argument. See ?use_bcgov_code_of_conduct", call. = FALSE)
 }
