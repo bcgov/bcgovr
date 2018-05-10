@@ -4,8 +4,7 @@
 \alias{use_bcgov_code_of_conduct}
 \title{Add a CODE_OF_CONDUCT.md file to the project directory}
 \usage{
-use_bcgov_code_of_conduct(coc_email = getOption("bcgovr.coc.email", default =
-  coc_stop()))
+use_bcgov_code_of_conduct(coc_email = get_coc_email())
 }
 \arguments{
 \item{coc_email}{Contact email address(es) for the Code of Conduct. It is

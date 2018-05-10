@@ -5,8 +5,7 @@
 \title{Initialise a git repository, with bcgov GitHub requirements}
 \usage{
 use_bcgov_git(rmarkdown = TRUE, licence = "apache2",
-  coc_email = getOption("bcgovr.coc.email", default = coc_stop()),
-  message = "Initial commit")
+  coc_email = get_coc_email(), message = "Initial commit")
 }
 \arguments{
 \item{rmarkdown}{Should an Rmarkdown file be added to the repository

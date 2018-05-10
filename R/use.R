@@ -22,7 +22,7 @@
 #' 
 #' @export
 use_bcgov_req <- function(rmarkdown = TRUE, 
-                          coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
+                          coc_email = get_coc_email(), 
                           licence = "apache2"){
   
   # create_proj(".")
@@ -110,7 +110,7 @@ use_bcgov_contributing <- function() {
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
 #' @return `TRUE` (invisibly)
-use_bcgov_code_of_conduct <- function(coc_email = getOption("bcgovr.coc.email", default = coc_stop())) {
+use_bcgov_code_of_conduct <- function(coc_email = get_coc_email()) {
   usethis::use_template(template = "CoC.md", 
                         save_as = "CODE_OF_CONDUCT.md",
                         ignore = usethis:::is_package(), 
@@ -184,7 +184,7 @@ use_bcgov_gitattributes <- function(){
 #' @export
 use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE, 
                              licence = "apache2", 
-                             coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
+                             coc_email = get_coc_email(), 
                              protocol = "https",
                              ...) {
   
@@ -221,7 +221,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
 #' @export
 use_bcgov_git <- function(rmarkdown = TRUE, 
                           licence = "apache2", 
-                          coc_email = getOption("bcgovr.coc.email", default = coc_stop()), 
+                          coc_email = get_coc_email(), 
                           message = "Initial commit") {
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
@@ -250,7 +250,9 @@ check_git_committer_address <- function() {
   
 }
 
-coc_stop <- function() {
-  stop("You must set a contact email address for your code of conduct in the
-        coc_email argument. See ?use_bcgov_code_of_conduct", call. = FALSE)
+get_coc_email <- function() {
+  getOption(
+    "bcgovr.coc.email", 
+    default = stop("You must set a contact email address for your code of conduct in the
+coc_email argument. See ?use_bcgov_code_of_conduct", call. = FALSE))
 }
