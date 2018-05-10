@@ -36,6 +36,7 @@ use_bcgov_req <- function(rmarkdown = TRUE,
   use_bcgov_contributing()
   use_bcgov_code_of_conduct(coc_email = coc_email)
   use_bcgov_licence(licence = licence)
+  use_bcgov_gitattributes()
 
   invisible(TRUE)
   
