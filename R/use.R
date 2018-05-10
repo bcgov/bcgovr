@@ -166,7 +166,8 @@ use_bcgov_license <- use_bcgov_licence
 #' 
 use_bcgov_gitattributes <- function(){
   
-  usethis::use_template(template = ".gitattributes",
+  usethis::use_template(template = "gitattributes",
+                        save_as = ".gitattributes",
                         package = "bcgovr")
 }
   
