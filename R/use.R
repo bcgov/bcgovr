@@ -188,8 +188,7 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                              ...) {
   
   if (is.null(git2r::discover_repository(usethis::proj_get()))) {
-    stop("This doesn't appear to be a git repository.\n
-         Please run use_bcgov_git() to initialize.", call. = FALSE)
+    stop("This doesn't appear to be a git repository.\nPlease run use_bcgov_git() to initialize.", call. = FALSE)
   }
   if (!is.null(organisation) && !organisation %in% c("bcgov", "bcgov-c")) {
     stop("organisation must be one of 'bcgov', 'bcgov-c', or NULL", call. = FALSE)
