@@ -45,5 +45,5 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 {{licence_text}}
 ```
 ---
-*This project was created by the [bcgovr](https://github.com/bcgov/bcgovr) package.* 
+*This project was created using the [bcgovr](https://github.com/bcgov/bcgovr) package.* 
 
