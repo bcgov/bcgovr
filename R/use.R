@@ -206,8 +206,11 @@ use_bcgov_github <- function(organisation = "bcgov", rmarkdown = TRUE,
                       private = private, ...), 
            error = function(e) {
              if (grepl("(unable to find an inherited method)|(error authenticating)", e$message)) {
-               not_done("Repository created on GitHub, but unable to push. Try on the command line with:
-                    git push -u origin master")
+               is_git_installed()
+               repo_clone_cmd <- paste0("git push -u origin master")
+               usethis:::done("Using system call to git")
+               system(repo_clone_cmd)
+               usethis:::done("Navigate to https://github.com/",organisation, "/", basename(usethis::proj_get()), " to view your repo")
              } else {
              stop(e)
              }
