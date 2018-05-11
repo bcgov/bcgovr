@@ -80,14 +80,13 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), extension) {
   fbase <- ifelse(package, "pkg-README", "README")
   
   year <- format(Sys.Date(), "%Y")
-  usethis::use_template(template = paste0(fbase, extension), 
+  use_bcgov_template(template = paste0(fbase, extension), 
                         save_as = paste0("README", extension),
                         data = list(project_name = project,
                                     cc_link = cc_link,
                                     licence_text = paste0(make_licence_header_text(year, licence), 
                                                           collapse = "\n")), 
-                        ignore = package && extension == ".Rmd",
-                        package = "bcgovr")
+                        ignore = package && extension == ".Rmd")
 }
 
 #' Add a CONTRIBUTING.md file to the project directory
@@ -96,9 +95,8 @@ add_readme <- function(project, licence = c("apache2", "cc-by"), extension) {
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_code_of_conduct()]
 #' @return `TRUE` (invisibly)
 use_bcgov_contributing <- function() {
-  usethis::use_template(template = "CONTRIBUTING.md", 
-                        ignore = usethis:::is_package(), 
-                        package = "bcgovr")
+  use_bcgov_template(template = "CONTRIBUTING.md", 
+                        ignore = usethis:::is_package())
 }
 
 #' Add a CODE_OF_CONDUCT.md file to the project directory
@@ -111,11 +109,10 @@ use_bcgov_contributing <- function() {
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
 #' @return `TRUE` (invisibly)
 use_bcgov_code_of_conduct <- function(coc_email = get_coc_email()) {
-  usethis::use_template(template = "CoC.md", 
+  use_bcgov_template(template = "CoC.md", 
                         save_as = "CODE_OF_CONDUCT.md",
                         ignore = usethis:::is_package(), 
-                        data = list(COC_CONTACT_EMAIL = coc_email),
-                        package = "bcgovr")
+                        data = list(COC_CONTACT_EMAIL = coc_email))
   
   if (is.null(coc_email)) {
     congrats(coc_email, " has been set as the contact email in your CODE_OF_CONDUCT.md.")
@@ -137,9 +134,8 @@ use_bcgov_licence <- function(licence = c("apache2", "cc-by")) {
                      "apache2" = "LICENSE-Apache", 
                      "cc-by" = "LICENSE-CC-BY")
   
-  usethis::use_template(template = template,
-                        save_as = "LICENSE",
-                        package = "bcgovr")
+  use_bcgov_template(template = template,
+                        save_as = "LICENSE")
   # TODO
   #if (package_desc) {
   #  desc <- readLines(file.path(path, "DESCRIPTION"))
@@ -166,9 +162,8 @@ use_bcgov_license <- use_bcgov_licence
 #' 
 use_bcgov_gitattributes <- function(){
   
-  usethis::use_template(template = "gitattributes",
-                        save_as = ".gitattributes",
-                        package = "bcgovr")
+  use_bcgov_template(template = "gitattributes",
+                        save_as = ".gitattributes")
 }
   
   
@@ -259,4 +254,20 @@ get_coc_email <- function() {
     "bcgovr.coc.email", 
     default = stop("You must set a contact email address for your code of conduct in the
 coc_email argument. See ?use_bcgov_code_of_conduct", call. = FALSE))
+}
+
+use_bcgov_template <- function(template, save_as = template, data = list(), 
+                               ignore = FALSE, open = FALSE) {
+  tryCatch(
+    usethis::use_template(template = template, save_as = save_as, data = data, 
+                          ignore = ignore, open = open, package = "bcgovr"), 
+    error = function(e) {
+      if (grepl("already exists", e$message)) {
+        not_done(e$message)
+      }
+      else {
+        stop(e)
+      }
+    }
+  )
 }
