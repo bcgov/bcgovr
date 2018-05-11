@@ -146,6 +146,70 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   if (open) open_project(path)
 }
 
+#' Create a new local git repository from the BC Government Github
+#' 
+#' Creates a new local repository cloned from an existing BC Government Github repository 
+#' 
+#' @param repo BC Government repo name specified like this: \code{bcgov/reponame}
+#' @param destdir The destination directory where the cloned project will be stored locally
+#' @inheritParams use_bcgov_github
+#' @param ... Other arguments passed on to [usethis::create_from_github()]
+#' 
+#' @examples
+#' \donttest{
+#' create_from_bcgov_repo("bcgov/bcgovr")
+#' }
+#' 
+#' @export
+create_from_bcgov_github <- function(repo,
+                                     destdir = ".",
+                                     protocol = "https",
+                                     ...){
+  
+  ##TODO: Have a check that repo is two string separated by a /
+  
+  ## Only allow bcgov repos
+  if(!grepl("bcgov|bcgov-c",repo)){
+    stop("Not a bcgov repo")
+  }
+  
+  base_reponame <- gsub("bcgov/|bcgov-c/", "", repo)
+  local_repo_path <- file.path(destdir, base_reponame)
+  
+  if(!dir.exists(file.path(destdir))) dir.create(file.path(destdir))
+
+  
+  ## First try using git2r via usethis::create_from_github
+  ## If that fails with two specific errors then check if git is installed and use it directly
+  ## via a system call
+  tryCatch(usethis::create_from_github(repo = repo, destdir = destdir, protocol = protocol),
+           error = function(e){
+             ## Check if the repo even exists
+             if (grepl("404 Not Found", e$message)){
+               ## Clean up files if repo wasn't found
+               unlink(base_reponame, recursive = TRUE)
+               
+               stop(paste0(repo, " doesn't exist on GitHub. Consider using use_bcgov_github to create one"), call. = FALSE)
+             }
+             
+             if (grepl("unknown certificate check failure|failed to start SSH session: Unable to exchange encryption keys", e$message)){
+               
+               is_git_installed()
+               repo_clone_cmd <- paste0("git clone -q https://github.com/",repo, " ", local_repo_path)
+               usethis:::done("Using system call to git")
+               system(repo_clone_cmd)
+               usethis::proj_set(local_repo_path, force = TRUE)
+             } else {
+               stop(e)
+             }
+           })
+  
+  
+  #use_bcgov_req()
+  
+
+}
+
 #' Get the path to the current project if it exists, otherwise return NULL
 #' @noRd
 get_proj <- function() {
@@ -157,6 +221,7 @@ get_proj <- function() {
 
 #' Create a project if one doesn't exist
 #' @noRd
+
 create_proj <- function(path = ".") {
   if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
     usethis::create_project(path = path, open = FALSE)
