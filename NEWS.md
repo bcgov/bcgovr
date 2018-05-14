@@ -1,3 +1,8 @@
+# bcgovr 1.0.0 
+### 🎉 NO FUNCTION LEFT STANDING 🎉
+* Complete renaming & rewrite of _all_ `bcgovr` functions. 
+* `bcgovr` functions are wrapped [RStudio](https://www.rstudio.com/) [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) functions, with the addition of bcgov-specific defaults and requirements.
+
 # bcgovr 0.1.7
 * Added ability to start a new analysis or package skeleton via RStudio project templates 
   (New Project -> New Directory -> BC Gov Analysis/Package Skeleton)
