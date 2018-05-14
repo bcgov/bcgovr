@@ -146,9 +146,9 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   if (open) open_project(path)
 }
 
-#' Create a local repository from a bcgov Github repository
+#' Create a local repository from a bcgov GitHub repository
 #' 
-#' Creates a new local git repository cloned from a bcgov Github repository 
+#' Creates a new local git repository cloned from a bcgov GitHub repository 
 #' 
 #' @param repo bcgov GitHub repo name specified like this: \code{bcgov/reponame}
 #' @param destdir The destination directory where the cloned project will be stored locally
@@ -157,7 +157,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
 #' 
 #' @examples
 #' \donttest{
-#' create_from_bcgov_repo("bcgov/bcgovr")
+#' create_from_bcgov_github("bcgov/bcgovr")
 #' }
 #' 
 #' @export

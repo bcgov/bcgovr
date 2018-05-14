@@ -2,7 +2,7 @@
 % Please edit documentation in R/create.R
 \name{create_from_bcgov_github}
 \alias{create_from_bcgov_github}
-\title{Create a local repository from a bcgov Github repository}
+\title{Create a local repository from a bcgov GitHub repository}
 \usage{
 create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 }
@@ -16,11 +16,11 @@ create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 \item{...}{Other arguments passed on to \code{\link[usethis:create_from_github]{usethis::create_from_github()}}}
 }
 \description{
-Creates a new local git repository cloned from a bcgov Github repository
+Creates a new local git repository cloned from a bcgov GitHub repository
 }
 \examples{
 \donttest{
-create_from_bcgov_repo("bcgov/bcgovr")
+create_from_bcgov_github("bcgov/bcgovr")
 }
 
 }
