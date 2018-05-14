@@ -2,12 +2,12 @@
 % Please edit documentation in R/create.R
 \name{create_from_bcgov_github}
 \alias{create_from_bcgov_github}
-\title{Create a new local git repository from the BC Government Github}
+\title{Create a local repository from a bcgov Github repository}
 \usage{
 create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 }
 \arguments{
-\item{repo}{BC Government repo name specified like this: \code{bcgov/reponame}}
+\item{repo}{bcgov GitHub repo name specified like this: \code{bcgov/reponame}}
 
 \item{destdir}{The destination directory where the cloned project will be stored locally}
 
@@ -16,7 +16,7 @@ create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 \item{...}{Other arguments passed on to \code{\link[usethis:create_from_github]{usethis::create_from_github()}}}
 }
 \description{
-Creates a new local repository cloned from an existing BC Government Github repository
+Creates a new, local git repository cloned from a bcgov Github repository
 }
 \examples{
 \donttest{

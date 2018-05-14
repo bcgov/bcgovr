@@ -146,11 +146,11 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   if (open) open_project(path)
 }
 
-#' Create a new local git repository from the BC Government Github
+#' Create a local repository from a bcgov Github repository
 #' 
-#' Creates a new local repository cloned from an existing BC Government Github repository 
+#' Creates a new, local git repository cloned from a bcgov Github repository 
 #' 
-#' @param repo BC Government repo name specified like this: \code{bcgov/reponame}
+#' @param repo bcgov GitHub repo name specified like this: \code{bcgov/reponame}
 #' @param destdir The destination directory where the cloned project will be stored locally
 #' @inheritParams use_bcgov_github
 #' @param ... Other arguments passed on to [usethis::create_from_github()]
