@@ -204,8 +204,7 @@ create_from_bcgov_github <- function(repo,
              }
            })
   
-  
-  #use_bcgov_req()
+  use_bcgov_req()
   
 
 }
