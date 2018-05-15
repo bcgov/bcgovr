@@ -20,6 +20,7 @@ insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
   }
 }
 
+
 make_badge <- function(state) {
   title <- tools::toTitleCase(state)
   state_desc <- c(inspiration = "An idea being explored and shaped. Open for discussion, but may never go anywhere.", 
@@ -31,4 +32,17 @@ make_badge <- function(state) {
          '" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="', state_desc, 
          '" style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/', state, 
          '.svg" title="', state_desc, '" /></a>')
+}
+
+
+#' This function is deprecated, use the `insert_bcgov_devex_badge` function.
+#'
+#' @param project_state One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
+#' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
+#'
+#' @return html
+#' @export
+devex_badge <- function(project_state, cat = TRUE) {
+  .Deprecated("insert_bcgov_devex_badge")
+  insert_bcgov_devex_badge(project_state = project_state, cat = cat)
 }

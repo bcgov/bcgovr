@@ -3,6 +3,7 @@
 export(create_bcgov_package)
 export(create_bcgov_project)
 export(create_from_bcgov_github)
+export(devex_badge)
 export(insert_bcgov_apache_header)
 export(insert_bcgov_cc_header)
 export(insert_bcgov_devex_badge)
