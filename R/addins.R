@@ -61,7 +61,7 @@ devex_gadget <- function() {
     })
   }
   
-  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 615)
+  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 640)
   shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
                    stopOnCancel = FALSE)
 }
