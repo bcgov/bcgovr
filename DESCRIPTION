@@ -2,7 +2,6 @@ Type: Package
 Package: bcgovr
 Title: Set up of bcgov R projects & packages
 Version: 0.1.7
-Date: 2017-12-08
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
@@ -12,6 +11,8 @@ Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     person("Province of British Columbia", role = "cph"))
 Description: The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements. 
 License: Apache License (== 2.0) | file LICENSE
+URL: https://github.com/bcgov/bcgovr
+BugReports: https://github.com/bcgov/bcgovr/issues
 Depends: 
     R (>= 3.2.0)
 Imports: 
