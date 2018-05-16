@@ -124,7 +124,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   
   congrats("Setting up the ", package_name, " package")
 
-  bcgovr_desc = list("Package" = package_name,
+  bcgovr_desc <- list("Package" = package_name,
                      "License" = "Apache License (== 2.0) | file LICENSE",
                      "Authors@R" = paste0('c(person("First", "Last", email = "first.last@example.com", role = c("aut", "cre")), 
                                           person("Province of British Columbia", role = "cph"))')

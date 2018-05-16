@@ -66,7 +66,7 @@ use_bcgov_readme_rmd <- function(project = NULL, licence = c("apache2", "cc-by")
 add_readme <- function(project, licence = c("apache2", "cc-by"), extension) {
   licence <- match.arg(licence)
   if (is.null(project)) {
-    project = basename(usethis::proj_get())
+    project <- basename(usethis::proj_get())
   }
   
   cc_link <- if (licence == "cc-by") {
