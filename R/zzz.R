@@ -1,4 +1,4 @@
-.onLoad <- function(libname, pkgname) {
+.onAttach <- function(libname, pkgname) {
   good_lib <- win_rlib_is_good()
   if (!good_lib$good)
     packageStartupMessage(
