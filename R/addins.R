@@ -23,37 +23,41 @@ devex_badge_addin <- function() {
   invisible(NULL)
 }
 
-#' @import shiny
-#' @import miniUI
 devex_gadget <- function() {
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("Choose a Project State"), 
     
-    miniContentPanel(
-      p("Choose a project state, which is intended to give an indication of where the project is at in the development cycle."),
-      radioButtons("stateRadio", "Project State", 
-                   choiceNames = list(
-                     span(img(src="https://assets.bcdevexchange.org/images/badges/inspiration.svg"), 
-                          p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
-                     span(img(src="https://assets.bcdevexchange.org/images/badges/exploration.svg"),
-                          p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
-                     span(img(src="https://assets.bcdevexchange.org/images/badges/dormant.svg"), 
-                          p("Not currently being worked on, but with plans to come back to the work in the future.")), 
-                     span(img(src = "https://assets.bcdevexchange.org/images/badges/delivery.svg"), 
-                         p("In production, but maybe in Alpha or Beta. Intended to persist and be supported.")),
-                     span(img(src="https://assets.bcdevexchange.org/images/badges/retired.svg"), 
-                          p("No longer being used or supported, recommend not using an alternative option."))), 
-                   choiceValues = c("inspiration", "exploration", "dormant", "delivery", "retired")),
-      p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
+    miniUI::miniContentPanel(
+      shiny::p("Choose a project state, which is intended to give an indication of where the project is at in the development cycle."),
+      shiny::radioButtons(
+        "stateRadio", "Project State", 
+        choiceNames = list(
+          shiny::span(
+            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/inspiration.svg"), 
+            shiny::p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
+          shiny::span(
+            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/exploration.svg"),
+            shiny::p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
+          shiny::span(
+            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/dormant.svg"), 
+            shiny::p("Not currently being worked on, but with plans to come back to the work in the future.")), 
+          shiny::span(
+            shiny::img(src   = "https://assets.bcdevexchange.org/images/badges/delivery.svg"), 
+            shiny::p("In production, but maybe in Alpha or Beta. Intended to persist and be supported.")),
+          shiny::span(
+            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/retired.svg"), 
+            shiny::p("No longer being used or supported, recommend not using an alternative option."))), 
+        choiceValues = c("inspiration", "exploration", "dormant", "delivery", "retired")),
+      shiny::p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
     )
   )
   
   server <- function(input, output, session) {
-    observeEvent(input$done, {
-      stopApp(input$stateRadio)
+    shiny::observeEvent(input$done, {
+      shiny::stopApp(input$stateRadio)
     })
-    observeEvent(input$cancel, {
-      stopApp(NULL)
+    shiny::observeEvent(input$cancel, {
+      shiny::stopApp(NULL)
     })
   }
   
