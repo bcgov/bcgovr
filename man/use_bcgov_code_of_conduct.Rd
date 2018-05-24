@@ -9,7 +9,7 @@ use_bcgov_code_of_conduct(coc_email = get_coc_email())
 \arguments{
 \item{coc_email}{Contact email address(es) for the Code of Conduct. It is
 recommended that you save this setting by adding a line like:
-\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to yor \code{.Rprofile}.
+\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to your \code{.Rprofile}.
 Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to find and edit this file.}
 }
 \value{
