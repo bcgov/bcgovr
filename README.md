@@ -200,7 +200,7 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 <br />
 
-Need to add a Project State Badge to your README file? Just click-click-click:
+Need to add a Project State Badge to your README file? Just click-click-click-click:
 
 ![](img/bcgovr_addin_badge.gif)
 
