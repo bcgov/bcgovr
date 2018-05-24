@@ -49,7 +49,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
     on.exit(usethis::proj_set(old_proj), add = TRUE)
   }
   
-  congrats("Setting up the ", basename(get_proj()), " project")
+  congrats("Setting up the ", basename(normalizePath(path, mustWork = FALSE)), " project")
   
   create_proj(path = path)
   
