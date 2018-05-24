@@ -114,7 +114,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
                                  coc_email = get_coc_email(),
                                  open = TRUE) {
   
-  package_name <- sub('.*\\/', '', basename(suppressWarnings(normalizePath(path))))
+  package_name <- sub('.*\\/', '', basename(normalizePath(path, mustWork = FALSE)))
   
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
