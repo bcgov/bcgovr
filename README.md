@@ -66,13 +66,46 @@ Usage
 
 <br />
 
-Create, populate and open a new, local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my_bcgov_analysis")` before running `create_bcgov_project()`. The template `bcgovr` folders and files and required bcgov GitHub files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
+Create, populate and open a new, local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my-new-project")` before running `create_bcgov_project()`. The template `bcgovr` folders and files and required bcgov GitHub files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
 
 ``` r
-create_bcgov_project(path = "C:\_dev\bcgovr_analysis", coc_email = "my.email@gov.bc.ca") 
+create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
 ```
 
+    C:/my-new-project
+    ├── 01_load.R
+    ├── 02_clean.R
+    ├── 03_analysis.R
+    ├── 04_output.R
+    ├── CODE_OF_CONDUCT.md
+    ├── CONTRIBUTING.md
+    ├── LICENSE
+    ├── R
+    ├── README.Rmd
+    ├── data
+    ├── my-new-project.Rproj
+    ├── out
+    └── run_all.R
+
 The `create_bcgov_package()` function is used the same way as `create_bcgov_project()` but will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is a very useful resource if you are looking to create R packages.
+
+``` r
+create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
+```
+
+    C:/mynewrpackage
+    ├── CODE_OF_CONDUCT.md
+    ├── CONTRIBUTING.md
+    ├── DESCRIPTION
+    ├── LICENSE
+    ├── NAMESPACE
+    ├── NEWS.md
+    ├── R
+    ├── README.Rmd
+    ├── man
+    ├── mynewrpackage.Rproj
+    └── vignettes
+        └── mynewrpackage.Rmd
 
 Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise git version control.
 
@@ -117,7 +150,7 @@ To add your project to bcgov GitHub with `use_bcgov_github()` users need to have
 Create a new local git repository with a project or repository cloned from bcgov GitHub using `create_from_bcgov_github()`. The `create_from_bcgov_github()` function also ensures the project has the required bcgov GitHub files. Type `?create_from_bcgov_github` in the R console for help.
 
 ``` r
-create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:\my_directory") 
+create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
 ```
 
 <br />
@@ -185,7 +218,7 @@ To make use of these options, there should be a section in your `.Rprofile` file
 ``` r
 if (interactive()) {
     options("bcgovr.coc.email" = "my.email@gov.bc.ca")
-    options("bcgvor.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
+    options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
             "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
 } 
 ```
