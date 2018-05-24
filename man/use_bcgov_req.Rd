@@ -13,7 +13,7 @@ with its corresponding markdown file? Default \code{FALSE}.}
 
 \item{coc_email}{Contact email address(es) for the Code of Conduct. It is
 recommended that you save this setting by adding a line like:
-\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to yor \code{.Rprofile}.
+\code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to your \code{.Rprofile}.
 Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to find and edit this file.}
 
 \item{licence}{Which licence to apply? Default is Apache 2.0 (\code{"apache2"}).

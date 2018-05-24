@@ -103,7 +103,7 @@ use_bcgov_contributing <- function() {
 #' 
 #' @param coc_email Contact email address(es) for the Code of Conduct. It is 
 #'     recommended that you save this setting by adding a line like: 
-#'     `options("bcgovr.coc.email" = "your.email@gov.bc.ca")` to yor `.Rprofile`.
+#'     `options("bcgovr.coc.email" = "your.email@gov.bc.ca")` to your `.Rprofile`.
 #'     Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to find and edit this file.
 #' @export
 #' @seealso [use_bcgov_readme()], [use_bcgov_licence()], [use_bcgov_contributing()]
