@@ -55,7 +55,7 @@ remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
-🎉 The authors of `bcgovr` acknowledge and thank [RStudio](https://www.rstudio.com/) and the authors of the [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) R package—`bcgovr` uses `usethis` *a lot*. And by a lot, we mean *every* `bcgovr` function uses `usethis` under the hood 🚘.
+🎉 The authors of `bcgovr` acknowledge and thank the authors of the [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) R package—`bcgovr` uses `usethis` *a lot*. And by a lot, we mean *every* `bcgovr` function uses `usethis` under the hood 🚘.
 
 Usage
 -----
@@ -66,7 +66,7 @@ Usage
 
 <br />
 
-Create and open or populate a local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my-new-project")` before running `create_bcgov_project()`. The template `bcgovr` folders and files and required bcgov GitHub files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
+Create and open—or populate—a local R project using `bcgovr::create_bcgov_project()`. Be sure to either specify your local directory using the `path` argument, or `setwd("C:/my-new-project")` before running `create_bcgov_project()`. The template `bcgovr` folders and files and required bcgov GitHub files will be created in the new directory. For using different project templates, see the [Options](#options) section below. Type `?create_bcgov_project` in the R console for help.
 
 ``` r
 create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
@@ -107,7 +107,9 @@ create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca"
     └── vignettes
         └── mynewrpackage.Rmd
 
-Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise git version control.
+Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise git version control.
+
+<img src="img/proj_template1.png" width="30%" /><img src="img/proj_template2.png" width="30%" /><img src="img/proj_template3.png" width="30%" />
 
 <br />
 
