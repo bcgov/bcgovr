@@ -169,6 +169,9 @@ use_bcgov_gitattributes <- function(){
   
 
 #' Add your project to bcgov GitHub
+#' 
+#' This function requires that your project already be a Git repository. Use 
+#' [use_bcgov_git()] to initialise a repository if necessary.
 #'
 #' @param organisation GitHub organisation where the repo will be hosted. 
 #'     One of `'bcgov'` (default), `'bcgov-c'`, or `NULL` to set up in your 
