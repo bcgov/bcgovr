@@ -6,7 +6,7 @@ Icon: bcgovr_logo_sm_sq.png
 
 Parameter: git_init
 Widget: CheckboxInput
-Label: Create git repository?
+Label: Create Git repository?
 Default: On
 Position: right
 

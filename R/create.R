@@ -148,7 +148,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
 
 #' Create a local repository from a bcgov GitHub repository
 #' 
-#' Creates a new local git repository cloned from a bcgov GitHub repository 
+#' Creates a new local Git repository cloned from a bcgov GitHub repository 
 #' 
 #' @param repo bcgov GitHub repo name specified like this: \code{bcgov/reponame}
 #' @param destdir The destination directory where the cloned project will be stored locally
@@ -180,7 +180,7 @@ create_from_bcgov_github <- function(repo,
 
   
   ## First try using git2r via usethis::create_from_github
-  ## If that fails with two specific errors then check if git is installed and use it directly
+  ## If that fails with two specific errors then check if Git is installed and use it directly
   ## via a system call
   tryCatch(usethis::create_from_github(repo = repo, destdir = destdir, protocol = protocol),
            error = function(e){

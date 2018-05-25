@@ -15,6 +15,6 @@
 
 is_git_installed <- function(){
   if(!nzchar(Sys.which("git"))){
-    stop("Please install git to use this function", call. = FALSE)
+    stop("Please install Git to use this function", call. = FALSE)
   }
 }

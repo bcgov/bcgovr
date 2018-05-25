@@ -179,7 +179,7 @@ use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca")
 
 <br />
 
-Create a new local git repository with a project or repository cloned from bcgov GitHub using `create_from_bcgov_github()`. The `create_from_bcgov_github()` function also ensures the project has the required bcgov GitHub files. Type `?create_from_bcgov_github` in the R console for help.
+Create a new local Git repository with a project or repository cloned from bcgov GitHub using `create_from_bcgov_github()`. The `create_from_bcgov_github()` function also ensures the project has the required bcgov GitHub files. Type `?create_from_bcgov_github` in the R console for help.
 
 ```{r, eval = FALSE}
 create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
