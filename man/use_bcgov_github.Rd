@@ -29,5 +29,6 @@ Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to fin
 \item{...}{Other arguments passed on to \code{\link[usethis:use_github]{usethis::use_github()}}}
 }
 \description{
-Add your project to bcgov GitHub
+This function requires that your project already be a Git repository. Use
+\code{\link[=use_bcgov_git]{use_bcgov_git()}} to initialise a repository if necessary.
 }

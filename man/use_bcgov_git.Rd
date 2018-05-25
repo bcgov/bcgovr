@@ -2,7 +2,7 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_git}
 \alias{use_bcgov_git}
-\title{Initialise a git repository, with bcgov GitHub requirements}
+\title{Initialise a Git repository, with bcgov GitHub requirements}
 \usage{
 use_bcgov_git(rmarkdown = TRUE, licence = "apache2",
   coc_email = get_coc_email(), message = "Initial commit")
@@ -22,5 +22,5 @@ Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to fin
 \item{message}{git commit message}
 }
 \description{
-Initialise a git repository, with bcgov GitHub requirements
+Initialise a Git repository, with bcgov GitHub requirements
 }

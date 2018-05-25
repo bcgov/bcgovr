@@ -16,7 +16,7 @@ create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 \item{...}{Other arguments passed on to \code{\link[usethis:create_from_github]{usethis::create_from_github()}}}
 }
 \description{
-Creates a new local git repository cloned from a bcgov GitHub repository
+Creates a new local Git repository cloned from a bcgov GitHub repository
 }
 \examples{
 \donttest{
