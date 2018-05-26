@@ -1,7 +1,7 @@
 # bcgovr 1.0.0 
 ### 🎉 NO FUNCTION LEFT STANDING 🎉
-* Redesigned under-the-hood of `bcgovr`, all functions now wrap a subset of [RStudio's](https://www.rstudio.com/) [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) 📦 functions with the addition of bcgov-specific defaults & requirements
-* Renamed **all** `bcgovr` functions, functions now start with verbs with easier look-up & auto-complete in RStudio
+* Redesigned under-the-hood of `bcgovr`, all functions now wrap a subset of [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) 📦 functions with the addition of bcgov-specific defaults & requirements
+* Renamed **all** `bcgovr` functions, functions now start with verbs with easier look-up & auto-complete when using RStudio
 * Added an RStudio Addin for inserting the boiler-plate Creative Commons Attribution 4.0 International License header
 
 # bcgovr 0.1.7
