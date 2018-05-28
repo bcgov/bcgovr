@@ -224,12 +224,9 @@ get_proj <- function() {
 create_proj <- function(path = ".") {
   if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
     usethis::create_project(path = path, open = FALSE)
-  } else if (normalizePath(path, mustWork = FALSE) != normalizePath(getwd())) {
+  } else {
     usethis::proj_set(path, force = TRUE)
   }
-  # TODO: test this out more, write tests for: setting up a project in a folder 
-  # that is not the current wd but already has some type of project infrastructure
-  # eg. a .git folder
   invisible(TRUE)
 }
 
