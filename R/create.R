@@ -45,7 +45,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
-  if (!is.null(old_proj)) {
+  if (!is.null(old_proj) && normalizePath(path) != normalizePath(getwd())) {
     on.exit(usethis::proj_set(old_proj), add = TRUE)
   }
   
@@ -118,7 +118,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
-  if (!is.null(old_proj)) {
+  if (!is.null(old_proj) && normalizePath(path) != normalizePath(getwd())) {
     on.exit(usethis::proj_set(old_proj), add = TRUE)
   }
   
