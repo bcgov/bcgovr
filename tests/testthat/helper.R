@@ -22,6 +22,12 @@ make_test_pkg <- function(rstudio = FALSE) {
   invisible(dir)
 }
 
+unique_temp_dir <- function(pattern) {
+  dir <- tempfile(pattern = pattern)
+  dir.create(file.path(dirname(dir), basename(dir)))
+  invisible(dir)
+}
+
 proj_file <- function(file) {
   proj <- usethis::proj_get()
   file.path(proj, file)
