@@ -28,7 +28,9 @@
 #' .Rprofile file so that every time you start a new project, your custom project structure is set up.
 #' The line in your \code{.Rprofile} file would look something like this: 
 #' \code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}
-#'
+#' @param rstudio If `TRUE`, calls [usethis::use_rstudio()] to make the new 
+#'  project into an RStudio Project. If `FALSE`, a `.here` file is created so 
+#'  that the directory can be recognized as a project by the `here` or `rprojroot` packages.
 #' @param open If TRUE and in RStudio, the new project is opened in a new instance, 
 #' if possible, or is switched to, otherwise.
 #' 
@@ -41,6 +43,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
                                  licence = "apache2",
                                  coc_email = get_coc_email(),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
+                                 rstudio = rstudioapi::isAvailable(),
                                  open = TRUE) {
   
   # If calling this from a current project, reset it on exit
@@ -51,7 +54,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   
   congrats("Setting up the ", basename(normalizePath(path, mustWork = FALSE)), " project")
   
-  create_proj(path = path)
+  create_proj(path = path, rstudio = rstudio)
   
   ## Add in bcgov repo requirements
   use_bcgov_req(licence = licence, rmarkdown = rmarkdown, coc_email = coc_email)
@@ -111,7 +114,8 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 #'  bcgovr::create_bcgov_package()
 #' }
 create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
-                                 coc_email = get_coc_email(),
+                                 coc_email = get_coc_email(), 
+                                 rstudio = rstudioapi::isAvailable(),
                                  open = TRUE) {
   
   package_name <- sub('.*\\/', '', basename(normalizePath(path, mustWork = FALSE)))
@@ -131,7 +135,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   )
   
   ## Add in package setup files
-  usethis::create_package(path = path, fields = bcgovr_desc, rstudio = TRUE, 
+  usethis::create_package(path = path, fields = bcgovr_desc, rstudio = rstudio, 
                           open = FALSE)
   
   ## Add individual elements via usethis
@@ -221,11 +225,12 @@ get_proj <- function() {
 #' Create a project if one doesn't exist
 #' @noRd
 
-create_proj <- function(path = ".") {
+create_proj <- function(path = ".", rstudio) {
   if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
-    usethis::create_project(path = path, open = FALSE)
+    usethis::create_project(path = path, open = FALSE, rstudio = rstudio)
   } else {
     usethis::proj_set(path, force = TRUE)
+    if (rstudio) usethis::use_rstudio()
   }
   invisible(TRUE)
 }

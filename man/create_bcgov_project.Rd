@@ -6,7 +6,7 @@
 \usage{
 create_bcgov_project(path = ".", rmarkdown = TRUE, licence = "apache2",
   coc_email = get_coc_email(), dir_struct = getOption("bcgovr.dir.struct",
-  default = NULL), open = TRUE)
+  default = NULL), rstudio = rstudioapi::isAvailable(), open = TRUE)
 }
 \arguments{
 \item{path}{Path to the directory in which to initialize the project.
@@ -33,6 +33,10 @@ This can also be set as an option \code{bcgovr.dir.struct}. You may want to set 
 .Rprofile file so that every time you start a new project, your custom project structure is set up.
 The line in your \code{.Rprofile} file would look something like this:
 \code{options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R", "src/03_analysis.r", "src/04_output.R", "src/run_all.R"))}}
+
+\item{rstudio}{If \code{TRUE}, calls \code{\link[usethis:use_rstudio]{usethis::use_rstudio()}} to make the new
+project into an RStudio Project. If \code{FALSE}, a \code{.here} file is created so
+that the directory can be recognized as a project by the \code{here} or \code{rprojroot} packages.}
 
 \item{open}{If TRUE and in RStudio, the new project is opened in a new instance,
 if possible, or is switched to, otherwise.}

@@ -5,7 +5,8 @@
 \title{Create a bcgov R package directory structure}
 \usage{
 create_bcgov_package(path = ".", rmarkdown = TRUE,
-  coc_email = get_coc_email(), open = TRUE)
+  coc_email = get_coc_email(), rstudio = rstudioapi::isAvailable(),
+  open = TRUE)
 }
 \arguments{
 \item{path}{Path to the directory in which to initialize the project.
@@ -18,6 +19,10 @@ with its corresponding markdown file? Default \code{TRUE}.}
 recommended that you save this setting by adding a line like:
 \code{options("bcgovr.coc.email" = "your.email@gov.bc.ca")} to your \code{.Rprofile}.
 Use \code{\link[usethis:edit]{usethis::edit_r_profile()}} for an easy way to find and edit this file.}
+
+\item{rstudio}{If \code{TRUE}, calls \code{\link[usethis:use_rstudio]{usethis::use_rstudio()}} to make the new
+project into an RStudio Project. If \code{FALSE}, a \code{.here} file is created so
+that the directory can be recognized as a project by the \code{here} or \code{rprojroot} packages.}
 
 \item{open}{If TRUE and in RStudio, the new project is opened in a new instance,
 if possible, or is switched to, otherwise.}
