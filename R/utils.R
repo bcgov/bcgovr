@@ -1,4 +1,4 @@
-# Copyright {YYYY} {COPYRIGHT_HOLDER}
+# Copyright 2018 Province of British Columbia
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -10,18 +10,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' bcgovr: A package for helping create project directories that meet BC Government GitHub requirements. 
-#'
-#' @section bcgovr functions:
-#' 
-#'   \itemize{ 
-#'   \item Functions for auto-populating a new R-based data 
-#'    analysis or package project directory
-#'   \item RStudio addins for adding the Apache 2.0 license header 
-#'   and BCDevExchange project state badges
-#'
-#' }
-#'
-#' @docType package
-#' @name bcgovr
-NULL
+
+#' @noRd
+
+is_git_installed <- function(){
+  if(!nzchar(Sys.which("git"))){
+    stop("Please install Git to use this function", call. = FALSE)
+  }
+}

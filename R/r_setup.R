@@ -1,8 +1,19 @@
-#' Set up R for use on a standard B.C. government Windows computer
+# Copyright 2018 Province of British Columbia
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+
+
+#' Set up R
 #'
-#' @seealso set_home set_cran_repo
-#' @export
-#' 
+#' @noRd 
 setup_r <- function() {
   set_home()
   set_cran_repo()
@@ -14,7 +25,7 @@ setup_r <- function() {
 #' `HOME` environment variable is either unset, or set to a location
 #' on a network drive. R doesn't work well with this setup, so this
 #' function checks what it is set to, and if it's not on the
-#' `C:/` drive, it sets it to the value of `%USERPROFILE%`, usually
+#' `C:/` drive, it sets it to the value of `USERPROFILE`, usually
 #' `C:/Users/[username]`.
 #'
 #' If you have a `.Rprofile` or `.Renviron` file in your existing `HOME`
@@ -28,7 +39,7 @@ setup_r <- function() {
 #' @seealso set_cran_repo
 #'
 #' @return the path to `HOME`, invisibly
-#' @export
+#' @noRd
 set_home <- function() {
   # Get existing HOME
   home_dir <- Sys.getenv("HOME")
@@ -87,7 +98,7 @@ set_home <- function() {
 #' @seealso set_home
 #'
 #' @return TRUE (invisibly)
-#' @export
+#' @noRd
 set_cran_repo <- function() {
   
   if (!win_env_is_good("HOME")) {

@@ -1,4 +1,4 @@
-# Copyright 2015 Province of British Columbia
+# Copyright 2018 Province of British Columbia
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -10,12 +10,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-write_gitignore <- function(..., path = ".") {
-  gitignew <- c(...)
-  if (file.exists(".gitignore")) {
-    gitignore <- readLines(".gitignore")
-    gitignew <- union(gitignore, gitignew)
-  }
-  cat(c(gitignew, "\n"), file = file.path(path, ".gitignore"), append = FALSE, sep = "\n")
-  invisible(TRUE)
-}
+#' @references
+#'
+#' bcgovr functions:
+#' 
+#'   \itemize{ 
+#'   \item Functions for automating the creation and set up of bcgov R  
+#'    projects and packages for bcgov GitHub
+#'   \item RStudio Addins for inserting licence headers
+#'   and BCDevExchange project state badges
+#'
+#' }
+#'
+#' @keywords internal
+"_PACKAGE"

@@ -1,11 +1,23 @@
-#' Add html for BC DevExchange project state badge
+# Copyright 2018 Province of British Columbia
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+
+#' Add html for inserting a BC DevExchange project state badge
 #'
-#' @param project_state one of:'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
-#' @param cat use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
+#' @param project_state One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
+#' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
 #'
 #' @return html
 #' @export
-devex_badge <- function(project_state, cat = TRUE) {
+insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
   project_state <- tolower(project_state)
   if (!project_state %in% c("inspiration", "exploration", "dormant", "delivery", "retired") || 
       length(project_state) != 1L) {
@@ -20,6 +32,7 @@ devex_badge <- function(project_state, cat = TRUE) {
   }
 }
 
+
 make_badge <- function(state) {
   title <- tools::toTitleCase(state)
   state_desc <- c(inspiration = "An idea being explored and shaped. Open for discussion, but may never go anywhere.", 
@@ -31,4 +44,17 @@ make_badge <- function(state) {
          '" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="', state_desc, 
          '" style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/', state, 
          '.svg" title="', state_desc, '" /></a>')
+}
+
+
+#' This function is deprecated, use the `insert_bcgov_devex_badge` function.
+#'
+#' @param project_state One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
+#' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
+#'
+#' @return html
+#' @export
+devex_badge <- function(project_state, cat = TRUE) {
+  .Deprecated("insert_bcgov_devex_badge")
+  insert_bcgov_devex_badge(project_state = project_state, cat = cat)
 }

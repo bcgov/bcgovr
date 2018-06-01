@@ -1,8 +1,7 @@
-Package: bcgovr
 Type: Package
-Title: BC Government R user start-up package
-Version: 0.1.7
-Date: 2017-12-08
+Package: bcgovr
+Title: Set up of bcgov R projects & packages
+Version: 1.0
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
@@ -10,19 +9,23 @@ Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     person("Sam", "Albers", role = "aut", 
     email = "sam.albers@gov.bc.ca"),
     person("Province of British Columbia", role = "cph"))
-Description: Create directories that contain all the files needed to meet BC Government GitHub requirements and sensible R analysis or package templates. 
-Depends:
-    R (>= 3.4.0),
-Imports:
-    usethis (>= 1.1.0),
-    crayon (>= 1.3.4),
+Description: The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements. 
+License: Apache License (== 2.0) | file LICENSE
+URL: https://github.com/bcgov/bcgovr
+BugReports: https://github.com/bcgov/bcgovr/issues
+Depends: 
+    R (>= 3.2.0)
+Imports: 
     clisymbols (>= 1.2.0),
+    crayon (>= 1.3.4),
     git2r (>= 0.15.0),
+    miniUI (>= 0.1),
     rstudioapi (>= 0.7.0),
     shiny (>= 1.0),
-    miniUI (>= 0.1)
-License: Apache License (== 2.0) | file LICENSE
+    usethis (>= 1.1.0)
+Suggests: 
+    testthat,
+    roxygen2
 LazyData: true
-Suggests:
-    testthat
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)

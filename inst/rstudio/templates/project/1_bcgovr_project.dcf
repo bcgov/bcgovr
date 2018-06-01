@@ -1,0 +1,30 @@
+Binding: create_project_addin
+Title: bcgovr Project
+Subtitle: Create a new R project with bcgov GitHub requirements
+Caption: bcgovr Project with bcgov GitHub
+Icon: bcgovr_logo_sm_sq.png
+
+Parameter: git_init
+Widget: CheckboxInput
+Label: Create Git repository?
+Default: On
+Position: right
+
+Parameter: coc_email
+Widget: TextInput
+Label: Contact email
+Position: right
+
+Parameter: licence
+Label: Licence
+Widget: SelectInput
+Fields: Apache 2.0, CC-BY 4.0
+Default: Apache 2.0
+Position: left
+
+Parameter: readme_type
+Label: README type
+Widget: SelectInput
+Fields: README.md, README.Rmd
+Default: README.md
+Position: left
