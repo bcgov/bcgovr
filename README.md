@@ -7,7 +7,7 @@
 
 <a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI
 Build
-Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
+Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 </div>
 
@@ -247,7 +247,7 @@ repository</strong></summary>
 
 <br />
 
-Create a new local git repository with a project or repository cloned
+Create a new local Git repository with a project or repository cloned
 from bcgov GitHub using `create_from_bcgov_github()`. The
 `create_from_bcgov_github()` function also ensures the project has the
 required bcgov GitHub files. Type `?create_from_bcgov_github` in the R
