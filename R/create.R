@@ -61,7 +61,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
-    dir_struct <- file.path(normalizePath(path), 
+    dir_struct <- file.path(normalizePath(path, mustWork = FALSE), 
                             c("out/", "data/", "01_load.R", "02_clean.R", 
                               "03_analysis.R", "04_output.R", "run_all.R"))
     default_str <- TRUE
