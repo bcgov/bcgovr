@@ -17,6 +17,7 @@ test_that("create_bcgov_project works with default path ('.')", {
 
   expect_true(file.exists(paste0(basename(dir), ".Rproj")))
   expect_true(all(file.exists(exp_proj_files)))
+  expect_true(all(file.info(c("data", "out"))$isdir))
 })
 
 test_that("create_bcgov_project works with different path", {
@@ -60,6 +61,7 @@ test_that("create_bcgov_package works with default path ('.')", {
   
   expect_true(file.exists(paste0(basename(dir), ".Rproj")))
   expect_true(all(file.exists(exp_pkg_files)))
+  expect_true(all(file.info(c("man", "R", "vignettes"))$isdir))
 })
 
 test_that("create_bcgov_package works with different path", {
