@@ -61,15 +61,13 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
-    dir_struct <- file.path(normalizePath(path, mustWork = FALSE), 
-                            c("out/", "data/", "01_load.R", "02_clean.R", 
-                              "03_analysis.R", "04_output.R", "run_all.R"))
+    dir_struct <- c("out/", "data/", "01_load.R", "02_clean.R","03_analysis.R", "04_output.R", "run_all.R")
     default_str <- TRUE
   } else {
     default_str <- FALSE
   }
-  dirs <- file.path(dir_struct[grepl("/$", dir_struct)])
-  files <- setdiff(file.path(dir_struct), dirs)
+  dirs <- file.path(normalizePath(path, mustWork = FALSE), dir_struct[grepl("/$", dir_struct)])
+  files <- setdiff(file.path(normalizePath(path, mustWork = FALSE), dir_struct), dirs)
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
