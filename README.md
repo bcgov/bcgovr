@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
 
-# bcgovr <img src="img/logo.png" align="right" />
+# bcgovr <img src="tools/readme/logo.png" align="right" />
 
 <div id="devex-badge">
 
@@ -111,8 +111,8 @@ library(bcgovr)
 ```
 
 🎉 The authors of `bcgovr` acknowledge and thank the authors of the
-[`usethis`](https://cran.r-project.org/web/packages/usethis/index.html)
-R package—`bcgovr` uses `usethis` *a lot*. And by a lot, we mean *every*
+[`usethis`](https://cran.r-project.org/package=usethis) R
+package—`bcgovr` uses `usethis` *a lot*. And by a lot, we mean *every*
 `bcgovr` function uses `usethis` under the hood 🚘.
 
 ## Usage
@@ -187,7 +187,7 @@ and individualise the required bcgov GitHub files and initialise Git
 version
 control.
 
-<img src="img/proj_template1.png" width="30%" /><img src="img/proj_template2.png" width="30%" /><img src="img/proj_template3.png" width="30%" />
+<img src="tools/readme/proj_template1.png" width="30%" /><img src="tools/readme/proj_template2.png" width="30%" /><img src="tools/readme/proj_template3.png" width="30%" />
 
 <br />
 
@@ -308,7 +308,7 @@ file</strong></summary>
 Need to add that Apache 2.0 or Creative Commons License header to a
 source file? Just click-click:
 
-![](img/bcgovr_addin_licence.gif)
+![](tools/readme/bcgovr_addin_licence.gif)
 
 You can also use `insert_bcgov_apache_header()` or
 `insert_bcgov_cc_header()`.
@@ -327,7 +327,7 @@ README file</strong></summary>
 Need to add a Project State Badge to your README file? Just
 click-click-click-click:
 
-![](img/bcgovr_addin_badge.gif)
+![](tools/readme/bcgovr_addin_badge.gif)
 
 You can also use `insert_bcgov_devex_badge("inspiration")`. Type
 `?insert_bcgov_devex_badge` in the R console for the list of badge

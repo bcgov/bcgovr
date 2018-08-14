@@ -10,12 +10,12 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "img/README-"
+  fig.path = "tools/readme/"
 )
 
 ```
 
-# bcgovr <img src="img/logo.png" align="right" />
+# bcgovr <img src="tools/readme/logo.png" align="right" />
 
 <div id="devex-badge"><a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)</div>
 
@@ -72,7 +72,7 @@ remotes::install_github("bcgov/bcgovr")
 library(bcgovr)
 ```
 
-`r emo::ji("tada")` The authors of `bcgovr` acknowledge and thank the authors of the [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) R package&mdash;`bcgovr` uses `usethis` _a lot_. And by a lot, we mean _every_ `bcgovr` function uses `usethis` under the hood `r emo::ji("oncoming_automobile")`.
+`r emo::ji("tada")` The authors of `bcgovr` acknowledge and thank the authors of the [`usethis`](https://cran.r-project.org/package=usethis) R package&mdash;`bcgovr` uses `usethis` _a lot_. And by a lot, we mean _every_ `bcgovr` function uses `usethis` under the hood `r emo::ji("oncoming_automobile")`.
 
 
 ## Usage
@@ -132,9 +132,9 @@ C:/mynewrpackage
 Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
 
 ```{r echo=FALSE, out.width = "30%"}
-knitr::include_graphics("img/proj_template1.png") 
-knitr::include_graphics("img/proj_template2.png") 
-knitr::include_graphics("img/proj_template3.png") 
+knitr::include_graphics("tools/readme/proj_template1.png") 
+knitr::include_graphics("tools/readme/proj_template2.png") 
+knitr::include_graphics("tools/readme/proj_template3.png") 
 ```
 
 <br />
@@ -224,7 +224,7 @@ use_bcgov_code_of_conduct(coc_email = "my.email@gov.bc.ca")
 
 Need to add that Apache 2.0 or Creative Commons License header to a source file? Just click-click:
 
-![](img/bcgovr_addin_licence.gif)
+![](tools/readme/bcgovr_addin_licence.gif)
 
 You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
@@ -240,7 +240,7 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 Need to add a Project State Badge to your README file? Just click-click-click-click:
 
-![](img/bcgovr_addin_badge.gif)
+![](tools/readme/bcgovr_addin_badge.gif)
 
 You can also use `insert_bcgov_devex_badge("inspiration")`. Type `?insert_bcgov_devex_badge` in the R console for the list of badge options and other help.
 
