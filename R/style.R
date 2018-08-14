@@ -11,9 +11,9 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 not_done <- function(...) {
-  usethis:::bullet(paste0(...), bullet = crayon::red(clisymbols::symbol$cross))
+  paste0(crayon::red(clisymbols::symbol$cross), " ", ...)
 }
 
 congrats <- function(...) {
-  usethis:::bullet(paste0(...), bullet = crayon::yellow(clisymbols::symbol$star))
+  paste0(crayon::yellow(clisymbols::symbol$star), " ", ...)
 }
