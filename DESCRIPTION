@@ -25,7 +25,8 @@ Imports:
     usethis (>= 1.1.0)
 Suggests: 
     testthat,
-    roxygen2
+    roxygen2,
+    rmarkdown
 LazyData: true
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
