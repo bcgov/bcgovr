@@ -214,7 +214,7 @@ create_from_bcgov_github <- function(repo,
 #' Get the path to the current project if it exists, otherwise return NULL
 #' @noRd
 get_proj <- function() {
-  if (usethis:::is_package() | usethis:::is_proj()) {
+  if (usethis:::is_package() | usethis:::possibly_in_proj()) {
     return(usethis::proj_get())
   } 
   NULL
@@ -224,7 +224,7 @@ get_proj <- function() {
 #' @noRd
 
 create_proj <- function(path = ".", rstudio) {
-  if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
+  if (!(usethis:::is_package(path) | usethis:::possibly_in_proj(path))) {
     usethis::create_project(path = path, open = FALSE, rstudio = rstudio)
   } else {
     usethis::proj_set(path, force = TRUE)
