@@ -261,16 +261,6 @@ coc_email argument. See ?use_bcgov_code_of_conduct", call. = FALSE))
 
 use_bcgov_template <- function(template, save_as = template, data = list(), 
                                ignore = FALSE, open = FALSE) {
-  tryCatch(
     usethis::use_template(template = template, save_as = save_as, data = data, 
-                          ignore = ignore, open = open, package = "bcgovr"), 
-    error = function(e) {
-      if (grepl("already exists", e$message)) {
-        not_done(e$message)
-      }
-      else {
-        stop(e)
-      }
-    }
-  )
+                          ignore = ignore, open = open, package = "bcgovr")
 }
