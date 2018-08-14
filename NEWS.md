@@ -1,3 +1,5 @@
+# bcgovr 1.0.1
+
 # bcgovr 1.0
 ### 🎉 NO FUNCTION LEFT STANDING 🎉
 * Redesigned under-the-hood of `bcgovr`, all functions now wrap a subset of [`usethis`](https://cran.r-project.org/web/packages/usethis/index.html) 📦 functions with the addition of bcgov-specific defaults & requirements
