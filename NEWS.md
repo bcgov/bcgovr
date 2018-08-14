@@ -1,7 +1,6 @@
 # bcgovr 1.0.1
 
-* Fixed bugs due to changes in `usethis` internal functions (#45)
-* 
+* Fixed bugs due to changes in `usethis` internal functions (#45, #46)
 
 # bcgovr 1.0
 ### 🎉 NO FUNCTION LEFT STANDING 🎉
