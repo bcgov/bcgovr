@@ -90,8 +90,7 @@ Addins](https://rstudio.github.io/rstudioaddins/):
 ## Installation
 
 You can install `bcgovr` directly from this GitHub repository. To do so,
-you will need the
-[remotes](https://cran.r-project.org/web/packages/remotes/index.html)
+you will need the [remotes](https://cran.r-project.org/package=remotes)
 package:
 
 ``` r
