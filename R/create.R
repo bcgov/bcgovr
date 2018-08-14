@@ -133,8 +133,8 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   )
   
   ## Add in package setup files
-  usethis::create_package(path = path, fields = bcgovr_desc, rstudio = rstudio, 
-                          open = FALSE)
+  usethis::create_package(path = normalizePath(path), fields = bcgovr_desc, 
+                          rstudio = rstudio, open = FALSE)
   
   ## Add individual elements via usethis
   usethis::use_news_md(open = FALSE)
