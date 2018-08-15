@@ -77,8 +77,8 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   }
   
   ## Add the necessary R files and directories
-  usethis:::done("Creating new project")
-  usethis:::done("Populating with directory structure")
+  done("Creating new project")
+  done("Populating with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
   # Insert appropriate licence header into source files
@@ -198,7 +198,7 @@ create_from_bcgov_github <- function(repo,
                
                is_git_installed()
                repo_clone_cmd <- paste0("git clone -q https://github.com/",repo, " ", local_repo_path)
-               usethis:::done("Using system call to git")
+               done("Using system call to git")
                system(repo_clone_cmd)
                usethis::proj_set(local_repo_path, force = TRUE)
              } else {
