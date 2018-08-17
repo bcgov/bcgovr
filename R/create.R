@@ -77,8 +77,8 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   }
   
   ## Add the necessary R files and directories
-  usethis:::done("Creating new project")
-  usethis:::done("Populating with directory structure")
+  done("Creating new project")
+  done("Populating with directory structure")
   lapply(c(dirs, filedirs), dir.create, recursive = TRUE, showWarnings = FALSE)
   lapply(files, file.create)
   # Insert appropriate licence header into source files
@@ -133,8 +133,8 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   )
   
   ## Add in package setup files
-  usethis::create_package(path = path, fields = bcgovr_desc, rstudio = rstudio, 
-                          open = FALSE)
+  usethis::create_package(path = normalizePath(path), fields = bcgovr_desc, 
+                          rstudio = rstudio, open = FALSE)
   
   ## Add individual elements via usethis
   usethis::use_news_md(open = FALSE)
@@ -198,7 +198,7 @@ create_from_bcgov_github <- function(repo,
                
                is_git_installed()
                repo_clone_cmd <- paste0("git clone -q https://github.com/",repo, " ", local_repo_path)
-               usethis:::done("Using system call to git")
+               done("Using system call to git")
                system(repo_clone_cmd)
                usethis::proj_set(local_repo_path, force = TRUE)
              } else {
@@ -214,7 +214,7 @@ create_from_bcgov_github <- function(repo,
 #' Get the path to the current project if it exists, otherwise return NULL
 #' @noRd
 get_proj <- function() {
-  if (usethis:::is_package() | usethis:::is_proj()) {
+  if (usethis:::is_package() || usethis:::possibly_in_proj(".")) {
     return(usethis::proj_get())
   } 
   NULL
@@ -222,9 +222,8 @@ get_proj <- function() {
 
 #' Create a project if one doesn't exist
 #' @noRd
-
 create_proj <- function(path = ".", rstudio) {
-  if (!(usethis:::is_package(path) | usethis:::is_proj(path))) {
+  if (!(usethis:::is_package(path) || usethis:::possibly_in_proj(path))) {
     usethis::create_project(path = path, open = FALSE, rstudio = rstudio)
   } else {
     usethis::proj_set(path, force = TRUE)

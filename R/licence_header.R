@@ -22,7 +22,8 @@ insert_bcgov_apache_header <- function(file, year = format(Sys.Date(), "%Y")) {
   licence_text <- make_licence_header_text(year, "apache")
   
   write_licence_header(licence_text, file)
-  usethis:::done("Adding Apache boilerplate header to the top of ", usethis:::value(file))
+  done("Adding Apache boilerplate header to the top of ", 
+       colour_string(file))
   
   invisible(TRUE)
 }
@@ -39,7 +40,8 @@ insert_bcgov_cc_header <- function(file, year = format(Sys.Date(), "%Y")) {
   licence_text <- make_licence_header_text(year, "cc-by")
   
   write_licence_header(licence_text, file)
-  usethis:::done("Adding CC-BY 4.0 boilerplate header to the top of ", usethis:::value(file))
+  done("Adding CC-BY 4.0 boilerplate header to the top of ", 
+       colour_string(file))
   
   invisible(TRUE)
 }

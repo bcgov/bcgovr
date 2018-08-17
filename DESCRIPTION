@@ -1,7 +1,7 @@
 Type: Package
 Package: bcgovr
-Title: Set up of bcgov R projects & packages
-Version: 1.0
+Title: Set Up of 'bcgov' R Projects & Packages
+Version: 1.0.1
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 
@@ -25,7 +25,9 @@ Imports:
     usethis (>= 1.1.0)
 Suggests: 
     testthat,
-    roxygen2
+    roxygen2,
+    rmarkdown
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8

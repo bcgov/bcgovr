@@ -44,7 +44,7 @@ set_home <- function() {
   # Get existing HOME
   home_dir <- Sys.getenv("HOME")
   if (win_env_is_good("HOME")) {
-    usethis:::done("HOME env variable already set appropriately")
+    done("HOME env variable already set appropriately")
     return(invisible(home_dir))
   }
   
@@ -62,17 +62,18 @@ set_home <- function() {
   # Check and make sure it worked
   home_dir <- Sys.getenv("HOME")
   if (result > 0L || home_dir != user_profile_dir) stop("HOME not set")
-  usethis:::done("HOME env variable set to ", usethis:::value(home_dir))
+  done("HOME env variable set to ", 
+       colour_string(home_dir))
   
   # Copy any existing .Renviron or .Rprofile files over to new HOME
   if (file.exists(renviron_file)) {
     file.copy(renviron_file, home_dir)
-    usethis:::done("Copied existing .Renviron to new HOME directory")
+    done("Copied existing .Renviron to new HOME directory")
   }
   
   if (file.exists(rprofile_file)) {
     file.copy(rprofile_file, home_dir)
-    usethis:::done("Copied existing .Rprofile to new HOME directory")
+    done("Copied existing .Rprofile to new HOME directory")
   }
   
   # If there isn't a library set already, set .libPaths in
@@ -120,7 +121,8 @@ set_cran_repo <- function() {
   # Set CRAN repo in current session too so user doesn't have to restart
   eval(parse(text = set_repo_text))
   
-  usethis:::done("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", usethis:::value(rprofile_file))
+  done("Setting default CRAN repository to \"https://cran.rstudio.com\" in ", 
+       colour_string(rprofile_file))
   invisible(TRUE)
 }
 
@@ -134,7 +136,8 @@ win_env_is_good <- function(env_var = "HOME") {
 set_session_lib_path <- function() {
   path <- make_new_libpath()
   .libPaths(new = path)
-  usethis:::done("Setting library location to ", usethis:::value(path))
+  done("Setting library location to ", 
+       colour_string(path))
 }
 
 #' @noRd
@@ -143,7 +146,8 @@ copy_packages <- function() {
   oldpath <- gsub("/bcgovr$", "", find.package("bcgovr"))
   newpath <-  make_new_libpath()
   packages <- list.dirs(oldpath, full.names = TRUE, recursive = FALSE)
-  usethis:::done("Copying installed packages to new library location at ", usethis:::value(newpath))
+  done("Copying installed packages to new library location at ", 
+       colour_string(newpath))
   file.copy(packages, newpath, recursive = TRUE)
 }
 

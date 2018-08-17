@@ -1,4 +1,4 @@
-if (!usethis:::is_proj()) {
+if (!usethis:::possibly_in_proj()) {
   file.create(".here")
   tmp_here <- TRUE
 } else {
