@@ -4,7 +4,7 @@
 \name{bcgovr-package}
 \alias{bcgovr}
 \alias{bcgovr-package}
-\title{bcgovr: Set up of bcgov R projects & packages}
+\title{bcgovr: Set Up of 'bcgov' R Projects & Packages}
 \description{
 The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements.
 }

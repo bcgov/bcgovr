@@ -1,3 +1,7 @@
+# bcgovr 1.0.2
+
+* Bump minimum usethis and git2r version
+
 # bcgovr 1.0.1
 
 * Fixed bugs due to changes in `usethis` internal functions (#45, #46)
