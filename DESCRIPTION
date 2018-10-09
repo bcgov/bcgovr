@@ -1,7 +1,7 @@
 Type: Package
 Package: bcgovr
 Title: Set Up of 'bcgov' R Projects & Packages
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: c(person("Andy", "Teucher", role = c("aut", "cre"), email =
     "andy.teucher@gov.bc.ca"), 
     person("Stephanie", "Hazlitt", role = "aut", 

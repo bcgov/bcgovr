@@ -1,5 +1,10 @@
 # bcgovr 1.0.2
 
+* Fixed a bug where if a user supplied `""` to the `dir_struct` argument 
+of `create_bcgov_project()` it would throw an error.
+
+# bcgovr 1.0.2
+
 * Bump minimum usethis and git2r version
 
 # bcgovr 1.0.1
