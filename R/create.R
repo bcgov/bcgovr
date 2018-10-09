@@ -46,13 +46,14 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
                                  rstudio = rstudioapi::isAvailable(),
                                  open = TRUE) {
   
+  path_norm <- normalizePath(path, mustWork = FALSE)
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
-  if (!is.null(old_proj) && normalizePath(path) != normalizePath(getwd())) {
+  if (!is.null(old_proj) && path_norm != normalizePath(getwd())) {
     on.exit(usethis::proj_set(old_proj), add = TRUE)
   }
   
-  congrats("Setting up the ", basename(normalizePath(path, mustWork = FALSE)), " project")
+  congrats("Setting up the ", basename(path_norm), " project")
   
   create_proj(path = path, rstudio = rstudio)
   
@@ -65,9 +66,11 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
     default_str <- TRUE
   } else {
     default_str <- FALSE
+  # Catch the case when dir_struct == ""
+    if (!nzchar(dir_struct)) dir_struct <- character(0)
   }
-  dirs <- file.path(normalizePath(path, mustWork = FALSE), dir_struct[grepl("/$", dir_struct)])
-  files <- setdiff(file.path(normalizePath(path, mustWork = FALSE), dir_struct), dirs)
+  dirs <- file.path(path_norm, dir_struct[grepl("/$", dir_struct)])
+  files <- setdiff(file.path(path_norm, dir_struct), dirs)
   filedirs <- dirname(files)
   
   if (any(file.exists(files, dirs))) { ## file.exists is case-insensitive
@@ -89,7 +92,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 
   if (default_str) {
     cat('source("01_load.R")\nsource("02_clean.R")\nsource("03_analysis.R")\nsource("04_output.R")\n', 
-        file = file.path(normalizePath(path), "run_all.R"))
+        file = file.path(path_norm, "run_all.R"))
   }
   
   if (open) open_project(path)
@@ -116,11 +119,13 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
                                  rstudio = rstudioapi::isAvailable(),
                                  open = TRUE) {
   
-  package_name <- sub('.*\\/', '', basename(normalizePath(path, mustWork = FALSE)))
+  path_norm <- normalizePath(path, mustWork = FALSE)
+  
+  package_name <- sub('.*\\/', '', basename(path_norm))
   
   # If calling this from a current project, reset it on exit
   old_proj <- get_proj()
-  if (!is.null(old_proj) && normalizePath(path) != normalizePath(getwd())) {
+  if (!is.null(old_proj) && path_norm != normalizePath(getwd())) {
     on.exit(usethis::proj_set(old_proj), add = TRUE)
   }
   
@@ -133,7 +138,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   )
   
   ## Add in package setup files
-  usethis::create_package(path = normalizePath(path), fields = bcgovr_desc, 
+  usethis::create_package(path = path_norm, fields = bcgovr_desc, 
                           rstudio = rstudio, open = FALSE)
   
   ## Add individual elements via usethis

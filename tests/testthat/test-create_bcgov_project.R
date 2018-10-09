@@ -96,6 +96,16 @@ test_that("create_bcgov_package works with different path that already had proje
   expect_true(all(file.exists(file.path(dir, exp_pkg_files))))
 })
 
+test_that("create_bcgov_project works with empty dir_struct", {
+  setwd("~")
+  dir <- unique_temp_dir(pattern = "create_foo")
+  ret <- capture.output(create_bcgov_project(dir, coc_email = "me@gov.bc.ca", 
+                                             dir_struct = "",
+                                             rstudio = TRUE, open = FALSE))
+  
+  expect_true(file.exists(file.path(dir, paste0(basename(dir), ".Rproj"))))
+})
+
 
 # test_that("create_bcgov_project works with relative path and git init", {
 #   base_dir <- increment_foo()
