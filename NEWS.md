@@ -1,4 +1,4 @@
-# bcgovr 1.0.2
+# bcgovr 1.0.3
 
 * Fixed a bug where if a user supplied `""` to the `dir_struct` argument 
 of `create_bcgov_project()` it would throw an error.
