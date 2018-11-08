@@ -231,6 +231,18 @@ use_bcgov_git <- function(rmarkdown = TRUE,
   usethis::use_git(message)
 }
 
+#' Create a pkgdown site for your bcgov package, with bcgov styling
+#'
+#' @export
+use_bcgov_pkgdown <- function() {
+  usethis:::check_is_package("use_bcgov_pkgdown()")
+  usethis::use_directory("pkgdown")
+  usethis::use_build_ignore("pkgdown")
+  usethis::use_directory("docs", ignore = TRUE)
+  use_bcgov_template("pkgdown-extra.css", save_as = "pkgdown/extra.css")
+  usethis::edit_file("pkgdown/_pkgdown.yml")
+}
+
 check_git_committer_address <- function() {
   repo <- if (!is.null(git2r::discover_repository(usethis::proj_get()))) {
     git2r::repository(usethis::proj_get())
