@@ -61,9 +61,9 @@ The easiest way to set this up is to use the `use_bcgov_git()` to set up Git for
 Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
 
 ```{r echo=FALSE, out.width = "30%"}
-knitr::include_graphics("man/figures/proj_template1.png") 
-knitr::include_graphics("man/figures/proj_template2.png") 
-knitr::include_graphics("man/figures/proj_template3.png") 
+knitr::include_graphics("../man/figures/proj_template1.png") 
+knitr::include_graphics("../man/figures/proj_template2.png") 
+knitr::include_graphics("../man/figures/proj_template3.png") 
 ```
 
 ## pkgdown site
