@@ -58,14 +58,44 @@ you. If you are unfamiliar with Git and GitHub see the [B.C. Policy Framework fo
 
 The easiest way to set this up is to use the `use_bcgov_git()` to set up Git for your project, then use the `use_bcgov_github()` function to upload it to GitHub.
 
-Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
+Users can also use the *Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
 
 ```{r echo=FALSE, out.width = "30%"}
 knitr::include_graphics("../man/figures/proj_template1.png") 
-knitr::include_graphics("../man/figures/proj_template2.png") 
-knitr::include_graphics("../man/figures/proj_template3.png") 
+knitr::include_graphics("../man/figures/pkg_template2.png") 
+knitr::include_graphics("../man/figures/pkg_template3.png") 
 ```
 
-## pkgdown site
+## pkgdown (`use_bcgov_pkgdown()`)
 
-Once your package is ready for users, it is a good idea to create a [pkgdown](https://pkgdown.r-lib.org/) site to hold the documentation and vignettes.
+Once your package is ready for users, it is a good idea to create a
+[pkgdown](https://pkgdown.r-lib.org/) site to host the documentation and 
+vignettes in a user-accessible place.
+
+You can set it up by running `use_bcgov_pkgdown()`. This creates a `pkgdown/` 
+directory with a `_pkgdown.yml` file for you to customize your site, and an 
+`extra.css` file which styles your site with the bcgov colour scheme. It also adds a `docs/` folder for you, and adds all these files to `.Rbuildignore`.
+
+You can run `pkgdown::build_site()` to see what the default site (with bcgov 
+styles) will look like. If you want to customize it, comprehensive documentation 
+can be found in the [pkgdown "Getting Started" vignette](https://pkgdown.r-lib.org/articles/pkgdown.html).
+
+`pkgdown::build_site()` builds a site out of your README file, your function 
+documentation, and any vignettes that you might have (they are encouraged). The 
+site is built and stored in the `docs/` folder. When you push to GitHub, the
+site will be available at https://bcgov.github.io/yourpackagename.
+
+### Images
+
+To ensure that any images used or created in your README, function documentation, 
+or vignettes show up in your `pkgdown` site, they should be stored in a 
+directory called `man/figures`. This also means setting 
+`knitr::opts_chunk$set(fig.path = "man/figures/")` in a setup chunk in your 
+`README.Rmd` (already done for you if you used `bcgovr::create_bcgov_package()` 
+or `bcgovr::use_bcgov_readme_rmd()` to set things up).
+
+```{r}
+plot(cyl ~ mpg, data = mtcars)
+```
+
+
