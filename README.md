@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
 
-# bcgovr <img src="tools/readme/logo.png" align="right" />
+# bcgovr <img src="man/figures/logo.png" align="right" />
 
 <a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI
 Build
@@ -182,7 +182,7 @@ and individualise the required bcgov GitHub files and initialise Git
 version
 control.
 
-<img src="tools/readme/proj_template1.png" width="30%" /><img src="tools/readme/proj_template2.png" width="30%" /><img src="tools/readme/proj_template3.png" width="30%" />
+<img src="man/figures/proj_template1.png" width="30%" /><img src="man/figures/proj_template2.png" width="30%" /><img src="man/figures/proj_template3.png" width="30%" />
 
 <br />
 
@@ -303,7 +303,7 @@ file</strong></summary>
 Need to add that Apache 2.0 or Creative Commons License header to a
 source file? Just click-click:
 
-![](tools/readme/bcgovr_addin_licence.gif)
+![](man/figures/bcgovr_addin_licence.gif)
 
 You can also use `insert_bcgov_apache_header()` or
 `insert_bcgov_cc_header()`.
@@ -322,7 +322,7 @@ README file</strong></summary>
 Need to add a Project State Badge to your README file? Just
 click-click-click-click:
 
-![](tools/readme/bcgovr_addin_badge.gif)
+![](man/figures/bcgovr_addin_badge.gif)
 
 You can also use `insert_bcgov_devex_badge("inspiration")`. Type
 `?insert_bcgov_devex_badge` in the R console for the list of badge
