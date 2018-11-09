@@ -227,11 +227,12 @@ use_bcgov_git <- function(rmarkdown = TRUE,
                           message = "Initial commit") {
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
-  check_git_committer_address()
+  check_git_committer_address(action = if (interactive()) "ask" else "warning")
   usethis::use_git(message)
 }
 
-check_git_committer_address <- function() {
+check_git_committer_address <- function(action = c("warning", "stop", "ask")) {
+  action <- match.arg(action)
   repo <- if (!is.null(git2r::discover_repository(usethis::proj_get()))) {
     git2r::repository(usethis::proj_get())
   } else {
@@ -240,16 +241,29 @@ check_git_committer_address <- function() {
   
   config <- git2r::config(repo = repo)
   local_email <- config$local$user.email
+  global_email <- config$global$user.email
   gov_pattern <- "gov\\.bc\\.ca$"
-  if (!is.null(local_email)) {
-    if (!grepl(gov_pattern, local_email)) 
-      warning("You have a non-bcgov email address set as your user.email for this repository.")
-  } else if (!grepl(gov_pattern, config$global$user.email)) {
-    warning("You have a non-bcgov email address set as your global user.email.
-    Either change it or set it locally for this repository (if you are a bcgov employee).")
-  }
-  invisible(TRUE)
   
+  if (isTRUE(grepl(gov_pattern, local_email)) || # First check for gov local email
+      # then check for gov global email IIF local is not set
+      (is.null(local_email) && grepl(gov_pattern, global_email))) {
+    return(invisible(TRUE))
+  }
+  
+  msg <- "You have a non-bcgov email address set as your user.email for this repository."
+  
+  if (action == "ask") {
+    ans <- utils::askYesNo(
+      paste0(msg, "\nWould you like to continue with your non-gov email address?")
+      )
+    if (!isTRUE(ans)) {
+      stop("Please change your git email address and try again.", call. = FALSE)
+    }
+    message("Proceeding with non-bcgov email address")
+  } else {
+    do.call(action, list(msg, call. = FALSE))
+  }
+  invisible(FALSE)
 }
 
 get_coc_email <- function() {
