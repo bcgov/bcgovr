@@ -1,0 +1,71 @@
+---
+title: "Making a package using bcgovr"
+author: "Andy Teucher"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Making a package using bcgovr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Getting Started
+
+Using bcgovr will help you to start a bcgov R package with all the necessary components.
+
+The `create_bcgov_package()` function will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is a very useful resource if you are looking to create R packages.
+
+You will need to supply the path to the folder where your new package is going to 
+be to the `path` argument. The final element in the `path` will be the name of the 
+package, so choose wisely. If you have already created the folder and are in that
+working directory, you can leave `path = "."` (the default).
+
+You should also supply your email address to the `coc_email` argument. This is the 
+contact email should anyone feel that the Code of Conduct has been violated.
+
+```{r, eval = FALSE}
+create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
+```
+
+```
+C:/mynewrpackage
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── DESCRIPTION
+├── LICENSE
+├── NAMESPACE
+├── NEWS.md
+├── R
+├── README.Rmd
+├── man
+├── mynewrpackage.Rproj
+└── vignettes
+    └── mynewrpackage.Rmd
+```
+
+## Using Version Control and GitHub
+
+Once you have set up the package structure, you will probably want to set up Git 
+and GitHub so you can share your package and invite contributors to work on it with
+you. If you are unfamiliar with Git and GitHub see the [B.C. Policy Framework for GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+
+The easiest way to set this up is to use the `use_bcgov_git()` to set up Git for your project, then use the `use_bcgov_github()` function to upload it to GitHub.
+
+Users can also use the *bcgovr Project & Package* templates in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
+
+```{r echo=FALSE, out.width = "30%"}
+knitr::include_graphics("man/figures/proj_template1.png") 
+knitr::include_graphics("man/figures/proj_template2.png") 
+knitr::include_graphics("man/figures/proj_template3.png") 
+```
+
+## pkgdown site
+
+Once your package is ready for users, it is a good idea to create a [pkgdown](https://pkgdown.r-lib.org/) site to hold the documentation and vignettes.
