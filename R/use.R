@@ -252,7 +252,7 @@ use_bcgov_pkgdown <- function() {
   use_bcgov_template("pkgdown-extra.css", save_as = "pkgdown/extra.css")
   usethis::edit_file("pkgdown/_pkgdown.yml")
   congrats("Edit pkgdown/_pkgdown.yml and then run pkgdown::build_site() to create your site.")
-  if (!requireNamespace("pkgdown", quietly = TRUE)) {
+  if (!"pkgdown" %in% installed.packages()[, "Package"]) {
     not_done("You don't appear to have pkgdown installed. Install it with install.packages(\"pkgdown\")")
   }
 }
