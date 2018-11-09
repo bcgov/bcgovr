@@ -7,5 +7,14 @@
 use_bcgov_pkgdown()
 }
 \description{
-Create a pkgdown site for your bcgov package, with bcgov styling
+\href{https://usethis.r-lib.org}{pkgdown} makes it easy to turn your package into
+a beautiful website. For an example, see https://bcgov.github.io/bcmaps.
+}
+\details{
+This helper creates a \code{pkgdown/} directory with a \code{_pkgdown.yml} file for you
+to customize your site, and an \code{extra.css} file which styles your site with
+the bcgov colour scheme.
+
+It also adds a \code{docs/} folder for you, and adds all these files to
+\code{.Rbuildignore}.
 }

@@ -232,6 +232,16 @@ use_bcgov_git <- function(rmarkdown = TRUE,
 }
 
 #' Create a pkgdown site for your bcgov package, with bcgov styling
+#' 
+#' [pkgdown](https://usethis.r-lib.org) makes it easy to turn your package into 
+#' a beautiful website. For an example, see https://bcgov.github.io/bcmaps.
+#' 
+#' This helper creates a `pkgdown/` directory with a `_pkgdown.yml` file for you 
+#' to customize your site, and an `extra.css` file which styles your site with 
+#' the bcgov colour scheme.
+#' 
+#' It also adds a `docs/` folder for you, and adds all these files to 
+#' `.Rbuildignore`.
 #'
 #' @export
 use_bcgov_pkgdown <- function() {
@@ -241,6 +251,10 @@ use_bcgov_pkgdown <- function() {
   usethis::use_directory("docs", ignore = TRUE)
   use_bcgov_template("pkgdown-extra.css", save_as = "pkgdown/extra.css")
   usethis::edit_file("pkgdown/_pkgdown.yml")
+  congrats("Edit pkgdown/_pkgdown.yml and then run pkgdown::build_site() to create your site.")
+  if (!requireNamespace("pkgdown", quietly = TRUE)) {
+    not_done("You don't appear to have pkgdown installed. Install it with install.packages(\"pkgdown\")")
+  }
 }
 
 check_git_committer_address <- function() {
