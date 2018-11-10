@@ -31,7 +31,7 @@ if possible, or is switched to, otherwise.}
 Create a package directory structure for a new bcgov R package in your current working directory.
 }
 \examples{
-\donttest{
+\dontrun{
  bcgovr::create_bcgov_package()
 }
 }
