@@ -18,13 +18,11 @@ knitr::opts_chunk$set(
 
 ## Getting Started
 
-Using bcgovr will help you to start a bcgov R package with all the necessary components.
+Using bcgovr will help you to create a bcgov R package with all the necessary technical R components and populate your repository with all the required elements of [BC government GitHub repository](https://github.com/bcgov/BC-Policy-Framework-For-GitHub). Appropriate approvals is the responsibility of the developer and bcgovr assumes you are following BC Government policy on the use of GitHub. 
 
-The `create_bcgov_package()` function will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is a very useful resource if you are looking to create R packages.
+The `create_bcgov_package()` function will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is a very useful resource if you are looking to create R packages. If you are new to writing R packages this is the place to start. [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is the authoritative manual for R packages and is a useful place to search cases not covered by the R packages book. 
 
-You will need to supply the path to the folder where your new package is going to 
-be to the `path` argument. The final element in the `path` will be the name of the 
-package, so choose wisely. If you have already created the folder and are in that
+You will need give the `path` argument a character string that specifies where your new package is going to be on your computer. This path should be local to your computer and not a network path. The final element in the `path` will be the name of the package, so choose wisely. If you have already created the folder and are in that
 working directory, you can leave `path = "."` (the default).
 
 You should also supply your email address to the `coc_email` argument. This is the 
@@ -54,9 +52,9 @@ C:/mynewrpackage
 
 Once you have set up the package structure, you will probably want to set up Git 
 and GitHub so you can share your package and invite contributors to work on it with
-you. If you are unfamiliar with Git and GitHub see the [B.C. Policy Framework for GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md).
+you. If you are unfamiliar with Git and GitHub see the [B.C. Policy Framework for GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) and [Happy Git with R](http://happygitwithr.com/).
 
-The easiest way to set this up is to use the `use_bcgov_git()` to set up Git for your project, then use the `use_bcgov_github()` function to upload it to GitHub.
+The easiest way to get your package under version control with git is to use the `use_bcgov_git()`. Take a moment here to make sure you are not about to share any sensitive information and that you have permission to share this code. Once you are satisfied sharing your code on GitHub is then as easy as using the `use_bcgov_github()` function which will create a repository on GitHub and upload your code to GitHub. 
 
 Users can also use the *Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
 
