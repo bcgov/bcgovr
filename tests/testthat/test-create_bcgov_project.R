@@ -5,7 +5,7 @@ exp_proj_files <- c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R",
                     "LICENSE", "out", "README.Rmd", "run_all.R")
 
 exp_pkg_files <- c("CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "DESCRIPTION", 
-                   "LICENSE", "man", "NAMESPACE", "NEWS.md", "R", "README.Rmd", 
+                   "LICENSE", "NAMESPACE", "NEWS.md", "R", "README.Rmd", 
                    "vignettes")
  
  
@@ -61,7 +61,7 @@ test_that("create_bcgov_package works with default path ('.')", {
   
   expect_true(file.exists(paste0(basename(dir), ".Rproj")))
   expect_true(all(file.exists(exp_pkg_files)))
-  expect_true(all(file.info(c("man", "R", "vignettes"))$isdir))
+  expect_true(all(file.info(c("R", "vignettes"))$isdir))
 })
 
 test_that("create_bcgov_package works with different path", {
