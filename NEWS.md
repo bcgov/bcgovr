@@ -1,3 +1,7 @@
+# bcgovr 1.0.4
+
+* fixed several bugs introduced by changes in `usethis`; predominately around project switching/activation.
+
 # bcgovr 1.0.3
 
 * Fixed a bug where if a user supplied `""` to the `dir_struct` argument 
