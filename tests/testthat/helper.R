@@ -12,6 +12,7 @@ make_test_proj <- function(rstudio = FALSE) {
   dir <- tempfile(pattern = "foo")
   
   capture.output(usethis::create_project(dir, rstudio = rstudio, open = FALSE))
+  usethis::proj_set(dir, force = TRUE)
   invisible(dir)
 }
 
@@ -19,6 +20,7 @@ make_test_pkg <- function(rstudio = FALSE) {
   dir <- tempfile(pattern = "foo")
   
   capture.output(usethis::create_package(dir, rstudio = rstudio, open = FALSE))
+  usethis::proj_set(dir, force = TRUE)
   invisible(dir)
 }
 
