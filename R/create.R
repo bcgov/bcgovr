@@ -140,6 +140,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
   ## Add in package setup files
   usethis::create_package(path = path_norm, fields = bcgovr_desc, 
                           rstudio = rstudio, open = FALSE)
+  usethis::proj_set(path_norm, force = TRUE)
   
   ## Add individual elements via usethis
   usethis::use_news_md(open = FALSE)
@@ -230,10 +231,9 @@ get_proj <- function() {
 create_proj <- function(path = ".", rstudio) {
   if (!(usethis:::is_package(path) || usethis:::possibly_in_proj(path))) {
     usethis::create_project(path = path, open = FALSE, rstudio = rstudio)
-  } else {
-    usethis::proj_set(path, force = TRUE)
-    if (rstudio) usethis::use_rstudio()
   }
+  usethis::proj_set(path, force = TRUE)
+  if (rstudio) usethis::use_rstudio()
   invisible(TRUE)
 }
 
