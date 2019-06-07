@@ -283,8 +283,9 @@ use_bcgov_template <- function(template, save_as = template, data = list(),
 #'
 #' @param config_file Path to the pkgdown yaml config file
 #' @param destdir Target directory for pkgdown docs
+#' @seealso [usethis::use_pkgdown()] [pkgdown::build_site()]
 #'
-#' @return `TRUE`` (invisibly)
+#' @return `TRUE` (invisibly)
 #' @export
 use_bcgov_pkgdown <- function(config_file = "_pkgdown.yml", destdir = "docs") {
   usethis::use_pkgdown(config_file, destdir)
