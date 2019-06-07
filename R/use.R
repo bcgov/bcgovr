@@ -279,7 +279,8 @@ use_bcgov_template <- function(template, save_as = template, data = list(),
                           ignore = ignore, open = open, package = "bcgovr")
 }
 
-#' Set up a packagedown site using a bcgov-themed template
+#' Set up a [pkgdown](https://pkgdown.r-lib.org/index.html) site using a 
+#' bcgov-themed template
 #'
 #' @param config_file Path to the pkgdown yaml config file
 #' @param destdir Target directory for pkgdown docs

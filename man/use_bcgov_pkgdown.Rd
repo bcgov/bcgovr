@@ -2,7 +2,8 @@
 % Please edit documentation in R/use.R
 \name{use_bcgov_pkgdown}
 \alias{use_bcgov_pkgdown}
-\title{Set up a packagedown site using a bcgov-themed template}
+\title{Set up a \href{https://pkgdown.r-lib.org/index.html}{pkgdown} site using a
+bcgov-themed template}
 \usage{
 use_bcgov_pkgdown(config_file = "_pkgdown.yml", destdir = "docs")
 }
@@ -12,10 +13,11 @@ use_bcgov_pkgdown(config_file = "_pkgdown.yml", destdir = "docs")
 \item{destdir}{Target directory for pkgdown docs}
 }
 \value{
-`TRUE`` (invisibly)
+\code{TRUE} (invisibly)
 }
 \description{
-Set up a packagedown site using a bcgov-themed template
+Set up a \href{https://pkgdown.r-lib.org/index.html}{pkgdown} site using a
+bcgov-themed template
 }
 \seealso{
 \code{\link[usethis:use_pkgdown]{usethis::use_pkgdown()}} \code{\link[pkgdown:build_site]{pkgdown::build_site()}}
