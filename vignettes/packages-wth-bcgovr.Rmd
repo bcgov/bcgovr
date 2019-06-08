@@ -70,7 +70,7 @@ Once your package is ready for users, it is a good idea to create a
 [pkgdown](https://pkgdown.r-lib.org/) site to host the documentation and 
 vignettes in a user-accessible place.
 
-You can set it up by running `use_bcgov_pkgdown()`. This creates a `_pkgdown.yml` file for you to customize your site which ensures your site will be built using the bcgov template.
+You can set it up by running `use_bcgov_pkgdown()`. This creates a `_pkgdown.yml` file for you which ensures your site will be built using the bcgov template.
 
 You can then run `pkgdown::build_site()` to see what the default site (with bcgov 
 styles) will look like. If you want to customize it, comprehensive documentation 
