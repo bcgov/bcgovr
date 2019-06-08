@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd (this file) -->
 
-# bcgovr <img src="tools/readme/logo.png" align="right" />
+# bcgovr <img src="man/figures/logo.png" align="right" />
 
 <a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI
 Build
@@ -128,8 +128,7 @@ before running `create_bcgov_project()`. The template `bcgovr` folders
 and files and required bcgov GitHub files will be created in the new
 directory. For using different project templates, see the
 [Options](#options) section below. Type `?create_bcgov_project` in the R
-console for
-help.
+console for help.
 
 ``` r
 create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
@@ -179,10 +178,9 @@ Users can also use the *bcgovr Project & Package* templates in the
 [RStudio](https://www.rstudio.com/) New Project dialogue box to create a
 new R project or package. The dialogue box provides the option to select
 and individualise the required bcgov GitHub files and initialise Git
-version
-control.
+version control.
 
-<img src="tools/readme/proj_template1.png" width="30%" /><img src="tools/readme/proj_template2.png" width="30%" /><img src="tools/readme/proj_template3.png" width="30%" />
+<img src="man/figures/proj_template1.png" width="30%" /><img src="man/figures/proj_template2.png" width="30%" /><img src="man/figures/proj_template3.png" width="30%" />
 
 <br />
 
@@ -224,8 +222,7 @@ necessary. The `use_bcgov_github()` function creates a repository on
 bcgov GitHub and adds and synchronises your local project with the newly
 created bcgov GitHub origin. The `use_bcgov_github()` function also
 ensures the project has the required bcgov GitHub files. Type
-`?use_bcgov_github` in the R console for
-help.
+`?use_bcgov_github` in the R console for help.
 
 ``` r
 use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca") 
@@ -246,8 +243,7 @@ Create a new local Git repository with a project or repository cloned
 from bcgov GitHub using `create_from_bcgov_github()`. The
 `create_from_bcgov_github()` function also ensures the project has the
 required bcgov GitHub files. Type `?create_from_bcgov_github` in the R
-console for
-help.
+console for help.
 
 ``` r
 create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
@@ -273,8 +269,7 @@ Type `?use_bcgov_req` in the R console for help.
 You can use the `licence`, `coc_email` & `rmarkdown` arguments to change
 the default Apache 2.0 License, add your contact details to the Code of
 Conduct, or decline a README.Rmd file—maybe you only want a README.md
-for the
-project?
+for the project?
 
 ``` r
 use_bcgov_req(licence = "cc-by", rmarkdown = FALSE, coc_email = "my.email@gov.bc.ca")
@@ -303,7 +298,7 @@ file</strong></summary>
 Need to add that Apache 2.0 or Creative Commons License header to a
 source file? Just click-click:
 
-![](tools/readme/bcgovr_addin_licence.gif)
+![](man/figures/bcgovr_addin_licence.gif)
 
 You can also use `insert_bcgov_apache_header()` or
 `insert_bcgov_cc_header()`.
@@ -322,7 +317,7 @@ README file</strong></summary>
 Need to add a Project State Badge to your README file? Just
 click-click-click-click:
 
-![](tools/readme/bcgovr_addin_badge.gif)
+![](man/figures/bcgovr_addin_badge.gif)
 
 You can also use `insert_bcgov_devex_badge("inspiration")`. Type
 `?insert_bcgov_devex_badge` in the R console for the list of badge
