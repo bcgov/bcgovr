@@ -127,3 +127,30 @@ write_licence_header <- function(licence_text, file, rstudio = FALSE) {
   }
   
 }
+
+
+#' Check for presence of a licence header (Apache 2.0 or CC-BY) in one or more 
+#' files
+#'
+#' @param file path to a file
+#' @param licence which licence header to check for? 
+#'                One of `c("apache2", "cc-by")`
+#'
+#' @return named logical vector indicating if each file has the specified 
+#'         licence header
+#' @export
+check_licence_header <- function(files, licence = c("apache2", "cc-by")) {
+  licence = match.arg(licence)
+  search_text <- ifelse(licence == "apache2",
+                        "licensed under the Apache License", 
+                        "licensed under the Creative Commons"
+                        )
+  out <- vapply(files, function(file) {
+    
+    test_text <- readLines(file, n = 100L)
+    any(grepl(tolower(search_text), tolower(test_text)))
+  }, FUN.VALUE = logical(1))
+  
+  setNames(out, files)
+}
+
