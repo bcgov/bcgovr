@@ -1,6 +1,7 @@
 # bcgovr 1.0.4
 
 * fixed several bugs introduced by changes in `usethis`; predominately around project switching/activation.
+* Added function `check_licence_header()` to check for the existence of a license header in one or more files.
 
 # bcgovr 1.0.3
 
