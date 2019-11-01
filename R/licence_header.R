@@ -132,7 +132,7 @@ write_licence_header <- function(licence_text, file, rstudio = FALSE) {
 #' Check for presence of a licence header (Apache 2.0 or CC-BY) in one or more 
 #' files
 #'
-#' @param file path to a file
+#' @param files path to a file
 #' @param licence which licence header to check for? 
 #'                One of `c("apache2", "cc-by")`
 #'
@@ -151,6 +151,6 @@ check_licence_header <- function(files, licence = c("apache2", "cc-by")) {
     any(grepl(tolower(search_text), tolower(test_text)))
   }, FUN.VALUE = logical(1))
   
-  setNames(out, files)
+  stats::setNames(out, files)
 }
 

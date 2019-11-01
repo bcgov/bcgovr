@@ -8,10 +8,10 @@ files}
 check_licence_header(files, licence = c("apache2", "cc-by"))
 }
 \arguments{
+\item{files}{path to a file}
+
 \item{licence}{which licence header to check for?
 One of \code{c("apache2", "cc-by")}}
-
-\item{file}{path to a file}
 }
 \value{
 named logical vector indicating if each file has the specified
