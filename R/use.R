@@ -278,3 +278,20 @@ use_bcgov_template <- function(template, save_as = template, data = list(),
     usethis::use_template(template = template, save_as = save_as, data = data, 
                           ignore = ignore, open = open, package = "bcgovr")
 }
+
+#' Set up a [pkgdown](https://pkgdown.r-lib.org/index.html) site using a 
+#' bcgov-themed template
+#'
+#' @param config_file Path to the pkgdown yaml config file
+#' @param destdir Target directory for pkgdown docs
+#' @seealso [usethis::use_pkgdown()] [pkgdown::build_site()]
+#'
+#' @return `TRUE` (invisibly)
+#' @export
+use_bcgov_pkgdown <- function(config_file = "_pkgdown.yml", destdir = "docs") {
+  usethis::use_pkgdown(config_file, destdir)
+  config_file <- usethis::proj_path(config_file)
+  lines <- readLines(config_file)
+  cat("template:\n  package: bcgovr\n", lines, file = config_file, sep = "\n")
+  invisible(TRUE)
+}

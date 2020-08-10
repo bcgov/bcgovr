@@ -1,0 +1,91 @@
+---
+title: "Making a package using bcgovr"
+author: "Andy Teucher"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Making a package using bcgovr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Getting Started
+
+Using bcgovr will help you to create a bcgov R package with all the necessary technical R components and populate your repository with all the required elements of [BC government GitHub repository](https://github.com/bcgov/BC-Policy-Framework-For-GitHub). Appropriate approvals is the responsibility of the developer and bcgovr assumes you are following BC Government policy on the use of GitHub. 
+
+The `create_bcgov_package()` function will create all the folders & files to get started on creating an R package. Type `?create_bcgov_package` in the R console for help. The [R packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham is a very useful resource if you are looking to create R packages. If you are new to writing R packages this is the place to start. [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is the authoritative manual for R packages and is a useful place to search cases not covered by the R packages book. 
+
+You will need give the `path` argument a character string that specifies where your new package is going to be on your computer. This path should be local to your computer and not a network path. The final element in the `path` will be the name of the package, so choose wisely. If you have already created the folder and are in that
+working directory, you can leave `path = "."` (the default).
+
+You should also supply your email address to the `coc_email` argument. This is the 
+contact email should anyone feel that the Code of Conduct has been violated.
+
+```{r, eval = FALSE}
+create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
+```
+
+```
+C:/mynewrpackage
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── DESCRIPTION
+├── LICENSE
+├── NAMESPACE
+├── NEWS.md
+├── R
+├── README.Rmd
+├── man
+├── mynewrpackage.Rproj
+└── vignettes
+    └── mynewrpackage.Rmd
+```
+
+## Using Version Control and GitHub
+
+Once you have set up the package structure, you will probably want to set up Git 
+and GitHub so you can share your package and invite contributors to work on it with
+you. If you are unfamiliar with Git and GitHub see the [B.C. Policy Framework for GitHub](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Gov-Org-HowTo/Cheatsheet.md) and [Happy Git with R](http://happygitwithr.com/).
+
+The easiest way to get your package under version control with git is to use the `use_bcgov_git()`. Take a moment here to make sure you are not about to share any sensitive information and that you have permission to share this code. Once you are satisfied sharing your code on GitHub is then as easy as using the `use_bcgov_github()` function which will create a repository on GitHub and upload your code to GitHub. 
+
+Users can also use the *Package* template in the [RStudio](https://www.rstudio.com/) New Project dialogue box to create a new R project or package. The dialogue box provides the option to select and individualise the required bcgov GitHub files and initialise Git version control.
+
+```{r echo=FALSE, out.width = "30%"}
+knitr::include_graphics("../man/figures/proj_template1.png") 
+knitr::include_graphics("../man/figures/pkg_template2.png") 
+knitr::include_graphics("../man/figures/pkg_template3.png") 
+```
+
+## pkgdown (`use_bcgov_pkgdown`)
+
+Once your package is ready for users, it is a good idea to create a
+[pkgdown](https://pkgdown.r-lib.org/) site to host the documentation and 
+vignettes in a user-accessible place.
+
+You can set it up by running `use_bcgov_pkgdown()`. This creates a `_pkgdown.yml` file for you which ensures your site will be built using the bcgov template.
+
+You can then run `pkgdown::build_site()` to see what the default site (with bcgov 
+styles) will look like. If you want to customize it, comprehensive documentation 
+can be found in the [pkgdown "Getting Started" vignette](https://pkgdown.r-lib.org/articles/pkgdown.html).
+
+`pkgdown::build_site()` builds a site out of your README file, your function 
+documentation, and any vignettes that you might have (they are encouraged). The 
+site is built and stored in the `docs/` folder. When you push to GitHub, the
+site will be available at https://bcgov.github.io/yourpackagename.
+
+### Images
+
+To ensure that any images used or created in your README, function documentation, 
+or vignettes show up in your `pkgdown` site, they should be stored in a 
+directory called `man/figures`. This also means setting 
+`knitr::opts_chunk$set(fig.path = "man/figures/")` in a setup chunk in your 
+`README.Rmd` (already done for you if you used `bcgovr::create_bcgov_package()` 
+or `bcgovr::use_bcgov_readme_rmd()` to set things up).

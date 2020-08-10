@@ -6,6 +6,8 @@
 \alias{bcgovr-package}
 \title{bcgovr: Set Up of 'bcgov' R Projects & Packages}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 The 'bcgovr' package provides functions and RStudio Addins that automate the creation and set up of bcgov R projects and packages that meet bcgov GitHub requirements.
 }
 \references{
