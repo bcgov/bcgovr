@@ -47,7 +47,7 @@ lifecycle_gadget <- function() {
           shiny::span(
             shiny::img(src = "https://img.shields.io/badge/Lifecycle-Retired-d45500"), 
             shiny::p("The project is no longer being used and/or supported."))), 
-        choiceValues = c("experimental", "marturing", "dormant", "stable", "retired")),
+        choiceValues = c("experimental", "maturing", "stable", "dormant", "retired")),
       shiny::p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
     )
   )
