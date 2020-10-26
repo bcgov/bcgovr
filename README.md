@@ -3,9 +3,10 @@
 
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 
-<a rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI
-Build
-Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)
+[![Travis-CI Build
+Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
 
@@ -74,16 +75,16 @@ required bcgov GitHub files and initialise Git version control.
 The `bcgovr` package installs a set of [RStudio
 Addins](https://rstudio.github.io/rstudioaddins/):
 
-1)  Insert the [boiler-plate Apache 2.0 license
+1.  Insert the [boiler-plate Apache 2.0 license
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_apache_header()`).
-2)  Insert the [boiler-plate Creative Commons Attribution 4.0
+2.  Insert the [boiler-plate Creative Commons Attribution 4.0
     International License
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_cc_header()`).
-3)  Insert a [BCDevExchange project state
+3.  Insert a [BCDevExchange project state
     badge](https://github.com/BCDevExchange/assets/blob/master/README.md)
     into an .Rmd or .md file (uses `insert_bcgov_devex_badge()`).
 
@@ -93,17 +94,13 @@ You can install `bcgovr` directly from this GitHub repository. To do so,
 you will need the [remotes](https://cran.r-project.org/package=remotes)
 package:
 
-``` r
-install.packages("remotes")
-```
+    install.packages("remotes")
 
 Next, install and load the `bcgovr` package using
 `remotes::install_github()`:
 
-``` r
-remotes::install_github("bcgov/bcgovr")
-library(bcgovr)
-```
+    remotes::install_github("bcgov/bcgovr")
+    library(bcgovr)
 
 🎉 The authors of `bcgovr` acknowledge and thank the authors of the
 [`usethis`](https://cran.r-project.org/package=usethis) R
@@ -115,9 +112,10 @@ package—`bcgovr` uses `usethis` *a lot*. And by a lot, we mean *every*
 ### I WANT TO…
 
 <details>
-
-<summary><strong>Create a new bcgov R project or package with a
-‘ready-to-go’ folder & file structure</strong></summary>
+<summary>
+<strong>Create a new bcgov R project or package with a ‘ready-to-go’
+folder & file structure</strong>
+</summary>
 
 <br />
 
@@ -128,12 +126,9 @@ before running `create_bcgov_project()`. The template `bcgovr` folders
 and files and required bcgov GitHub files will be created in the new
 directory. For using different project templates, see the
 [Options](#options) section below. Type `?create_bcgov_project` in the R
-console for
-help.
+console for help.
 
-``` r
-create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
-```
+    create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
 
     C:/my-new-project
     ├── 01_load.R
@@ -157,9 +152,7 @@ console for help. The [R packages](http://r-pkgs.had.co.nz/) book by
 Hadley Wickham is a very useful resource if you are looking to create R
 packages.
 
-``` r
-create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
-```
+    create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
 
     C:/mynewrpackage
     ├── CODE_OF_CONDUCT.md
@@ -179,19 +172,18 @@ Users can also use the *bcgovr Project & Package* templates in the
 [RStudio](https://www.rstudio.com/) New Project dialogue box to create a
 new R project or package. The dialogue box provides the option to select
 and individualise the required bcgov GitHub files and initialise Git
-version
-control.
+version control.
 
 <img src="tools/readme/proj_template1.png" width="30%" /><img src="tools/readme/proj_template2.png" width="30%" /><img src="tools/readme/proj_template3.png" width="30%" />
 
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Initialise Git version control for my R project
-(<i>without</i> GitHub)</strong></summary>
+<summary>
+<strong>Initialise Git version control for my R project (<i>without</i>
+GitHub)</strong>
+</summary>
 
 <br />
 
@@ -202,18 +194,16 @@ files inside the project. The `use_bcgov_git()` function also ensures
 the project has the required bcgov GitHub files. Type `?use_bcgov_git`
 in the R console for help.
 
-``` r
-use_bcgov_git(coc_email = "my.email@gov.bc.ca") 
-```
+    use_bcgov_git(coc_email = "my.email@gov.bc.ca") 
 
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Open a bcgov GitHub repository and synchronise with my
-R project</strong></summary>
+<summary>
+<strong>Open a bcgov GitHub repository and synchronise with my R
+project</strong>
+</summary>
 
 <br />
 
@@ -224,21 +214,18 @@ necessary. The `use_bcgov_github()` function creates a repository on
 bcgov GitHub and adds and synchronises your local project with the newly
 created bcgov GitHub origin. The `use_bcgov_github()` function also
 ensures the project has the required bcgov GitHub files. Type
-`?use_bcgov_github` in the R console for
-help.
+`?use_bcgov_github` in the R console for help.
 
-``` r
-use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca") 
-```
+    use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca") 
 
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Clone and contribute to an existing bcgov GitHub
-repository</strong></summary>
+<summary>
+<strong>Clone and contribute to an existing bcgov GitHub
+repository</strong>
+</summary>
 
 <br />
 
@@ -246,21 +233,18 @@ Create a new local Git repository with a project or repository cloned
 from bcgov GitHub using `create_from_bcgov_github()`. The
 `create_from_bcgov_github()` function also ensures the project has the
 required bcgov GitHub files. Type `?create_from_bcgov_github` in the R
-console for
-help.
+console for help.
 
-``` r
-create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
-```
+    create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
 
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Add all or some of the required bcgov GitHub files to
-my R project</strong></summary>
+<summary>
+<strong>Add all or some of the required bcgov GitHub files to my R
+project</strong>
+</summary>
 
 <br />
 
@@ -273,30 +257,24 @@ Type `?use_bcgov_req` in the R console for help.
 You can use the `licence`, `coc_email` & `rmarkdown` arguments to change
 the default Apache 2.0 License, add your contact details to the Code of
 Conduct, or decline a README.Rmd file—maybe you only want a README.md
-for the
-project?
+for the project?
 
-``` r
-use_bcgov_req(licence = "cc-by", rmarkdown = FALSE, coc_email = "my.email@gov.bc.ca")
-```
+    use_bcgov_req(licence = "cc-by", rmarkdown = FALSE, coc_email = "my.email@gov.bc.ca")
 
 You can also add the individual required files as needed using:
 
-``` r
-use_bcgov_licence()
-use_bcgov_readme()
-use_bcgov_contributing()
-use_bcgov_code_of_conduct(coc_email = "my.email@gov.bc.ca")
-```
+    use_bcgov_licence()
+    use_bcgov_readme()
+    use_bcgov_contributing()
+    use_bcgov_code_of_conduct(coc_email = "my.email@gov.bc.ca")
 
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Insert a licence header into my source
-file</strong></summary>
+<summary>
+<strong>Insert a licence header into my source file</strong>
+</summary>
 
 <br />
 
@@ -311,11 +289,11 @@ You can also use `insert_bcgov_apache_header()` or
 <br />
 
 </details>
-
 <details>
-
-<summary><strong>Insert a BCDevExchange project state badge into my
-README file</strong></summary>
+<summary>
+<strong>Insert a BCDevExchange project state badge into my README
+file</strong>
+</summary>
 
 <br />
 
@@ -336,27 +314,25 @@ There are several options you can specify in your `.Rprofile` file to
 customise the default behaviour when using the `create_bcgov_` and
 `use_bcgov_` functions in `bcgovr`.
 
-  - `bcgovr.coc.email`: Code of Conduct contact email address
+-   `bcgovr.coc.email`: Code of Conduct contact email address
 
-  - `bcgovr.dir.struct`: Alternative project directory structure for
+-   `bcgovr.dir.struct`: Alternative project directory structure for
     `create_bcgov_project()`. This should be specified as a character
     vector of directory (i.e. folders) and file paths, relative to the
     root of the project. Directories should be identified by having a
     trailing forward-slash (e.g., `"dir/"`).
-    
-    The default is: `c("R/", "data/", "out/", "01_load.R", "02_clean.R",
-    "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+
+    The default is:
+    `c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
 To make use of these options, there should be a section in your
 `.Rprofile` file that looks something like this:
 
-``` r
-if (interactive()) {
-    options("bcgovr.coc.email" = "my.email@gov.bc.ca")
-    options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
-            "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
-}
-```
+    if (interactive()) {
+        options("bcgovr.coc.email" = "my.email@gov.bc.ca")
+        options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
+                "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
+    }
 
 The easiest way to edit your `.Rprofile` is to run
 `usethis::edit_r_profile()`. It will open up the file in RStudio for
@@ -383,13 +359,13 @@ to abide by its terms.
 ## License
 
     Copyright 2017 Province of British Columbia
-    
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at 
-    
+
        http://www.apache.org/licenses/LICENSE-2.0
-    
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
