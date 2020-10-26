@@ -1,6 +1,6 @@
-Name: Insert BCDevExchange Badge
-Description: Inserts RMarkdown code for the BCDevExchange badge at the cursor position.
-Binding: devex_badge_addin
+Name: Insert bcgov GitHub Lifecycle Badge
+Description: Inserts RMarkdown code for the project state badge at the cursor position.
+Binding: lifecycle_badge_addin
 Interactive: true
 
 Name: Insert Apache License Header
