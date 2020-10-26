@@ -55,7 +55,7 @@ make_badge <- function(state) {
 #' @return html
 #' @export
 insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
-  .Deprecated("insert_lifecycle_badge")
+  .Deprecated("insert_bcgov_lifecycle_badge")
   insert_bcgov_lifecycle_badge(project_state = project_state, cat = cat)
 }
 
@@ -94,7 +94,7 @@ insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
 # }
 
 
-#' This function is deprecated, use the `insert_bcgov_devex_badge` function.
+#' This function is deprecated, use the `insert_bcgov_lifecycle_badge` function.
 #'
 #' @param project_state One of: 'inspiration', 'exploration', 'dormant', 'delivery' or 'retired'
 #' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
@@ -102,6 +102,6 @@ insert_bcgov_devex_badge <- function(project_state, cat = TRUE) {
 #' @return html
 #' @export
 devex_badge <- function(project_state, cat = TRUE) {
-  .Deprecated("insert_bcgov_devex_badge")
-  insert_bcgov_devex_badge(project_state = project_state, cat = cat)
+  .Deprecated("insert_bcgov_lifecycle_badge")
+  insert_bcgov_lifecycle_badge(project_state = project_state, cat = cat)
 }
