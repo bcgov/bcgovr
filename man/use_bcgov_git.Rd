@@ -4,8 +4,12 @@
 \alias{use_bcgov_git}
 \title{Initialise a Git repository, with bcgov GitHub requirements}
 \usage{
-use_bcgov_git(rmarkdown = TRUE, licence = "apache2",
-  coc_email = get_coc_email(), message = "Initial commit")
+use_bcgov_git(
+  rmarkdown = TRUE,
+  licence = "apache2",
+  coc_email = get_coc_email(),
+  message = "Initial commit"
+)
 }
 \arguments{
 \item{rmarkdown}{Should an Rmarkdown file be added to the repository

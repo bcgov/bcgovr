@@ -2,7 +2,7 @@
 % Please edit documentation in R/devex_badge.R
 \name{devex_badge}
 \alias{devex_badge}
-\title{This function is deprecated, use the \code{insert_bcgov_devex_badge} function.}
+\title{This function is deprecated, use the \code{insert_bcgov_lifecycle_badge} function.}
 \usage{
 devex_badge(project_state, cat = TRUE)
 }
@@ -15,5 +15,5 @@ devex_badge(project_state, cat = TRUE)
 html
 }
 \description{
-This function is deprecated, use the \code{insert_bcgov_devex_badge} function.
+This function is deprecated, use the \code{insert_bcgov_lifecycle_badge} function.
 }

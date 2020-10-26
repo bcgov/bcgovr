@@ -4,9 +4,14 @@
 \alias{use_bcgov_github}
 \title{Add your project to bcgov GitHub}
 \usage{
-use_bcgov_github(organisation = "bcgov", rmarkdown = TRUE,
-  licence = "apache2", coc_email = get_coc_email(),
-  protocol = "https", ...)
+use_bcgov_github(
+  organisation = "bcgov",
+  rmarkdown = TRUE,
+  licence = "apache2",
+  coc_email = get_coc_email(),
+  protocol = "https",
+  ...
+)
 }
 \arguments{
 \item{organisation}{GitHub organisation where the repo will be hosted.

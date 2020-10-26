@@ -4,9 +4,13 @@
 \alias{create_bcgov_package}
 \title{Create a bcgov R package directory structure}
 \usage{
-create_bcgov_package(path = ".", rmarkdown = TRUE,
-  coc_email = get_coc_email(), rstudio = rstudioapi::isAvailable(),
-  open = TRUE)
+create_bcgov_package(
+  path = ".",
+  rmarkdown = TRUE,
+  coc_email = get_coc_email(),
+  rstudio = rstudioapi::isAvailable(),
+  open = TRUE
+)
 }
 \arguments{
 \item{path}{Path to the directory in which to initialize the project.
