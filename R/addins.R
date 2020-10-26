@@ -42,7 +42,7 @@ lifecycle_gadget <- function() {
             shiny::img(src = "https://img.shields.io/badge/Lifecycle-Stable-97ca00"), 
             shiny::p("The project is in a reliable state and major changes are unlikely to happen.")), 
           shiny::span(
-            shiny::img(src   = "https://img.shields.io/badge/Lifecycle-Dormant-%23ff7f2a"), 
+            shiny::img(src   = "https://img.shields.io/badge/Lifecycle-Dormant-ff7f2a"), 
             shiny::p("The project is currently not under active development, but there are plans to redevelop.")),
           shiny::span(
             shiny::img(src = "https://img.shields.io/badge/Lifecycle-Retired-d45500"), 
