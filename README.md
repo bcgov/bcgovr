@@ -3,7 +3,7 @@
 
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 
-![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
 [![Travis-CI Build
 Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
