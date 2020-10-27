@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 # bcgovr <img src="tools/readme/logo.png" align="right" />
-[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -55,7 +55,7 @@ The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.i
 
 (i) Insert the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a source file (uses `insert_bcgov_apache_header()`).
 (ii) Insert the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a source file (uses `insert_bcgov_cc_header()`).
-(iii) Insert a [bcgov lifecycle badge](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md) into an .Rmd or .md file to indicate the current state of the project (uses `insert_bcgov_lifecycle_badge()`).
+(iii) Insert a [bcgov lifecycle badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md) into an .Rmd or .md file to indicate the current state of the project (uses `insert_bcgov_lifecycle_badge()`).
 
 
 ## Installation 

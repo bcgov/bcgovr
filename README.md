@@ -3,7 +3,7 @@
 
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 
-[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 [![Travis-CI Build
 Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -85,7 +85,7 @@ Addins](https://rstudio.github.io/rstudioaddins/):
     into the comments header of a source file (uses
     `insert_bcgov_cc_header()`).
 3.  Insert a [bcgov lifecycle
-    badge](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
+    badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
     into an .Rmd or .md file to indicate the current state of the
     project (uses `insert_bcgov_lifecycle_badge()`).
 

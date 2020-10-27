@@ -2,14 +2,14 @@
 % Please edit documentation in R/devex_badge.R
 \name{insert_bcgov_lifecycle_badge}
 \alias{insert_bcgov_lifecycle_badge}
-\title{Add html for inserting a bcgov lifecycle project state badge}
+\title{Add html for inserting a bcgov project lifecycle badge}
 \usage{
 insert_bcgov_lifecycle_badge(project_state, cat = TRUE)
 }
 \arguments{
-\item{project_state}{One of: 'experimental', 'maturing', 'dormant', 'stable' or 'retired'. A project state
-badge should be included in a readme to indicate the project lifecycle stage. Recognized project states are
-described at \url{https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md}}
+\item{project_state}{One of: 'experimental', 'maturing', 'dormant', 'stable' or 'retired'. A lifecycle
+badge can be included in a readme to indicate the current state of a project. Recognized project states are
+described at \url{https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md}}
 
 \item{cat}{Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?}
 }
@@ -17,5 +17,5 @@ described at \url{https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56
 html
 }
 \description{
-Add html for inserting a bcgov lifecycle project state badge
+Add html for inserting a bcgov project lifecycle badge
 }

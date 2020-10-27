@@ -15,8 +15,8 @@
 #' Add html for inserting a bcgov project lifecycle badge
 #' 
 #' @param project_state One of: 'experimental', 'maturing', 'dormant', 'stable' or 'retired'. A lifecycle
-#' badge can be included in a readme to indicate the current state of the project. Recognized project states are 
-#' described at \url{https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md}
+#' badge can be included in a readme to indicate the current state of a project. Recognized project states are 
+#' described at \url{https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md}
 #' @param cat Use cat to print the result (\code{TRUE}; default) or return a character vector (\code{FALSE})?
 #'
 #' @return html
@@ -44,7 +44,7 @@ make_badge <- function(state) {
                   dormant = "%23ff7f2a",
                   retired = "d45500")[state]
   paste0('[![img](https://img.shields.io/badge/Lifecycle-', title, '-', state_colour,
-         ')](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)')
+         ')](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)')
 }
 
 
