@@ -1,4 +1,4 @@
-Name: Insert bcgov GitHub Lifecycle Badge
+Name: Insert bcgov Lifecycle Badge
 Description: Inserts RMarkdown code for the project state badge at the cursor position.
 Binding: lifecycle_badge_addin
 Interactive: true
