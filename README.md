@@ -84,9 +84,10 @@ Addins](https://rstudio.github.io/rstudioaddins/):
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_cc_header()`).
-3.  Insert a [BCDevExchange project state
-    badge](https://github.com/BCDevExchange/assets/blob/master/README.md)
-    into an .Rmd or .md file (uses `insert_bcgov_devex_badge()`).
+3.  Insert a [bcgov lifecycle
+    badge](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
+    into an .Rmd or .md file to indicate the current state of the
+    project (uses `insert_bcgov_lifecycle_badge()`).
 
 ## Installation
 
@@ -291,19 +292,18 @@ You can also use `insert_bcgov_apache_header()` or
 </details>
 <details>
 <summary>
-<strong>Insert a BCDevExchange project state badge into my README
-file</strong>
+<strong>Insert a bcgov lifecycle badge into my README file</strong>
 </summary>
 
 <br />
 
-Need to add a Project State Badge to your README file? Just
-click-click-click-click:
+Want to add a lifecycle badge to your README file to indicate the
+current state of the project? Just click-click-click-click:
 
 ![](tools/readme/bcgovr_addin_badge.gif)
 
-You can also use `insert_bcgov_devex_badge("inspiration")`. Type
-`?insert_bcgov_devex_badge` in the R console for the list of badge
+You can also use `insert_bcgov_lifecycle_badge("experimental")`. Type
+`?insert_bcgov_lifecycle_badge` in the R console for the list of badge
 options and other help.
 
 </details>
