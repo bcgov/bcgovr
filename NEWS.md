@@ -1,3 +1,9 @@
+# bcgovr 1.0.5
+
+* Added function `insert_bcgov_lifecycle_badge()` to access new [bcgov lifecycle Project State Badges](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md) 
+* Deprecated `insert_bcgov_devex_badge()` and removed reference to `devex_badge()`
+* Updated **Insert bcgov Lifecycle Badge** RStudio addin 
+
 # bcgovr 1.0.4
 
 * fixed several bugs introduced by changes in `usethis`; predominately around project switching/activation.
