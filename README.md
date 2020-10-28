@@ -84,10 +84,10 @@ Addins](https://rstudio.github.io/rstudioaddins/):
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_cc_header()`).
-3.  Insert a [bcgov lifecycle
+3.  Insert a [bcgov project lifecycle
     badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
-    into an .Rmd or .md file to indicate the current state of the
-    project (uses `insert_bcgov_lifecycle_badge()`).
+    into an .Rmd or .md file to indicate the current state of a project
+    (uses `insert_bcgov_lifecycle_badge()`).
 
 ## Installation
 
@@ -292,7 +292,8 @@ You can also use `insert_bcgov_apache_header()` or
 </details>
 <details>
 <summary>
-<strong>Insert a bcgov lifecycle badge into my README file</strong>
+<strong>Insert a bcgov project lifecycle badge into my README
+file</strong>
 </summary>
 
 <br />

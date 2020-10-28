@@ -55,7 +55,7 @@ The `bcgovr` package installs a set of [RStudio Addins](https://rstudio.github.i
 
 (i) Insert the [boiler-plate Apache 2.0 license header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a source file (uses `insert_bcgov_apache_header()`).
 (ii) Insert the [boiler-plate Creative Commons Attribution 4.0 International License header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md) into the comments header of a source file (uses `insert_bcgov_cc_header()`).
-(iii) Insert a [bcgov lifecycle badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md) into an .Rmd or .md file to indicate the current state of the project (uses `insert_bcgov_lifecycle_badge()`).
+(iii) Insert a [bcgov project lifecycle badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md) into an .Rmd or .md file to indicate the current state of a project (uses `insert_bcgov_lifecycle_badge()`).
 
 
 ## Installation 
@@ -235,7 +235,7 @@ You can also use `insert_bcgov_apache_header()` or `insert_bcgov_cc_header()`.
 
 
 
-<details><summary><strong>Insert a bcgov lifecycle badge into my README file</strong></summary>
+<details><summary><strong>Insert a bcgov project lifecycle badge into my README file</strong></summary>
 
 <br />
 

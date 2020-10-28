@@ -28,7 +28,7 @@ lifecycle_gadget <- function() {
     miniUI::gadgetTitleBar("Choose a Project State"), 
     
     miniUI::miniContentPanel(
-      shiny::p("Choose a project state, which is intended to give an indication of where the project is at in the development cycle."),
+      shiny::p("Choose a project state, which is intended to give an indication of where the project is at in the development lifecycle."),
       shiny::radioButtons(
         "stateRadio", "Project State", 
         choiceNames = list(
@@ -61,7 +61,7 @@ lifecycle_gadget <- function() {
     })
   }
   
-  viewer <- shiny::dialogViewer("bcgov GitHub Project State Picker", width = 400, height = 640)
+  viewer <- shiny::dialogViewer("bcgov Project State Picker", width = 400, height = 640)
   shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
                    stopOnCancel = FALSE)
 }
