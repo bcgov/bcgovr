@@ -4,8 +4,11 @@
 \alias{use_bcgov_req}
 \title{Add bcgov GitHub requirements to your project directory}
 \usage{
-use_bcgov_req(rmarkdown = TRUE, coc_email = get_coc_email(),
-  licence = "apache2")
+use_bcgov_req(
+  rmarkdown = TRUE,
+  coc_email = get_coc_email(),
+  licence = "apache2"
+)
 }
 \arguments{
 \item{rmarkdown}{Should an Rmarkdown file be added to the repository

@@ -2,7 +2,7 @@
 % Please edit documentation in R/devex_badge.R
 \name{insert_bcgov_devex_badge}
 \alias{insert_bcgov_devex_badge}
-\title{Add html for inserting a BC DevExchange project state badge}
+\title{This function is deprecated, use the \code{insert_bcgov_lifecycle_badge} function.}
 \usage{
 insert_bcgov_devex_badge(project_state, cat = TRUE)
 }

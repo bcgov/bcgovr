@@ -12,42 +12,42 @@
 
 #' @importFrom rstudioapi insertText getActiveDocumentContext
 
-devex_badge_addin <- function() {
-  badge <- devex_gadget()
+lifecycle_badge_addin <- function() {
+  badge <- lifecycle_gadget()
   
   if (!is.null(badge)) {
-    txt <- insert_bcgov_devex_badge(badge, cat = FALSE)
+    txt <- insert_bcgov_lifecycle_badge(badge, cat = FALSE)
     rstudioapi::insertText(text = txt)
   }
   
   invisible(NULL)
 }
 
-devex_gadget <- function() {
+lifecycle_gadget <- function() {
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("Choose a Project State"), 
     
     miniUI::miniContentPanel(
-      shiny::p("Choose a project state, which is intended to give an indication of where the project is at in the development cycle."),
+      shiny::p("Choose a project state, which is intended to give an indication of where the project is at in the development lifecycle."),
       shiny::radioButtons(
         "stateRadio", "Project State", 
         choiceNames = list(
           shiny::span(
-            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/inspiration.svg"), 
-            shiny::p("An idea being explored and shaped. Open for discussion, but may never go anywhere.")), 
+            shiny::img(src = "https://img.shields.io/badge/Lifecycle-Experimental-339999"), 
+            shiny::p("The project is in the very early stages of development. The codebase will be changing frequently.")), 
           shiny::span(
-            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/exploration.svg"),
-            shiny::p("Being designed and built, but in the lab. May change, disappear, or be buggy.")),
+            shiny::img(src = "https://img.shields.io/badge/Lifecycle-Maturing-007EC6"),
+            shiny::p("The codebase is being roughed out, but finer details are likely to change.")),
           shiny::span(
-            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/dormant.svg"), 
-            shiny::p("Not currently being worked on, but with plans to come back to the work in the future.")), 
+            shiny::img(src = "https://img.shields.io/badge/Lifecycle-Stable-97ca00"), 
+            shiny::p("The project is in a reliable state and major changes are unlikely to happen.")), 
           shiny::span(
-            shiny::img(src   = "https://assets.bcdevexchange.org/images/badges/delivery.svg"), 
-            shiny::p("In production, but maybe in Alpha or Beta. Intended to persist and be supported.")),
+            shiny::img(src   = "https://img.shields.io/badge/Lifecycle-Dormant-ff7f2a"), 
+            shiny::p("The project is currently not under active development, but there are plans to redevelop.")),
           shiny::span(
-            shiny::img(src = "https://assets.bcdevexchange.org/images/badges/retired.svg"), 
-            shiny::p("No longer being used or supported, recommend not using an alternative option."))), 
-        choiceValues = c("inspiration", "exploration", "dormant", "delivery", "retired")),
+            shiny::img(src = "https://img.shields.io/badge/Lifecycle-Retired-d45500"), 
+            shiny::p("The project is no longer being used and/or supported."))), 
+        choiceValues = c("experimental", "maturing", "stable", "dormant", "retired")),
       shiny::p("Click 'Done' above once you have made your selection, and it will insert the appropriate HTML code at your cursor location.")
     )
   )
@@ -61,7 +61,7 @@ devex_gadget <- function() {
     })
   }
   
-  viewer <- shiny::dialogViewer("BCDevExchange Project State Picker", width = 400, height = 640)
+  viewer <- shiny::dialogViewer("bcgov Project State Picker", width = 400, height = 640)
   shiny::runGadget(shiny::shinyApp(ui, server), viewer = viewer,
                    stopOnCancel = FALSE)
 }
