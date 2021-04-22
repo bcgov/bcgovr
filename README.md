@@ -4,6 +4,7 @@
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
+[![R-CMD-check](https://github.com/bcgov/bcgovr/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcgovr/actions)
 [![Travis-CI Build
 Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -95,13 +96,17 @@ You can install `bcgovr` directly from this GitHub repository. To do so,
 you will need the [remotes](https://cran.r-project.org/package=remotes)
 package:
 
-    install.packages("remotes")
+``` r
+install.packages("remotes")
+```
 
 Next, install and load the `bcgovr` package using
 `remotes::install_github()`:
 
-    remotes::install_github("bcgov/bcgovr")
-    library(bcgovr)
+``` r
+remotes::install_github("bcgov/bcgovr")
+library(bcgovr)
+```
 
 🎉 The authors of `bcgovr` acknowledge and thank the authors of the
 [`usethis`](https://cran.r-project.org/package=usethis) R
@@ -129,7 +134,9 @@ directory. For using different project templates, see the
 [Options](#options) section below. Type `?create_bcgov_project` in the R
 console for help.
 
-    create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
+``` r
+create_bcgov_project(path = "C:/my-new-project", coc_email = "my.email@gov.bc.ca") 
+```
 
     C:/my-new-project
     ├── 01_load.R
@@ -153,7 +160,9 @@ console for help. The [R packages](http://r-pkgs.had.co.nz/) book by
 Hadley Wickham is a very useful resource if you are looking to create R
 packages.
 
-    create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
+``` r
+create_bcgov_package(path = "C:/mynewrpackage", coc_email = "my.email@gov.bc.ca") 
+```
 
     C:/mynewrpackage
     ├── CODE_OF_CONDUCT.md
@@ -195,7 +204,9 @@ files inside the project. The `use_bcgov_git()` function also ensures
 the project has the required bcgov GitHub files. Type `?use_bcgov_git`
 in the R console for help.
 
-    use_bcgov_git(coc_email = "my.email@gov.bc.ca") 
+``` r
+use_bcgov_git(coc_email = "my.email@gov.bc.ca") 
+```
 
 <br />
 
@@ -217,7 +228,9 @@ created bcgov GitHub origin. The `use_bcgov_github()` function also
 ensures the project has the required bcgov GitHub files. Type
 `?use_bcgov_github` in the R console for help.
 
-    use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca") 
+``` r
+use_bcgov_github(organisation = "bcgov", coc_email = "my.email@gov.bc.ca") 
+```
 
 <br />
 
@@ -236,7 +249,9 @@ from bcgov GitHub using `create_from_bcgov_github()`. The
 required bcgov GitHub files. Type `?create_from_bcgov_github` in the R
 console for help.
 
-    create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
+``` r
+create_from_bcgov_github(repo = "bcgov/bcgovr", destdir = "C:/my_directory") 
+```
 
 <br />
 
@@ -260,14 +275,18 @@ the default Apache 2.0 License, add your contact details to the Code of
 Conduct, or decline a README.Rmd file—maybe you only want a README.md
 for the project?
 
-    use_bcgov_req(licence = "cc-by", rmarkdown = FALSE, coc_email = "my.email@gov.bc.ca")
+``` r
+use_bcgov_req(licence = "cc-by", rmarkdown = FALSE, coc_email = "my.email@gov.bc.ca")
+```
 
 You can also add the individual required files as needed using:
 
-    use_bcgov_licence()
-    use_bcgov_readme()
-    use_bcgov_contributing()
-    use_bcgov_code_of_conduct(coc_email = "my.email@gov.bc.ca")
+``` r
+use_bcgov_licence()
+use_bcgov_readme()
+use_bcgov_contributing()
+use_bcgov_code_of_conduct(coc_email = "my.email@gov.bc.ca")
+```
 
 <br />
 
@@ -329,11 +348,13 @@ customise the default behaviour when using the `create_bcgov_` and
 To make use of these options, there should be a section in your
 `.Rprofile` file that looks something like this:
 
-    if (interactive()) {
-        options("bcgovr.coc.email" = "my.email@gov.bc.ca")
-        options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
-                "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
-    }
+``` r
+if (interactive()) {
+    options("bcgovr.coc.email" = "my.email@gov.bc.ca")
+    options("bcgovr.dir.struct" = c("doc/", "data/", "results/", "src/01_load.R", "src/02_clean.R",
+            "src/03_analysis.R", "src/04_output.R", "src/run_all.R"))
+}
+```
 
 The easiest way to edit your `.Rprofile` is to run
 `usethis::edit_r_profile()`. It will open up the file in RStudio for
