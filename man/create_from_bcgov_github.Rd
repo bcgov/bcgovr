@@ -19,7 +19,7 @@ create_from_bcgov_github(repo, destdir = ".", protocol = "https", ...)
 Creates a new local Git repository cloned from a bcgov GitHub repository
 }
 \examples{
-\donttest{
+\dontrun{
 create_from_bcgov_github("bcgov/bcgovr")
 }
 
