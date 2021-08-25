@@ -41,7 +41,7 @@ make_badge <- function(state) {
   state_colour <- c(experimental = "339999", 
                   maturing = "007EC6",
                   stable = "97ca00",
-                  dormant = "%23ff7f2a",
+                  dormant = "ff7f2a",
                   retired = "d45500")[state]
   paste0('[![img](https://img.shields.io/badge/Lifecycle-', title, '-', state_colour,
          ')](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)')
