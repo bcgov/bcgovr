@@ -88,7 +88,7 @@ test_that("use_bcgov_req works", {
 test_that("use_bcgov_git works", {
   dir <- make_test_proj()
   expect_false(git2r::in_repository(dir))
-  capture.output(use_bcgov_git(coc_email = "me@gov.bc.ca"))
+  #capture.output(use_bcgov_git(coc_email = "me@gov.bc.ca"))
   expect_true(git2r::in_repository(dir))
 
   expect_true(all(file.exists(proj_file(
