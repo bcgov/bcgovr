@@ -51,7 +51,7 @@ if possible, or is switched to, otherwise.}
 Create a project directory structure for a new bcgov R project in your current working directory.
 }
 \examples{
-\donttest{
+\dontrun{
  bcgovr::create_bcgov_project()
 }
 }
