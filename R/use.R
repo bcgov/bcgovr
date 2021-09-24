@@ -227,8 +227,7 @@ use_bcgov_git <- function(rmarkdown = TRUE,
                           message = "Initial commit") {
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
-  
-  check_git_committer_address(action = "warning")
+  check_git_committer_address(action = if (interactive()) "ask" else "warning")
   usethis::use_git(message)
 }
 
@@ -241,13 +240,13 @@ check_git_committer_address <- function(action = c("warning", "stop", "ask")) {
   }
   
   config <- git2r::config(repo = repo)
-  local_email <- config$local$user.email
+  local_email <- config$local$user.email 
   global_email <- config$global$user.email
   gov_pattern <- "gov\\.bc\\.ca$"
   
   if (isTRUE(grepl(gov_pattern, local_email)) || # First check for gov local email
       # then check for gov global email IIF local is not set
-      (is.null(local_email) && grepl(gov_pattern, global_email))) {
+      (is.null(local_email) && isTRUE(grepl(gov_pattern, global_email)))) {
     return(invisible(TRUE))
   }
   
