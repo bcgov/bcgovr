@@ -85,17 +85,17 @@ test_that("use_bcgov_req works", {
   ))))
 })
 
-# test_that("use_bcgov_git works", {
-#   dir <- make_test_proj()
-#   expect_false(git2r::in_repository(dir))
-#   capture.output(use_bcgov_git(coc_email = "me@gov.bc.ca"))
-#   expect_true(git2r::in_repository(dir))
-#   
-#   expect_true(all(file.exists(proj_file(
-#     c(".gitignore", "README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
-#   ))))
-#   
-#   git2r::config(repo = git2r::repository(dir), user.email = "metoo@abcxyz123.foo")
-#   expect_warning(use_bcgov_git(coc_email = "me@gov.bc.ca"), 
-#                  "You have a non-bcgov email address")
-# })
+test_that("use_bcgov_git works", {
+  dir <- make_test_proj()
+  expect_false(git2r::in_repository(dir))
+  capture.output(use_bcgov_git(coc_email = "me@gov.bc.ca"))
+  expect_true(git2r::in_repository(dir))
+
+  expect_true(all(file.exists(proj_file(
+    c(".gitignore", "README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
+  ))))
+
+  git2r::config(repo = git2r::repository(dir), user.email = "metoo@abcxyz123.foo")
+  expect_warning(use_bcgov_git(coc_email = "me@gov.bc.ca"),
+                 "You have a non-bcgov email address")
+})
