@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 [![R-CMD-check](https://github.com/bcgov/bcgovr/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcgovr/actions)
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcgovr.svg?branch=master)](https://travis-ci.org/bcgov/bcgovr)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 
