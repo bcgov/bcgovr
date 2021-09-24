@@ -228,9 +228,7 @@ use_bcgov_git <- function(rmarkdown = TRUE,
   use_bcgov_req(rmarkdown = rmarkdown, coc_email = coc_email, 
                 licence = licence)
   
-  print(paste("interactiveYN:", interactive()))
-  
-  check_git_committer_address(action = if (interactive()) "ask" else "warning")
+  check_git_committer_address(action = if (FALSE) "ask" else "warning")
   usethis::use_git(message)
 }
 
