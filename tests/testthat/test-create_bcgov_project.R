@@ -127,6 +127,7 @@ test_that("create_bcgov_project works with one empty file in dir_struct", {
 })
 
 
+
 # test_that("create_bcgov_project works with relative path and git init", {
 #   base_dir <- increment_foo()
 #   dir <- tempdir()
