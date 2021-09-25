@@ -1,3 +1,8 @@
+# bcgovr 1.0.6
+
+* Fixed a bug where if a user supplied multiple arguments to the `dir_struct` argument 
+of `create_bcgov_project()` it would throw a warning.
+
 # bcgovr 1.0.5
 
 * Added function `insert_bcgov_lifecycle_badge()` to access new [bcgov project lifecycle badges](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md) 
