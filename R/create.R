@@ -36,7 +36,7 @@
 #' 
 #' @export
 #' 
-#' @examples \donttest{
+#' @examples \dontrun{
 #'  bcgovr::create_bcgov_project()
 #' }
 create_bcgov_project <- function(path = ".", rmarkdown = TRUE, 
@@ -113,7 +113,7 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
 #'
 #' @export
 #' 
-#' @examples \donttest{
+#' @examples \dontrun{
 #'  bcgovr::create_bcgov_package()
 #' }
 create_bcgov_package <- function(path = ".", rmarkdown = TRUE, 
@@ -166,7 +166,7 @@ create_bcgov_package <- function(path = ".", rmarkdown = TRUE,
 #' @param ... Other arguments passed on to [usethis::create_from_github()]
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' create_from_bcgov_github("bcgov/bcgovr")
 #' }
 #' 
