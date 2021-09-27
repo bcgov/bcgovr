@@ -110,7 +110,7 @@ test_that("create_bcgov_project works with shiny app dir_struct", {
   setwd("~")
   dir <- unique_temp_dir(pattern = "create_foo")
   ret <- capture.output(create_bcgov_project(dir, coc_email = "me@gov.bc.ca", 
-                                             dir_struct = c("app/", "app.R"),
+                                             dir_struct = c("app/", "app/app.R"),
                                              rstudio = TRUE, open = FALSE))
   
   expect_true(file.exists(file.path(dir, paste0(basename(dir), ".Rproj"))))
@@ -120,7 +120,7 @@ test_that("create_bcgov_project works with one empty file in dir_struct", {
   setwd("~")
   dir <- unique_temp_dir(pattern = "create_foo")
   ret <- capture.output(create_bcgov_project(dir, coc_email = "me@gov.bc.ca", 
-                                             dir_struct = c("app/", "app.R", ""),
+                                             dir_struct = c("app/", "app/app.R", ""),
                                              rstudio = TRUE, open = FALSE))
   
   expect_true(file.exists(file.path(dir, paste0(basename(dir), ".Rproj"))))
