@@ -1,4 +1,4 @@
-# bcgovr 1.0.6
+# bcgovr 1.0.5.9999
 
 * Fixed a bug where if a user supplied multiple arguments to the `dir_struct` argument 
 of `create_bcgov_project()` it would throw a warning.
