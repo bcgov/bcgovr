@@ -60,15 +60,17 @@ create_bcgov_project <- function(path = ".", rmarkdown = TRUE,
   ## Add in bcgov repo requirements
   use_bcgov_req(licence = licence, rmarkdown = rmarkdown, coc_email = coc_email)
   
+  default_str <- FALSE
+  
+  # Catch the case when dir_struct == ""
+  dir_struct <- dir_struct[nzchar(dir_struct)]
+  
   ## Need to check for analysis structure
   if (is.null(dir_struct)) {
     dir_struct <- c("out/", "data/", "01_load.R", "02_clean.R","03_analysis.R", "04_output.R", "run_all.R")
     default_str <- TRUE
-  } else {
-    default_str <- FALSE
-  # Catch the case when dir_struct == ""
-    if (!nzchar(dir_struct)) dir_struct <- character(0)
   }
+  
   dirs <- file.path(path_norm, dir_struct[grepl("/$", dir_struct)])
   files <- setdiff(file.path(path_norm, dir_struct), dirs)
   filedirs <- dirname(files)
