@@ -21,7 +21,7 @@
 #' 
 #' 
 #' @export
-use_bcgov_req <- function(rmarkdown = TRUE, 
+use_bcgov_req <- function(rmarkdown = FALSE, 
                           coc_email = get_coc_email(), 
                           licence = "apache2"){
   
