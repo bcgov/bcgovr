@@ -39,7 +39,7 @@
 #' @examples \dontrun{
 #'  bcgovr::create_bcgov_project()
 #' }
-create_bcgov_project <- function(path = ".", rmarkdown = TRUE, 
+create_bcgov_project <- function(path = ".", rmarkdown = FALSE, 
                                  licence = "apache2",
                                  coc_email = get_coc_email(),
                                  dir_struct = getOption("bcgovr.dir.struct", default = NULL), 
