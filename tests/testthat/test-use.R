@@ -81,7 +81,7 @@ test_that("use_bcgov_req works", {
   make_test_proj()
   capture.output(use_bcgov_req(coc_email = "me@gov.bc.ca"))
   expect_true(all(file.exists(proj_file(
-    c("README.Rmd", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
+    c("README.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE")
   ))))
 })
 

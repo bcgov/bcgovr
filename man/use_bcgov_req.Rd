@@ -5,7 +5,7 @@
 \title{Add bcgov GitHub requirements to your project directory}
 \usage{
 use_bcgov_req(
-  rmarkdown = TRUE,
+  rmarkdown = FALSE,
   coc_email = get_coc_email(),
   licence = "apache2"
 )

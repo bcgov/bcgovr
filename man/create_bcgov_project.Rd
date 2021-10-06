@@ -6,7 +6,7 @@
 \usage{
 create_bcgov_project(
   path = ".",
-  rmarkdown = TRUE,
+  rmarkdown = FALSE,
   licence = "apache2",
   coc_email = get_coc_email(),
   dir_struct = getOption("bcgovr.dir.struct", default = NULL),
