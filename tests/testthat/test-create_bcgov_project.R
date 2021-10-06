@@ -2,7 +2,7 @@ context("create_bcgov_project")
 # options(warn = 2)
 exp_proj_files <- c("01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", 
                     "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "data", 
-                    "LICENSE", "out", "README.Rmd", "run_all.R")
+                    "LICENSE", "out", "README.md", "run_all.R")
 
 exp_pkg_files <- c("CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "DESCRIPTION", 
                    "LICENSE", "NAMESPACE", "NEWS.md", "R", "README.Rmd", 
