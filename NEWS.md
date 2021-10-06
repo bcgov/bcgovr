@@ -1,7 +1,8 @@
 # bcgovr 1.0.5.9999
 
 * Fixed a bug where if a user supplied multiple arguments to the `dir_struct` argument 
-of `create_bcgov_project()` it would throw a warning.
+of `create_bcgov_project()` it would throw a warning (#66)
+* Fixed `create_bcgov_project()` so that the default for the `rmarkdown` argument is `FALSE`, matching the documentation (#69)
 
 # bcgovr 1.0.5
 
