@@ -3,9 +3,13 @@
 
 # bcgovr <img src="tools/readme/logo.png" align="right" />
 
-[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
-[![R-CMD-check](https://github.com/bcgov/bcgovr/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcgovr/actions)
+<!-- badges: start -->
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
+[![R-CMD-check](https://github.com/bcgov/bcgovr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bcgov/bcgovr/actions/workflows/R-CMD-check.yaml)
+
+<!-- badges: end -->
 
 ## Overview
 
@@ -74,16 +78,16 @@ required bcgov GitHub files and initialise Git version control.
 The `bcgovr` package installs a set of [RStudio
 Addins](https://rstudio.github.io/rstudioaddins/):
 
-1.  Insert the [boiler-plate Apache 2.0 license
+1)  Insert the [boiler-plate Apache 2.0 license
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_apache_header()`).
-2.  Insert the [boiler-plate Creative Commons Attribution 4.0
+2)  Insert the [boiler-plate Creative Commons Attribution 4.0
     International License
     header](https://github.com/bcgov/BC-Policy-Framework-For-GitHub/blob/master/BC-Open-Source-Development-Employee-Guide/Licenses.md)
     into the comments header of a source file (uses
     `insert_bcgov_cc_header()`).
-3.  Insert a [bcgov project lifecycle
+3)  Insert a [bcgov project lifecycle
     badge](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
     into an .Rmd or .md file to indicate the current state of a project
     (uses `insert_bcgov_lifecycle_badge()`).
@@ -332,16 +336,16 @@ There are several options you can specify in your `.Rprofile` file to
 customise the default behaviour when using the `create_bcgov_` and
 `use_bcgov_` functions in `bcgovr`.
 
--   `bcgovr.coc.email`: Code of Conduct contact email address
+- `bcgovr.coc.email`: Code of Conduct contact email address
 
--   `bcgovr.dir.struct`: Alternative project directory structure for
-    `create_bcgov_project()`. This should be specified as a character
-    vector of directory (i.e. folders) and file paths, relative to the
-    root of the project. Directories should be identified by having a
-    trailing forward-slash (e.g., `"dir/"`).
+- `bcgovr.dir.struct`: Alternative project directory structure for
+  `create_bcgov_project()`. This should be specified as a character
+  vector of directory (i.e. folders) and file paths, relative to the
+  root of the project. Directories should be identified by having a
+  trailing forward-slash (e.g., `"dir/"`).
 
-    The default is:
-    `c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
+  The default is:
+  `c("R/", "data/", "out/", "01_load.R", "02_clean.R", "03_analysis.R", "04_output.R", "internal.R", "run_all.R")`.
 
 To make use of these options, there should be a section in your
 `.Rprofile` file that looks something like this:
